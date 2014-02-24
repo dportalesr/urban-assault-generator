@@ -1,0 +1,476 @@
+begin_level
+	set = 2
+	sky = objects/Am_3.base
+	slot0 = palette/standard.pal
+	slot1 = palette/red.pal
+	slot2 = palette/blau.pal
+	slot3 = palette/gruen.pal
+	slot4 = palette/inverse.pal
+	slot5 = palette/invdark.pal
+	slot6 = palette/sw.pal
+	slot7 = palette/invtuerk.pal
+end
+
+begin_mbmap
+	name = MB_15.IFF
+end
+
+begin_dbmap
+	name = DB_15.IFF
+end
+
+begin_gate
+	sec_x = 7
+	sec_y = 12
+	closed_bp = 5
+	opened_bp = 6
+	target_level = 1
+	keysec_x = 3
+	keysec_y = 6
+	mb_status = unknown;
+	keysec_x = 10
+	keysec_y = 17
+	mb_status = unknown;
+	keysec_x = 3
+	keysec_y = 1
+	mb_status = unknown;
+	keysec_x = 3
+	keysec_y = 10
+	mb_status = unknown;
+end
+
+begin_robo
+	owner = 1 ;
+	vehicle = 56
+	pos_x = 3000
+	pos_y = -220
+	pos_z = -23400
+	energy = 882000
+	reload_const = 149940
+end
+
+begin_robo
+	owner	= 2
+	vehicle	= 58
+	pos_x        = 5400
+	pos_y        = -410
+	pos_z        = -9000
+	energy       = 1241000
+	reload_const = 260610
+	con_budget   = 70
+	con_delay    = 68000
+	def_budget   = 64
+	def_delay    = 73000
+	rec_budget   = 96
+	rec_delay    = 46000
+	rob_budget   = 80
+	rob_delay    = 35000
+	pow_budget   = 91
+	pow_delay    = 66000
+	rad_budget   = 25
+	rad_delay    = 70000
+	saf_budget   = 75
+	saf_delay    = 31000
+	cpl_budget   = 85
+	cpl_delay    = 7000
+end
+
+begin_robo
+	owner	= 4
+	vehicle	= 62
+	pos_x        = 13800
+	pos_y        = -420
+	pos_z        = -18600
+	energy       = 1279000
+	reload_const = 268590
+	con_budget   = 54
+	con_delay    = 64000
+	def_budget   = 66
+	def_delay    = 33000
+	rec_budget   = 80
+	rec_delay    = 0000
+	rob_budget   = 92
+	rob_delay    = 37000
+	pow_budget   = 46
+	pow_delay    = 61000
+	rad_budget   = 18
+	rad_delay    = 54000
+	saf_budget   = 70
+	saf_delay    = 65000
+	cpl_budget   = 69
+	cpl_delay    = 20000
+end
+
+begin_robo
+	owner	= 3
+	vehicle	= 60
+	pos_x        = 5400
+	pos_y        = -220
+	pos_z        = -21000
+	energy       = 1175000
+	reload_const = 246750
+	con_budget   = 75
+	con_delay    = 30000
+	def_budget   = 76
+	def_delay    = 20000
+	rec_budget   = 57
+	rec_delay    = 15000
+	rob_budget   = 57
+	rob_delay    = 17000
+	pow_budget   = 43
+	pow_delay    = 22000
+	rad_budget   = 24
+	rad_delay    = 49000
+	saf_budget   = 65
+	saf_delay    = 39000
+	cpl_budget   = 40
+	cpl_delay    = 31000
+end
+
+begin_robo
+	owner	= 1
+	vehicle	= 61
+	pos_x        = 12600
+	pos_y        = -200
+	pos_z        = -10200
+	energy       = 1211000
+	reload_const = 254310
+	con_budget   = 100
+	con_delay    = 12000
+	def_budget   = 91
+	def_delay    = 75000
+	rec_budget   = 71
+	rec_delay    = 47000
+	rob_budget   = 81
+	rob_delay    = 37000
+	pow_budget   = 47
+	pow_delay    = 1000
+	rad_budget   = 29
+	rad_delay    = 28000
+	saf_budget   = 58
+	saf_delay    = 8000
+	cpl_budget   = 66
+	cpl_delay    = 31000
+end
+
+begin_robo
+	owner	= 1
+	vehicle	= 61
+	pos_x        = 13800
+	pos_y        = -450
+	pos_z        = -4200
+	energy       = 1168000
+	reload_const = 245280
+	con_budget   = 77
+	con_delay    = 71000
+	def_budget   = 81
+	def_delay    = 51000
+	rec_budget   = 84
+	rec_delay    = 70000
+	rob_budget   = 68
+	rob_delay    = 50000
+	pow_budget   = 96
+	pow_delay    = 39000
+	rad_budget   = 19
+	rad_delay    = 69000
+	saf_budget   = 97
+	saf_delay    = 4000
+	cpl_budget   = 67
+	cpl_delay    = 33000
+end
+
+begin_item
+	sec_x = 5
+	sec_y = 11
+	inactive_bp = 35
+	active_bp = 36
+	trigger_bp = 37
+	type = 1
+	countdown = 963000
+	keysec_x = 12
+	keysec_y = 5
+	keysec_x = 6
+	keysec_y = 11
+	keysec_x = 13
+	keysec_y = 5
+	keysec_x = 8
+	keysec_y = 3
+end
+
+begin_squad
+	owner     = sul
+	vehicle   = 10
+	num       = 8
+	pos_x     = 1800
+	pos_z     = -15000
+end
+
+begin_squad
+	owner     = bla
+	vehicle   = 35
+	num       = 1
+	pos_x     = 6600
+	pos_z     = -18600
+	mb_status =	unknown
+end
+
+begin_squad
+	owner     = tae
+	vehicle   = 63
+	num       = 8
+	pos_x     = 12600
+	pos_z     = -5400
+	mb_status =	unknown
+end
+
+begin_squad
+	owner     = bla
+	vehicle   = 34
+	num       = 2
+	pos_x     = 6600
+	pos_z     = -7800
+	mb_status =	unknown
+end
+
+begin_squad
+	owner     = bla
+	vehicle   = 35
+	num       = 1
+	pos_x     = 15000
+	pos_z     = -17400
+	mb_status =	unknown
+end
+
+begin_squad
+	owner     = tae
+	vehicle   = 70
+	num       = 3
+	pos_x     = 13800
+	pos_z     = -6600
+end
+
+begin_squad
+	owner     = tae
+	vehicle   = 69
+	num       = 9
+	pos_x     = 16200
+	pos_z     = -11400
+	mb_status =	unknown
+end
+
+begin_squad
+	owner     = myk
+	vehicle   = 71
+	num       = 10
+	pos_x     = 11400
+	pos_z     = -9000
+	mb_status =	unknown
+end
+
+begin_squad
+	owner     = myk
+	vehicle   = 74
+	num       = 1
+	pos_x     = 3000
+	pos_z     = -7800
+	mb_status =	unknown
+end
+
+include data:scripts/startup2.scr
+
+begin_enable 2
+	vehicle = 71
+	vehicle = 72
+	vehicle = 73
+	vehicle = 74
+end
+
+begin_enable 3
+	vehicle = 63
+	vehicle = 64
+	vehicle = 65
+	vehicle = 66
+	vehicle = 67
+	vehicle = 68
+	vehicle = 69
+	vehicle = 70
+	building = 10
+	building = 13
+	building = 33
+	building = 34
+	building = 72
+end
+
+begin_enable 4
+	vehicle = 8
+	vehicle = 32
+	vehicle = 33
+	vehicle = 34
+	vehicle = 35
+	vehicle = 36
+	vehicle = 37
+	vehicle = 38
+	vehicle = 131
+	building = 53
+	building = 17
+	building = 31
+	building = 20
+	building = 21
+	building = 73
+end
+
+begin_enable 5
+	vehicle = 1
+	vehicle = 2
+	vehicle = 3
+	vehicle = 4
+	vehicle = 5
+	vehicle = 6
+	vehicle = 7
+	vehicle = 9
+	vehicle = 10
+	vehicle = 12
+	vehicle = 14
+	vehicle = 15
+	vehicle = 22
+	vehicle = 23
+	vehicle = 24
+	vehicle = 25
+	vehicle = 26
+	vehicle = 27
+	vehicle = 28
+	vehicle = 29
+	vehicle = 30
+	vehicle = 31
+	vehicle = 8
+	vehicle = 32
+	vehicle = 33
+	vehicle = 34
+	vehicle = 35
+	vehicle = 36
+	vehicle = 37
+	vehicle = 38
+	vehicle = 64
+	vehicle = 65
+	vehicle = 66
+	vehicle = 67
+	vehicle = 69
+	vehicle = 70
+	vehicle = 71
+	vehicle = 72
+	vehicle = 73
+	vehicle = 74
+	vehicle = 131
+	building = 63
+	building = 1
+	building = 18
+	building = 3
+	building = 30
+	building = 52
+	building = 8
+	building = 12
+	building = 60
+	building = 22
+	building = 71
+	building = 53
+	building = 17
+	building = 31
+	building = 20
+	building = 21
+	building = 73
+	building = 10
+	building = 13
+	building = 33
+	building = 34
+	building = 72
+end
+
+begin_maps
+	typ_map =	14 20
+		f8 fc fc fc fc fc fc fc fc fc fc fc fc f9
+		ff 00 00 00 00 00 00 00 00 00 00 00 00 fd
+		ff 00 00 00 00 00 00 00 00 00 00 00 00 fd
+		ff 00 00 00 00 00 00 00 00 00 00 00 00 fd
+		ff 00 00 00 00 00 00 00 00 00 00 00 00 fd
+		ff 00 00 00 00 00 00 00 00 00 00 00 00 fd
+		ff 00 00 00 00 00 00 00 00 00 00 00 00 fd
+		ff 00 00 00 00 00 00 00 00 00 00 00 00 fd
+		ff 00 00 00 00 00 00 00 00 00 00 00 00 fd
+		ff 00 00 00 00 00 00 00 00 00 00 00 00 fd
+		ff 00 00 00 00 00 00 00 00 00 00 00 00 fd
+		ff 00 00 00 00 00 00 00 00 00 00 00 00 fd
+		ff 00 00 00 00 00 00 00 00 00 00 00 00 fd
+		ff 00 00 00 00 00 00 00 00 00 00 00 00 fd
+		ff 00 00 00 00 00 00 00 00 00 00 00 00 fd
+		ff 00 00 00 00 00 00 00 00 00 00 00 00 fd
+		ff 00 00 00 00 00 00 00 00 00 00 00 00 fd
+		ff 00 00 00 00 00 00 00 00 00 00 00 00 fd
+		ff 00 00 00 00 00 00 00 00 00 00 00 00 fd
+		fb fe fe fe fe fe fe fe fe fe fe fe fe fa
+
+	own_map =	14 20
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+	
+	hgt_map =	14 20
+		1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 
+		1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 
+		1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 
+		1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 
+		1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 
+		1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 
+		1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 
+		1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 
+		1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 
+		1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 
+		1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 
+		1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 
+		1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 
+		1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 
+		1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 
+		1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 
+		1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 
+		1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 
+		1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 
+		1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 1d 
+	
+	blg_map = 14 20
+		0c 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+		00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+end

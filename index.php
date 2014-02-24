@@ -17,8 +17,12 @@
 *	along with this program. If not, see <http://www.gnu.org/licenses/>.
 ***************************/
 
+// TODO
+// - Crear array con factions presentes para no hacer verificaciones "Si faction está presente" después de seleccionar raza con rand
+
 class Urbanassault {
 	var $fh;
+	var $debug = true;
 	var $slots = array(
 		array(0,1,2,5,6,7,8,9,10,11,12,13,16,17,18,19,20,21,22,23,24,25,26,27,28,29,31,32,33,34,35,36,37,38,39,40,41,44,50,51,59,67,70,71,72,74,75,76,77,78,80,81,82,95,96,97,98,99,100,130,131,132,133,134,135,136,137,138,139,150,151,153,154,155,157,159,160,161,162,163,164,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,198,232,233,234,235,236),
 		array(0,1,2,5,6,7,8,9,11,12,13,16,17,18,19,20,21,22,23,24,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,65,66,67,68,69,70,71,72,75,76,77,78,80,81,82,83,87,89,90,92,93,94,95,97,99,100,120,121,122,123,124,125,126,127,128,129,130,131,133,150,151,152,153,155,158,159,160,161,162,163,167,168,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,198,199,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225),
@@ -28,7 +32,7 @@ class Urbanassault {
 		array(0,1,2,5,6,7,8,9,10,11,12,13,16,17,18,19,20,21,22,23,24,25,26,27,28,29,31,32,33,34,35,36,37,38,39,40,41,44,59,66,67,68,70,71,72,74,75,76,77,78,79,80,81,82,95,96,97,98,99,130,131,132,133,134,135,136,137,138,139,140,141,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,188,189,228,229,230,231,232,233,234,235,248)
 	);
 
-	var $sky = array(
+	var $skies = array(
 		'1998_01',
 		'1998_02',
 		'1998_03',
@@ -102,30 +106,37 @@ class Urbanassault {
 		'xb',
 		'xc');
 
-	var $sizex = 0, $sizey = 0;
-	var $races = array('sul','myk','tae','bla','gho');
+	var $size_x = 0, $size_y = 0;
+	var $factions = array('sul','myk','tae','bla','gho');
 
-	var $n_hosts;
-	var $h_xpos;
-	var $h_ypos;
+	var $num_hosts;
+	var $host_x;
+	var $host_y;
 
 	function __construct(){
-		$this->fh = fopen('level.txt', 'a');
-		$this->n_hosts = array_fill_keys($this->races, 0);
-		$this->h_xpos = array_fill_keys($this->races, array());
-		$this->h_ypos = array_fill_keys($this->races, array());
+		$this->fh = fopen('level.ldf', 'w');
+		$this->num_hosts = array_fill_keys($this->factions, 0);
+		$this->host_x = array_fill_keys($this->factions, array());
+		$this->host_y = array_fill_keys($this->factions, array());
 	}
 
-	function level($mode){
+	function make_level($mode){
+		if($this->debug)
+			echo '<pre>';
+		else
+			ob_start();
+
 		do {
-			$this->sizex = rand(0,29) + 3;// Calculo de tamaño del mapa (mínimo 3, máximo 32)
-			$this->sizey = rand(0,29) + 3;
-		} while($this->sizex * $this->sizey < 64);//Verifica que el área total no sea demasiado pequeña. Mínima de 64 u2)
+			$this->size_x = rand(0,29) + 3;// Calculo de tamaño del mapa (mínimo 3, máximo 32)
+			$this->size_y = rand(0,29) + 3;
+		} while($this->size_x * $this->size_y < 64);//Verifica que el área total no sea demasiado pequeña. Mínima de 64 u2)
 
 		################################### Main Level Info
+		
 		$this->set = rand(0,5) + 1; //st = set (tipo de mapa)
+
 		echo "\n".'begin_level'."\n\t".'set = '.$this->set."\r\n";
-		echo "\t".'sky = objects/'.$this->sky[array_rand($this->sky)].'.base'."\n\t"; //se selecciona el mapa de bits para el cielo
+		echo "\t".'sky = objects/'.$this->skies[array_rand($this->skies)].'.base'."\n\t"; //se selecciona el mapa de bits para el cielo
 		echo	'slot0 = palette/standard.pal'."\n\t".
 				'slot1 = palette/red.pal'."\n\t".
 				'slot2 = palette/blau.pal'."\n\t".
@@ -148,16 +159,16 @@ class Urbanassault {
 		################################### Beam Gates
 
 		echo	'begin_gate'."\n\t".
-			'sec_x = '.(rand(0,$this->sizex-2)+1)."\n". //Se calculan las coordenadas para al menos 2 sectores
-			'sec_y = '.(rand(0,$this->sizey-2)+1)."\n\t".
+			'sec_x = '.(rand(0, $this->size_x - 2) + 1)."\n". //Se calculan las coordenadas para al menos 2 sectores
+			'sec_y = '.(rand(0, $this->size_y - 2) + 1)."\n\t".
 			'closed_bp = 5'."\n\t".
 			'opened_bp = 6'."\n\t".
 			'target_level = 1'."\n"; //Pend: Hacer lista de los Target Levels para escoger..
 
 		#Se establecen otras coordenadas (min 2, max 28)
-		for($c=0;$c<6;$c++){
+		for($c = 0; $c < 6; $c++){
 			if(rand(0,1))
-				echo "\t".'keysec_x = '.(rand(0,$this->sizex-2)+1)."\n\t".'keysec_y = '.(rand(0,$this->sizey-2)+1)."\n".'mb_status = unknown;'."\n";
+				echo "\t".'keysec_x = '.(rand(0, $this->size_x-2)+1)."\n\t".'keysec_y = '.(rand(0, $this->size_y-2)+1)."\n".'mb_status = unknown;'."\n";
 		}
 
 		echo	'end'."\n".
@@ -165,38 +176,38 @@ class Urbanassault {
 			'owner = 1 ;'."\n\t".
 			'vehicle = 56'."\n";
 
-		$res_xpos = $this->h_xpos['res'][0] = rand(0,$this->sizex-2)+1; # Origen X (min 2)
-		$res_ypos = $this->h_ypos['res'][0] = rand(0,$this->sizey-2)+1; # Origen Y (min 2)
-		$egy = 600 + rand(0,600);# 1500 - 3000
+		$resistance_x = $this->host_x['res'][0] = rand(0, $this->size_x-2)+1; # Origen X (min 2)
+		$resistance_y = $this->host_y['res'][0] = rand(0, $this->size_y-2)+1; # Origen Y (min 2)
+		$energy = 600 + rand(0,600);# 1500 - 3000
 
 	echo 
-		'pos_x = '.((12*$res_xpos)+6).'00'."\n".
+		'pos_x = '.((12*$resistance_x)+6).'00'."\n".
 		'pos_y = -'.(20+rand(0,25)).'0'."\n".
-		'pos_z = -'.((12*$res_ypos)+6).'00'."\n".
-		'energy = '.$egy.'000'."\n".
-		'reload_const = '.(17*$egy).'0'."\n".
+		'pos_z = -'.((12*$resistance_y)+6).'00'."\n".
+		'energy = '.$energy.'000'."\n".
+		'reload_const = '.(17*$energy).'0'."\n".
 		'end'."\n";
 
-		$this->addHost(); # Coloca una HostStation nueva
+		$this->add_host_station(); # Coloca una HostStation nueva
 
-		$ideal_nhosts = $this->sizex * $this->sizey * 3/144; # Se calcula el número máximo ideal de HostStations para el mapa
+		$num_hosts_ideal = $this->size_x * $this->size_y * 3/144; # Se calcula el número máximo ideal de HostStations para el mapa
 		
 		# agregar HostStations mientras las HS sean menor a 6 y no mayor que el número máximo ideal
-		for($c = 0; $c < $ideal_nhosts && array_sum($this->n_hosts) < 6; $c++){
+		for($c = 0; $c < $num_hosts_ideal && array_sum($this->num_hosts) < 6; $c++){
 			if(rand(0,1)) # 50% posibilidades
-				$this->addHost();
+				$this->add_host_station();
 		}
 
 
 		################################### Super Item
 
-		for ($c=0;$c<2;$c++){ # 2 superitems max
+		for ($c = 0; $c < 2; $c++){ # 2 superitems max
 			if(rand(0,1)){
 				echo	'begin_item'."\n\t".
-						'sec_x = '.(rand(0,$this->sizex-2)+1)."\n\t".
-						'sec_y = '.(rand(0,$this->sizey-2)+1)."\n\t";
+						'sec_x = '.(rand(0, $this->size_x-2)+1)."\n\t".
+						'sec_y = '.(rand(0, $this->size_y-2)+1)."\n\t";
 
-				if ($this->set==6)
+				if ($this->set == 6)
 					echo	'inactive_bp = 68'."\n\t".
 							'active_bp = 69'."\n\t".
 							'trigger_bp = 70'."\n\t";
@@ -209,9 +220,9 @@ class Urbanassault {
 				echo 'countdown = '.(rand(0,1280)+20).'000'."\n"; //tiempo pa Explotar
 
 				#10 posibles pares de sectores
-				for ($c2=0;$c2<10;$c2++)
+				for ($c2 = 0; $c2 < 10; $c2++)
 					if (rand(0,1))
-						echo "\t".'keysec_x = '.(rand(0,$this->sizex-2)+1)."\n\t".'keysec_y = '.(rand(0,$this->sizey-2)+1)."\n";
+						echo "\t".'keysec_x = '.(rand(0, $this->size_x-2)+1)."\n\t".'keysec_y = '.(rand(0, $this->size_y-2)+1)."\n";
 
 				echo 'end'."\n";
 			}
@@ -220,9 +231,9 @@ class Urbanassault {
 		////////////////////////// Predefined Squads
 
 		# 3 squads posibles como máximo x raza
-		for ($c=0;$c< 3 * array_sum($this->n_hosts);$c++)
+		for ($c = 0; $c <  3 * array_sum($this->num_hosts); $c++)
 			if (rand(0,1))
-				$this->addSquad(); //Creación de Squad
+				$this->add_squad(); //Creación de Squad
 
 		////////////////////////// Prototype Modifications
 
@@ -230,7 +241,7 @@ class Urbanassault {
 
 		////////////////////////// Prototype Enabling
 
-		if ($this->n_hosts['sul']){
+		if ($this->num_hosts['sul']){
 			echo	'begin_enable 2'."\n\t".
 					'vehicle = 71'."\n\t".
 					'vehicle = 72'."\n\t".
@@ -239,7 +250,7 @@ class Urbanassault {
 					'end'."\n";
 		}
 
-		if ($this->n_hosts['myk']){
+		if ($this->num_hosts['myk']){
 		echo	'begin_enable 3'."\n\t".
 				'vehicle = 63'."\n\t".
 				'vehicle = 64'."\n\t".
@@ -257,7 +268,7 @@ class Urbanassault {
 				'end'."\n";
 		}
 
-		if ($this->n_hosts['tae']){
+		if ($this->num_hosts['tae']){
 		echo	'begin_enable 4'."\n\t".
 				'vehicle = 8'."\n\t".
 				'vehicle = 32'."\n\t".
@@ -277,7 +288,7 @@ class Urbanassault {
 				'end'."\n";
 		}
 
-		if ($this->n_hosts['bla']){
+		if ($this->num_hosts['bla']){
 		echo	'begin_enable 5'."\n\t".
 				'vehicle = 1'."\n\t".
 				'vehicle = 2'."\n\t".
@@ -345,7 +356,7 @@ class Urbanassault {
 				'end'."\n";
 		}
 
-		if ($this->n_hosts['gho']){
+		if ($this->num_hosts['gho']){
 		echo	'begin_enable 6'."\n\t".
 				'vehicle = 22'."\n\t".
 				'vehicle = 23'."\n\t".
@@ -374,45 +385,47 @@ class Urbanassault {
 
 		echo 'begin_maps'."\n";
 
-		$this->maps();
+		$this->build_maps();
 
 		echo 'end'."\n";
 		fwrite($this->fh, ob_get_contents());
 		fclose($this->fh); //Cierre de archivo
-		ob_end_clean();
+		
+		if(!$this->debug)
+			ob_end_clean();
 	}
 
 	//////////////////////////////////////////
-	function addHost(){
+	function add_host_station(){
 		do {
-			$hst = $this->races[array_rand($this->races)]; # se selecciona la raza de la HostStation a colocar
-			$vhst = 0; # vehículo de la HostStation se inicializa a 0
+			$faction = $this->factions[array_rand($this->factions)]; # se selecciona la raza de la HostStation a colocar
+			$host_vehicle = 0; # vehículo de la HostStation se inicializa a 0
 			
-			if($this->n_hosts[$hst] < 2) { # si aún no hay 2 hosts
-				$this->n_hosts[$hst]++; # la agregamos
+			if($this->num_hosts[$faction] < 2) { # si aún no hay 2 hosts
+				$this->num_hosts[$faction]++; # la agregamos
 
-				switch($hst){ # asignamos el vehículo de acuerdo a la raza...
-					case 'sul': $vhst = 61;break;
-					case 'myk': $vhst = 58;break;
-					case 'tae': $vhst = 60;break;
-					case 'bla': $vhst = 62;break;
-					case 'gho': $vhst = rand(0,1)?59:57;break;
+				switch($faction){ # asignamos el vehículo de acuerdo a la raza...
+					case 'sul': $host_vehicle = 61; break;
+					case 'myk': $host_vehicle = 58; break;
+					case 'tae': $host_vehicle = 60; break;
+					case 'bla': $host_vehicle = 62; break;
+					case 'gho': $host_vehicle = rand(0,1)?59:57; break;
 				}
 
-				list($x_pos,$y_pos) = $this->distribute_host($hst); #se verifican las distancias entre HostStations (X)
-				$this->h_xpos[$hst][] = $x_pos;
-				$this->h_ypos[$hst][] = $y_pos;
-				$egy = 800+rand(0,600); #se calcula la energía inicial (min 2000, max 3500)
+				list($x, $y) = $this->distribute_host($faction); #se verifican las distancias entre HostStations (X)
+				$this->host_x[$faction][] = $x;
+				$this->host_y[$faction][] = $y;
+				$energy = 800+rand(0,600); #se calcula la energía inicial (min 2000, max 3500)
 
 				echo	'begin_robo'."\n\t".
-						'owner	= '.(array_search($hst,$this->races)+1)."\n\t".
-						'vehicle	= '.$vhst."\n\t".
+						'owner	= '.(array_search($faction, $this->factions)+1)."\n\t".
+						'vehicle	= '.$host_vehicle."\n\t".
 
-				'pos_x        = '.((12*$x_pos)+6).'00'."\n\t". #Posición X
+				'pos_x        = '.((12*$x)+6).'00'."\n\t". #Posición X
 				'pos_y        = -'.(20+rand(0,25)).'0'."\n\t". #Posición Z
-				'pos_z        = -'.((12*$y_pos)+6).'00'."\n\t". #Posición Y
-				'energy       = '.$egy.'000'."\n\t".
-				'reload_const = '.(21*$egy).'0'."\n\t". #ReloadConst = Energy * .3
+				'pos_z        = -'.((12*$y)+6).'00'."\n\t". #Posición Y
+				'energy       = '.$energy.'000'."\n\t".
+				'reload_const = '.(21*$energy).'0'."\n\t". #ReloadConst = Energy * .3
 				'con_budget   = '.(rand(0,50)+50)."\n\t".
 				'con_delay    = '.(rand(0,75)).'000'."\n\t".
 				'def_budget   = '.(rand(0,40)+60)."\n\t".
@@ -431,83 +444,83 @@ class Urbanassault {
 				'cpl_delay    = '.(rand(0,75)).'000'."\n".
 				'end'."\n";
 			}
-		}while (!$vhst); //Intentar crear de nuevo una HostStation
+		}while (!$host_vehicle); //Intentar crear de nuevo una HostStation
 	}
 
 	////////////////////// Función para Verificar distancias entre HostStations
 
-	function distribute_host($loc_race){
+	function distribute_host($added_faction){
 		do {
-			$test_x = rand(0,$this->sizex-2)+1;
-			$test_y = rand(0,$this->sizey-2)+1;
-			$invalid_pos = false;
+			$test_x = rand(0, $this->size_x-2)+1;
+			$test_y = rand(0, $this->size_y-2)+1;
+			$invalid_position = false;
 
-			foreach($this->races as $enemyrace){
-				if($enemyrace != $loc_race){ # Verifica la distancia únicamente de Hosts enemigas
-					for($ene = 0; $ene < $this->n_hosts[$enemyrace]; $ene++){
-						if(sqrt(pow($this->h_xpos[$enemyrace][$ene] - $test_x,2) + pow($this->h_ypos[$enemyrace][$ene] - $test_y,2)) < 4){
-							$invalid_pos = true;
+			foreach($this->factions as $faction){
+				if($faction != $added_faction){ # Verifica la distancia únicamente de Hosts enemigas
+					for($ene = 0; $ene < $this->num_hosts[$faction]; $ene++){
+						if(sqrt(pow($this->host_x[$faction][$ene] - $test_x,2) + pow($this->host_y[$faction][$ene] - $test_y,2)) < 4){ // Demasiado cerca
+							$invalid_position = true;
 							break;
 						}
 					}
 					
-					if($invalid_pos) break;
+					if($invalid_position) break;
 				}
 			}
-		} while($invalid_pos);
+		} while($invalid_position);
 
-		return array($test_x,$test_y);
+		return array($test_x, $test_y);
 	}
 
 	/////////////////// Función para Posicionar Escuadrones iniciales 
 
-	function addSquad(){
+	function add_squad(){
 		echo 'begin_squad'."\n";
 		
 		do {
-			$race = $this->races[array_rand($this->races)];
-			$own = array_search($race,$this->races)+1;
-		} while(!$this->n_hosts[$race]);	# Si la raza del squad no está jugando, se reintenta.
+			$faction = $this->factions[array_rand($this->factions)];
+			$faction_id = array_search($faction, $this->factions) + 1;
+		} while(!$this->num_hosts[$faction]);	# Si la raza del squad no está jugando, se reintenta. # TODO
 
-		echo	"\t".'owner     = '.$race."\n"; //Ya escogida la raza..
-		switch ($own){
+		echo	"\t".'owner     = '.$faction_id."\n"; //Ya escogida la raza..
+		switch ($faction_id){
 			case 1:
 				do{
-					$vhl = rand(0,15)+1;
-					$nvhl = ($vhl==9)?1:rand(0,10)+1; # Si es un Scout sólo se asigna 1 unidad
-				} while($vhl == 13);
+					$vehicle = rand(0,15)+1;
+					$squad_size = ($vehicle==9) ? 1 : rand(0,10)+1; # Si es un Scout sólo se asigna 1 unidad
+				} while($vehicle == 13);
 				break;
 			case 2:
-				$vhl = rand(0,3)+71;
-				$nvhl = ($vhl==74)?1:rand(0,9)+1;
+				$vehicle = rand(0,3)+71;
+				$squad_size = ($vehicle==74) ? 1 : rand(0,9)+1;
 				break;
 			case 3:
-				$vhl = rand(0,7)+63;
-				$nvhl = ($vhl==67)?1:rand(0,9)+1;
+				$vehicle = rand(0,7)+63;
+				$squad_size = ($vehicle==67) ? 1 : rand(0,9)+1;
 				break;
 			case 4:
-				$vhl = rand(0,6)?rand(0,6)+32:(rand(0,3)?8:131);
-				$nvhl = ($vhl==35)?1:rand(0,9)+1;
+				$vehicle = rand(0,6)?rand(0,6)+32:(rand(0,3)?8:131);
+				$squad_size = ($vehicle==35) ? 1 : rand(0,9)+1;
 				break;
 			case 5:
-				$vhl = rand(0,1)?rand(0,15)+1:(rand(0,1)?rand(0,9)+22:(rand(0,5)?rand(0,11)+63:rand(0,1)+130));
-				$nvhl = (array_search($vhl,array(9,74,67,35,29))!== false)?1:rand(0,10)+1; # Si es cualquiera de los scouts..
+				$vehicle = rand(0,1)?rand(0,15)+1:(rand(0,1)?rand(0,9)+22:(rand(0,5)?rand(0,11)+63:rand(0,1)+130));
+				$squad_size = (array_search($vehicle,array(9,74,67,35,29))!== false) ? 1 : rand(0,10)+1; # Si es cualquiera de los scouts..
 				break;
 			case 6:
-				$vhl = rand(0,7)?rand(0,10)+22:130;
-				$nvhl = ($vhl==29)?1:rand(0,10)+1;
+				$vehicle = rand(0,7)?rand(0,10)+22:130;
+				$squad_size = ($vehicle==29) ? 1 : rand(0,10)+1;
 				break;
 		}
-		echo "\t".'vehicle   = '.$vhl."\n";
-		echo "\t".'num       = '.$nvhl."\n";
+		echo "\t".'vehicle   = '.$vehicle."\n";
+		echo "\t".'num       = '.$squad_size."\n";
 
 		do {
 			$band = 0;
-			$pos = rand(0,$this->sizex-2)+1; //Se asignan unas coordenadas X
+			$pos = rand(0, $this->size_x-2)+1; //Se asignan unas coordenadas X
 
-			for ($cc=1;$cc<7;$cc++){
-				for ($cc2=0;$cc2<3;$cc2++){
-					if ($pos==$this->h_xpos[$cc][$cc2]) //Se verifica que no sean de ninguna hostStation
+			for ($cc = 1; $cc < 7; $cc++){
+				for ($cc2 = 0; $cc2 < 3; $cc2++){
+					if ($pos == $this->host_x[$cc][$cc2]) //Se verifica que no sean de ninguna hostStation #TODO
 						$band++;
 				}
 			}
@@ -516,11 +529,11 @@ class Urbanassault {
 
 		do{
 			$band=0;
-			$pos = rand(0,$this->sizey-2)+1; //Se asignan unas coordenadas Y
+			$pos = rand(0, $this->size_y-2)+1; //Se asignan unas coordenadas Y
 
 			for ($cc=1;$cc<7;$cc++){
 				for ($cc2=0;$cc2<3;$cc2++){
-					if ($pos==$this->h_ypos[$cc][$cc2]) //Se verifica que no sean de ninguna hostStation
+					if ($pos==$this->host_y[$cc][$cc2]) //Se verifica que no sean de ninguna hostStation
 						$band++;
 				}
 			}
@@ -534,114 +547,114 @@ class Urbanassault {
 	}
 
 	////////////////////////////////// Maps
-	function maps(){
+	function build_maps(){
 
 		///////////////////// typ
 
 		# definition
-		echo "\t".'typ_map ='."\n\t".$this->sizex.' '.$this->sizey."\n";
+		echo "\t".'typ_map ='."\n\t".$this->size_x.' '.$this->size_y."\n";
 
 		# 1era fila
-		echo "\t\t".'f8 '; for($c=0;$c<$this->sizex-2;$c++) echo 'fc ';echo 'f9'."\n";
+		echo "\t\t".'f8 '; for($c = 0; $c < $this->size_x-2; $c++) echo 'fc ';echo 'f9'."\n";
 
 		# body
-		for($c=0;$c<$this->sizey-2;$c++){
+		for($c = 0; $c < $this->size_y-2; $c++){
 			echo "\t\tff";
-			for($c2=0;$c2<$this->sizex-2;$c2++)
-				printf(" %02x",$this->slots[array_rand($this->slots[$st-1])]);
+			for($c2 = 0; $c2 < $this->size_x-2; $c2++)
+				printf(" %02x", $this->slots[array_rand($this->slots[$st-1])]);
 			echo " fd\n";
 		}
 
 		# ultima fila
-		echo "\t\t".'fb';for ($c=0;$c<$this->sizex-2;$c++) echo ' fe';echo ' fa'."\n";
+		echo "\t\t".'fb';for ($c = 0; $c < $this->size_x-2; $c++) echo ' fe';echo ' fa'."\n";
 		
 		///////////////////// own
 
 		# definition
-		echo "\t".'own_map ='."\n\t".$this->sizex.' '.$this->sizey."\n";
+		echo "\t".'own_map ='."\n\t".$this->size_x.' '.$this->size_y."\n";
 
 		# inicializado en 0
-		$map = array_fill(0, $this->sizex-1, array_fill(0, $this->sizey-1, 0));
-		$idealnumsects = ($this->sizex-2) * ($this->sizey-2) * 3 / 2 * array_sum($this->n_hosts); // i (número ideal de sectores para cada raza) = área total de sectores / número total de HostStations + 30%
+		$map = array_fill(0, $this->size_x-1, array_fill(0, $this->size_y-1, 0));
+		$ideal_territory = ($this->size_x-2) * ($this->size_y-2) * 3 / 2 * array_sum($this->num_hosts); // i (número ideal de sectores para cada raza) = área total de sectores / número total de HostStations + 30%
 
 		# Mapear colores
-		$this->color_race(1,1);
-		$this->color_race(2,$this->n_hosts['sul']);
-		$this->color_race(3,$this->n_hosts['myk']);
-		$this->color_race(4,$this->n_hosts['tae']);
-		$this->color_race(5,$this->n_hosts['bla']);
-		$this->color_race(6,$this->n_hosts['gho']);
+		$this->make_territory(1,1);
+		$this->make_territory(2, $this->num_hosts['sul']);
+		$this->make_territory(3, $this->num_hosts['myk']);
+		$this->make_territory(4, $this->num_hosts['tae']);
+		$this->make_territory(5, $this->num_hosts['bla']);
+		$this->make_territory(6, $this->num_hosts['gho']);
 
 		# Imprimir mapa
-		for($c = 0; $c < $this->sizey; $c++){
+		for($c = 0; $c < $this->size_y; $c++){
 			echo "\t\t";
 
-			for($c2 = 0; $c2 < $this->sizex; $c2++){
-				printf("%02d ",$map[$c2][$c]);
+			for($c2 = 0; $c2 < $this->size_x; $c2++){
+				printf("%02d ", $map[$c2][$c]);
 			}
 
 			echo "\n";
 		}
 		
-		///////////////////// hgt
+		///////////////////// hgt # aquí
 
-		echo "\t".'hgt_map ='."\n\t".$this->sizex.' '.$this->sizey."\n";
+		echo "\t".'hgt_map ='."\n\t".$this->size_x.' '.$this->size_y."\n";
 		$x = $y = 1;
-		$alturabase = 50 + (rand(0,50)-25);
+		$base_height = 50 + (rand(0,50)-25);
 
-		for ($c=1;$c<$this->sizey-1;$c++){
-			for ($c2=1;$c2<$this->sizex-1;$c2++){
-				$map[$c2][$c] = $alturabase;
-				$this->altura_arnd($alturabase, $c2,$c);
+		for ($c=1;$c < $this->size_y-1; $c++){
+			for ($c2=1;$c2 < $this->size_x-1; $c2++){
+				$map[$c2][$c] = $base_height;
+				$this->altura_arnd($base_height, $c2, $c);
 				if ($map[$c2-1][$c]!=0 && $map[$c2-1][$c]!=1)
 					$altura = $map[$c2-1][$c]+(rand(0,5)-2);
 			}
 		}
 
 		////// Igualar bordes horizontales
-		for ($c=0;$c<$this->sizex;$c++){
+		for ($c = 0; $c < $this->size_x; $c++){
 			$map[$c][0] = $map[$c][1];
-			$map[$c][$this->sizey-1] = $map[$c][$this->sizey-2];
+			$map[$c][$this->size_y-1] = $map[$c][$this->size_y-2];
 		}
 
 		////// Igualar bordes verticales
-		for ($c=0;$c<$this->sizey;$c++){
+		for ($c = 0; $c < $this->size_y; $c++){
 			$map[0][$c] = $map[1][$c];
-			$map[$this->sizex-1][$c] = $map[$this->sizex-2][$c];
+			$map[$this->size_x-1][$c] = $map[$this->size_x-2][$c];
 		}
 
-		for ($c=0;$c<$this->sizey;$c++){
+		for ($c = 0; $c < $this->size_y; $c++){
 			echo "\t\t";
-			for ($c2=0;$c2<$this->sizex;$c2++)
-				printf("%02x ",$map[$c2][$c]);
+			for ($c2 = 0; $c2 < $this->size_x; $c2++)
+				printf("%02x ", $map[$c2][$c]);
 			echo "\n";
 		}
 
 		///////////////////// blg
 		
 		echo "\t".'blg_map ='."\n";
-		echo "\t".$this->sizex.' '.$this->sizey."\n";
+		echo "\t".$this->size_x.' '.$this->size_y."\n";
 
-		for ($c = 0; $c < $this->sizey; $c++){
-			for ($c2 = 0; $c2 < $this->sizex; $c2++){
+		for ($c = 0; $c < $this->size_y; $c++){
+			for ($c2 = 0; $c2 < $this->size_x; $c2++){
 				for($c3 = 0; $c3 < 3; $c3++){
-					if ($c2 == $this->h_xpos[2][$c3] && $c == $this->h_ypos[2][$c3])
+					if ($c2 == $this->host_x[2][$c3] && $c == $this->host_y[2][$c3])
 						$blg[$c2][$c] = 10;
-					if ($c2 == $this->h_xpos[3][$c3] && $c == $this->h_ypos[3][$c3])
+					if ($c2 == $this->host_x[3][$c3] && $c == $this->host_y[3][$c3])
 						$blg[$c2][$c] = 10;
-					if ($c2 == $this->h_xpos[4][$c3] && $c == $this->h_ypos[4][$c3])
+					if ($c2 == $this->host_x[4][$c3] && $c == $this->host_y[4][$c3])
 						$blg[$c2][$c] = 17;
-					if ($c2 == $this->h_xpos[5][$c3] && $c == $this->h_ypos[5][$c3])
+					if ($c2 == $this->host_x[5][$c3] && $c == $this->host_y[5][$c3])
 						$blg[$c2][$c] = 14;
-					if ($c2 == $this->h_xpos[6][$c3] && $c == $this->h_ypos[6][$c3])
+					if ($c2 == $this->host_x[6][$c3] && $c == $this->host_y[6][$c3])
 						$blg[$c2][$c] = 12;
 				}
 			}
 		}
 
-		for ($c = 0; $c < $this->sizey; $c++){
+		for ($c = 0; $c < $this->size_y; $c++){
 			echo "\t\t";
-			for($c2 = 0; $c2 < $this->sizex; $c2++)
+			for($c2 = 0; $c2 < $this->size_x; $c2++)
 				printf("%02x ", $blg[$c2][$c]);
 			echo "\n";
 		}
@@ -649,43 +662,43 @@ class Urbanassault {
 
 	////////////////////////
 
-	function color_race($raceidx, $racehostnum){ //nr = número identificador de raza, cr = cantidad de HostStations de esa raza
-		if(!$racehostnum) return;
+	function make_territory($factionidx, $factionhostnum){ //nr = número identificador de raza, cr = cantidad de HostStations de esa raza
+		if(!$factionhostnum) return;
 		
 		do {
 			# Coordenadas de la HostStation
-			$x = $this->h_xpos[$raceidx][$racehostnum-1];
-			$y = $this->h_ypos[$raceidx][$racehostnum-1];
+			$x = $this->host_x[$factionidx][$factionhostnum-1];
+			$y = $this->host_y[$factionidx][$factionhostnum-1];
 			
-			$this->arnd($raceidx,$x,$y); 
+			$this->arnd($factionidx, $x, $y); 
 
-			for($c=0;$c<$idealnumsects;$c++){
+			for($c = 0; $c < $ideal_territory; $c++){
 				if (rand(0,1)){
 					# Elige nuevo pibote
 					$x = $x+(rand(0,3)-1);
 					$y = $y+(rand(0,3)-1);
-					$this->arnd($raceidx,$x,$y);
+					$this->arnd($factionidx, $x, $y);
 				}
 			}
-		$racehostnum--;
-		} while($racehostnum>0);
+		$factionhostnum--;
+		} while($factionhostnum>0);
 	}
 
 	//////////////////////// Función que asinga el valor alrededor del punto inicial
-	function arnd($raceidx,$x1,$y1){
-		$map[$x-1][$y-1] = $raceidx;
-		$map[$x-1][$y] = $raceidx;
-		$map[$x][$y-1] = $raceidx;
-		$map[$x+1][$y+1] = $raceidx;
-		$map[$x+1][$y] = $raceidx;
-		$map[$x][$y+1] = $raceidx;
-		$map[$x+1][$y-1] = $raceidx;
-		$map[$x-1][$y+1] = $raceidx;
+	function arnd($factionidx, $x1, $y1){
+		$map[$x-1][$y-1] = $factionidx;
+		$map[$x-1][$y] = $factionidx;
+		$map[$x][$y-1] = $factionidx;
+		$map[$x+1][$y+1] = $factionidx;
+		$map[$x+1][$y] = $factionidx;
+		$map[$x][$y+1] = $factionidx;
+		$map[$x+1][$y-1] = $factionidx;
+		$map[$x-1][$y+1] = $factionidx;
 	}
 
 	/////////////////////////////////////
 
-	function altura_arnd($altura,$x2, $y2){
+	function altura_arnd($altura, $x2, $y2){
 		$map[$x2-1][$y2] = $altura+(rand(0,6)-3);
 		$map[$x2][$y2-1] = $altura+(rand(0,6)-3);
 		$map[$x2+1][$y2+1] = $altura+(rand(0,6)-3);
@@ -715,7 +728,6 @@ class Urbanassault {
 	}
 }
 
-ob_start();
 $ua = new Urbanassault(); 
-$ua->level('single');
+$ua->make_level('single');
 ?>

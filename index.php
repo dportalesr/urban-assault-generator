@@ -32,80 +32,7 @@ class Urbanassault {
 		array(0,1,2,5,6,7,8,9,10,11,12,13,16,17,18,19,20,21,22,23,24,25,26,27,28,29,31,32,33,34,35,36,37,38,39,40,41,44,59,66,67,68,70,71,72,74,75,76,77,78,79,80,81,82,95,96,97,98,99,130,131,132,133,134,135,136,137,138,139,140,141,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,188,189,228,229,230,231,232,233,234,235,248)
 	);
 
-	var $skies = array(
-		'1998_01',
-		'1998_02',
-		'1998_03',
-		'1998_05',
-		'1998_06',
-		'Am_1',
-		'Am_2',
-		'Am_3',
-		'Arz1',
-		'Asky2',
-		'Braun1',
-		'Ct6',
-		'H',
-		'H7',
-		'Haamitt1',
-		'Haamitt4',
-		'Mod2',
-		'Mod4',
-		'Mod5',
-		'Mod7',
-		'Mod8',
-		'Mod9',
-		'Moda',
-		'Modb',
-		'Nacht1',
-		'Nacht2',
-		'Newtry5',
-		'Nosky',
-		'Nt1',
-		'Nt2',
-		'Nt3',
-		'Nt5',
-		'Nt6',
-		'Nt7',
-		'Nt8',
-		'Nt9',
-		'Nta',
-		'S3_1',
-		'S3_4',
-		'Smod1',
-		'Smod2',
-		'Smod3',
-		'Smod4',
-		'Smod5',
-		'Smod6',
-		'Smod7',
-		'Smod8',
-		'Sterne',
-		'wow1',
-		'wow5',
-		'wow7',
-		'wow8',
-		'wow9',
-		'wowa',
-		'wowb',
-		'wowc',
-		'wowd',
-		'wowe',
-		'wowf',
-		'wowh',
-		'wowi',
-		'wowj',
-		'x1',
-		'x2',
-		'x4',
-		'x5',
-		'x7',
-		'x8',
-		'x9',
-		'xa',
-		'xb',
-		'xc');
-
+	var $skies = array('1998_01', '1998_02', '1998_03', '1998_05', '1998_06', 'Am_1', 'Am_2', 'Am_3', 'Arz1', 'Asky2', 'Braun1', 'Ct6', 'H', 'H7', 'Haamitt1', 'Haamitt4', 'Mod2', 'Mod4', 'Mod5', 'Mod7', 'Mod8', 'Mod9', 'Moda', 'Modb', 'Nacht1', 'Nacht2', 'Newtry5', 'Nosky', 'Nt1', 'Nt2', 'Nt3', 'Nt5', 'Nt6', 'Nt7', 'Nt8', 'Nt9', 'Nta', 'S3_1', 'S3_4', 'Smod1', 'Smod2', 'Smod3', 'Smod4', 'Smod5', 'Smod6', 'Smod7', 'Smod8', 'Sterne', 'wow1', 'wow5', 'wow7', 'wow8', 'wow9', 'wowa', 'wowb', 'wowc', 'wowd', 'wowe', 'wowf', 'wowh', 'wowi', 'wowj', 'x1', 'x2', 'x4', 'x5', 'x7', 'x8', 'x9', 'xa', 'xb', 'xc');
 	var $size_x = 0, $size_y = 0;
 	var $factions = array(2 => 'sul','myk','tae','bla','gho');
 
@@ -128,12 +55,12 @@ class Urbanassault {
 		}
 
 		do {
-			$this->size_x = rand(0,29) + 3;// Calculo de tamaño del mapa (mínimo 3, máximo 32)
-			$this->size_y = rand(0,29) + 3;
+			$this->size_x = rand(0, 29) + 3;// Calculo de tamaño del mapa (mínimo 3, máximo 32)
+			$this->size_y = rand(0, 29) + 3;
 		} while($this->size_x * $this->size_y < 64);//Verifica que el área total no sea demasiado pequeña. Mínima de 64 u2)
 
 		################################### Main Level Info
-		
+
 		$this->set = rand(1,6); //st = set (tipo de mapa)
 
 		echo "\n".'begin_level'."\n\t".'set = '.$this->set."\r\n";
@@ -168,8 +95,8 @@ class Urbanassault {
 
 		#Se establecen otras coordenadas (min 2, max 28)
 		for($c = 0; $c < 6; $c++){
-			if(rand(0,1))
-				echo "\t".'keysec_x = '.(rand(0, $this->size_x-2)+1)."\n\t".'keysec_y = '.(rand(0, $this->size_y-2)+1)."\n".'mb_status = unknown;'."\n";
+			if(rand(0, 1))
+				echo "\t".'keysec_x = '.(rand(0, $this->size_x - 2) + 1)."\n\t".'keysec_y = '.(rand(0, $this->size_y - 2) + 1)."\n".'mb_status = unknown;'."\n";
 		}
 
 		echo	'end'."\n".
@@ -177,16 +104,16 @@ class Urbanassault {
 			'owner = 1 ;'."\n\t".
 			'vehicle = 56'."\n";
 
-		$resistance_x = $this->host_x['res'][0] = rand(0, $this->size_x-2)+1; # Origen X (min 2)
-		$resistance_y = $this->host_y['res'][0] = rand(0, $this->size_y-2)+1; # Origen Y (min 2)
-		$energy = 600 + rand(0,600);# 1500 - 3000
+		$resistance_x = $this->host_x['res'][0] = rand(0, $this->size_x-2) + 1; # Origen X (min 2)
+		$resistance_y = $this->host_y['res'][0] = rand(0, $this->size_y-2) + 1; # Origen Y (min 2)
+		$energy = 600 + rand(0, 600);# 1500 - 3000
 
 	echo 
-		'pos_x = '.((12*$resistance_x)+6).'00'."\n".
-		'pos_y = -'.(20+rand(0,25)).'0'."\n".
-		'pos_z = -'.((12*$resistance_y)+6).'00'."\n".
+		'pos_x = '.((12 * $resistance_x) + 6).'00'."\n".
+		'pos_y = -'.(20 + rand(0, 25)).'0'."\n".
+		'pos_z = -'.((12 * $resistance_y) + 6).'00'."\n".
 		'energy = '.$energy.'000'."\n".
-		'reload_const = '.(17*$energy).'0'."\n".
+		'reload_const = '.(17 * $energy).'0'."\n".
 		'end'."\n";
 
 		$this->add_host_station(); # Coloca una HostStation nueva
@@ -198,7 +125,6 @@ class Urbanassault {
 			if(rand(0,1)) # 50% posibilidades
 				$this->add_host_station();
 		}
-
 
 		################################### Super Item
 
@@ -389,6 +315,7 @@ class Urbanassault {
 		$this->build_maps();
 
 		echo 'end'."\n";
+		
 		fwrite($this->fh, ob_get_contents());
 		fclose($this->fh); //Cierre de archivo
 		
@@ -477,11 +404,11 @@ class Urbanassault {
 
 	function add_squad(){
 		echo 'begin_squad'."\n";
-		
+
 		do {
-			$faction_id = array_rand($this->factions)
+			$faction_id = array_rand($this->factions);
 			$faction = $this->factions[$faction_id];
-		} while(!$this->num_hosts[$faction]);	# Si la raza del squad no está jugando, se reintenta. # TODO
+		} while(!$this->num_hosts[$faction] && false);	# Si la raza del squad no está jugando, se reintenta. # TODO
 
 		echo	"\t".'owner     = '.$faction_id."\n"; //Ya escogida la raza..
 
@@ -529,7 +456,7 @@ class Urbanassault {
 		} while($band > 0); //Se calcula de nuevo hasta no coincidir con ninguna ya existente
 		echo "\t".'pos_x     = '.(12 * $pos + 6).'00'."\n"; //Se escribe la posición en X
 
-		do{
+		do {
 			$band = 0;
 			$pos = rand(0, $this->size_y - 2) + 1; //Se asignan unas coordenadas Y
 
@@ -680,7 +607,7 @@ class Urbanassault {
 		$faction_num_hosts = $this->num_hosts[$faction];
 		if(!$faction_num_hosts) return;
 
-		$faction_id = $this->fid($faction); #
+		$faction_id = $this->fid($faction);
 		
 		do {
 			# Coordenadas de la HostStation
@@ -718,13 +645,13 @@ class Urbanassault {
 	/////////////////////////////////////
 
 	function calculate_adjacent_height($height, $x2, $y2){
-		$map[$x2-1][$y2] = $height+(rand(0,6)-3);
-		$map[$x2][$y2-1] = $height+(rand(0,6)-3);
-		$map[$x2+1][$y2+1] = $height+(rand(0,6)-3);
-		$map[$x2+1][$y2] = $height+(rand(0,6)-3);
-		$map[$x2][$y2+1] = $height+(rand(0,6)-3);
-		$map[$x2+1][$y2-1] = $height+(rand(0,6)-3);
-		$map[$x2-1][$y2+1] = $height+(rand(0,6)-3);
+		$map[$x2-1][$y2] = $height + (rand(0, 6) - 3);
+		$map[$x2][$y2-1] = $height + (rand(0, 6) - 3);
+		$map[$x2+1][$y2+1] = $height + (rand(0, 6) - 3);
+		$map[$x2+1][$y2] = $height + (rand(0, 6) - 3);
+		$map[$x2][$y2+1] = $height + (rand(0, 6) - 3);
+		$map[$x2+1][$y2-1] = $height + (rand(0, 6) - 3);
+		$map[$x2-1][$y2+1] = $height + (rand(0, 6) - 3);
 	}
 
 	///////////////////////////////////////////////////////////////

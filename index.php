@@ -73,6 +73,7 @@ class Urbanassault {
 	function rx(){ return rand(1, $this->size_x - 1); }
 	function ry(){ return rand(1, $this->size_y - 1); }
 	function present_factions(){ return array_keys(array_filter($this->num_hosts)); }
+	function pick($arr){ return $arr[array_rand($arr)]; }
 
 	function make_level($mode){
 		if($this->debug){
@@ -91,7 +92,7 @@ class Urbanassault {
 ?>
 begin_level
   set     = <?=$this->set ?>
-  sky     = objects/<?=$this->skies[array_rand($this->skies)] ?>.base
+  sky     = objects/<?=$this->pick($this->skies) ?>.base
   slot0   = palette/standard.pal
   slot1   = palette/red.pal
   slot2   = palette/blau.pal
@@ -117,8 +118,8 @@ end
 ; Beam Gates
 
 begin_gate
-  sec_x         = <?=$this->rx() ?>
-  sec_y         = <?=$this->ry ?>
+  sec_x         = <?=$this->rx()?> ;
+  sec_y         = <?=$this->ry()?> ;
   closed_bp     = 5
   opened_bp     = 6
   target_level  = 1 ;TODO: Hacer lista de los Target Levels para escoger..
@@ -127,28 +128,30 @@ begin_gate
 		for($c = 0; $c < 6; $c++){
 			if(rand(0, 1)){
 ?>
-	keysec_x 			= <?=$this->rx() ?>
-	keysec_y 			= <?=$this->ry ?>
-
-<?php } ?>
-	mb_status 		= unknown;
+	keysec_x 			= <?=$this->rx() ?> ;
+	keysec_y 			= <?=$this->ry() ?> ;
+<?php
+			}
+		}
+?>
+	mb_status 		= unknown
 end
 
 ; Player Host Station
 <?php
-		$resistance_x = x($this->host_x['res'][0] = $this->rx());
-		$resistance_y = y($this->host_y['res'][0] = $this->ry);
+		$resistance_x = $this->x($this->host_x['res'][0] = $this->rx());
+		$resistance_y = $this->y($this->host_y['res'][0] = $this->ry());
 		$energy 			= (6 + rand(0, 6)) * 100000; // x 100,000 / 4 = [1200 - 3000]
 		$reload_const = ((($energy - 550000)/4) + 550000) /4; // Drak constant = 550,000
 ?>
 begin_robo
   owner         = 1
   vehicle       = 56
-  pos_x         = <?=$resistance_x ?>
-  pos_y         = <?= -10 * (20 + rand(0, 25)) ?>
-  pos_z         = <?=$resistance_y ?>
-  energy        = <?=$energy ?>
-  reload_const  = <?=$reload_const ?>
+  pos_x         = <?=$resistance_x ?> ;
+  pos_y         = <?= -10 * (20 + rand(0, 25)) ?> ;
+  pos_z         = <?=$resistance_y ?> ;
+  energy        = <?=$energy ?> ;
+  reload_const  = <?=$reload_const ?> ;
 end
 
 ; Enemy Host Stations
@@ -170,19 +173,19 @@ end
 
 ; Stoudson Bomb
 begin_item
-  sec_x         = <?=$this->rx()?>
-  sec_y         = <?=$this->ry?>
-  inactive_bp   = <?=$this->set == 6 ? 68 : 35 ?>
-  active_bp     = <?=$this->set == 6 ? 69 : 36 ?>
-  trigger_bp    = <?=$this->set == 6 ? 70 : 36 ?>
+  sec_x         = <?=$this->rx()?> ;
+  sec_y         = <?=$this->ry()?> ;
+  inactive_bp   = <?=$this->set == 6 ? 68 : 35 ?> ;
+  active_bp     = <?=$this->set == 6 ? 69 : 36 ?> ;
+  trigger_bp    = <?=$this->set == 6 ? 70 : 36 ?> ;
   type          = 1
   countdown     = <?=(rand(0, 2500) + 20) * 1000 ?> ; 20 seconds - 42 minutes
 <?php
 				for ($c2 = 0; $c2 < 10; $c2++){
 					if (rand(0,1)){
 ?>
-	keysec_x 			= <?=$this->rx()?>
-	keysec_y 			= <?=$this->ry?>
+	keysec_x 			= <?=$this->rx()?> ;
+	keysec_y 			= <?=$this->ry()?> ;
 <?php
 					}
 				}
@@ -255,7 +258,7 @@ end ; end of maps
 		$station_added = false;
 
 		do {
-			$faction = $this->factions[array_rand($this->factions)]; // Select random faction
+			$faction = $this->pick($this->factions); // Select random faction
 			
 			if($this->num_hosts[$faction] < 2) { // 2 Stations max per faction
 				$new_station_position = $this->distribute_host($faction); // Search optimal position for HostStation
@@ -319,7 +322,7 @@ end
 
 		do {
 			$test_x = $this->rx();
-			$test_y = $this->ry;
+			$test_y = $this->ry();
 			$invalid_position = false;
 
 			foreach($this->present_factions as $faction){
@@ -342,9 +345,8 @@ end
 	//--------------------------------
 
 	function add_squad(){
-		$faction = $this->present_factions[array_rand($this->present_factions)];
+		$faction = $this->pick($this->present_factions);
 
-		# aquí
 		switch ($faction){
 			case 'res':
 				do {
@@ -439,7 +441,7 @@ end
 		for($c = 0; $c < $this->size_y - 2; $c++){
 			echo "\t\tff";
 			for($c2 = 0; $c2 < $this->size_x - 2; $c2++)
-				printf(" %02x", $this->slots[array_rand($this->slots[$this->set])]);
+				printf(" %02x", $this->pick($this->slots[$this->set]));
 			echo " fd\n";
 		}
 

@@ -55,6 +55,7 @@ class Urbanassault {
   var $size_x = 0, $size_y = 0;
   
   var $factions = array(2 => 'sul','myk','tae','bla','gho');
+  var $map = array();
 
   var $num_hosts;
   var $host_x;
@@ -67,13 +68,20 @@ class Urbanassault {
     $this->host_y = array_fill_keys($this->factions, array());
   }
   
-  function fid($faction){ return array_search($faction, $this->factions); }
+  function fid($faction){ return $faction == 'res' ? 1 : array_search($faction, $this->factions); }
   function x($x){ return (($x + 0.5) * 1200) + 1; /* + 1 to avoid bugs on sector edge */ }
   function y($y){ return (($y + 0.5) * -1200) + 1; /* + 1 to avoid bugs on sector edge */ }
-  function rx(){ return rand(1, $this->size_x - 1); }
-  function ry(){ return rand(1, $this->size_y - 1); }
+  function rx(){ return rand(1, $this->size_x - 2); }
+  function ry(){ return rand(1, $this->size_y - 2); }
   function present_factions(){ return array_keys(array_filter($this->num_hosts)); }
   function pick($arr){ return $arr[array_rand($arr)]; }
+  function reset_map($reset_value = 0){ $this->map = array_fill(0, $this->size_x, array_fill(0, $this->size_y, $reset_value)); }
+  function new_height($height){
+    $new_height = $height + (rand(0, 6) - 3);
+    if($new_height < 0) $new_height = 0;
+
+    return $new_height;
+  }
 
   function make_level($mode){
     if($this->debug){
@@ -121,7 +129,7 @@ begin_gate
   opened_bp     = 6
   target_level  = 1 ;TODO: Hacer lista de los Target Levels para escoger.. 
 <?php
-    for($c = 0; $c < 6; $c++){
+    for($ks = 0; $ks < 6; $ks++){
       if(rand(0, 1)){
 ?>
   keysec_x      = <?=$this->rx() ?> 
@@ -157,13 +165,13 @@ end
     $this->add_host_station(); // At least one enemy HostStation
 
     // Keep trying to add HostStations until there are more than 5 Stations or number of tries have been more than ideal number of Stations
-    for($c = 0; $c < $num_hosts_ideal && array_sum($this->num_hosts) < 6; $c++){
+    for($hs = 0; $hs < $num_hosts_ideal && array_sum($this->num_hosts) < 6; $hs++){
       if(rand(0,1)) # 50 - 50 chance
         $this->add_host_station();
     }
 
     ///// Stoudson Bomb
-    for ($c = 0; $c < 2; $c++){ // 2 bombs max
+    for ($sb = 0; $sb < 2; $sb++){ // 2 bombs max
       if(rand(0,1)){
 ?>
 ; Stoudson Bomb
@@ -176,7 +184,7 @@ begin_item
   type          = 1 
   countdown     = <?=(rand(0, 2500) + 20) * 1000 ?> ;20 seconds - 42 minutes 
 <?php
-        for ($c2 = 0; $c2 < 10; $c2++){
+        for ($ks = 0; $ks < 10; $ks++){
           if (rand(0,1)){
 ?>
   keysec_x      = <?=$this->rx()?> 
@@ -198,7 +206,7 @@ end
     // 3 squads per faction max
     $total_hosts = array_sum($this->num_hosts);
 
-    for ($c = 0; $c <  3 * $total_hosts; $c++){
+    for ($sq = 0; $sq <  3 * $total_hosts; $sq++){
       if (rand(0, 1)){
         $this->add_squad(); //Squad creation
       }
@@ -215,19 +223,19 @@ include data:scripts/startup2.scr
 begin_enable <?=$fid?> 
 <?php
       // Enable vehicles
-      foreach ($this->vehicles[$fid] as $vehicle) {
+      foreach ($this->vehicles[$faction] as $vehicle) {
 ?>
   vehicle   = <?=$vehicle?> 
 <?php
       }
 
       // Enable buildings
-      foreach ($this->buildings[$fid] as $building) {
+      foreach ($this->buildings[$faction] as $building) {
 ?>
   building  = <?=$building?> 
 <?php
       }
-?>
+?> 
 end ; end of enable
 
 <?php
@@ -236,10 +244,140 @@ end ; end of enable
     ///// Tech
     ///// Map Dumps
 ?>
-begin_maps
+begin_maps 
+  typ_map = 
+  <?=$this->size_x.' '.$this->size_y ?> 
 <?php
-    $this->build_maps();
-?>
+    ///// TYP
+    # top
+    echo "\n\t\tf8 ";
+    for($px = 0; $px < $this->size_x - 2; $px++){ echo 'fc '; }
+    echo 'f9';
+
+    # body
+    for($py = 0; $py < $this->size_y - 2; $py++){
+      echo "\n\t\tff ";
+      for($px = 0; $px < $this->size_x - 2; $px++){ printf("%02x ", $this->pick($this->slots[$this->set])); }
+      echo 'fd';
+    }
+
+    # bottom
+    echo "\n\t\tfb ";
+    for ($px = 0; $px < $this->size_x - 2; $px++){ echo 'fe '; }
+    echo 'fa';
+
+?> 
+  own_map =
+    <?=$this->size_x.' '.$this->size_y ?>
+<?php    
+    ///// OWN
+    # Initialized in 7 = Neutral
+    $this->reset_map();
+    # Ideal number of sectors per race = playable area / number of stations + 40%
+    $this->ideal_territory = ($this->size_x - 2) * ($this->size_y - 2) / array_sum($this->num_hosts) * 1.6;
+
+    # Mapear
+    $present_factions = array_merge(array('res'), $this->present_factions());
+
+    foreach($present_factions as $faction){
+      $this->make_territory($faction);
+    }
+
+    # Outside sectors to 0
+    for ($px = 0; $px < $this->size_x; $px++){
+      $this->map[$px][$this->size_y - 1] = $this->map[$px][0] = 0;
+    }
+
+    for ($py = 0; $py < $this->size_y; $py++){
+      $this->map[$this->size_x - 1][$py] = $this->map[0][$py] = 0;
+    }
+
+    # Imprimir mapa
+    for($py = 0; $py < $this->size_y; $py++){
+      echo "\n\t\t";
+      for($px = 0; $px < $this->size_x; $px++){ printf("%02d ", $this->map[$px][$py]); }
+    }
+?> 
+  hgt_map =
+    <?=$this->size_x.' '.$this->size_y ?>
+<?php
+    ///// HGT
+    $height = 25 + rand(0, 50); # base height
+
+    $this->reset_map($height);
+
+    for ($py = 1; $py < $this->size_y - 1; $py++){
+      for ($px = 1; $px < $this->size_x - 1; $px++){
+        $this->map[$px][$py] = $height;
+        $this->calculate_adjacent_height($height, $px, $py);
+
+        # New base height
+        $height += rand(0, 4) - 2;
+      }
+    }
+
+    ////// Even top and bottom outside sectors
+    for ($px = 0; $px < $this->size_x; $px++){
+      $this->map[$px][0] = $this->map[$px][1];
+      $this->map[$px][$this->size_y - 1] = $this->map[$px][$this->size_y - 2];
+    }
+
+    ////// Even left and right outside sectors
+    for ($py = 0; $py < $this->size_y; $py++){
+      $this->map[0][$py] = $this->map[1][$py];
+      $this->map[$this->size_x - 1][$py] = $this->map[$this->size_x - 2][$py];
+    }
+
+    for ($py = 0; $py < $this->size_y; $py++){
+      echo "\n\t\t";
+      for ($px = 0; $px < $this->size_x; $px++)
+        printf("%02x ", $this->map[$px][$py]);
+    }
+?> 
+  blg_map =
+    <?=$this->size_x.' '.$this->size_y ?>
+<?php
+    $this->reset_map();
+    
+    // Giving PowerStation to EnemyStations
+    $present_factions = $this->present_factions();
+    foreach ($present_factions as $faction) {
+      $faction_hosts = $this->num_hosts[$faction];
+      
+      for ($i = 0; $i < $faction_hosts; $i++) {
+        $x = $this->host_x[$faction][$i];
+        $y = $this->host_y[$faction][$i];
+
+        switch ($faction) {
+          case 'sul':
+          case 'myk':
+            $blg = 10;
+          break;
+          case 'tae':
+            $blg = 17;
+          break;
+          case 'bla':
+            $blg = 14;
+          break;
+          case 'gho':
+            $blg = 12;
+          break;
+          // default:
+          //   $blg = 10;
+          // break;
+        }
+
+        $this->map[$x][$y] = $blg;
+
+      }
+    }
+
+    for ($py = 0; $py < $this->size_y; $py++){
+      echo "\n\t\t";
+      for($px = 0; $px < $this->size_x; $px++)
+        printf("%02x ", $this->map[$px][$py]);
+    }
+?> 
 end ; end of maps
 <?php   
     
@@ -322,16 +460,16 @@ end
       $test_x = $this->rx();
       $test_y = $this->ry();
       $invalid_position = false;
-      $present_factions = $this->present_factions() + ['res'];
+      $present_factions = array_merge(array('res'), $this->present_factions());
 
       foreach($present_factions as $faction){
         // if($faction != $new_station_faction){ // Verify just against Enemy
           if($faction == 'res')
-            $faction_num_hosts = 1;
+            $faction_hosts = 1;
           else
-            $faction_num_hosts = $this->num_hosts[$faction];
+            $faction_hosts = $this->num_hosts[$faction];
 
-          for($c = 0; $c < $faction_num_hosts; $c++){
+          for($c = 0; $c < $faction_hosts; $c++){
             if(sqrt(pow($this->host_x[$faction][$c] - $test_x, 2) + pow($this->host_y[$faction][$c] - $test_y, 2)) < 4){ // Too close
               $invalid_position = true;
               break;
@@ -427,183 +565,62 @@ end
 <?php
   }
 
-  //------------------------------------------ 
-
-  function build_maps(){
-
-    ///////////////////// typ
-
-    # definition
-    echo "\t".'typ_map ='."\n\t".$this->size_x.' '.$this->size_y."\n";
-
-    # 1era fila
-    echo "\t\t".'f8 ';
-    for($c = 0; $c < $this->size_x - 2; $c++)
-      echo 'fc ';
-    echo 'f9'."\n";
-
-    # body
-    for($c = 0; $c < $this->size_y - 2; $c++){
-      echo "\t\tff";
-      for($c2 = 0; $c2 < $this->size_x - 2; $c2++)
-        printf(" %02x", $this->pick($this->slots[$this->set]));
-      echo " fd\n";
-    }
-
-    # ultima fila
-    echo "\t\t".'fb';
-    for ($c = 0; $c < $this->size_x-2; $c++)
-      echo ' fe';
-    echo ' fa'."\n";
-    
-    ///////////////////// own
-
-    # definition
-    echo "\t".'own_map ='."\n\t".$this->size_x.' '.$this->size_y."\n";
-
-    # inicializado en 0
-    $map = array_fill(0, $this->size_x - 1, array_fill(0, $this->size_y - 1, 0));
-    $ideal_territory = ($this->size_x - 2) * ($this->size_y - 2) * 3 / 2 * array_sum($this->num_hosts); // i (n?mero ideal de sectores para cada raza) = ?ea total de sectores / n?mero total de HostStations + 30%
-
-    # Mapear colores
-    $this->make_territory('res');
-    $this->make_territory('sul');
-    $this->make_territory('myk');
-    $this->make_territory('tae');
-    $this->make_territory('bla');
-    $this->make_territory('gho');
-
-    # Imprimir mapa
-    for($c = 0; $c < $this->size_y; $c++){
-      echo "\t\t";
-
-      for($c2 = 0; $c2 < $this->size_x; $c2++){
-        printf("%02d ", $map[$c2][$c]);
-      }
-
-      echo "\n";
-    }
-    
-    ///////////////////// hgt 
-
-    echo "\t".'hgt_map ='."\n\t".$this->size_x.' '.$this->size_y."\n";
-    $x = $y = 1;
-    $base_height = 50 + (rand(0, 50) - 25);
-
-    for ($c = 1; $c < $this->size_y - 1; $c++){
-      for ($c2 = 1; $c2 < $this->size_x - 1; $c2++){
-        $map[$c2][$c] = $base_height;
-        $this->calculate_adjacent_height($base_height, $c2, $c);
-
-        if ($map[$c2 - 1][$c] != 0 && $map[$c2 - 1][$c] != 1)
-          $height = $map[$c2-1][$c] + rand(0, 5) - 2;
-      }
-    }
-
-    ////// Igualar bordes horizontales
-    for ($c = 0; $c < $this->size_x; $c++){
-      $map[$c][0] = $map[$c][1];
-      $map[$c][$this->size_y - 1] = $map[$c][$this->size_y - 2];
-    }
-
-    ////// Igualar bordes verticales
-    for ($c = 0; $c < $this->size_y; $c++){
-      $map[0][$c] = $map[1][$c];
-      $map[$this->size_x - 1][$c] = $map[$this->size_x - 2][$c];
-    }
-
-    for ($c = 0; $c < $this->size_y; $c++){
-      echo "\t\t";
-      for ($c2 = 0; $c2 < $this->size_x; $c2++)
-        printf("%02x ", $map[$c2][$c]);
-      echo "\n";
-    }
-
-    ///////////////////// blg
-    
-    echo "\t".'blg_map ='."\n";
-    echo "\t".$this->size_x.' '.$this->size_y."\n";
-
-    // Giving PowerStation to EnemyStations
-    for ($c = 0; $c < $this->size_y; $c++){
-      for ($c2 = 0; $c2 < $this->size_x; $c2++){
-        for($c3 = 0; $c3 < 3; $c3++){
-          if ($c2 == $this->host_x['sul'][$c3] && $c == $this->host_y['sul'][$c3])
-            $blg[$c2][$c] = 10;
-          if ($c2 == $this->host_x['myk'][$c3] && $c == $this->host_y['myk'][$c3])
-            $blg[$c2][$c] = 10;
-          if ($c2 == $this->host_x['tae'][$c3] && $c == $this->host_y['tae'][$c3])
-            $blg[$c2][$c] = 17;
-          if ($c2 == $this->host_x['bla'][$c3] && $c == $this->host_y['bla'][$c3])
-            $blg[$c2][$c] = 14;
-          if ($c2 == $this->host_x['gho'][$c3] && $c == $this->host_y['gho'][$c3])
-            $blg[$c2][$c] = 12;
-        }
-      }
-    }
-
-    for ($c = 0; $c < $this->size_y; $c++){
-      echo "\t\t";
-      for($c2 = 0; $c2 < $this->size_x; $c2++)
-        printf("%02x ", $blg[$c2][$c]);
-      echo "\n";
-    }
-  }
-
   //---------------------------------
 
-  function make_territory($faction){ //nr = n?mero identificador de raza, cr = cantidad de HostStations de esa raza
-    $faction_num_hosts = $this->num_hosts[$faction];
-    if(!$faction_num_hosts) return;
-
+  function make_territory($faction){
+    $faction_hosts = $this->num_hosts[$faction];
     $fid = $this->fid($faction);
     
-    do {
-      # Coordenadas de la HostStation
-      $x = $this->host_x[$faction][$faction_num_hosts - 1];
-      $y = $this->host_y[$faction][$faction_num_hosts - 1];
+    for($fh = 0; $fh < $faction_hosts; $fh++){
+      # Stations coordinates
+      $x = $this->host_x[$faction][$fh];
+      $y = $this->host_y[$faction][$fh];
       
       $this->adjacent_territory($fid, $x, $y); 
 
-      for($c = 0; $c < $ideal_territory; $c++){
+      for($i = 0; $i < $this->ideal_territory; $i++){
         if (rand(0, 1)){
           # Elige nuevo pivote
-          $x = $x + (rand(0, 3) - 1);
-          $y = $y + (rand(0, 3) - 1);
+          $x = $x + (rand(0, 2) - 1);
+          $y = $y + (rand(0, 2) - 1);
+
+          if($x < 1) $x = 1;
+          if($x > $this->size_x - 1) $x = $this->size_x - 1;
+
+          if($y < 1) $y = 1;
+          if($y > $this->size_y - 1) $y = $this->size_y - 1;
+
           $this->adjacent_territory($fid, $x, $y);
         }
       }
-
-      $faction_num_hosts--;
-    } while($faction_num_hosts > 0);
+    }
   }
 
-  //////////////////////// Funci? que asinga el valor alrededor del punto inicial
-  
+  # Sets the values around the pivot
   function adjacent_territory($fid, $x, $y){
-    $map[$x - 1][$y - 1]  = $fid;
-    $map[$x - 1][$y]      = $fid;
-    $map[$x][$y - 1]      = $fid;
-    $map[$x + 1][$y + 1]  = $fid;
-    $map[$x + 1][$y]      = $fid;
-    $map[$x][$y + 1]      = $fid;
-    $map[$x + 1][$y - 1]  = $fid;
-    $map[$x - 1][$y + 1]  = $fid;
+    $this->map[$x - 1][$y - 1]  = $fid;
+    $this->map[$x - 1][$y]      = $fid;
+    $this->map[$x][$y - 1]      = $fid;
+    $this->map[$x + 1][$y + 1]  = $fid;
+    $this->map[$x + 1][$y]      = $fid;
+    $this->map[$x][$y + 1]      = $fid;
+    $this->map[$x + 1][$y - 1]  = $fid;
+    $this->map[$x - 1][$y + 1]  = $fid;
   }
 
-  /////////////////////////////////////
+  //---------------------------------------------------------------------
 
   function calculate_adjacent_height($height, $x2, $y2){
-    $map[$x2 - 1][$y2]      = $height + (rand(0, 6) - 3);
-    $map[$x2][$y2 - 1]      = $height + (rand(0, 6) - 3);
-    $map[$x2 + 1][$y2 + 1]  = $height + (rand(0, 6) - 3);
-    $map[$x2 + 1][$y2]      = $height + (rand(0, 6) - 3);
-    $map[$x2][$y2 + 1]      = $height + (rand(0, 6) - 3);
-    $map[$x2 + 1][$y2 - 1]  = $height + (rand(0, 6) - 3);
-    $map[$x2 - 1][$y2 + 1]  = $height + (rand(0, 6) - 3);
+    $this->map[$x2 - 1][$y2]      = $this->new_height($height);
+    $this->map[$x2][$y2 - 1]      = $this->new_height($height);
+    $this->map[$x2 + 1][$y2 + 1]  = $this->new_height($height);
+    $this->map[$x2 + 1][$y2]      = $this->new_height($height);
+    $this->map[$x2][$y2 + 1]      = $this->new_height($height);
+    $this->map[$x2 + 1][$y2 - 1]  = $this->new_height($height);
+    $this->map[$x2 - 1][$y2 + 1]  = $this->new_height($height);
   }
 
-  ///////////////////////////////////////////////////////////////
+  //---------------------------------------------------------------------
 
   function cmpg(){
   /*

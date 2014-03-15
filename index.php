@@ -273,7 +273,7 @@ begin_maps
     ///// OWN
     # Initialized in 7 = Neutral
     $this->reset_map();
-    # Ideal number of sectors per race = playable area / number of stations + 40%
+    # Ideal number of sectors per race = playable area / number of stations + 60%
     $this->ideal_territory = ($this->size_x - 2) * ($this->size_y - 2) / array_sum($this->num_hosts) * 1.6;
 
     # Mapear

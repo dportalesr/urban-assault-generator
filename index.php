@@ -23,7 +23,7 @@
 
 class Urbanassault {
   var $fh;
-  var $debug = true;
+  var $debug = false;
   var $levels = array(1,2,3,4,5,10,11,12,15,20,21,22,23,25,26,30,31,32,33,34,40,41,42,43,44,50,51,52,53,54,60,61,62,63,64,66,70,71,72,73,74,75); #DEBUG: 98, 99 
   var $level_childs = array(
     1     => array(2,3),      # Central Park
@@ -80,7 +80,7 @@ class Urbanassault {
   );
 
   var $vehicles = array(
-    'res' => array(1,2,3,4,5,6,7,  9,10,11,12,  14,15,16,  133,134),
+    'res' => array(1,2,3,4,5,6,7,  9,10,11,12,  14,15,16), #134,135 Resistance Broinjest and Giant
     'sul' => array(71,72,73,74),
     'myk' => array(63,64,65,66,67,68,69,70),
     'tae' => array(8,  32,33,34,35,36,37,38,  131),
@@ -157,10 +157,11 @@ class Urbanassault {
   function pick($arr){ return $arr[array_rand($arr)]; }
   function reset_map($reset_value = 0){ $this->map = array_fill(0, $this->size_x, array_fill(0, $this->size_y, $reset_value)); }
   function new_height($height){
-    $new_height = $height + (rand(0, 6) - 3);
-    if($new_height < 0) $new_height = 0;
+    $height += rand(0, 4) - 2;
+    if($height < 0) $height = 0;
+    if($height > 255) $height = 255;
 
-    return $new_height;
+    return $height;
   }
 
   function make_level($level_id = 1){
@@ -400,7 +401,7 @@ begin_maps
     for ($py = 1; $py < $this->size_y - 1; $py++){
       for ($px = 1; $px < $this->size_x - 1; $px++){
         $this->map[$px][$py] = $height;
-        $this->calculate_adjacent_height($height, $px, $py);
+        $this->set_adjacent_height($height, $px, $py);
 
         # New base height
         $height += rand(0, 4) - 2;
@@ -670,7 +671,7 @@ end
 
   //---------------------------------------------------------------------
 
-  function calculate_adjacent_height($height, $x2, $y2){
+  function set_adjacent_height($height, $x2, $y2){
     $this->map[$x2 - 1][$y2]      = $this->new_height($height);
     $this->map[$x2][$y2 - 1]      = $this->new_height($height);
     $this->map[$x2 + 1][$y2 + 1]  = $this->new_height($height);

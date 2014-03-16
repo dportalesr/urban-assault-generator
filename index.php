@@ -503,9 +503,9 @@ end ; end of maps
 begin_robo
   owner         = <?=$this->fid($faction) ?> 
   vehicle       = <?=$host_vehicle ?> 
-  pos_x         = <?=((12 * $x) + 6) * 100 ?> 
+  pos_x         = <?=$this->x($x) ?> 
   pos_y         = <?=(20 + rand(0, 25)) * -10 ?> 
-  pos_z         = <?=((12 * $y) + 6) * -100 ?> 
+  pos_z         = <?=$this->y($y) ?> 
   energy        = <?=$energy ?> 
   reload_const  = <?=$reload_const ?> 
   con_budget    = <?=rand(0, 50) + 50    ?> 

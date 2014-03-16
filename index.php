@@ -136,6 +136,11 @@ class Urbanassault {
 
   function init($level_id){ # Initializer for each level
     $this->level_id = $level_id;
+
+    $this->startup_value = '2';
+    if($this->level_id == 1)
+      $this->startup_value = '';
+
     $this->fh = fopen('L'.sprintf('%02d%02d',$this->level_id,$this->level_id).'.ldf', 'w');
 
     $this->num_hosts = array_fill_keys($this->factions, 0);
@@ -296,7 +301,7 @@ end
     }
 ?>
 ; Prototype Modifications
-include data:scripts/startup2.scr
+include data:scripts/startup<?=$this->startup_value?>.scr
 
 <?php
     ///// Prototype Enabling
@@ -610,7 +615,7 @@ begin_squad
   vehicle   = <?=$vehicle ?> 
   num       = <?=$squad_size ?> 
   pos_x     = <?=$this->x($pos_x) ?> 
-  pos_y     = <?=$this->y($pos_y) ?> 
+  pos_z     = <?=$this->y($pos_y) ?> 
   <?=$mb_status ?> 
 end 
 

@@ -23,7 +23,53 @@
 
 class Urbanassault {
   var $fh;
-  var $debug = true;
+  var $debug = false;
+  var $levels = array(1,2,3,4,5,10,11,12,15,20,21,22,23,25,26,30,31,32,33,34,40,41,42,43,44,50,51,52,53,54,60,61,62,63,64,66,70,71,72,73,74,75); #DEBUG: 98, 99 
+  var $level_childs = array(
+    1     => array(2,3),      # Central Park
+    2     => array(4),        # Virgin Steel
+    3     => array(5),        # Skull Alley
+    4     => array(10),       # Checker Board
+    5     => array(11,12),    # Surprise!
+    10    => array(20),       # Labyrinth
+    11    => array(21),       # Dark Valley
+    12    => array(22,23),    # Fort Grenada
+    15    => array(),         # Parasite City
+    20    => array(30,34),    # Hard Thing
+    21    => array(31),       # Drak
+    22    => array(32),       # Pedestal Mountain
+    23    => array(33),       # Taerkastik
+    25    => array(),         # Training 1
+    26    => array(),         # Training 2
+    30    => array(40),       # No Man's Land
+    31    => array(41),       # Hurz 
+    32    => array(42),       # Great Confusion
+    33    => array(43),       # Stonehenge
+    34    => array(40,44),    # Two Hills
+    40    => array(50,51),    # Moonlight City
+    41    => array(52),       # Wide Field
+    42    => array(53),       # Peacemaker
+    43    => array(54),       # Command and Taerkast
+    44    => array(50),       # Assi's Way
+    50    => array(60),       # Death Valley
+    51    => array(66),       # Dark Zone
+    52    => array(61,62),    # Hamburger Hill
+    53    => array(63),       # Sulog's Rising
+    54    => array(64),       # Sulog's Fine Thread
+    60    => array(70),       # Mykophobia
+    61    => array(75),       # Sibuna
+    62    => array(72),       # Maze Wayz
+    63    => array(73),       # Blue Casbah
+    64    => array(74),       # Taer or Black Wadi
+    66    => array(71),       # Gaunlet
+    70    => array(15),       # Desert of Madness
+    71    => array(15),       # Smile
+    72    => array(15),       # Industrial Centre
+    73    => array(15),       # Slaughter Field
+    74    => array(15),       # Mission Possible
+    75    => array(15)        # The Loong Way
+  ); #DEBUG: 98, 99 
+
   var $slots = array(
     1 => array(0,1,2,5,6,7,8,9,10,11,12,13,16,17,18,19,20,21,22,23,24,25,26,27,28,29,31,32,33,34,35,36,37,38,39,40,41,44,50,51,59,67,70,71,72,74,75,76,77,78,80,81,82,95,96,97,98,99,100,130,131,132,133,134,135,136,137,138,139,150,151,153,154,155,157,159,160,161,162,163,164,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,198,232,233,234,235,236),
     2 => array(0,1,2,5,6,7,8,9,11,12,13,16,17,18,19,20,21,22,23,24,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,65,66,67,68,69,70,71,72,75,76,77,78,80,81,82,83,87,89,90,92,93,94,95,97,99,100,120,121,122,123,124,125,126,127,128,129,130,131,133,150,151,152,153,155,158,159,160,161,162,163,167,168,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,198,199,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225),
@@ -43,12 +89,12 @@ class Urbanassault {
   );
 
   var $buildings = array(
-    'res' => array(),
+    'res' => array(1,2,3,11,28,54,63,64),
     'sul' => array(),
-    'myk' => array(10,13,33,34,72),
-    'tae' => array(17,20,21,31,53,73),
-    'bla' => array(63,1,18,3,30,52,8,12,60,22,71,53,17,31,20,21,73,10,13,33,34,72),
-    'gho' => array(30,52,8,12,60,22,71),
+    'myk' => array(10,13,72), # 33, 34
+    'tae' => array(17,31,53,73), # 20, 21
+    'bla' => array(18),
+    'gho' => array(30,52,12,71), # 22, 8, 60, 18
   );
 
   var $skies = array('1998_01', '1998_02', '1998_03', '1998_05', '1998_06', 'Am_1', 'Am_2', 'Am_3', 'Arz1', 'Asky2', 'Braun1', 'Ct6', 'H', 'H7', 'Haamitt1', 'Haamitt4', 'Mod2', 'Mod4', 'Mod5', 'Mod7', 'Mod8', 'Mod9', 'Moda', 'Modb', 'Nacht1', 'Nacht2', 'Newtry5', 'Nosky', 'Nt1', 'Nt2', 'Nt3', 'Nt5', 'Nt6', 'Nt7', 'Nt8', 'Nt9', 'Nta', 'S3_1', 'S3_4', 'Smod1', 'Smod2', 'Smod3', 'Smod4', 'Smod5', 'Smod6', 'Smod7', 'Smod8', 'Sterne', 'wow1', 'wow5', 'wow7', 'wow8', 'wow9', 'wowa', 'wowb', 'wowc', 'wowd', 'wowe', 'wowf', 'wowh', 'wowi', 'wowj', 'x1', 'x2', 'x4', 'x5', 'x7', 'x8', 'x9', 'xa', 'xb', 'xc');
@@ -61,8 +107,37 @@ class Urbanassault {
   var $host_x;
   var $host_y;
 
-  function __construct(){
-    $this->fh = fopen('level.ldf', 'w');
+  function __construct($mode = 'campaing'){
+    if($this->debug) $mode = 'single';
+
+    // 'Steal' vehicles and buildings for black sect 
+    foreach ($this->factions as $faction) {
+      if($faction != 'bla'){
+        $this->vehicles['bla'] = array_merge($this->vehicles['bla'], $this->vehicles[$faction]);
+        $this->buildings['bla'] = array_merge($this->vehicles['bla'], $this->buildings[$faction]);
+      }
+    }
+
+    if(is_string($mode)){
+      if($mode == 'single')
+        $levels = array(1);
+      elseif ($mode == 'campaing') {
+        $levels = $this->levels;
+      }
+    } elseif (is_array($mode)) {
+      $levels = $mode;
+    }
+
+
+    foreach ($levels as $level_id) {
+      $this->make_level($level_id);
+    }
+  }
+
+  function init($level_id){ # Initializer for each level
+    $this->level_id = $level_id;
+    $this->fh = fopen('L'.sprintf('%02d%02d',$this->level_id,$this->level_id).'.ldf', 'w');
+
     $this->num_hosts = array_fill_keys($this->factions, 0);
     $this->host_x = array_fill_keys($this->factions, array());
     $this->host_y = array_fill_keys($this->factions, array());
@@ -83,7 +158,9 @@ class Urbanassault {
     return $new_height;
   }
 
-  function make_level($mode){
+  function make_level($level_id = 1){
+    $this->init($level_id);
+
     if($this->debug){
       echo '<pre>';
     } else {
@@ -99,7 +176,7 @@ class Urbanassault {
     $this->set = rand(1, 6); // Map type
 ?>
 begin_level
-  set     = <?=$this->set ?>
+  set     = <?=$this->set ?> 
   sky     = objects/<?=$this->pick($this->skies) ?>.base
   slot0   = palette/standard.pal
   slot1   = palette/red.pal
@@ -122,31 +199,37 @@ begin_dbmap
 end
 
 ; Beam Gates
+<?php
+    foreach ($this->level_childs[$this->level_id] as $target_level) {
+?>
 begin_gate
   sec_x         = <?=$this->rx()?> 
   sec_y         = <?=$this->ry()?> 
   closed_bp     = 5
   opened_bp     = 6
-  target_level  = 1 ;TODO: Hacer lista de los Target Levels para escoger.. 
+  target_level  = <?=$target_level ?> 
 <?php
-    for($ks = 0; $ks < 6; $ks++){
-      if(rand(0, 1)){
+      for($ks = 0; $ks < 6; $ks++){
+        if(rand(0, 1)){
 ?>
   keysec_x      = <?=$this->rx() ?> 
   keysec_y      = <?=$this->ry() ?> 
 <?php
+        }
       }
-    }
 ?>
   mb_status     = unknown 
 end
+<?php      
+    }
+?>
 
 ; Player Host Station
 <?php
     $resistance_x = $this->x($this->host_x['res'][0] = $this->rx());
     $resistance_y = $this->y($this->host_y['res'][0] = $this->ry());
     $energy       = (6 + rand(0, 6)) * 100000; // x 100,000 / 4 = [1200 - 3000]
-    $reload_const = ((($energy - 550000)/4) + 550000) /4; // Drak constant = 550,000
+    $reload_const = floor(((($energy - 550000)/4) + 550000) /4); // Drak constant = 550,000
 ?>
 begin_robo
   owner         = 1 
@@ -217,6 +300,7 @@ include data:scripts/startup2.scr
 
 <?php
     ///// Prototype Enabling
+    $present_factions = $this->present_factions();
     foreach ($this->present_factions() as $faction) {
       $fid = $this->fid($faction);
 ?>
@@ -357,14 +441,11 @@ begin_maps
             $blg = 17;
           break;
           case 'bla':
-            $blg = 14;
+            $blg = 11;
           break;
           case 'gho':
             $blg = 12;
           break;
-          // default:
-          //   $blg = 10;
-          // break;
         }
 
         $this->map[$x][$y] = $blg;
@@ -412,7 +493,7 @@ end ; end of maps
           $station_added = true;
 
           $energy = (80 + rand(0, 60)) * 10000; // HostStation energy (min 2000, max 3500)
-          $reload_const = (($energy - 500000)/ 3) + 500000; // Drak constant = 500,000
+          $reload_const = floor((($energy - 500000)/ 3) + 500000); // Drak constant = 500,000
 
           if($faction == 'gho')
             $host_vehicle = rand(0, 1) ? 59 : 57; // Variable
@@ -488,42 +569,13 @@ end
 
   function add_squad(){
     $faction = $this->pick($this->present_factions());
+    $vehicle = $this->pick($this->vehicles[$faction]);
 
-    switch ($faction){
-      case 'res':
-        do {
-          $vehicle = $this->pick($this->vehicles[$faction]);
-          $squad_size = ($vehicle == 9) ? 1 : rand(0,10) + 1; # Si es un Scout sólo se asigna 1 unidad
-        } while($vehicle == 13);
-      break;
-      
-      case 'sul':
-        $vehicle = rand(0,3) + 71;
-        $squad_size = ($vehicle == 74) ? 1 : rand(0,9) + 1;
-      break;
+    if(in_array($vehicle, array(9,74,67,35,29))) # If it's a scout
+      $squad_size = 1;
+    else
+      $squad_size = rand(1,12);
 
-      case 'myk':
-        $vehicle = rand(0,7) + 63;
-        $squad_size = ($vehicle == 67) ? 1 : rand(0,9) + 1;
-      break;
-
-      case 'tae':
-        $vehicle = rand(0,6)?rand(0,6) + 32:(rand(0,3)?8:131);
-        $squad_size = ($vehicle == 35) ? 1 : rand(0,9) + 1;
-      break;
-
-      case 'bla':
-        $vehicle = rand(0,1)?rand(0,15) + 1:(rand(0,1)?rand(0,9) + 22:(rand(0,5)?rand(0,11) + 63:rand(0,1) + 130));
-        $squad_size = (array_search($vehicle,array(9,74,67,35,29))!== false) ? 1 : rand(0,10) + 1; # Si es cualquiera de los scouts..
-      break;
-
-      case 'gho':
-        $vehicle = rand(0,7)?rand(0,10) + 22:130;
-        $squad_size = ($vehicle == 29) ? 1 : rand(0,10) + 1;
-      break;
-
-    }
-    
     // Don't locate squads on same sector as enemy Host Stations
     do {
       $invalid_position = false;
@@ -554,7 +606,7 @@ end
       $mb_status = 'mb_status = unknown';
 ?>
 begin_squad
-  owner     = <?=$fid ?> 
+  owner     = <?=$this->fid($faction) ?> 
   vehicle   = <?=$vehicle ?> 
   num       = <?=$squad_size ?> 
   pos_x     = <?=$this->x($pos_x) ?> 
@@ -619,27 +671,7 @@ end
     $this->map[$x2 + 1][$y2 - 1]  = $this->new_height($height);
     $this->map[$x2 - 1][$y2 + 1]  = $this->new_height($height);
   }
-
-  //---------------------------------------------------------------------
-
-  function cmpg(){
-  /*
-    char *nam;
-    for(cg=1;cg<76;cg++){
-      if((cg>9&&cg<13)||(cg>19&&cg<24)||(cg>24&&cg<27)||(cg>29&&cg<35)||(cg>39&&cg<45)||(cg>49&&cg<55)||(cg>59&&cg<65)||(cg>69&&cg<76)||(cg==15)||(cg==66)){
-        itoa(cg,nam,10);
-        lvlname=strcat(strcat(strcat("l",nam),nam),".ldf");
-      }
-      if(cg>0&&cg<6){
-        itoa(cg,nam,10);
-        lvlname=strcat(strcat(strcat(strcat("l0",nam),"0"),nam),".ldf");
-      }
-      qk();
-    }
-  */
-  }
 }
 
-$ua = new Urbanassault(); 
-$ua->make_level('single');
+new Urbanassault(); 
 ?>

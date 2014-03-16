@@ -23,7 +23,7 @@
 
 class Urbanassault {
   var $fh;
-  var $debug = false;
+  var $debug = true;
   var $levels = array(1,2,3,4,5,10,11,12,15,20,21,22,23,25,26,30,31,32,33,34,40,41,42,43,44,50,51,52,53,54,60,61,62,63,64,66,70,71,72,73,74,75); #DEBUG: 98, 99 
   var $level_childs = array(
     1     => array(2,3),      # Central Park
@@ -324,7 +324,7 @@ begin_enable <?=$fid?>
   building  = <?=$building?> 
 <?php
       }
-?> 
+?>
 end ; end of enable
 
 <?php
@@ -335,27 +335,28 @@ end ; end of enable
 ?>
 begin_maps 
   typ_map = 
-  <?=$this->size_x.' '.$this->size_y ?> 
+    <?=$this->size_x.' '.$this->size_y ?>
 <?php
     ///// TYP
     # top
-    echo "\n\t\tf8 ";
+    echo "\n    f8 ";
     for($px = 0; $px < $this->size_x - 2; $px++){ echo 'fc '; }
     echo 'f9';
 
     # body
     for($py = 0; $py < $this->size_y - 2; $py++){
-      echo "\n\t\tff ";
+      echo "\n    ff ";
       for($px = 0; $px < $this->size_x - 2; $px++){ printf("%02x ", $this->pick($this->slots[$this->set])); }
       echo 'fd';
     }
 
     # bottom
-    echo "\n\t\tfb ";
+    echo "\n    fb ";
     for ($px = 0; $px < $this->size_x - 2; $px++){ echo 'fe '; }
     echo 'fa';
 
 ?> 
+
   own_map =
     <?=$this->size_x.' '.$this->size_y ?>
 <?php    
@@ -383,10 +384,11 @@ begin_maps
 
     # Imprimir mapa
     for($py = 0; $py < $this->size_y; $py++){
-      echo "\n\t\t";
+      echo "\n    ";
       for($px = 0; $px < $this->size_x; $px++){ printf("%02d ", $this->map[$px][$py]); }
     }
 ?> 
+
   hgt_map =
     <?=$this->size_x.' '.$this->size_y ?>
 <?php
@@ -418,11 +420,12 @@ begin_maps
     }
 
     for ($py = 0; $py < $this->size_y; $py++){
-      echo "\n\t\t";
+      echo "\n    ";
       for ($px = 0; $px < $this->size_x; $px++)
         printf("%02x ", $this->map[$px][$py]);
     }
 ?> 
+
   blg_map =
     <?=$this->size_x.' '.$this->size_y ?>
 <?php
@@ -459,7 +462,7 @@ begin_maps
     }
 
     for ($py = 0; $py < $this->size_y; $py++){
-      echo "\n\t\t";
+      echo "\n    ";
       for($px = 0; $px < $this->size_x; $px++)
         printf("%02x ", $this->map[$px][$py]);
     }
@@ -608,7 +611,7 @@ end
     $mb_status = '';
 
     if(rand(0, 2))
-      $mb_status = 'mb_status = unknown';
+      $mb_status = "  mb_status = unknown\r\n";
 ?>
 begin_squad
   owner     = <?=$this->fid($faction) ?> 
@@ -616,7 +619,7 @@ begin_squad
   num       = <?=$squad_size ?> 
   pos_x     = <?=$this->x($pos_x) ?> 
   pos_z     = <?=$this->y($pos_y) ?> 
-  <?=$mb_status ?> 
+<?=$mb_status ?>
 end 
 
 <?php

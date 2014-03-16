@@ -114,7 +114,7 @@ class Urbanassault {
     foreach ($this->factions as $faction) {
       if($faction != 'bla'){
         $this->vehicles['bla'] = array_merge($this->vehicles['bla'], $this->vehicles[$faction]);
-        $this->buildings['bla'] = array_merge($this->vehicles['bla'], $this->buildings[$faction]);
+        $this->buildings['bla'] = array_merge($this->buildings['bla'], $this->buildings[$faction]);
       }
     }
 

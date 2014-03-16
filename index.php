@@ -89,11 +89,11 @@ class Urbanassault {
   );
 
   var $buildings = array(
-    'res' => array(1,2,3,11,28,54,63,64),
-    'sul' => array(),
+    'res' => array(11,63,2,28,3), # Only tier 1 buildings
+    'sul' => array(10),
     'myk' => array(10,13,72), # 33, 34
     'tae' => array(17,31,53,73), # 20, 21
-    'bla' => array(18),
+    'bla' => array(18,1,54,64), # 1,54,64 = Resistance upgraded buildings
     'gho' => array(30,52,12,71), # 22, 8, 60, 18
   );
 
@@ -305,8 +305,8 @@ include data:scripts/startup<?=$this->startup_value?>.scr
 
 <?php
     ///// Prototype Enabling
-    $present_factions = $this->present_factions();
-    foreach ($this->present_factions() as $faction) {
+    $present_factions = array_merge(array('res'),$this->present_factions());
+    foreach ($present_factions as $faction) {
       $fid = $this->fid($faction);
 ?>
 begin_enable <?=$fid?> 

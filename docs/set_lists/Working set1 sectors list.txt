@@ -1,0 +1,181 @@
+------------------------------------------------------------------
+Terrain code list (Set 1)
+There are 176 sectors available
+------------------------------------------------------------------
+
+001	- 00 x
+002	- 01 x
+003	- 02 x
+004	- 03 x (beam gate on open field closed)
+005	- 04 x (beam gate on open field open)
+006	- 05 x
+007	- 06 x
+008	- 07 x
+009	- 08 x
+010	- 09 x
+011	- 0a x
+012	- 0b x
+013	- 0c x
+014	- 0d x
+015	- 0e x
+016	- 0f x
+017	- 10 x
+018	- 11 x
+019	- 12 x
+020	- 13 x
+021	- 14 x
+022	- 15 x
+023	- 16 x
+024	- 17 x
+025	- 18 x
+026	- 19 x
+027	- 1a x
+028	- 1b x
+029	- 1c x
+030	- 1d x
+031	- 1e x
+032	- 1f x
+033	- 20 x
+034	- 21 x
+035	- 22 x
+036	- 23 x
+037	- 24 x
+038	- 25 x
+039	- 26 x
+040	- 27 x
+041	- 28 x
+042	- 29 x
+043	- 2a x
+044	- 2b x
+045	- 2c x
+046	- 2d x
+047	- 2e x
+048	- 2f x
+049	- 30 x
+050	- 31 x
+051	- 32 x
+052	- 33 x
+053	- 34 x
+054	- 35 x
+060	- 3b x (mountain)
+067	- 42 x
+068	- 43 x
+069	- 44 x
+070	- 45 x
+071	- 46 x
+072	- 47 x
+073	- 48 x
+074	- 49 x (tech upgrade with flaks)
+075	- 4a x
+076	- 4b x
+077	- 4c x
+078	- 4d x
+079	- 4e x
+080	- 4f x (for small flaks)
+081	- 50 x
+082	- 51 x
+083	- 52 x
+096	- 5f x
+097	- 60 x
+098	- 61 x
+099	- 62 x
+100	- 63 x
+101	- 64 x (new vehicle tech upgrade)
+102	- 65 x (tech upgrade)
+103	- 66 x (tech upgrade)
+104	- 67 x (new building tech upgrade)
+105	- 68 x (tech upgrade)
+111	- 6e x (tech upgrade)
+112	- 6f x (tech upgrade, never used on single player levels)
+113	- 70 x (tech upgrade)
+114	- 71 x (tech upgrade)
+121	- 78 x
+122	- 79 x
+131	- 82 x
+132	- 83 x
+133	- 84 x
+134	- 85 x
+135	- 86 x
+136	- 87 x
+137	- 88 x
+138	- 89 x
+139	- 8a x
+140	- 8b x
+141	- 8c x
+142	- 8d x
+151	- 96 x
+152	- 97 x
+153	- 98 x
+154	- 99 x
+155	- 9a x
+156	- 9b x
+157	- 9c x
+158	- 9d x
+159	- 9e x
+160	- 9f x
+161	- a0 x
+162	- a1 x
+163	- a2 x
+164	- a3 x
+165	- a4 x
+166	- a5 x
+167	- a6 x
+168	- a7 x
+169	- a8 x
+170	- a9 x
+171	- aa x
+172	- ab x
+173	- ac x
+174	- ad x
+175	- ae x
+176	- af x
+177	- b0 x
+178	- b1 x
+179	- b2 x
+180	- b3 x
+181	- b4 x
+182	- b5 x
+183	- b6 x
+184	- b7 x
+185	- b8 x
+186	- b9 x
+187	- ba x
+188	- bb x
+189	- bc x
+190	- bd x
+199	- c6 x (for the flaks on horizontal)
+200	- c7 x (for the flaks on vertical)
+201	- c8 x
+202	- c9 x
+203	- ca x (beam gate with roads closed)
+204	- cb x (beam gate with roads open)
+205	- cc x
+206	- cd x
+208	- cf x
+209	- d0 x
+229	- e4 x
+230	- e5 x
+231	- e6 x
+232	- e7 x
+233	- e8 x
+234	- e9 x
+235	- ea x
+236	- eb x
+237	- ec x
+240	- ef x
+241	- f0 x
+242	- f1 x
+243	- f2 x
+244	- f3 x (Stoudson Sector 1)
+245	- f4 x (Stoudson Sector 2)
+246	- f5 x (Stoudson Bomb inactive)
+247	- f6 x (Stoudson Bomb activated)
+248	- f7 x (Stoudson Bomb already exploded)
+249	- f8 x (wall limit upper left corner)
+250	- f9 x (wall limit upper right corner)
+251	- fa x (wall limit lower right corner)
+252	- fb x (wall limit lower left corner)
+253	- fc x (wall limit vertical north)
+254	- fd x (wall limit horizontal east)
+255	- fe x (wall limit vertical south)
+256	- ff x (wall limit horizontal west)

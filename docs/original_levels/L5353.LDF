@@ -1,0 +1,381 @@
+;#*+ don't edit the magic runes
+
+;------------------------------------------------------------
+;--- Machine Generated Level Description File             ---
+;------------------------------------------------------------
+
+;------------------------------------------------------------
+;--- Original Header                                      ---
+;------------------------------------------------------------
+;
+;	Name         : Sulen in the Nigth
+;	Designed by  : Stefan 'Opti'
+;	designed am  : Anfang 1997
+; 	last changes : 06.04.1998   (Roboflakupgrate geändert)
+;			13-Mar-98 Bernd LevelMap eingebaut
+;	Levelgrsse   : 16x16
+; 	Gegnerrassen : Sulogarn, Taerkasten
+;	AI-Tuning    : Steffen Priebus
+;	23-Mär-98	Stefan: Höhenmap korrigiert
+;	30-Mär-98	Stefan: ein Upgrade halb versteckt
+;	05-Mai-98	Stefan: Reload Const
+;	08-Mai-98	Steffen: Reload Const
+;	19-06-98	Stefan: Ambiencetrack
+;	22-06-98	Stefan: mehr Land für User
+;	24-06-98	Stefan: Taerkasten-Budgets alle -5
+;------------------------------------------------------------
+;--- Level Info                                           ---
+;------------------------------------------------------------
+;	info:
+;	- one Taerkast-and one Sulgogar-host-station are in this city
+;	- we know about a lot of power-stations in this city
+;       - 3 tech-centers are in this city 
+;	- the Taerkast can build power-stations
+;	primary-goal:
+;	- found or build a power-station 
+;	- destroy the enemy host-stations
+;	secondary-goal:
+;	- find and conquer the tech-centers
+;       - build flaks for defence
+;
+;------------------------------------------------------------
+;--- Main Level Info                                      ---
+;------------------------------------------------------------
+begin_level
+    set  = 3
+    sky  = objects/sterne.base
+    slot0        = palette/standard.pal
+    slot1        = palette/red.pal
+    slot2        = palette/blau.pal
+    slot3        = palette/gruen.pal
+    slot4        = palette/inverse.pal
+    slot5        = palette/invdark.pal
+    slot6        = palette/sw.pal
+    slot7        = palette/invtuerk.pal
+    title_default        = SULEN_IN_THE_NIGHT
+    title_deutsch        = SULEN_IN_DER_NACHT
+	ambiencetrack   = 	3_200000_240000
+end
+
+;------------------------------------------------------------
+;--- Mission Briefing Maps                                ---
+;------------------------------------------------------------
+begin_mbmap
+    name         =  MB_53.IFF
+    size_x       = 480
+    size_y       = 480
+end
+begin_dbmap
+    name         =  DB_53.IFF
+    size_x       = 480
+    size_y       = 480
+end
+;------------------------------------------------------------
+;--- Beam Gates                                           ---
+;------------------------------------------------------------
+begin_gate
+    sec_x        = 5
+    sec_y        = 13
+    closed_bp    = 25
+    opened_bp    = 26
+    target_level = 63		; Ghetto
+    keysec_x     = 2
+    keysec_y     = 2
+    keysec_x     = 13
+    keysec_y     = 7
+end
+;------------------------------------------------------------
+;--- Robo Definitions                                     ---
+;------------------------------------------------------------
+begin_robo
+    owner        = 1
+    vehicle      = 56
+    pos_x        = 8963
+    pos_y        = -330
+    pos_z        = -4463
+    energy       = 820000
+    reload_const = 154375
+end
+begin_robo
+    owner        = 2
+    vehicle      = 61
+    pos_x        = 16163
+    pos_y        = -330
+    pos_z        = -14738
+    energy       = 650000
+    reload_const = 550000
+    con_budget      	=       95	
+    con_delay               =       00
+    def_budget      	=       98		
+    def_delay               =       00
+    rec_budget      	=       97		
+    rec_delay               =       00
+    rob_budget      	=       90		
+    rob_delay               =       00 
+    pow_budget		= 	0		
+    pow_delay               =       00
+    rad_budget 		= 	0		
+    rad_delay               =       00
+    saf_budget 		=	0		
+    saf_delay               =       00
+    cpl_budget      	=      	90		
+    cpl_delay               =       00
+end
+begin_robo
+    owner        = 4
+    vehicle      = 60
+    pos_x        = 4274
+    pos_y        = -330
+    pos_z        = -9001
+    energy       = 650000
+    reload_const = 550000
+    con_budget      	=       94		; 99		
+    con_delay               =       00
+    def_budget      	=       85		; 90		
+    def_delay               =       00
+    rec_budget      	=       79		; 84		
+    rec_delay               =       00
+    rob_budget      	=       75		; 80		
+    rob_delay               =       00 
+    pow_budget		= 	62		; 67		
+    pow_delay               =       00
+    rad_budget 		= 	0		
+    rad_delay               =       00
+    saf_budget 		=	0		
+    saf_delay               =       00
+    cpl_budget      	=      	85		; 90		
+    cpl_delay               =       00
+end
+
+;------------------------------------------------------------
+;--- Predefined Squads                                    ---
+;------------------------------------------------------------
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 3
+    pos_x        = 3938
+    pos_z        = -1651
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 3
+    pos_x        = 2024
+    pos_z        = -2174
+end
+begin_squad
+    owner        = 4
+    vehicle      = 33		; Mnosjetz
+    num  = 5
+    pos_x        = 3788
+    pos_z        = -3338
+end
+begin_squad
+    owner        = 2
+    vehicle      = 72		; Amm-o
+    num  = 3
+    pos_x        = 13724
+    pos_z        = -15674
+end
+begin_squad
+    owner        = 2
+    vehicle      = 72		; Amm-o
+    num  = 3
+    pos_x        = 13724
+    pos_z        = -13688
+end
+begin_squad
+    owner        = 2
+    vehicle      = 72		; Amm-o
+    num  = 3
+    pos_x        = 13951
+    pos_z        = -11138
+end
+begin_squad
+    owner        = 2
+    vehicle      = 72		; Amm-o
+    num  = 3
+    pos_x        = 17101
+    pos_z        = -14252
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 2
+    vehicle      = 74		; Roa-o
+    num  = 1
+    pos_x        = 15788
+    pos_z        = -2550
+    mb_status	 = unknown
+end
+;------------------------------------------------------------
+;--- Prototype Modifications                              ---
+;------------------------------------------------------------
+include data:scripts/startup2.scr
+modify_vehicle 	56
+    shield       = 55
+end
+modify_vehicle  37
+        job_fightrobo           = 4	
+        job_fightflyer          = 1
+        job_fighthelicopter     = 5		
+        job_fighttank           = 9		
+        job_conquer             = 6
+        job_reconnoitre         = 1
+end
+;------------------------------------------------------------
+;--- Prototype Enabling                                   ---
+;------------------------------------------------------------
+begin_enable 2
+    vehicle = 71	; Moau-z
+    vehicle = 72	; Amm-o
+    vehicle = 73	; Woha-n
+    vehicle = 74	; Roa-o
+end
+begin_enable 4
+    vehicle = 32	; Eisenhans
+    vehicle = 33	; Hetzel
+    vehicle = 35	; Otschko
+    vehicle = 36	; Serp
+    vehicle = 37	; Leonid
+    vehicle = 38	; Mnosjetz
+    vehicle = 131	; Zeppelin
+    building = 53	; Power Plant
+end
+;------------------------------------------------------------
+;--- Tech Upgrades                                        ---
+;------------------------------------------------------------
+
+begin_gem
+    sec_x        = 2
+    Sec_y        = 2
+    building     = 4
+    type         = 3
+	begin_action
+        	modify_vehicle   7
+           		 enable	=  1
+		end       
+        end_action
+    mb_status	 = unknown
+end
+begin_gem
+    sec_x        = 9
+    sec_y        = 13
+    building     = 50
+    type = 1
+    begin_action
+        modify_vehicle   2
+        	add_energy = 300
+	end
+	modify_weapon    2
+		add_energy = 1000
+        end      
+    end_action
+end
+begin_gem
+    sec_x        = 11
+    sec_y        = 5
+    building     = 61
+    type         = 1
+    begin_action
+        modify_weapon     90
+              add_energy  = 1000
+        end
+	modify_weapon     91
+              add_energy  = 1000
+        end
+        modify_weapon     92
+              add_energy  = 1000
+        end
+        modify_weapon     93
+              add_energy  = 1000
+        end
+    end_action
+end
+;------------------------------------------------------------
+;--- Map Dumps                                            ---
+;------------------------------------------------------------
+begin_maps
+; ------------------------------------------ 
+;--- machine generated map dumps, go away ---
+; ------------------------------------------ 
+    typ_map =
+        16 16
+        f8 fc fc fc fc fc fc fc fc fc fc fc fc fc fc f9 
+        ff 2d b2 12 14 13 12 ba 15 14 ba 12 ba 11 16 fd 
+        ff 2e 64 2f 1e 01 2e 05 1e 1c bc 20 06 1a 1a fd 
+        ff 1e 46 1e b2 ad 2d a0 2f 1e ac bd b1 c9 01 fd 
+        ff 01 01 01 b4 b1 2b 9b 30 01 01 2c 2d 01 01 fd 
+        ff af ae 24 05 28 29 9f 31 b2 ae 71 2f 01 01 fd 
+        ff ac b8 b9 0c ba b9 0c ba 0c 47 ae 01 01 01 fd 
+        ff 01 27 ac 0d b8 b8 0d b8 b7 a1 ab 01 0e 01 fd 
+        ff 01 0e 01 05 01 01 96 01 01 07 01 01 00 01 fd 
+        ff 01 01 af b6 01 01 97 01 01 05 01 01 01 01 fd 
+        ff 17 01 b0 b1 01 01 99 01 01 06 01 01 01 01 fd 
+        ff 19 1d 18 1d 01 af ab 01 01 08 01 01 01 01 fd 
+        ff 17 1a 19 01 01 46 01 af 12 b6 01 01 0e 01 fd 
+        ff 18 01 1a 01 03 01 01 07 66 05 01 01 26 01 fd 
+        ff 1d 1c 01 1d 01 01 01 b0 13 ab 01 01 01 01 fd 
+        fb fe fe fe fe fe fe fe fe fe fe fe fe fe fe fa 
+    own_map =
+        16 16
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 04 04 04 04 04 04 01 00 00 00 02 02 02 02 00 
+        00 04 04 04 04 04 04 01 00 01 00 00 02 02 02 00 
+        00 04 04 04 04 04 04 00 00 01 00 00 00 07 02 00 
+        00 04 04 04 04 04 04 01 00 00 00 00 00 00 00 00 
+        00 04 04 04 04 04 04 01 00 00 00 00 00 00 00 00 
+        00 04 04 04 04 04 04 01 00 00 00 07 07 07 07 00 
+        00 04 04 04 04 04 04 00 00 00 07 07 07 07 07 00 
+        00 04 04 04 04 04 04 00 02 02 02 02 02 02 02 00 
+        00 04 04 04 04 04 04 00 02 02 02 02 02 02 02 00 
+        00 04 04 04 04 04 04 00 02 02 02 02 02 02 02 00 
+        00 04 04 04 04 04 00 00 02 02 02 02 02 02 02 00 
+        00 04 04 04 04 00 00 02 02 02 02 02 02 02 02 00 
+        00 04 04 04 00 07 00 02 02 02 02 02 02 02 02 00 
+        00 04 04 00 00 00 00 02 02 02 02 02 02 02 02 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    hgt_map = 
+        16 16
+        7f 7f 7f 7f 7e 7e 7f 80 7f 81 81 7f 7e 80 80 80 
+        7f 7f 7f 7f 7e 7e 7f 80 7f 81 81 7f 7e 80 80 80 
+        7f 7f 7f 7e 84 83 84 7d 84 7f 7f 7e 80 7e 80 80 
+        7c 7c 7d 7d 83 82 83 7e 83 7e 7b 7c 7c 7d 80 80 
+        82 82 82 82 82 81 85 7f 86 83 80 82 82 7c 7d 7d 
+        81 81 82 81 82 80 84 7e 86 7e 7b 7c 81 7c 80 80 
+        7f 7f 80 80 80 7f 7f 80 81 7e 7d 7f 7f 80 80 80 
+        80 80 80 80 7e 80 82 7f 83 80 80 7d 80 80 80 80 
+        7e 7e 7f 7f 80 81 7d 83 7e 7d 7f 80 80 80 80 80 
+        7f 7f 80 80 7f 80 7f 84 7f 80 80 7a 7a 79 79 79 
+        80 80 7e 80 80 80 7f 84 7f 7f 81 7a 7f 7e 79 79 
+        80 80 7f 7f 80 7f 84 83 7d 80 80 7a 7f 7f 78 78 
+        7f 7f 80 80 7f 84 83 7e 7f 81 7f 7a 7f 7f 7a 7a 
+        7f 7f 80 7f 84 84 7d 80 80 7d 7f 7a 7f 7f 7a 7a 
+        80 80 7f 80 7f 7f 80 80 7e 7f 7e 7a 7a 7a 79 79 
+        80 80 7f 80 7f 7f 80 80 7e 7f 7e 7a 7a 7a 79 79 
+    blg_map = 
+        16 16
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 3d 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 11 00 00 
+        00 00 11 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 11 00 00 
+        00 00 00 00 00 19 00 00 00 32 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+; ------------------------ 
+;--- map dumps end here ---
+; ------------------------ 
+end
+
+;------------------------------------------------------------
+;--- End Of File                                          ---
+;------------------------------------------------------------

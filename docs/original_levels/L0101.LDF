@@ -1,0 +1,277 @@
+;#*+ don't edit the magic runes
+;
+;------------------------------------------------------------
+;--- Machine Generated Level Description File             ---
+;------------------------------------------------------------
+;
+;------------------------------------------------------------
+;--- Original Header                                      ---
+;------------------------------------------------------------
+;
+;   	created:    	STEFAN 'Opti' Karau
+;	designed am:	20.09.1996
+;	upd.:		12.03.1998
+;	ai tunging:	Stefan 'Opti' Karau
+;   	Name :		Central Park
+;
+;	12-Mär-98	Stefan: Landschaft geändert
+;	23-Mär-98	Stefan: Höhenmap korrigiert
+;	02-04-98		Stefan: n paar Bits geändert
+;	04-APR-98	Bernd: einfacher
+;			Shield KYT von 40 auf 30 runter
+;			Energie KYT von 300000 auf 270000 (10 % !)
+;			ein paar TABS zurechtgerückt
+;			nur noch 18 statt 21 vorplatzierter Ghargoils
+;			Neuen Himmel
+;	06-APR-98	Energy KYT von 270000 auf 250000
+;	05-Mai-98	Stefan: Keyword Hilfe
+;	11-Mai-98	Stefan: Kraftwerk versetzt
+;	12-Mai-98	Stefan: Angriffsgeschwarder am Anfang entfernt
+;	20-Mai-98	Stefan: Fahrzeuge entfernt
+;	03-06-98	Stefan: Kraftwerk ausgetauscht
+;	08-06-98	Stefan: Kraftwerk versetzt
+;	16-06-98	Stefan: Ambiencetrack
+;	03-07-98	Stefan: mal wieder Kraftwerk versetzt
+;------------------------------------------------------------
+;--- Level Info                                                     ---
+;------------------------------------------------------------
+;	info:
+;	- one Ghorkov-host-station on this city
+;	- there has no power-station on this city
+;	- for first defens we send them 2 squadrons with Fox
+;	- Fox is optimized anainst flight-vehicles
+;	- attantion for helicopter, there is good against
+;	  ground-vehicles
+;	primary-goal:
+;	- open the beangate
+;	- destroy the enemy host-station
+;	secondary-goal:
+;	- save your energy-status
+;
+;------------------------------------------------------------
+;--- Main Level Info                                      ---
+;------------------------------------------------------------
+begin_level
+    	set 		= 	1
+    	sky 		= 	objects/1998_03.base	; Bernd Himmel ohne Loch
+	slot0		=	palette/standard.pal	; STANDARD !
+	slot1		=	palette/red.pal		; ROT Standard-Feind-Einschuß
+	slot2		=	palette/blau.pal		; COLD!
+	slot3		=	palette/gruen.pal		; NICE !
+	slot4		=	palette/inverse.pal	; COOL !
+	slot5		=	palette/invdark.pal 	; BÖSE UND BRUTAL !
+	slot6		=	palette/sw.pal		; More ! KontrastZeux kommt genial !
+	slot7		=	palette/invtuerk.pal	; Gut für Feinde ! Muß sehr stark sein !
+	event_loop	=	3
+	title_default	=	CENTRAL-PARK
+	title_deutsch	=	STADTPARK
+	ambiencetrack   = 	4_00_20000
+	    movie	  = mov:tut3.mpg
+end
+;------------------------------------------------------------
+;--- Mission Briefing Maps                              ---
+;------------------------------------------------------------
+begin_mbmap
+        	name 		= 	 MB_01.IFF
+end
+begin_dbmap
+    	name         	= 	 DB_01.IFF
+end
+;------------------------------------------------------------
+;--- Beam Gates                                           ---
+;------------------------------------------------------------
+begin_gate
+	sec_x		=	2
+	sec_y		=	7
+	closed_bp	=	5
+	opened_bp	=	6
+        	target_level    	=     	2		; Virgin Steel
+	target_level	=	3		; Skullalley
+	keysec_x	=	5
+	keysec_y	=	3
+	keysec_x	=	2
+	keysec_y	=	7
+end
+;------------------------------------------------------------
+;--- Robo Definitions                                     ---
+;------------------------------------------------------------
+begin_robo              				; SPIELERROBO
+    	owner   		= 	1
+    	vehicle 		= 	56
+    	pos_x   		= 	7763
+    	pos_y   		= 	-320
+    	pos_z   		= 	-5474
+    	energy  		= 	300000		; 220000
+	viewangle             	=       	23
+end
+begin_robo             		 		; Kleiner Kyterneser-Robo
+   	owner   		= 	6
+   	vehicle 		= 	59
+    	pos_x   		= 	2623
+    	pos_y   		= 	-120
+    	pos_z   		= 	-5663
+        energy		        =      	250000		; Bernd von 300000 auf 250000
+        con_budget      	=      	85		; 70
+        con_delay       	=      	50010
+        def_budget      	=      	0		; 40
+        def_delay       	=      	0		; 230000
+        rec_budget      	=      	90
+        rec_delay              	=      	0
+        rob_budget      	=      	0		; 90
+        rob_delay            	=      	0		; 200000
+        pow_budget		= 	0
+        pow_delay          	=      	0
+        rad_budget 		= 	0
+        rad_delay           	=      	0
+        saf_budget 		=	0
+        saf_delay               =      	0
+        cpl_budget      	=      	0
+        cpl_delay               =      	0
+end
+;------------------------------------------------------------
+;--- Predefined Squads                                     ---
+;------------------------------------------------------------
+begin_squad					; Computer, Staffel 1
+	owner		=	6
+	vehicle		=	24 		; Ghargoil
+	num		=	2
+	pos_x		=	3482
+	pos_z		=	-6382
+	mb_status	=	unknown
+end
+begin_squad					; Computer, Staffel 2
+	owner		=	6
+	vehicle		=	24		; Ghargoil
+	num		=	2		; Bernd von 3
+	pos_x		=	4412
+	pos_z		=	-6812
+end
+begin_squad					; Computer, Staffel 3
+	owner		=	6
+	vehicle		=	24		; Ghargoil
+	num		=	3
+	pos_x		=	2415
+	pos_z		=	-6815
+	mb_status	=	unknown
+end
+begin_squad					; Computer, Staffel 4
+	owner		=	6
+	vehicle		=	24		; Ghargoil
+	num		=	1
+	pos_x		=	7138
+	pos_z		=	-8988
+	mb_status	= 	unknown
+end
+begin_squad					; Computer, Staffel 5
+	owner		=	6
+	vehicle		=	24		; Ghargoil
+	num		=	2
+	pos_x		=	9938
+	pos_z		=	-9901
+	mb_status	=	unknown
+end
+begin_squad					; Computer, Staffel 6
+	owner		=	6
+	vehicle		=	24		; Ghargoil
+	num		=	1
+	pos_x		=	9788
+	pos_z		=	-1951
+	mb_status	=	unknown
+end
+begin_squad					; user, Einheit 1
+	owner		=	1
+	vehicle		=	16		; Fox
+	num		=	3
+	pos_x		=	8212
+	pos_z		=	-5812
+end
+begin_squad					; user, Einheit 2
+	owner		=	1
+	vehicle		=	16		; FOX
+	num		=	3
+	pos_x		=	8212
+	pos_z		=	-4912
+end
+;------------------------------------------------------------
+;--- Prototype Modifications                           ---
+;------------------------------------------------------------
+include data:scripts/startup2.scr
+modify_vehicle 	56				; UserRobo
+    	shield       	= 	1
+end
+modify_vehicle 	59				; Bernd Shield vom Kleinen Kyterneser runter
+	shield		=	30		; Original 40
+end
+modify_weapon	83				; Waffe vom Kleinen Kyterneser
+    	energy       	= 	1500
+    	shot_time    	= 	2000
+end
+;------------------------------------------------------------
+;--- Prototype Enabling                                    ---
+;------------------------------------------------------------
+begin_enable 6
+    	vehicle 	= 	24			; Ghargoil
+end
+;------------------------------------------------------------
+;--- Tech Upgrades                                            ---
+;------------------------------------------------------------
+; nothing
+; ------------------------------------------
+;--- machine generated map dumps, go away ---
+; ------------------------------------------
+begin_maps
+; ------------------------------------------
+;--- machine generated map dumps, go away ---
+; ------------------------------------------
+    typ_map =
+        10 10
+        f8 fc fc fc fc fc fc fc fc f9
+        ff af ad 2a af ba ba 11 ae fd
+        ff b3 b1 2b b4 b8 ab 22 bc fd
+        ff 97 19 1f 08 1b 28 83 05 fd
+        ff 09 87 1c 06 02 31 84 07 fd
+        ff b3 ba b9 b6 86 84 85 08 fd
+        ff b3 0c a6 b6 87 86 c9 09 fd
+        ff b3 ca 0d 0c 13 ba ba ab fd
+        ff ac b7 b7 b1 1e ac ab 1c fd
+        fb fe fe fe fe fe fe fe fe fa
+    own_map =
+        10 10
+        01 01 01 01 01 01 01 01 01 01
+        01 06 06 06 06 06 06 06 06 01
+        01 06 06 06 06 00 00 01 01 01
+        01 06 06 06 06 00 01 01 01 01
+        01 06 06 06 06 01 06 01 01 01
+        01 06 06 06 06 01 01 01 01 01
+        01 00 00 00 06 06 06 06 06 01
+        01 00 00 00 06 06 06 06 06 01
+        01 00 00 00 06 06 06 06 06 01
+        01 01 01 01 01 01 01 01 01 01
+    hgt_map =
+        10 10
+        7f 7f 7f 7f 7f 7f 7f 7f 7f 7f
+        7f 7f 7f 7f 7f 7f 7f 7f 7f 7f
+        7f 7f 7f 7f 7f 7f 7f 7f 7f 7f
+        7f 7f 7f 7f 7f 7f 80 7f 7f 7f
+        7f 7f 7f 7f 7f 7f 7f 7f 7f 7f
+        7f 7f 7f 7f 7f 7f 7f 7f 7f 7f
+        7f 7f 7f 7f 7f 7f 7f 7f 7f 7f
+        7f 7f 7f 7f 7f 7f 7f 7f 7f 7f
+        7f 7f 7f 7f 7f 7f 7f 7f 7e 7e
+        7f 7f 7f 7f 7f 7f 7f 7f 7e 7e
+    blg_map =
+        10 10
+        00 00 00 00 00 00 00 00 00 00
+        00 00 00 00 00 00 00 00 00 00
+        00 00 00 00 00 00 00 00 00 00
+        00 00 00 00 00 00 00 00 00 00
+        00 00 00 00 00 00 00 00 00 00
+        00 00 00 00 00 00 00 00 00 00
+        00 00 00 00 00 00 00 3f 00 00
+        00 00 05 00 00 00 00 00 00 00
+        00 00 00 00 00 00 00 00 00 00
+        00 00 00 00 00 00 00 00 00 00
+; ------------------------
+;--- map dumps end here ---
+; ------------------------
+end

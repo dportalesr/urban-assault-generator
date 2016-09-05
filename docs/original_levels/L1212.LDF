@@ -1,0 +1,277 @@
+;#*+ don't edit the magic runes
+
+;------------------------------------------------------------
+;--- Original Header                                      ---
+;------------------------------------------------------------
+;
+;       Name         	:  	Dingenskirchen
+;	designed by  	:	Stefan 'Opti' Karau   
+;       created      	: 	Januar 97 
+;       last changes 	:	09.03.98 
+;	Größe        	:	10x10
+;	Gegner       	:	Taerkasten
+;	AI-Tuning    	:  	Steffen Priebus
+;	27-Feb-98 	Bernd Neue Briefing Maps eingebaut
+;	23-Mär-98	Stefan: Höhenmap korrigiert
+;	08-May-98	Bernd neuer Himmel
+;	19-06-98	Stefan: Ambiencetrack
+;
+;------------------------------------------------------------
+;--- Level Info                                           ---
+;------------------------------------------------------------
+;	info:
+;	- one Taerkast-host-station is in this level
+;	- a tech-center is near your station
+;	- take care of the leonids
+;	- there is no power-station in this level
+;	- on one place has the taercastic a kamikaze squadron
+;	primary-goal:
+;	- survive
+;	- destroy the enemy host-station
+;	- dont go to the place of the kamikaze squadron
+;	secondary-goal:
+;       - found the tech-center and conquer it
+;
+
+;------------------------------------------------------------
+;--- Main Level Info                                      ---
+;------------------------------------------------------------
+begin_level
+    set  = 2
+    sky  = objects/wowi.base
+    slot0        = palette/standard.pal
+    slot1        = palette/red.pal
+    slot2        = palette/blau.pal
+    slot3        = palette/gruen.pal
+    slot4        = palette/inverse.pal
+    slot5        = palette/invdark.pal
+    slot6        = palette/sw.pal
+    slot7        = palette/invtuerk.pal
+    title_default        = DINGENSKIRCHEN
+    title_deutsch        = DINGENSKIRCHEN
+	ambiencetrack   = 	6_30000_70000
+end
+
+;------------------------------------------------------------
+;--- Mission Briefing Maps                                ---
+;------------------------------------------------------------
+begin_mbmap
+    name         =  MB_12.IFF
+    size_x       = 480
+    size_y       = 480
+end
+begin_dbmap
+    name         =  DB_12.IFF
+    size_x       = 480
+    size_y       = 480
+end
+;------------------------------------------------------------
+;--- Beam Gates                                           ---
+;------------------------------------------------------------
+begin_gate
+    sec_x        = 5
+    sec_y        = 6
+    closed_bp    = 5
+    opened_bp    = 6
+    target_level = 22		; Mesopotamien
+    target_level = 23		; Taerkastic
+end
+
+;------------------------------------------------------------
+;--- Robo Definitions                                     ---
+;------------------------------------------------------------
+begin_robo
+    owner        = 1
+    vehicle      = 56
+    pos_x        = 3401
+    pos_y        = -330
+    pos_z        = -3401
+    energy       = 460000
+    viewangle    = 272
+end
+begin_robo
+    owner        = 4
+    vehicle      = 60
+    pos_x        = 8924
+    pos_y        = -330
+    pos_z        = -7800
+    energy       = 360000
+    con_budget      	=       50		
+    con_delay               =       170000
+    def_budget      	=       90		
+    def_delay               =       00
+    rec_budget      	=       80		
+    rec_delay               =       60000
+    rob_budget      	=       80		
+    rob_delay               =       170000 
+    pow_budget		= 	0		
+    pow_delay               =       00
+    rad_budget 		= 	0		
+    rad_delay               =       00
+    saf_budget 		=	0		
+    saf_delay               =       00
+    cpl_budget      	=      	0		
+    cpl_delay               =       00
+end
+
+;------------------------------------------------------------
+;--- Predefined Squads                                    ---
+;------------------------------------------------------------
+begin_squad
+    pos_x        = 3113
+    pos_z        = -8813
+    owner        = 4
+    vehicle      = 32		; Agronija
+    num  = 2
+end
+begin_squad
+    pos_x        = 1575
+    pos_z        = -6938
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 2
+end
+begin_squad
+    pos_x        = 6713
+    pos_z        = -4088
+    owner        = 4
+    vehicle      = 32		; Agronija
+    num  = 2
+end
+begin_squad
+    pos_x        = 8963
+    pos_z        = -5251
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 3
+end
+begin_squad
+    pos_x        = 7013
+    pos_z        = -2832
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 3
+end
+begin_squad
+    pos_x        = 3113
+    pos_z        = -8813
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 2
+end
+begin_squad
+    pos_x        = 5213
+    pos_z        = -8738
+    owner        = 4
+    vehicle      = 32		; Agronija
+    num  = 3
+end
+begin_squad
+    pos_x        = 4163
+    pos_z        = -9075
+    owner        = 4
+    vehicle      = 36		; Serp
+    num  = 8
+end
+begin_squad
+    pos_x        = 5324
+    pos_z        = -5363
+    owner        = 4
+    vehicle      = 32		; Agronija
+    num  = 2
+end
+
+
+;------------------------------------------------------------
+;--- Prototype Modifications                              ---
+;------------------------------------------------------------
+include data:scripts/startup2.scr
+modify_vehicle 	56
+    shield       = 15
+end
+;------------------------------------------------------------
+;--- Prototype Enabling                                   ---
+;------------------------------------------------------------
+begin_enable 4
+    vehicle = 32	; Eisenhans
+    vehicle = 35	; Otschko
+end
+
+;------------------------------------------------------------
+;--- Tech Upgrades                                        ---
+;------------------------------------------------------------
+
+begin_gem
+    sec_x        = 1
+    sec_y        = 4
+    building     = 4
+    type         = 3   
+	begin_action	
+        	modify_vehicle   15
+        		enable       = 1
+        	end      
+        end_action
+end
+;------------------------------------------------------------
+;--- Map Dumps                                            ---
+;------------------------------------------------------------
+begin_maps
+; ------------------------------------------ 
+;--- machine generated map dumps, go away ---
+; ------------------------------------------ 
+    typ_map =
+        10 10
+        f8 fc fc fc fc fc fc fc fc f9 
+        ff 2d 02 2c d5 d4 2d 2b 2c fd 
+        ff 2b 2c 2d 3c 4c 78 2d 2c fd 
+        ff 0b 1e 2b 36 4d 2c 2f 30 fd 
+        ff 64 1e 1e da e0 83 dc 25 fd 
+        ff 08 1e 2c b2 ba ae 41 2f fd 
+        ff b0 12 12 0d ca b5 42 20 fd 
+        ff 2d 1e 2f ac b7 b1 43 2f fd 
+        ff 39 50 4e 48 37 45 db 23 fd 
+        fb fe fe fe fe fe fe fe fe fa 
+    own_map =
+        10 10
+        00 00 00 00 00 00 00 00 00 00 
+        00 01 01 01 04 04 04 04 04 00 
+        00 01 00 01 04 04 04 04 04 00 
+        00 01 01 01 04 04 04 04 04 00 
+        00 04 04 04 04 04 04 04 04 00 
+        00 04 04 04 04 04 04 04 04 00 
+        00 04 04 04 04 04 04 04 04 00 
+        00 04 04 04 04 04 04 04 04 00 
+        00 04 04 04 04 04 04 04 04 00 
+        00 00 00 00 00 00 00 00 00 00 
+    hgt_map = 
+        10 10
+        7c 7c 7c 7c 81 80 7e 84 84 84 
+        7c 7c 7c 7c 81 80 7e 84 84 84 
+        7c 7c 7c 7c 81 80 7e 83 83 83 
+        83 83 7c 7d 80 80 7d 82 82 82 
+        83 83 7e 7d 7f 81 82 83 82 82 
+        82 82 83 86 80 80 80 83 82 82 
+        7f 7f 7f 7e 80 7f 81 81 81 81 
+        84 84 7f 84 80 80 80 80 80 80 
+        85 85 85 82 80 80 80 80 80 80 
+        85 85 85 82 80 80 80 80 80 80 
+    blg_map = 
+        10 10
+        00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 
+        00 04 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 05 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 
+; ------------------------ 
+;--- map dumps end here ---
+; ------------------------ 
+end
+
+;------------------------------------------------------------
+;--- End Of File                                          ---
+;------------------------------------------------------------

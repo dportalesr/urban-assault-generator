@@ -1,0 +1,351 @@
+;#*+ don't edit the magic runes
+
+;------------------------------------------------------------
+;--- Machine Generated Level Description File             ---
+;------------------------------------------------------------
+
+;------------------------------------------------------------
+;--- Original Header                                      ---
+;------------------------------------------------------------
+;
+;   created :		Stefan 'Opti'Karau   	
+;   Name :		Labyrinth klein oder auf der Flucht
+;   designed im :	September 1996
+;   last changes :	20.05.1998
+;   Gegnerrassen : 	Kyterneser
+;   Größe : 		16
+;
+;	12-Mär-98	Stefan: Upgrate Wiesel geändert
+;	23-Mär-98	Stefan: Höhenmap korrigiert
+;	04-APR-98	Bernd: Himmel geändert
+;	15-Mai-98	Stefan: Defense delay runter
+;	20-Mai-98	Steffen: das eine Kraftwerk um ein Sektor nach unten verschoben
+;				 zwei Tekhs in der Nähe des Kraftwerks weggenommen
+;	16-06-98	Stefan: Tekh steckte im Haus, nun raus
+;	19-06-98	Stefan: Ambiencetrack
+;------------------------------------------------------------
+;--- Level Info                                           ---
+;------------------------------------------------------------
+;	info:
+;	- we knows about one valley there is one power-station
+;	- the power-station is saved by heavy tanks, take 
+;	  helicopter (when you can) to control this situation
+;	- the enemy-station stand by another power-station
+;	- be prepared for constant attacks
+;	- do it your way 
+;	primary-goal:
+;	- open the beam-tor to next city
+;	secondary-goal:
+;	- found the valley with the power-station
+;	- destroy the enemy-station
+;
+;------------------------------------------------------------
+;--- Main Level Info                                      ---
+;------------------------------------------------------------
+begin_level
+    	set  		= 	1
+    	sky  		= 	objects/1998_05.base	; Bernd von Haamitt1.base
+    	slot0        	= 	palette/standard.pal
+    	slot1        	= 	palette/red.pal
+    	slot2        	= 	palette/blau.pal
+    	slot3        	= 	palette/gruen.pal
+    	slot4        	= 	palette/inverse.pal
+    	slot5        	= 	palette/invdark.pal
+    	slot6        	= 	palette/sw.pal
+    	slot7        	= 	palette/invtuerk.pal
+    	title_default        	= 	LABYRINTH
+	ambiencetrack   	= 	4_00_13000
+end
+
+;------------------------------------------------------------
+;--- Mission Briefing Maps                                ---
+;------------------------------------------------------------
+begin_mbmap
+    name         =  MB_10.IFF
+    size_x       = 480
+    size_y       = 480
+end
+begin_dbmap
+    name         =  DB_10.IFF
+    size_x       = 480
+    size_y       = 480
+end
+;------------------------------------------------------------
+;--- Beam Gates                                           ---
+;------------------------------------------------------------
+begin_gate
+    sec_x        = 13
+    sec_y        = 4
+    closed_bp    = 25
+    opened_bp    = 26
+    target_level = 20		; Hard Thing
+    keysec_x	=	2
+    keysec_y	=	2   
+end
+
+;------------------------------------------------------------
+;--- Robo Definitions                                     ---
+;------------------------------------------------------------
+begin_robo
+    owner        = 1
+    vehicle      = 56
+    pos_x        = 16425
+    pos_y        = -330
+    pos_z        = -17475
+    energy       = 460000
+end
+begin_robo
+    owner        = 6
+    vehicle      = 59
+    pos_x        = 9000
+    pos_y        = -500
+    pos_z        = -2850
+    energy       = 360000
+        con_budget      	=       20		
+        con_delay               =       50000
+        def_budget      	=       70		
+        def_delay               =       180000
+        rec_budget      	=       90		
+        rec_delay               =       00
+        rob_budget      	=       90		
+        rob_delay               =       170000 
+        pow_budget		= 	0		
+        pow_delay               =       00
+        rad_budget 		= 	0		
+        rad_delay               =       00
+        saf_budget 		=	0		
+        saf_delay               =       00
+        cpl_budget      	=      	10		
+        cpl_delay               =       00
+end
+
+;------------------------------------------------------------
+;--- Predefined Squads                                    ---
+;------------------------------------------------------------
+begin_squad
+    owner        = 1
+    vehicle      = 2
+    num  = 2
+    pos_x        = 16050
+    pos_z        = -15863
+end
+begin_squad
+    owner        = 1
+    vehicle      = 1
+    num  = 2
+    pos_x        = 16556
+    pos_z        = -16407
+end
+begin_squad
+    owner        = 1
+    vehicle      = 16
+    num  = 2
+    pos_x        = 15954
+    pos_z        = -16932
+end
+begin_squad
+    owner        = 6
+    vehicle      = 26
+    num  = 3
+    pos_x        = 6450
+    pos_z        = -5475
+end
+begin_squad
+    owner        = 6
+    vehicle      = 26
+    num  = 4
+    pos_x        = 4350
+    pos_z        = -7800
+end
+begin_squad
+    owner        = 6
+    vehicle      = 26
+    num  = 2
+    pos_x        = 9000
+    pos_z        = -7875
+end
+begin_squad
+    owner        = 6
+    vehicle      = 26
+    num  = 2
+    pos_x        = 10294
+    pos_z        = -9788
+end
+begin_squad
+    owner        = 6
+    vehicle      = 26
+    num  = 3
+    pos_x        = 1875
+    pos_z        = -9130
+end
+begin_squad
+    owner        = 6
+    vehicle      = 24
+    num  = 3
+    pos_x        = 15000
+    pos_z        = -9000
+end
+begin_squad
+    owner        = 6
+    vehicle      = 24
+    num  = 3
+    pos_x        = 5400
+    pos_z        = -16125
+end
+begin_squad
+    owner        = 6
+    vehicle      = 29
+    num  = 1
+    pos_x        = 12375
+    pos_z        = -16351
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 29
+    num  = 1
+    pos_x        = 13875
+    pos_z        = -11213
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 29
+    num  = 1
+    pos_x        = 4988
+    pos_z        = -13838
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 29
+    num  = 1
+    pos_x        = 13688
+    pos_z        = -7763
+    mb_status	 = unknown
+end
+;------------------------------------------------------------
+;--- Prototype Modifications                              ---
+;------------------------------------------------------------
+include data:scripts/startup2.scr
+modify_weapon		83
+    energy       = 9000
+    shot_time    = 1700
+end
+modify_vehicle 	56
+    shield       = 15
+end
+;------------------------------------------------------------
+;--- Prototype Enabling                                   ---
+;------------------------------------------------------------
+begin_enable 6
+    vehicle = 22	; Speedy
+    vehicle = 24	; Gagoil
+    vehicle = 26	; Tekh
+    vehicle = 28	; Gagoil 2
+    vehicle = 29	; Ormu
+end
+
+;------------------------------------------------------------
+;--- Tech Upgrades                                        ---
+;------------------------------------------------------------
+begin_gem
+    sec_x        = 5
+    sec_y        = 4
+    building     = 50
+    type         = 2
+    begin_action
+        modify_vehicle   1
+            add_shield   = 5
+	    add_energy   = 150
+        end      
+    end_action
+end
+
+;------------------------------------------------------------
+;--- Map Dumps                                            ---
+;------------------------------------------------------------
+begin_maps
+; ------------------------------------------ 
+;--- machine generated map dumps, go away ---
+; ------------------------------------------ 
+    typ_map =
+        16 16
+        f8 fc fc fc fc fc fc fc fc fc fc fc fc fc fc f9 
+        ff 25 01 24 26 2a 2a 2b 2a 00 2a 2a 2b 2b 23 fd 
+        ff 23 27 25 29 01 2b 0f 2b 00 26 51 00 27 24 fd 
+        ff 29 00 00 00 00 00 2a 2b 00 23 52 00 26 25 fd 
+        ff 01 00 2b 21 66 00 2a 2a 2a 24 23 00 03 22 fd 
+        ff 23 00 01 22 00 00 00 00 00 00 00 01 01 00 fd 
+        ff 24 00 1d 23 01 00 20 24 00 31 30 00 00 2a fd 
+        ff 2a 00 1c 18 01 00 21 0f 00 2c 2d 2a 2a 2b fd 
+        ff 25 00 01 19 00 00 25 24 00 17 19 1e 2a 2b fd 
+        ff 23 00 02 02 01 01 02 01 00 31 19 00 2b 2b fd 
+        ff 27 00 1a 02 01 00 29 00 18 2c 00 1e 2a 01 fd 
+        ff 29 00 02 1f 00 00 26 01 19 1a 2a 1e 2a 2a fd 
+        ff 2a 00 2a 02 2a 01 27 1f 1c 29 1e 1e 2b 01 fd 
+        ff 22 00 2b 02 2a 01 2d 1e 1d 01 2a 1e 31 02 fd 
+        ff 2b 2a 2a 2b 00 2a 2b 2a 00 00 2b 01 02 02 fd 
+        fb fe fe fe fe fe fe fe fe fe fe fe fe fe fe fa 
+    own_map =
+        16 16
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 06 06 06 06 06 06 06 06 00 06 06 06 06 06 00 
+        00 06 06 06 06 06 06 06 06 00 06 06 00 06 06 00 
+        00 06 00 00 00 00 00 06 06 00 06 06 00 06 06 00 
+        00 06 00 06 06 06 00 06 06 06 06 06 00 06 06 00 
+        00 06 00 06 06 00 00 00 00 00 00 00 00 00 00 00 
+        00 06 00 06 06 00 00 06 06 00 06 06 00 00 06 00 
+        00 06 00 06 06 00 00 06 06 00 06 06 00 00 06 00 
+        00 06 00 06 06 00 00 06 06 00 06 06 00 06 06 00 
+        00 06 00 06 06 00 00 06 00 00 06 06 00 06 06 00 
+        00 06 00 06 06 00 00 06 00 06 06 00 00 06 06 00 
+        00 06 00 06 06 00 00 06 00 06 06 00 00 06 06 00 
+        00 06 00 06 06 00 00 06 06 06 06 00 00 06 06 00 
+        00 06 00 06 06 00 00 06 06 06 06 00 00 06 01 00 
+        00 06 06 06 06 00 00 00 00 00 00 00 00 06 01 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    hgt_map = 
+        16 16
+        7e 7e 7f 7e 7e 7f 7e 7d 7e 83 7d 7e 7e 7e 7e 7e 
+        7e 7e 7f 7e 7e 7f 7e 7d 7e 83 7d 7e 7e 7e 7e 7e 
+        7e 7e 7e 7d 7d 7d 7d 7d 7c 81 7c 7e 83 7e 7e 7e 
+        7e 7e 83 82 82 82 82 7d 7c 81 7c 7e 83 7e 7e 7e 
+        7e 7e 83 7b 7b 7b 82 7c 7b 7d 7d 7e 83 7e 7e 7e 
+        7e 7e 83 7b 7b 80 80 81 80 85 85 87 87 84 85 85 
+        7e 7e 83 7b 7b 80 80 7b 7b 85 80 82 88 88 80 80 
+        7e 7e 83 7b 7b 80 80 7b 7b 84 7f 80 83 83 7e 7e 
+        7e 7e 83 7b 7b 81 7f 7a 7a 84 7f 7f 84 7f 7f 7f 
+        7e 7e 83 7b 7b 80 7f 7a 7f 82 7d 7e 84 7f 7f 7f 
+        7d 7d 82 7b 7b 80 80 7b 80 7b 7c 83 85 80 7f 7f 
+        7d 7d 82 7c 7c 81 80 7b 80 7b 7b 83 85 7f 7f 7f 
+        7d 7d 82 7c 7c 80 80 7b 7b 7b 7b 83 83 7e 7e 7e 
+        7c 7c 82 7c 7c 80 80 7b 7b 7b 7b 82 83 7e 7e 7e 
+        7d 7d 7e 7d 7d 82 81 80 80 80 80 81 82 7d 7d 7d 
+        7d 7d 7e 7d 7d 82 81 80 80 80 80 81 82 7d 7d 7d 
+    blg_map = 
+        16 16
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 34 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 32 00 00 00 00 00 00 00 19 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 34 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+; ------------------------ 
+;--- map dumps end here ---
+; ------------------------ 
+end
+
+;------------------------------------------------------------
+;--- End Of File                                          ---
+;------------------------------------------------------------

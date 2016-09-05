@@ -1,0 +1,510 @@
+;#*+ don't edit the magic runes
+
+;------------------------------------------------------------
+;--- Machine Generated Level Description File             ---
+;------------------------------------------------------------
+
+;------------------------------------------------------------
+;--- Original Header                                      ---
+;------------------------------------------------------------
+;
+;	Designed by : Stefan Warias
+;       created     : 30.05.1997
+;       upd	    : 09.03.1998
+;	Levelname   : Death Valley
+;	Groesse     : 24x24 ?
+;	Stufe       : mittel
+;	Gegner	    : Mykonier 	
+;	ehemals     : Level 36
+;	ai-tuning   : Henrik Volkening
+;	updated     : 23.02.1998
+;	09-Feb-98	Bernd: MissionBriefingMap aufgeräumt
+;	23-Mär-98	Stefan: Upgrate versteckt
+;	14-Apr-98	Stefan: MB Fahrzeuge versteckt
+;	05-Mai-98	Stefan: Reload Const
+;	06-Mai-98	Stefan: Reload Const
+;	08-Mai-98	Stefan: Reload Const
+;	19-06-98	Stefan: Ambiencetrack
+;	07-jul-98	Bernd:	Himmel geändert
+;----------------------------------------------------------------------------- 
+;Info:
+;----------------------------------------------------------------------------- 
+; Info:
+;- two Mykoniac- Stations in the south.
+;- Two tech centers
+;- 3 power-plants
+;- the mykoniacs are protected by a lot of flak stations
+;- they move to the same place in the south-eastern part of the city to fight 
+; together against you.
+; primary goal:
+;- destroy the enemy host-stations
+;- destroy the flak stations
+; secondary goal:
+;- conquer the tech centers
+;------------------------------------------------------------
+;--- Main Level Info                                      ---
+;------------------------------------------------------------
+begin_level
+    set  = 6
+    sky  = objects/mod7.base
+    slot0        = palette/standard.pal
+    slot1        = palette/red.pal
+    slot2        = palette/blau.pal
+    slot3        = palette/gruen.pal
+    slot4        = palette/inverse.pal
+    slot5        = palette/invdark.pal
+    slot6        = palette/sw.pal
+    slot7        = palette/invtuerk.pal
+    title_default        = DEATH_VALLEY
+    title_deutsch        = TOTES_TAL
+    title_english        = DEATH_VALLEY
+	ambiencetrack   = 	5_7000_20000
+end
+
+;------------------------------------------------------------
+;--- Mission Briefing Maps                                ---
+;------------------------------------------------------------
+begin_mbmap
+    name         =  MB_50.IFF
+    size_x       = 480
+    size_y       = 480
+end
+begin_dbmap
+    name         =  DB_50.IFF
+    size_x       = 480
+    size_y       = 480
+end
+;------------------------------------------------------------
+;--- Beam Gates                                           ---
+;------------------------------------------------------------
+begin_gate
+    sec_x        = 4
+    sec_y        = 12
+    closed_bp    = 5
+    opened_bp    = 6
+    target_level = 60		; Mykophobia
+    keysec_x     = 4
+    keysec_y     = 14
+    keysec_x     = 13
+    keysec_y     = 16
+end
+
+;------------------------------------------------------------
+;--- Robo Definitions                                     ---
+;------------------------------------------------------------
+
+begin_robo
+    owner        = 1
+    vehicle      = 56
+    pos_x        = 3001
+    pos_y        = -330
+    pos_z        = -3001
+    energy       = 820000
+    reload_const = 154375
+end
+begin_robo
+    owner        = 3
+    vehicle      = 58
+    pos_x        = 6638
+    pos_y        = -400
+    pos_z        = -9038
+    energy       = 650000
+    reload_const = 550000
+    	con_budget      	=       95
+	con_delay		= 	0
+        def_budget      	=       90
+	def_delay		=	0
+        rec_budget      	=       80
+	rec_delay		=	0
+        rob_budget      	=       80
+	rob_delay		=	60000
+        pow_budget		= 	0
+	pow_delay		= 	0
+        rad_budget 		= 	0
+	rad_delay		=	0
+        saf_budget 		=	0
+	saf_delay		= 	0
+        cpl_budget      	=      	40
+	cpl_delay		=	0
+end
+begin_robo
+    owner        = 3
+    vehicle      = 58
+    pos_x        = 7423
+    pos_y        = -400
+    pos_z        = -15901
+    energy       = 650000
+    reload_const = 550000
+    	con_budget      	=       40
+	con_delay		= 	0
+        def_budget      	=       40
+	def_delay		=	0
+        rec_budget      	=       90
+	rec_delay		=	0
+        rob_budget      	=       80
+	rob_delay		=	0
+        pow_budget		= 	0
+	pow_delay		= 	0
+        rad_budget 		= 	0
+	rad_delay		=	0
+        saf_budget 		=	0
+	saf_delay		= 	0
+        cpl_budget      	=      	40
+	cpl_delay		=	0
+end
+
+;------------------------------------------------------------
+;--- Predefined Squads                                    ---
+;------------------------------------------------------------
+begin_squad
+    owner        = 1
+    vehicle      = 2
+    num  = 3
+    pos_x        = 5101
+    pos_z        = -3223
+end
+begin_squad
+    owner        = 1
+    vehicle      = 4
+    num  = 4
+    pos_x        = 7051
+    pos_z        = -6451
+end
+
+begin_squad
+    owner        = 3
+    vehicle      = 64
+    num  = 5
+    pos_x        = 6488
+    pos_z        = -4123
+    mb_status=unknown
+end
+begin_squad
+    owner        = 3
+    vehicle      = 64
+    num  = 5
+    pos_x        = 1573
+    pos_z        = -3151
+    mb_status=unknown
+end
+begin_squad
+    owner        = 3
+    vehicle      = 67		; Radda
+    num  = 1
+    pos_x        = 9001
+    pos_z        = -3938
+    mb_status=unknown
+end
+begin_squad
+    owner        = 3
+    vehicle      = 67		; Radda
+    num  = 1
+    pos_x        = 3001
+    pos_z        = -7273
+    mb_status=unknown
+end
+begin_squad
+    owner        = 3
+    vehicle      = 64		; X01
+    num  = 2
+    pos_x        = 21001
+    pos_z        = -5401
+end
+begin_squad
+    owner        = 3
+    vehicle      = 64		; X01
+    num  = 4
+    pos_x        = 17251
+    pos_z        = -5173
+    mb_status 	 = unknown
+end
+begin_squad
+    owner        = 3
+    vehicle      = 65		; 5PO
+    num  = 3
+    pos_x        = 21151
+    pos_z        = -11473
+    mb_status=unknown
+end
+begin_squad
+    owner        = 3
+    vehicle      = 66		; Static
+    num  = 3
+    pos_x        = 12451
+    pos_z        = -14923
+end
+begin_squad
+    owner        = 3
+    vehicle      = 65		; 5PO
+    num  = 4
+    pos_x        = 16753
+    pos_z        = -17473
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 3
+    vehicle      = 64		; X01
+    num  = 5
+    pos_x        = 8023
+    pos_z        = -14923
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 3
+    vehicle      = 66		; Static
+    num  = 5
+    useable      
+    pos_x        = 12753
+    pos_z        = -13651
+    mb_status=unknown
+end
+begin_squad
+    owner        = 3
+    vehicle      = 64		; X01
+    num  = 4
+    useable      
+    pos_x        = 16051
+    pos_z        = -11473
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 3
+    vehicle      = 64		; X01
+    num  = 4
+    useable      
+    pos_x        = 9073
+    pos_z        = -18601
+end
+begin_squad
+    owner        = 3
+    vehicle      = 65		; 5PO
+    num  = 3
+    useable      
+    pos_x        = 14173
+    pos_z        = -16273
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 3
+    vehicle      = 66		; Static
+    num  = 3
+    useable      
+    pos_x        = 9151
+    pos_z        = -11473
+    mb_status=unknown
+end
+begin_squad
+    owner        = 3
+    vehicle      = 65		; 5PO
+    num  = 3
+    useable      
+    pos_x        = 12973
+    pos_z        = -18601
+end
+begin_squad
+    owner        = 3
+    vehicle      = 66		; Static
+    num  = 5
+    pos_x        = 15973
+    pos_z        = -10873
+    mb_status=unknown
+end
+begin_squad
+    owner        = 3
+    vehicle      = 66		; Static
+    num  = 5
+    pos_x        = 17401
+    pos_z        = -10073
+end
+begin_squad
+    owner        = 3
+    vehicle      = 66		; Static
+    num  = 5
+    pos_x        = 18151
+    pos_z        = -17473
+    mb_status=unknown
+end
+begin_squad
+    owner        = 3
+    vehicle      = 66		; Static
+    num  = 5
+    pos_x        = 18451
+    pos_z        = -10601
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 3
+    vehicle      = 66		; Static
+    num  = 5
+    pos_x        = 17323
+    pos_z        = -10673
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 3
+    vehicle      = 66		; Static
+    num  = 5
+    pos_x        = 17473
+    pos_z        = -17173
+end
+begin_squad
+    owner        = 3
+    vehicle      = 66		; Static
+    num  = 5
+    pos_x        = 15373
+    pos_z        = -17773
+    mb_status	 = unknown
+end
+
+;------------------------------------------------------------
+;--- Prototype Modifications                              ---
+;------------------------------------------------------------
+include data:scripts/startup2.scr
+modify_vehicle 	56
+    shield       = 55
+end
+;------------------------------------------------------------
+;--- Prototype Enabling                                   ---
+;------------------------------------------------------------
+begin_enable 3
+    vehicle = 64	; X01
+    vehicle = 65	; 5P0
+    vehicle = 66	; Static
+    vehicle = 67	; Radda
+    vehicle = 70	; B0mb
+end
+
+;------------------------------------------------------------
+;--- Tech Upgrades                                        ---
+;------------------------------------------------------------
+begin_gem
+    sec_x	 = 14
+    sec_y	 = 4
+    building     = 50
+    type         = 2                 
+        begin_action
+        	modify_vehicle 6
+			add_energy = 100
+        		add_shield = 2         
+        	end
+    	end_action
+    mb_status    = unknown
+end
+begin_gem
+    sec_x        = 7
+    sec_y        = 9
+    building     = 50
+    type         = 2                 
+        begin_action
+        	modify_vehicle 3
+			add_energy = 500
+        		add_shield = 7       
+        	end
+    	end_action
+end
+
+;------------------------------------------------------------
+;--- Map Dumps                                            ---
+;------------------------------------------------------------
+begin_maps
+; ------------------------------------------ 
+;--- machine generated map dumps, go away ---
+; ------------------------------------------ 
+    typ_map =
+        20 20
+        f8 fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc f9 
+        ff 01 52 51 01 e6 01 00 01 01 01 e6 01 01 00 01 01 01 01 fd 
+        ff 3b e6 1e 00 3b 1e 00 3b 01 00 00 e6 00 e6 00 00 3b 01 fd 
+        ff 4f 01 e6 4e 00 01 00 00 e6 e6 01 2b 00 00 01 00 00 01 fd 
+        ff 2b 01 01 01 1e 2b 1e e6 00 00 00 01 00 66 e4 01 01 01 fd 
+        ff 3b 00 00 1e 01 01 00 01 00 e6 3b 01 00 e6 01 00 e6 01 fd 
+        ff 01 01 2b 00 00 3b 00 00 00 00 00 00 00 00 00 00 2b 00 fd 
+        ff 01 e6 e6 01 00 00 01 01 e4 00 e4 e6 3b 00 00 3b e4 e6 fd 
+        ff 01 01 01 3b 00 00 3b 01 e6 1e e6 3b 01 01 e4 00 01 01 fd 
+        ff 01 00 00 00 e4 3b 66 01 1e b2 10 11 ae 1e 01 e6 01 01 fd 
+        ff 01 00 00 e5 3b 2b e6 e6 8b a0 88 3b 05 3b e4 00 00 00 fd 
+        ff 3b 00 af b9 ad 85 86 8a 85 9f 85 8a 06 01 00 01 e6 01 fd 
+        ff 01 00 b3 ca 0c 10 ba 13 12 0c 11 10 b6 83 3b e6 00 01 fd 
+        ff 01 2b b0 b7 ab 8b a0 85 85 96 88 85 a0 84 3b 00 00 00 fd 
+        ff 3b 00 00 e4 e6 8b 9f 88 8b b3 11 10 ab 83 01 e6 01 01 fd 
+        ff 3b 01 e6 00 01 85 a0 85 85 9f 88 3b 2b e4 e5 3b 2b 01 fd 
+        ff 01 01 01 00 8b 4b ac 13 12 ab 88 3b e4 e5 e4 01 01 01 fd 
+        ff 01 01 01 00 01 85 85 85 00 00 00 00 00 2b 01 00 01 01 fd 
+        ff 3b 01 3b 00 00 00 3b 00 00 00 3b 01 00 e6 3b 01 01 01 fd 
+        fb fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fa 
+    own_map =
+        20 20
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 01 01 01 01 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 01 00 01 01 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 01 01 01 01 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 01 01 01 01 01 01 01 00 00 00 00 00 00 00 03 00 00 00 00 
+        00 00 00 00 01 01 01 01 01 01 01 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 03 00 03 00 00 00 00 00 03 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 
+        00 00 00 00 00 03 00 00 00 03 03 03 03 03 03 00 00 00 00 00 
+        00 00 00 00 03 00 00 00 00 03 03 03 00 00 00 03 00 00 00 00 
+        00 00 00 00 00 00 03 03 03 03 03 03 03 03 00 00 00 00 00 00 
+        00 00 00 00 00 03 03 03 03 03 03 03 03 03 03 00 00 00 00 00 
+        00 00 00 00 00 03 03 03 03 03 03 03 03 03 03 00 00 00 00 00 
+        00 00 00 00 03 00 03 03 03 03 03 03 03 03 03 00 00 00 00 00 
+        00 00 00 00 00 00 03 03 03 03 03 03 00 00 03 03 00 00 00 00 
+        00 00 00 00 00 03 03 03 03 03 03 03 00 03 03 03 00 00 00 00 
+        00 00 00 00 00 00 03 03 03 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    hgt_map = 
+        20 20
+        7f 7f 7e 7e 7e 7f 7e 84 84 84 84 85 85 87 86 85 86 84 84 84 
+        7f 7f 7e 7e 7e 7f 7e 84 84 84 84 85 85 87 86 85 86 84 84 84 
+        7e 7e 7e 7e 7f 7e 7e 84 84 84 84 84 84 84 85 84 84 84 84 84 
+        7e 7e 7e 7f 7e 7e 7e 85 84 84 84 84 84 84 7e 7e 84 85 86 86 
+        7f 7f 7e 7e 7e 7f 7e 7e 84 86 85 85 84 84 7e 7e 7e 7e 85 85 
+        85 85 85 85 7e 7f 7e 7e 7e 7f 7e 84 84 84 84 7e 84 7e 84 84 
+        84 84 84 84 84 85 85 85 85 85 7e 86 84 85 84 84 85 7e 87 87 
+        7e 7e 84 85 84 84 86 7e 7e 7e 7e 7e 7e 86 85 85 84 7e 85 85 
+        86 86 7e 84 84 86 86 7e 7e 7f 7e 7e 7e 7e 7e 85 84 7e 86 86 
+        86 86 84 85 86 85 7e 7e 7f 7e 7e 7e 7e 7e 7e 82 7e 7e 84 84 
+        85 85 86 86 7e 7e 7f 7e 7f 7e 7e 7e 7e 7f 7e 85 84 85 84 84 
+        84 84 86 7e 7e 7e 7e 7e 7e 7e 7e 7e 7e 7e 7e 86 84 84 84 84 
+        84 84 85 7e 7e 7e 7e 7e 7e 7e 7e 7f 7e 7e 7e 85 86 84 84 84 
+        84 84 86 7e 7e 7e 7f 7e 7e 7e 7e 7e 7e 7e 7e 7e 85 84 7e 7e 
+        84 84 84 85 85 7e 7e 7f 7e 7e 7e 7e 7e 7f 7e 7e 86 84 84 84 
+        84 84 84 85 85 7e 7e 7e 7e 7f 7e 7e 7e 7f 7e 7f 87 84 85 85 
+        7e 7e 84 84 86 7e 7e 7e 7e 7e 7e 7e 7e 86 7f 7f 84 84 85 85 
+        7e 7e 7e 84 85 7e 7e 7e 7e 85 86 86 87 86 84 85 84 7e 85 85 
+        84 84 7e 85 84 86 85 85 86 85 85 85 85 87 85 84 84 85 87 87 
+        84 84 7e 85 84 86 85 85 86 85 85 85 85 87 84 84 84 85 87 87 
+    blg_map = 
+        20 20
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 6f 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 32 0d 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 0d 00 0d 00 00 00 00 00 0d 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0d 00 00 00 00 
+        00 00 00 00 00 0d 00 32 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 0a 00 00 00 00 00 00 00 00 00 00 0d 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 70 00 
+        00 00 00 00 0d 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 0d 0a 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 0d 0a 0d 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+; ------------------------ 
+;--- map dumps end here ---
+; ------------------------ 
+end
+; ------------------------ 
+;--- map dumps end here ---
+; ------------------------ 
+;------------------------------------------------------------
+;--- End Of File                                          ---
+;------------------------------------------------------------

@@ -1,0 +1,416 @@
+;#*+ don't edit the magic runes
+
+;------------------------------------------------------------
+;--- Machine Generated Level Description File             ---
+;------------------------------------------------------------
+
+;------------------------------------------------------------
+;--- Original Header                                      ---
+;------------------------------------------------------------
+;
+;   	Name : 			Ghetto
+;   	created by :   		Stefan'Opti' Karau
+;	ceated am :		Januar 1997
+;	letzte Änderung :	13.05.1998 
+; 	Levelgröße :		25x25
+;	Gegnerrassen : 		Taerkasten, Schwarze Sekte
+;	AI_Tuning:		Stefan 'Metzel Hetzel' Karau		
+;	07-04-98		Stefan: AI Tuning
+;	16-04-98		Stefan: Schwarze Sekte in MB sichtbar
+;	28-Apr-98		Stefan: Reload Const
+;	05-Mai-98		Stefan: Reload Const
+;	08-Mai-98		Steffen: Reload Const
+;	13-Mai-98		Steffen: dem Taerkasten die Radar-Station freigeschalten
+;	19-06-98		Stefan: Ambiencetrack
+;------------------------------------------------------------
+;--- Level Info                                           ---
+;------------------------------------------------------------
+;	info:
+;	- 1 Ghorkov Sation in the South 
+;	- 1 Black Sect Sation in the North
+;	- save your Start-Position with one Powerstation for easy way in the middle of the City
+;	- save the power satations in the north and south with flaks
+;	primeray goal:
+;	- destroy first the Black Seckt Station in the north the the Taerkast in the south
+
+;------------------------------------------------------------
+;--- Main Level Info                                      ---
+;------------------------------------------------------------
+begin_level
+    set  = 3
+    sky  = objects/sterne.base
+    slot0        = palette/standard.pal
+    slot1        = palette/red.pal
+    slot2        = palette/blau.pal
+    slot3        = palette/gruen.pal
+    slot4        = palette/inverse.pal
+    slot5        = palette/invdark.pal
+    slot6        = palette/sw.pal
+    slot7        = palette/invtuerk.pal
+    title_default        = GHETTO
+    title_deutsch        = BETTENBURGEN
+    title_english	 = GHETTO
+	ambiencetrack   = 	6_30000_70000
+end
+
+;------------------------------------------------------------
+;--- Mission Briefing Maps                                ---
+;------------------------------------------------------------
+begin_mbmap
+    name         =  MB_63.IFF
+end
+begin_dbmap
+    name         =  DB_63.IFF
+end
+
+;------------------------------------------------------------
+;--- Beam Gates                                           ---
+;------------------------------------------------------------
+begin_gate
+    sec_x        = 19
+    sec_y        = 3
+    closed_bp    = 25
+    opened_bp    = 26
+    target_level = 73		; Schlacht
+    keysec_x     = 20
+    keysec_y     = 4
+    keysec_x     = 20
+    keysec_y     = 20
+    keysec_x     = 23
+    keysec_y     = 21
+    keysec_x     = 13
+    keysec_y     = 13
+end
+
+
+;------------------------------------------------------------
+;--- Robo Definitions                                     ---
+;------------------------------------------------------------
+begin_robo
+    owner        = 1
+    vehicle      = 56
+    pos_x        = 5363			; 3603
+    pos_y        = -330
+    pos_z        = -17419		; 3788
+    energy       = 910000
+    reload_const = 160000
+    viewangle    = 280			; 45
+end
+begin_robo
+    owner        = 4
+    vehicle      = 60
+    pos_x        = 25803
+    pos_y        = -330
+    pos_z        = -26969
+    energy       = 730000
+    reload_const = 576666
+        con_budget      	=       95
+        con_delay               =       200
+        def_budget      	=       90
+        def_delay               =       30000
+        rec_budget      	=       95
+        rec_delay               =       1000
+        rob_budget      	=       90
+        rob_delay               =       300000 
+        pow_budget		= 	70
+        pow_delay               =       170000
+        rad_budget 		= 	5
+        rad_delay               =       240000
+        saf_budget 		=	50
+        saf_delay               =       240000
+        cpl_budget      	=      	10
+        cpl_delay               =       90000
+end
+begin_robo
+    owner        = 5
+    vehicle      = 62
+    pos_x        = 12524
+    pos_y        = -330
+    pos_z        = -7952
+    energy       = 730000
+    reload_const = 576666
+        con_budget      	=       99
+        con_delay               =       4000
+        def_budget      	=       70
+        def_delay               =       10000
+        rec_budget      	=       97
+        rec_delay               =       300
+        rob_budget      	=       99
+        rob_delay               =       50000 
+        pow_budget		= 	50
+        pow_delay               =       3000
+        rad_budget 		= 	0
+        rad_delay               =       00
+        saf_budget 		=	65
+        saf_delay               =       180000
+        cpl_budget      	=      	20
+        cpl_delay               =       20000
+end
+
+;------------------------------------------------------------
+;--- Predefined Squads                                    ---
+;------------------------------------------------------------
+begin_squad
+    owner        = 1
+    vehicle      = 4
+    num  = 5
+    pos_x        = 1803
+    pos_z        = -1803
+end
+begin_squad
+    owner        = 4
+    vehicle      = 131
+    num  = 1
+    pos_x        = 7801
+    pos_z        = -18451
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 131
+    num  = 1
+    pos_x        = 10463
+    pos_z        = -27788
+    useable
+end
+begin_squad
+    owner        = 4
+    vehicle      = 35
+    num  = 1
+    pos_x        = 10201
+    pos_z        = -26701
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 35
+    num  = 1
+    pos_x        = 13801
+    pos_z        = -22202
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 5
+    vehicle      = 9
+    num  = 1
+    pos_x        = 12301
+    pos_z        = -5513
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 5
+    vehicle      = 9
+    num  = 1
+    pos_x        = 8588
+    pos_z        = -9263
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 5
+    vehicle      = 9
+    num  = 1
+    pos_x        = 8813
+    pos_z        = -3938
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 5
+    vehicle      = 9
+    num  = 1
+    pos_x        = 9074
+    pos_z        = -11513
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 5
+    vehicle      = 9
+    num  = 1
+    pos_x        = 15188
+    pos_z        = -6638
+    mb_status	 = unknown
+end
+;------------------------------------------------------------
+;--- Prototype Modifications                              ---
+;------------------------------------------------------------
+include data:scripts/startup2.scr
+
+;------------------------------------------------------------
+;--- Prototype Enabling                                   ---
+;------------------------------------------------------------
+begin_enable 4
+    vehicle = 32	; Eisenhans	
+    vehicle = 33	; Hetzel
+    vehicle = 34	; Bronsteijn
+    vehicle = 35	; Otschko
+    vehicle = 36	; Serp
+    vehicle = 37	; Leonid
+    vehicle = 38	; Mnosjetz
+    vehicle = 131	; Zeppelin
+    building = 53	; Kraftwerk klein
+    building = 17	; Kraftwerk mittel
+    building = 31	; Taer-Flak
+    building = 73	; Taer-Radar
+end
+begin_enable 5
+    vehicle = 3		; Tiger
+    vehicle = 4		; Erazer
+    vehicle = 6		; Wasp
+    vehicle = 9		; Scout
+    vehicle = 15	; Laurin
+    vehicle = 16	; Fox
+    vehicle = 32	; Eisenhans
+    vehicle = 34	; Bronsteijn
+    vehicle = 37	; Leonid
+    building = 63	; User Kraftwerk klein
+    building = 1	; User Kraftwerk mittel
+    building = 18	; SchSe Flak
+end
+
+;------------------------------------------------------------
+;--- Tech Upgrades                                        ---
+;------------------------------------------------------------
+begin_gem
+    sec_x        = 11
+    sec_y        = 20
+    building     = 16
+    type         = 4
+    begin_action	
+        modify_building 2
+		enable = 1
+        end      
+    end_action
+end
+begin_gem
+    sec_x        = 9
+    sec_y        = 9
+    building     = 16
+    type         = 4
+    begin_action	
+        modify_building  11
+            enable       = 1
+        end      
+    end_action
+end
+;------------------------------------------------------------
+;--- Map Dumps                                            ---
+;------------------------------------------------------------
+begin_maps
+; ------------------------------------------ 
+;--- machine generated map dumps, go away ---
+; ------------------------------------------ 
+    typ_map =
+        25 25
+        f8 fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc f9 
+        ff 01 01 c8 01 af 15 14 15 14 15 ae 01 01 01 87 87 87 87 87 87 87 af ad fd 
+        ff 01 50 52 4b 96 01 01 01 24 22 9f 01 87 87 87 87 4f 4f 87 87 d0 b0 b6 fd 
+        ff 01 51 52 50 97 4f 4f 4f 4f 4f 46 01 87 d0 87 87 4f 87 03 87 87 87 05 fd 
+        ff 01 01 c8 01 9f 01 21 51 01 01 c9 01 87 87 87 87 4f 87 87 c9 87 4f 06 fd 
+        ff 8a 8a 0b c9 99 01 21 01 85 50 25 01 01 d0 8b 88 4f 00 4f 87 87 87 07 fd 
+        ff 86 8b 96 88 9f 01 21 01 85 c9 01 25 01 01 87 87 8a 8a 8a 8a 8a 87 08 fd 
+        ff 86 8b 96 88 a0 26 21 26 21 21 21 cc 29 01 01 87 89 89 85 85 88 d0 07 fd 
+        ff 89 89 96 88 9f 01 01 01 21 01 4e b2 b9 ad 26 01 d0 87 85 85 83 8a 05 fd 
+        ff 87 87 96 88 06 18 1c 1a 67 31 1e b4 b8 b1 01 26 01 87 89 89 89 89 06 fd 
+        ff 8a 8a 96 88 07 26 26 21 21 01 27 9f 87 4f 88 89 8a 01 01 01 87 87 07 fd 
+        ff 86 8b 96 88 9f 01 21 27 01 01 01 96 86 01 85 01 01 01 85 01 c6 c6 05 fd 
+        ff 86 8b 96 88 a0 01 26 01 87 87 01 97 85 01 01 01 4f 01 01 01 c6 c6 06 fd 
+        ff 89 89 96 88 9b 24 25 01 b2 ba 12 b6 d0 01 01 01 01 01 01 01 c6 c6 07 fd 
+        ff 43 13 0c 10 b8 12 13 14 b8 ab 01 96 01 01 01 d0 1e d0 01 01 c6 c6 08 fd 
+        ff 25 8b 9f 88 25 01 27 01 ef 01 01 96 25 01 01 01 1e c7 c7 c7 c6 c6 09 fd 
+        ff 25 8b 9f 88 01 1e 01 1e 01 01 4f 96 01 01 25 01 1e c7 c7 c7 c6 c6 05 fd 
+        ff 01 8b 9f 88 01 01 20 1e 01 01 1e 46 27 01 23 01 1e c7 c7 01 c7 c7 05 fd 
+        ff 1f 8b 9f 20 1e 1e 27 1e 01 01 1e 01 01 01 01 01 01 c7 c7 d0 c7 c7 06 fd 
+        ff 87 b2 b5 01 1f 01 22 20 01 01 01 01 01 22 01 01 01 01 c6 01 c6 87 09 fd 
+        ff 8b ac b1 8a 8a 87 1e 01 01 01 67 27 87 01 01 01 1e 87 01 0e 01 af ab fd 
+        ff 8b 86 c9 c9 86 88 1e 01 01 01 1e 01 01 01 d0 01 01 01 01 d0 01 96 0e fd 
+        ff 8b 86 86 86 86 88 1e 4f 4f 01 1e 01 27 01 87 01 01 01 01 01 01 b3 ad fd 
+        ff 87 89 89 89 89 87 1e 87 1e 1e 87 01 87 01 87 01 27 01 01 01 01 b0 b1 fd 
+        fb fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fa 
+    own_map =
+        25 25
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 01 01 01 01 01 01 01 01 01 01 05 05 05 04 04 04 04 04 04 04 05 05 00 
+        00 01 01 01 01 01 00 00 05 05 05 01 05 04 04 04 04 04 04 04 04 04 05 05 00 
+        00 01 01 01 01 01 00 05 05 05 05 01 05 04 04 04 04 04 04 00 05 05 05 05 00 
+        00 01 01 01 01 01 00 00 05 05 05 01 05 04 04 04 04 04 04 05 05 05 05 05 00 
+        00 01 01 01 01 01 00 05 05 05 05 05 05 05 04 04 04 04 04 05 05 05 05 05 00 
+        00 01 01 01 01 01 05 05 05 05 05 05 05 05 05 04 04 04 04 04 04 05 05 05 00 
+        00 01 01 01 01 01 00 05 05 05 05 05 05 05 05 05 04 04 04 04 04 05 04 05 00 
+        00 01 01 01 01 01 00 00 05 05 05 05 00 05 05 05 05 04 04 04 04 04 04 04 00 
+        00 01 01 01 01 01 05 05 05 05 05 00 00 05 05 05 05 05 04 04 04 04 04 04 00 
+        00 01 01 01 01 01 00 00 00 00 00 00 00 04 04 04 04 04 05 05 05 04 04 04 00 
+        00 01 01 01 01 01 00 00 00 00 00 00 00 04 05 04 04 04 04 04 05 04 04 00 00 
+        00 01 01 01 01 01 00 00 00 04 04 00 00 04 05 04 04 04 04 04 05 04 04 00 00 
+        00 01 01 01 01 01 00 00 00 00 00 00 00 04 05 04 04 04 04 04 05 04 04 00 00 
+        00 01 01 01 01 01 04 04 04 04 04 04 05 05 05 04 04 04 04 04 05 04 04 00 00 
+        00 01 01 01 00 00 04 04 04 04 00 04 05 05 05 05 05 04 04 04 04 04 04 00 00 
+        00 01 01 01 00 00 00 04 04 00 00 04 05 05 05 05 05 04 04 04 04 04 04 00 00 
+        00 01 01 01 00 00 04 04 04 00 00 04 05 05 05 05 05 04 04 04 04 04 04 00 00 
+        00 01 01 01 04 04 04 04 04 00 00 04 04 05 05 04 04 04 04 04 04 04 04 00 00 
+        00 01 01 01 04 04 04 04 04 00 00 00 04 04 04 04 04 04 04 04 04 04 04 04 00 
+        00 01 01 01 01 01 01 04 00 00 00 04 04 04 04 04 04 04 04 04 04 04 04 04 00 
+        00 01 01 01 01 01 01 04 00 00 00 04 04 04 04 04 04 04 04 04 04 04 04 04 00 
+        00 01 01 01 01 01 01 04 04 04 00 04 04 04 04 04 04 04 04 04 04 04 04 04 00 
+        00 01 01 01 01 01 01 04 04 04 04 04 04 04 04 04 04 04 04 04 04 04 04 04 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    hgt_map = 
+        25 25
+        7a 7a 79 7b 78 77 79 79 77 78 76 78 7f 80 7f 86 8b 8f 92 96 8f 91 85 85 85 
+        7a 7a 79 7b 78 77 79 79 77 78 76 78 7f 80 7f 86 8b 8f 92 96 8f 91 85 85 85 
+        78 78 7e 80 7f 79 80 80 7e 80 80 77 7e 86 84 84 8e 88 8a 8c 8f 8a 82 86 86 
+        7b 7b 82 81 80 7a 80 83 80 80 7f 79 80 86 8e 84 92 8c 87 96 91 8b 87 86 86 
+        7c 7c 7d 7c 7c 77 7e 81 7e 7c 7e 78 7f 86 82 81 82 8c 86 92 8e 87 8f 83 83 
+        81 81 82 7e 81 7a 7f 80 7e 80 7e 7d 7e 81 87 82 80 89 84 85 87 87 82 85 85 
+        80 80 80 80 81 7b 80 80 80 81 80 7f 81 7f 80 86 83 80 7d 7f 80 80 82 86 86 
+        80 80 7f 80 80 7b 81 81 80 80 7e 80 80 81 7e 80 86 82 80 80 80 7e 8c 86 86 
+        7d 7d 80 80 7f 7a 80 81 80 7f 81 7f 80 7f 80 81 7e 87 82 80 82 80 82 86 86 
+        80 80 80 80 80 7a 7a 7c 79 7a 80 7f 80 7f 7f 80 80 80 86 84 86 83 83 86 86 
+        7f 7f 81 80 80 7b 80 83 80 7f 82 7f 7e 87 8b 8e 8a 86 80 7f 80 86 85 84 84 
+        80 80 80 81 82 7c 81 82 7f 7d 80 80 80 86 80 86 85 83 85 86 80 7e 7f 87 87 
+        80 80 7e 81 84 7d 82 83 81 7b 7a 7f 80 87 7f 86 80 82 7f 86 7d 80 7f 86 86 
+        7d 7d 80 80 84 7f 84 86 83 82 81 83 81 86 80 86 7d 7e 80 85 7f 80 80 87 87 
+        80 80 80 7e 80 80 7e 80 7f 80 7d 79 7e 80 80 86 86 7a 85 87 80 7e 80 87 87 
+        80 80 7f 80 7e 7d 84 85 85 88 83 79 80 7f 80 81 81 7a 80 7e 7d 80 80 87 87 
+        7e 7e 80 81 80 81 87 88 86 80 81 7a 7f 80 7f 7e 81 7b 81 80 81 7f 7e 87 87 
+        80 80 7d 80 7f 80 83 84 87 80 80 79 7e 81 80 7d 80 7a 80 7f 80 7f 80 87 87 
+        7f 7f 80 7e 85 83 80 84 88 80 7e 79 7a 80 7e 80 7f 7e 7e 80 86 80 81 88 88 
+        80 80 81 80 86 85 83 84 85 7d 80 7f 7f 80 80 86 84 86 80 7e 80 7e 80 85 85 
+        80 80 7e 80 80 7e 7d 86 7e 80 7e 84 7e 81 7d 82 81 85 80 86 86 83 85 86 86 
+        80 80 80 7d 7f 80 80 85 80 80 80 86 80 80 80 8d 84 80 7e 83 84 80 82 85 85 
+        80 80 7f 80 80 80 7e 85 85 85 7e 85 80 80 7e 87 84 7f 81 85 82 80 82 86 86 
+        7d 7d 80 80 7d 7f 80 87 85 87 85 85 7f 7f 80 81 7d 80 80 86 85 84 85 84 84 
+        7d 7d 80 80 7d 7f 80 87 85 87 85 85 7f 7f 80 81 7d 80 80 86 85 84 85 84 84 
+    blg_map = 
+        25 25
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 00 00 1f 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 1f 00 00 08 00 19 00 00 00 00 00 
+        00 00 00 02 00 00 00 00 00 00 00 0b 00 00 00 00 00 08 00 00 01 00 08 00 00 
+        00 00 00 00 0e 00 00 00 00 00 00 00 00 00 1f 00 00 08 00 08 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 0e 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 1f 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 1f 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 00 00 00 15 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 1f 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 1f 00 1f 00 00 00 15 00 00 
+        00 00 00 00 00 00 00 00 00 49 00 00 00 00 00 00 00 00 00 14 00 15 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00 00 14 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 1f 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 10 00 00 00 00 00 00 00 00 11 00 00 00 00 
+        00 00 00 0b 0e 00 00 00 00 00 00 00 00 00 00 1f 00 00 00 00 1f 00 00 11 00 
+        00 00 00 00 00 00 00 00 08 08 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+; ------------------------ 
+;--- map dumps end here ---
+; ------------------------ 
+end
+
+;------------------------------------------------------------
+;--- End Of File                                          ---
+;------------------------------------------------------------

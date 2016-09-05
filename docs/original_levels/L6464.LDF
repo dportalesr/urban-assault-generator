@@ -1,0 +1,356 @@
+;#*+ don't edit the magic runes
+
+;------------------------------------------------------------
+;--- Machine Generated Level Description File             ---
+;------------------------------------------------------------
+
+;------------------------------------------------------------
+;--- Original Header                                      ---
+;------------------------------------------------------------
+; 	Name         :  Teer am schwarzen Wadi
+; 	Designed by  :  Stefan 'Opti'
+; 	Grösse       :  16x16
+; 	Gegnerrassen :  Taerkasten, Schwarze Sekte 
+; 	last changes :  16.03.1998
+;			13-Mar-98 Bernd LevelMap eingebaut
+;	AI-Tuning    :  Steffen Priebus
+;	28-Apr-98	Stefan: Raload Const
+;	05-Mai-98	Stefan: Reload Const
+;	06-Mai-98	Stefan: Reload Const
+;	08-Mai-98	Stefan: Relaod Const
+;	19-06-98	Stefan: Ambiencetrack
+;------------------------------------------------------------
+;--- Level Info                                           ---
+;------------------------------------------------------------
+;	info:
+;	- one Taerkast-and one Black-sekt-host-station are in this city
+;	- we know about some power-stations in this city
+;       - two tech-centers are in this city 
+;       - take care of the enemy flakstations
+;       - the enemy can build power-stations and flak-stations
+;	primary-goal:
+;	- found or build a power-station 
+;	- destroy the enemy host-stations
+;	secondary-goal:
+;	- find and conquer the tech-centers
+;       - build flaks for defence
+;------------------------------------------------------------
+;--- Main Level Info                                      ---
+;------------------------------------------------------------
+begin_level
+    set 		 = 5
+    sky 		 = objects/smod7.base
+    slot0       	 = palette/standard.pal
+    slot1       	 = palette/red.pal
+    slot2       	 = palette/blau.pal
+    slot3       	 = palette/gruen.pal
+    slot4       	 = palette/inverse.pal
+    slot5       	 = palette/invdark.pal
+    slot6       	 = palette/sw.pal
+    slot7        	 = palette/invtuerk.pal
+    title_default        = Tar_on_black_Wadi
+    title_deutsch        = Teer_am_schwarzen_Wadi
+    title_english        = Tar_on_black_Wadi
+    ambiencetrack        = 6_180000_260000
+end
+
+;------------------------------------------------------------
+;--- Mission Briefing Maps                                ---
+;------------------------------------------------------------
+begin_mbmap
+    name         =  MB_64.IFF
+    size_x       = 480
+    size_y       = 480
+end
+begin_dbmap
+    name         =  DB_64.IFF
+    size_x       = 480
+    size_y       = 480
+end
+;------------------------------------------------------------
+;--- Beam Gates                                           ---
+;------------------------------------------------------------
+begin_gate
+    sec_x        = 8
+    sec_y        = 8
+    closed_bp    = 25
+    opened_bp    = 26
+    target_level = 74		; Mission Possible
+    keysec_x     = 11
+    keysec_y     = 9
+    keysec_x     = 2
+    keysec_y     = 11
+end
+
+;------------------------------------------------------------
+;--- Robo Definitions                                     ---
+;------------------------------------------------------------
+begin_robo
+    owner        = 1
+    vehicle      = 56
+    pos_x        = 3000
+    pos_y        = -330
+    pos_z        = -3000
+    energy       = 910000
+    reload_const = 160000
+    viewangle    = 12 
+end
+begin_robo
+    owner        = 4
+    vehicle      = 60
+    pos_x        = 5474
+    pos_y        = -200
+    pos_z        = -17051
+    energy       = 730000
+    reload_const = 576666
+        con_budget      	=       98
+        con_delay               =       30000
+        def_budget      	=       98
+        def_delay               =       40000
+        rec_budget      	=       95
+        rec_delay               =       33000
+        rob_budget      	=       90
+        rob_delay               =       23000 
+        pow_budget		= 	50
+        pow_delay               =       00
+        rad_budget 		= 	00
+        rad_delay               =       00
+        saf_budget 		=	40
+        saf_delay               =       45000
+        cpl_budget      	=      	99
+        cpl_delay               =       00
+end
+begin_robo
+    owner        = 5
+    vehicle      = 62
+    pos_x        = 15074
+    pos_y        = -300
+    pos_z        = -4124
+    energy       = 730000
+    reload_const = 576666
+        con_budget      	=       97
+        con_delay               =       30000
+        def_budget      	=       97
+        def_delay               =       32000
+        rec_budget      	=       93
+        rec_delay               =       23000
+        rob_budget      	=       93
+        rob_delay               =       34000 
+        pow_budget		= 	60
+        pow_delay               =       00
+        rad_budget 		= 	00
+        rad_delay               =       00
+        saf_budget 		=	60
+        saf_delay               =       33000
+        cpl_budget      	=      	95
+        cpl_delay               =       00
+end
+
+;------------------------------------------------------------
+;--- Predefined Squads                                    ---
+;------------------------------------------------------------
+begin_squad
+    owner        = 4
+    vehicle      = 32		; Eisenhans
+    num  = 3
+    pos_x        = 4600
+    pos_z        = -17200
+    useable
+end
+begin_squad
+    owner        = 4
+    vehicle      = 131		; Zeppelin
+    num  = 1
+    pos_x        = 1725
+    pos_z        = -10200
+    mb_status    = unknown
+    useable
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 5
+    pos_x        = 16500
+    pos_z        = -14600
+    useable
+end
+begin_squad
+    owner        = 4
+    vehicle      = 33		; Mnosjetz
+    num  = 3
+    useable      
+    pos_x        = 14000
+    pos_z        = -13000
+end
+begin_squad
+    owner        = 4
+    vehicle      = 36		; Serp
+    num  = 4
+    pos_x        = 13000
+    pos_z        = -10000
+    useable
+end
+begin_squad
+    owner        = 5
+    vehicle      = 35		; Otschko
+    num  = 1
+    pos_x        = 7800
+    pos_z        = -3000
+    mb_status    = unknown
+end
+
+;------------------------------------------------------------
+;--- Prototype Modifications                              ---
+;------------------------------------------------------------
+include data:scripts/startup2.scr
+modify_vehicle  131
+	energy   = 25000           ; 50000
+	shield   = 99              ; 95
+end
+
+;------------------------------------------------------------
+;--- Prototype Enabling                                   ---
+;------------------------------------------------------------
+begin_enable 4
+    vehicle = 32	; Eisenhans
+    vehicle = 33	; Hetzel
+    vehicle = 34	; Bronsteijn
+    vehicle = 35	; Otschko
+    vehicle = 36	; Serp
+    vehicle = 37	; Leonid
+    vehicle = 38	; Mnosjetz
+    vehicle = 131	; Zeppelin
+    building = 53	; Kraftwerk klein
+    building = 17       ; Kraftwerk
+    building = 31       ; Taer-Flak
+end
+begin_enable 5
+    vehicle = 3		; Tiger
+    vehicle = 4		; Erazer
+    vehicle = 6		; Wasp
+    vehicle = 15	; Laurin
+    vehicle = 16	; Fox
+    vehicle = 32	; Eisenhans
+    vehicle = 33	; Hetzel
+    vehicle = 34	; Bronsteijn
+    vehicle = 35	; Otschko
+    vehicle = 37	; Leonid
+    building = 63	; User Kraftwerk klein
+    building = 18       ; SchSe Flak
+end
+
+;------------------------------------------------------------
+;--- Tech Upgrades                                        ---
+;------------------------------------------------------------
+begin_gem
+    sec_x        = 2
+    sec_y        = 12
+    building     = 50
+    type         = 2
+    begin_action	
+        modify_vehicle  12
+        	add_energy = 5500
+        	add_shield = 5
+        end      
+    end_action
+end
+
+begin_gem
+    sec_x        = 12
+    sec_y        = 10
+    building     = 50
+    type         = 2 
+    begin_action	
+        modify_vehicle 10
+        	add_energy = 200
+        	add_shield = 4
+        end      
+    end_action
+end
+;------------------------------------------------------------
+;--- Map Dumps                                            ---
+;------------------------------------------------------------
+begin_maps
+; ------------------------------------------ 
+;--- machine generated map dumps, go away ---
+; ------------------------------------------ 
+    typ_map =
+        16 16
+        f8 fc fc fc fc fc fc fc fc fc fc fc fc fc fc f9 
+        ff 1e 29 c8 7a 01 01 1e 00 01 1e 1e 01 01 01 fd 
+        ff 1e 21 1e 25 c9 1e b2 10 15 ba 12 14 12 ae fd 
+        ff c8 1e c8 24 01 2a 05 26 27 08 1e 2b 2c 05 fd 
+        ff c9 af 14 15 12 14 b5 28 00 a6 1e 2d c9 06 fd 
+        ff 5f 05 21 20 1f 1c 07 29 00 ac 14 12 13 b1 fd 
+        ff 1e ac 10 15 14 11 b5 1e 1e 73 1e 00 80 5e fd 
+        ff 01 00 01 01 01 00 07 01 6b 72 63 00 00 01 fd 
+        ff 7a 73 00 01 01 00 97 03 6c 63 6d 6b dd dc fd 
+        ff 01 63 6c 7a 01 01 9b 80 01 6d 69 01 da df fd 
+        ff 01 6d 6a 72 7a 01 99 01 80 5e 01 66 0e 82 fd 
+        ff 5e 69 6d 63 6b 7a 86 87 80 00 5d 01 dd df fd 
+        ff 00 66 d5 48 d4 01 7a 86 87 80 01 7f da db fd 
+        ff 00 5d 43 0e 82 5e 01 7a 96 80 b2 ad 5d 01 fd 
+        ff 01 01 da 83 db 00 01 1e 86 12 b8 bf 00 01 fd 
+        fb fe fe fe fe fe fe fe fe fe fe fe fe fe fe fa 
+    own_map =
+        16 16
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 01 01 01 01 01 01 05 05 05 05 05 05 05 05 00 
+        00 01 01 01 01 01 05 05 05 05 05 05 05 05 05 00 
+        00 01 01 01 01 05 05 05 05 05 05 05 05 05 05 00 
+        00 01 05 05 05 05 05 05 05 05 05 05 05 05 05 00 
+        00 01 05 05 05 05 05 05 05 05 05 05 05 05 05 00 
+        00 05 05 05 05 05 05 05 05 05 05 05 05 04 04 00 
+        00 05 05 05 05 05 05 05 05 04 04 04 04 04 04 00 
+        00 04 05 05 05 05 05 05 04 04 04 04 04 04 04 00 
+        00 04 04 04 04 05 05 05 04 04 04 04 04 04 04 00 
+        00 04 04 04 04 04 05 05 05 04 04 04 04 04 04 00 
+        00 04 04 04 04 04 04 05 05 04 04 04 04 04 04 00 
+        00 04 04 04 04 04 04 04 05 05 04 04 04 04 04 00 
+        00 04 04 04 04 04 04 04 04 05 04 04 04 04 04 00 
+        00 04 04 04 04 04 04 04 04 05 04 04 04 04 04 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    hgt_map = 
+        16 16
+        80 80 80 82 82 82 7d 7d 7c 7c 7d 7d 7d 7d 7d 7d 
+        80 80 80 82 82 82 7d 7d 7c 7c 7d 7d 7d 7d 7d 7d 
+        80 80 80 7f 7b 82 7c 7c 7c 7c 7b 7b 7b 7b 7d 7d 
+        80 80 7b 80 7b 79 7b 7b 7c 7c 7c 7a 7b 7b 7d 7d 
+        7e 7e 7a 7a 7b 7b 7b 7b 7b 7c 7c 7c 7c 7b 7b 7b 
+        80 80 7c 7a 7a 7a 7b 7b 7a 7b 7d 7b 7b 7b 7b 7b 
+        7c 7c 7b 7a 7a 7a 7b 7b 7b 7b 7b 7b 7b 80 80 80 
+        7a 7a 7a 7a 7b 7b 7c 7b 7b 80 80 80 80 80 80 80 
+        7f 7f 7a 7a 7a 7b 7c 7b 81 80 80 80 80 80 80 80 
+        80 80 80 80 80 7b 7b 7b 80 80 80 80 80 81 80 80 
+        80 80 80 80 80 80 7b 7b 7b 80 80 80 80 80 81 81 
+        80 80 80 80 80 80 80 7b 7b 80 80 81 80 81 80 80 
+        80 80 80 80 80 80 80 80 7b 7b 80 80 80 80 80 80 
+        80 80 81 80 81 80 81 80 80 7b 80 80 80 81 80 80 
+        80 80 80 80 80 81 80 80 7e 7b 7e 80 80 80 80 80 
+        80 80 80 80 80 81 80 80 7e 7b 7e 80 80 80 80 80 
+    blg_map = 
+        16 16
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 
+        00 02 00 02 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 01 00 00 00 00 00 00 00 00 00 00 00 0b 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 19 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 32 11 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 32 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 11 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+; ------------------------ 
+;--- map dumps end here ---
+; ------------------------ 
+end
+
+;------------------------------------------------------------
+;--- End Of File                                          ---
+;------------------------------------------------------------

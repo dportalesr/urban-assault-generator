@@ -1,0 +1,91 @@
+begin_level
+  set     = 2  sky     = objects/x7.base
+  slot0   = palette/standard.pal
+  slot1   = palette/red.pal
+  slot2   = palette/blau.pal
+  slot3   = palette/gruen.pal
+  slot4   = palette/inverse.pal
+  slot5   = palette/invdark.pal
+  slot6   = palette/sw.pal
+  slot7   = palette/invtuerk.pal
+end
+
+; Mission Briefing Map
+begin_mbmap
+  name = MB_15.IFF
+end
+
+; Mission Debriefing Map
+begin_dbmap
+  name = DB_15.IFF
+end
+
+; Beam Gates
+begin_gate
+  sec_x         = 7  sec_y         = 2  closed_bp     = 5
+  opened_bp     = 6
+  target_level  = 30  keysec_x      = 6  keysec_y      = 1  keysec_x      = 5  keysec_y      = 1  mb_status     = unknown
+end
+begin_gate
+  sec_x         = 5  sec_y         = 1  closed_bp     = 5
+  opened_bp     = 6
+  target_level  = 34  keysec_x      = 8  keysec_y      = 3  keysec_x      = 6  keysec_y      = 2  keysec_x      = 9  keysec_y      = 3  mb_status     = unknown
+end
+
+; Player Host Station
+begin_robo
+  owner         = 1
+  vehicle       = 56
+  pos_x         = 10201  pos_y         = -270  pos_z         = -5399  energy        = 800000  reload_const  = 153125end
+
+; Enemy Host Stations
+begin_robo
+  owner         = 6  vehicle       = 59  pos_x         = 3001  pos_y         = -330  pos_z         = -5399  energy        = 1160000  reload_const  = 720000  con_budget    = 66  con_delay     = 62000  def_budget    = 97  def_delay     = 60000  rec_budget    = 62  rec_delay     = 23000  rob_budget    = 70  rob_delay     = 71000  pow_budget    = 98  pow_delay     = 54000  rad_budget    = 20  rad_delay     = 64000  saf_budget    = 51  saf_delay     = 59000  cpl_budget    = 86  cpl_delay     = 63000end
+
+; Stoudson Bomb
+begin_item
+  sec_x         = 5  sec_y         = 3  inactive_bp   = 35  active_bp     = 36  trigger_bp    = 36  type          = 1
+  countdown     = 133000 ;20 seconds - 42 minutes
+  keysec_x      = 3  keysec_y      = 3  keysec_x      = 11  keysec_y      = 1  keysec_x      = 4  keysec_y      = 2end
+
+;Predefined Squads
+; Prototype Modifications
+include data:scripts/startup2.scr
+
+begin_enable 1  vehicle   = 1  vehicle   = 2  vehicle   = 3  vehicle   = 4  vehicle   = 5  vehicle   = 6  vehicle   = 7  vehicle   = 9  vehicle   = 10  vehicle   = 11  vehicle   = 12  vehicle   = 14  vehicle   = 15  vehicle   = 16  building  = 11  building  = 63  building  = 2  building  = 28  building  = 3end ; end of enable
+
+begin_enable 6  vehicle   = 22  vehicle   = 23  vehicle   = 24  vehicle   = 25  vehicle   = 26  vehicle   = 27  vehicle   = 28  vehicle   = 29  vehicle   = 30  vehicle   = 31  vehicle   = 130  building  = 30  building  = 52  building  = 12  building  = 71end ; end of enable
+
+begin_maps
+  typ_map =
+    15 6
+    f8 fc fc fc fc fc fc fc fc fc fc fc fc fc f9
+    ff 09 b9 b2 7a ac 96 47 4c 1d 2a 35 2d b3 fd
+    ff 50 30 dd a0 ad a3 52 3a 85 ba dd 78 7c fd
+    ff c6 ab 01 2d 48 d7 7a 97 c0 53 14 24 05 fd
+    ff 97 07 08 38 df 5d 35 d4 46 7a e0 12 b5 fd
+    fb fe fe fe fe fe fe fe fe fe fe fe fe fe fa
+  own_map =
+    15 6
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 06 06 06 06 06 00 00 00 00 
+    00 06 06 06 06 06 06 06 06 06 06 06 06 00 00 
+    00 06 06 06 06 06 06 06 06 06 06 06 06 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+  hgt_map =
+    15 6
+    16 16 17 17 1c 1b 1a 18 16 19 14 15 12 12 12 
+    16 16 17 17 1c 1b 1a 18 16 19 14 15 12 12 12 
+    12 12 0e 0c 0e 0c 0b 0c 0e 0d 0a 0c 06 07 07 
+    04 04 05 05 07 08 05 02 03 05 01 02 07 03 03 
+    04 04 07 08 08 05 03 00 02 01 03 07 04 04 04 
+    04 04 07 08 08 05 03 00 02 01 03 07 04 04 04 
+  blg_map =
+    15 6
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 0c 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 end ; end of maps

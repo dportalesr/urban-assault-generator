@@ -1,0 +1,930 @@
+;#*+ don't edit the magic runes
+
+;------------------------------------------------------------
+;--- Machine Generated Level Description File             ---
+;------------------------------------------------------------
+
+;------------------------------------------------------------
+;--- Original Header                                      ---
+;------------------------------------------------------------
+
+; 	Name :		Schlachtfeld 
+; 	Designed by : 	Stefan 'Opti'
+;	designed am :	September 1996
+;	last changes :	20.05.1998
+; 	Gegnerrassen : 	Schwarze Sekte, Kyterneser, Taerkasten
+; 	
+;	23-Mär-98	Stefan: Höhenmap korrigiert
+;	16-Apr-98	Stefan: AI und zusätzliche Fahrzeuge
+;	21-Apr-98	Stefan: AI
+;	22-Apr-98	Stefan: Bombe
+;	28-Apr-98	Stefan: Reload Const
+;	05-Mai-98	Stefan: Reload Const
+;	08-Mai-98	Steffen: Reload Const
+;	13-Mai-98	Stefan: Radarstation
+;	14-Mai-98	Bernd: MB Map eingetragen
+;	29-Mai-98	Steffen: Fahrzeuge vorplaziert
+;	19-06-98	Stefan: Ambiencetrack
+;	30-06-98	Stefan: Pico Upgrate Waffe modifiziert
+;------------------------------------------------------------
+;--- Level Info                                           ---
+;------------------------------------------------------------
+;	Info:
+;	- we know about one Ghorkov Station  and Taerkast Station
+;	- in the south is a black area
+;	- we replaced many tanks for first fightings against the frontline in the south
+;	- save the frontline in the west beetwen your and the Taerkast
+;	primeary goal:
+;	- stopped the countdown of the stoudson bomb
+;	- destroy the enemy powerstations
+;	- destroy the hoststations
+;	secondary goal:
+;	- recon the souther aerea after the Ghorkovs
+
+;------------------------------------------------------------
+;--- Main Level Info                                      ---
+;------------------------------------------------------------
+begin_level
+    set  = 5
+    sky  = objects/smod8.base
+    slot0        = palette/standard.pal
+    slot1        = palette/red.pal
+    slot2        = palette/blau.pal
+    slot3        = palette/gruen.pal
+    slot4        = palette/inverse.pal
+    slot5        = palette/invdark.pal
+    slot6        = palette/sw.pal
+    slot7        = palette/invtuerk.pal
+    title_default       = BATTLEFIELD
+    title_deutsch	= SCHLACHTFELD
+	ambiencetrack   = 	2_120000_400000
+end
+
+;------------------------------------------------------------
+;--- Mission Briefing Maps                                ---
+;------------------------------------------------------------
+begin_mbmap
+    name         =  mb_73.iff
+    size_x       = 480
+    size_y       = 480
+end
+begin_dbmap
+    name         =  db_73.iff
+    size_x       = 480
+    size_y       = 480
+end
+;------------------------------------------------------------
+;--- Beam Gates                                           ---
+;------------------------------------------------------------
+begin_gate
+    sec_x        = 16
+    sec_y        = 28
+    closed_bp    = 5
+    opened_bp    = 6
+    target_level = 15		; Endlevel 1
+    keysec_x     = 20
+    keysec_y     = 16
+    mb_status	 = unknown
+end
+
+begin_gate
+    sec_x        = 20
+    sec_y        = 16
+    closed_bp    = 25
+    opened_bp    = 26
+    target_level = 15		; Endlevel 1
+    keysec_x     = 16
+    keysec_y     = 28
+end
+
+;------------------------------------------------------------
+;--- Robo Definitions                                     ---
+;------------------------------------------------------------
+begin_robo
+    owner        = 1
+    vehicle      = 56
+    pos_x        = 15001
+    pos_y        = -330
+    pos_z        = -3939
+    energy       = 1000000
+    reload_const = 165625
+end
+begin_robo
+    owner        = 5
+    vehicle      = 62
+    pos_x        = 32703
+    pos_y        = -330
+    pos_z        = -34353
+    energy       = 800000
+    reload_const = 600000
+        con_budget      	=       99
+        con_delay               =       300000
+        def_budget      	=       99
+        def_delay               =       200000
+        rec_budget      	=       90
+        rec_delay               =       10000
+        rob_budget      	=       99
+        rob_delay               =       480000 
+        pow_budget		= 	60
+        pow_delay               =       540000
+        rad_budget 		= 	0		;40
+        rad_delay               =       00		;120000
+        saf_budget 		=	50
+        saf_delay               =       30000
+        cpl_budget      	=      	50
+        cpl_delay               =       4000
+    mb_status 	 = unknown
+end
+begin_robo
+    owner        = 4
+    vehicle      = 60
+    pos_x        = 31873
+    pos_y        = -330
+    pos_z        = -6603
+    energy       = 800000
+    reload_const = 600000
+        con_budget      	=       99
+        con_delay               =       3000
+        def_budget      	=       99
+        def_delay               =       4000
+        rec_budget      	=       80
+        rec_delay               =       30000
+        rob_budget      	=       50
+        rob_delay               =       280000 
+        pow_budget		= 	65
+        pow_delay               =       240000
+        rad_budget 		= 	00
+        rad_delay               =       00
+        saf_budget 		=	40
+        saf_delay               =       150100
+        cpl_budget      	=      	5
+        cpl_delay               =       70000
+end
+begin_robo
+    owner        = 6
+    vehicle      = 57
+    pos_x        = 12603
+    pos_y        = -330
+    pos_z        = -13953
+    energy       = 800000
+    reload_const = 600000
+        con_budget      	=       99
+        con_delay               =       50
+        def_budget      	=       99
+        def_delay               =       70000
+        rec_budget      	=       90
+        rec_delay               =       90000
+        rob_budget      	=       99
+        rob_delay               =       299999 
+        pow_budget		= 	80
+        pow_delay               =       130000
+        rad_budget 		= 	00
+        rad_delay               =       00
+        saf_budget 		=	50
+        saf_delay               =       200500
+        cpl_budget      	=      	10
+        cpl_delay               =       101000
+end
+
+;------------------------------------------------------------
+;--- Superitem	                                          ---
+;------------------------------------------------------------
+begin_item    
+	sec_x		= 4		; Position des Items selbst
+	sec_y		= 26
+	inactive_bp	= 35		; Bombe aus
+	active_bp	= 36		; Bombe tickt
+	trigger_bp	= 37		; Bombe explodiert
+	type		= 1		; 1=Superbombe, 2=Superwelle
+	countdown	= 2700000	; in millisec, das hier sind also 45 min
+	keysec_x	= 16    
+	keysec_y	= 22
+	keysec_x	= 24    
+	keysec_y	= 24
+	keysec_x	= 2    
+	keysec_y	= 18		; bis zu 16 Keysektoren...
+end
+
+;------------------------------------------------------------
+;--- Predefined Squads                                    ---
+;------------------------------------------------------------
+
+begin_squad
+    owner        = 1
+    vehicle      = 3		; Tiger
+    num  = 1
+    pos_x        = 18563
+    pos_z        = -1538
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 3		; Tiger
+    num  = 1
+    pos_x        = 18563
+    pos_z        = -2038
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 3		; Tiger
+    num  = 1
+    pos_x        = 18563
+    pos_z        = -2588
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 3		; Tiger
+    num  = 1
+    pos_x        = 18563
+    pos_z        = -3038
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 3		; Tiger
+    num  = 1
+    pos_x        = 18563
+    pos_z        = -3413
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 3		; Tiger
+    num  = 1
+    pos_x        = 18563
+    pos_z        = -3863
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 3		; Tiger
+    num  = 1
+    pos_x        = 18563
+    pos_z        = -4238
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 3		; Tiger
+    num  = 1
+    pos_x        = 18563
+    pos_z        = -4575
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 3		; Tiger
+    num  = 1
+    pos_x        = 18563
+    pos_z        = -5063
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 3		; Tiger
+    num  = 1
+    pos_x        = 18563
+    pos_z        = -5513
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 2		; Jaguar
+    num  = 1
+    pos_x        = 11213
+    pos_z        = -6863
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 2		; Jaguar
+    num  = 1
+    pos_x        = 11513
+    pos_z        = -6863
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 2		; Jaguar
+    num  = 1
+    pos_x        = 12375
+    pos_z        = -6863
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 2		; Jaguar
+    num  = 1
+    pos_x        = 12788
+    pos_z        = -6863
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 2		; Jaguar
+    num  = 1
+    pos_x        = 13575
+    pos_z        = -6863
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 2		; Jaguar
+    num  = 1
+    pos_x        = 13988
+    pos_z        = -6863
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 2		; Jaguar
+    num  = 1
+    pos_x        = 14775
+    pos_z        = -6863
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 2		; Jaguar
+    num  = 1
+    pos_x        = 15188
+    pos_z        = -6863
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 2		; Jaguar
+    num  = 1
+    pos_x        = 15938
+    pos_z        = -6863
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 2		; Jaguar
+    num  = 1
+    pos_x        = 16388
+    pos_z        = -6863
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 16		; Fox
+    num  = 1
+    pos_x        = 11363
+    pos_z        = -6263
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 16		; Fox
+    num  = 1
+    pos_x        = 12563
+    pos_z        = -6263
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 16		; Fox
+    num  = 1
+    pos_x        = 13763
+    pos_z        = -6263
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 16		; Fox
+    num  = 1
+    pos_x        = 15000
+    pos_z        = -6263
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 16		; Fox
+    num  = 1
+    pos_x        = 16163
+    pos_z        = -6263
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 14		; Lawnmover
+    num  = 1
+    pos_x        = 12563
+    pos_z        = -5363
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 15		; Laurin
+    num  = 1
+    pos_x        = 13763
+    pos_z        = -5363
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 14		; Lawnmover
+    num  = 1
+    pos_x        = 15000
+    pos_z        = -5363
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 15		; Laurin
+    num  = 1
+    pos_x        = 16163
+    pos_z        = -5363
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 14		; Lawnmover
+    num  = 1
+    pos_x        = 17363
+    pos_z        = -5363
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 15		; Laurin
+    num  = 1
+    pos_x        = 17363
+    pos_z        = -4163
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 14		; Lawnmover
+    num  = 1
+    pos_x        = 17363
+    pos_z        = -2963
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 15		; Laurin
+    num  = 1
+    pos_x        = 17363
+    pos_z        = -1763
+    mb_status	 = unknown
+end
+
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 1
+    pos_x        = 20175
+    pos_z        = -1650
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 1
+    pos_x        = 20175
+    pos_z        = -2250
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 1
+    pos_x        = 20175
+    pos_z        = -2500
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 1
+    pos_x        = 20175
+    pos_z        = -2813
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 1
+    pos_x        = 20175
+    pos_z        = -3300
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 1
+    pos_x        = 20175
+    pos_z        = -3650
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 1
+    pos_x        = 20175
+    pos_z        = -3900
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 1
+    pos_x        = 20175
+    pos_z        = -4388
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 1
+    pos_x        = 20175
+    pos_z        = -4700
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 1
+    pos_x        = 20175
+    pos_z        = -5063
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 1
+    pos_x        = 20175
+    pos_z        = -5588
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 29		; Ormu
+    num  = 1
+    pos_x        = 15000
+    pos_z        = -8963
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 26		; Tekh
+    num  = 2
+    pos_x        = 11400
+    pos_z        = -8963
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 26		; Tekh
+    num  = 2
+    pos_x        = 12563
+    pos_z        = -8963
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 26		; Tekh
+    num  = 2
+    pos_x        = 13763
+    pos_z        = -8963
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 26		; Tekh
+    num  = 2
+    pos_x        = 16163
+    pos_z        = -8963
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 26		; Tekh
+    num  = 2
+    pos_x        = 17363
+    pos_z        = -8963
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 22		; Speedy
+    num  = 2
+    pos_x        = 11400
+    pos_z        = -8663
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 22		; Speedy
+    num  = 2
+    pos_x        = 12563
+    pos_z        = -8663
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 22		; Speedy
+    num  = 2
+    pos_x        = 13763
+    pos_z        = -8663
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 22		; Speedy
+    num  = 2
+    pos_x        = 15000
+    pos_z        = -8663
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 22		; Speedy
+    num  = 2
+    pos_x        = 16163
+    pos_z        = -8663
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 22		; Speedy
+    num  = 2
+    pos_x        = 17363
+    pos_z        = -8663
+    mb_status	 = unknown
+end
+;------------------------------------------------------------
+;--- Prototype Modifications                              ---
+;------------------------------------------------------------
+include data:scripts/startup2.scr
+
+;------------------------------------------------------------
+;--- Prototype Enabling                                   ---
+;------------------------------------------------------------
+begin_enable 5
+    vehicle = 3		; Tiger
+    vehicle = 4		; Erazer
+    vehicle = 6		; Wasp
+    vehicle = 8		; Phantom
+    vehicle = 9		; Scout
+    vehicle = 15	; Laurin
+    vehicle = 16	; Fox
+    vehicle = 24	; Ghagoil
+    vehicle = 25	; Ghagoil 3
+    vehicle = 26	; Tekh
+    vehicle = 27	; Gigant
+    vehicle = 29	; Ormu
+    vehicle = 32	; Eisenhans
+    vehicle = 33	; Hetzel
+    vehicle = 35	; Otschko
+    vehicle = 37	; Leonid
+    vehicle = 131	; Zeppelin
+    building = 63	; Kraftwerk klein
+    building = 1	; Kraftwerk mittel
+    building = 18	; SchSe Flak
+;    building = 3	; Radar
+end
+begin_enable 4
+    vehicle = 8		; Phantom
+    vehicle = 32	; Eisenhans
+    vehicle = 33	; Hetzel
+    vehicle = 34	; Bronsteijn
+    vehicle = 35	; Otschko
+    vehicle = 36	; Serp
+    vehicle = 37	; Leonid
+    vehicle = 38	; Mnosjetz
+    vehicle = 131	; Zeppelin
+    building = 53	; Kraftwerk klein
+    building = 17	; Kraftwerk mittel
+    building = 31	; Taer-Flak
+end
+begin_enable 6
+    vehicle = 22	; Speedy
+    vehicle = 23	; Ufo
+    vehicle = 24	; Ghagoil
+    vehicle = 25	; Ghagoil 3
+    vehicle = 26	; Tekh
+    vehicle = 27	; Gigant
+    vehicle = 28	; Ghagoil 2
+    vehicle = 29	; Ormu
+    vehicle = 30	; modi Gigant
+    vehicle = 31	; Triekina
+    building = 52	; Kraftwerk klein
+    building = 12	; Kraftwerk mittel
+    building = 30	; Kyt-Flak
+end
+
+;------------------------------------------------------------
+;--- Tech Upgrades                                        ---
+;------------------------------------------------------------
+begin_gem
+    sec_x        = 27
+    sec_y        = 10
+    building     = 51
+    type         = 2
+    begin_action	
+        modify_vehicle 15
+        	add_energy	= 500
+        	add_shield      = 5
+	end     
+    end_action
+end
+begin_gem
+    sec_x        = 2
+    sec_y        = 10
+    building     = 50
+    type         = 2
+    begin_action
+        modify_vehicle   5
+        	add_energy	= 1000
+        	add_shield      = 10
+	end      
+    end_action
+end
+begin_gem
+    sec_x        = 28
+    sec_y        = 18
+    building     = 50
+    type         = 2   
+    begin_action
+        modify_vehicle   12
+        	add_energy	= 5500
+		add_shield	= 5
+        end      
+    end_action
+    mb_status	 = unknown
+end
+begin_gem
+    sec_x        = 26
+    sec_y        = 26
+    building     = 15
+    type         = 1   
+    begin_action
+        modify_vehicle   12
+        	add_energy	= 10000 
+		num_weapons	=	2
+		fire_x		=	30.0
+		fire_y		=	5.0
+		fire_z		=	15
+    	end
+	modify_weapon	12
+		add_energy	= -90000
+	end
+    end_action
+end
+;------------------------------------------------------------
+;--- Map Dumps                                            ---
+;------------------------------------------------------------
+begin_maps
+; ------------------------------------------ 
+;--- machine generated map dumps, go away ---
+; ------------------------------------------ 
+    typ_map =
+        32 32
+        f8 fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc f9 
+        ff 00 29 1e 1e 1c 1d 1e 1d 1e 25 01 1f 01 01 1e 1e 01 02 20 02 d5 48 48 d4 1e 2f 01 1f 2f 02 fd 
+        ff 1e b2 14 ba 15 14 ba 15 ad 1e 01 20 01 01 1e 1e 25 d0 4f ef 43 30 2f 41 1e 30 01 24 01 02 fd 
+        ff 25 05 1c 06 25 1d 07 1c a6 1d 1e 01 1e 1f 1e 1e 01 00 0e 4f 42 4f 1e 42 1e 1e 2f 01 30 02 fd 
+        ff 1e b4 13 0c 10 15 0d 14 b1 1e 01 01 23 01 1e 1e 24 01 d0 ef 41 02 30 43 1e 00 1e 1e 2f 02 fd 
+        ff 00 a6 1c 99 1d 1c 08 1c 1e 01 01 1e 01 01 1f 01 d0 00 1e 30 36 35 45 4b 1e 0e 0e 1e 1f 02 fd 
+        ff af b7 15 b7 11 13 b1 1e 25 01 01 01 1f 21 01 01 02 02 4f 1e 44 1e 1e 44 1e 1e 1e 1e 02 02 fd 
+        ff 9f 1e 00 1e 00 25 1e 00 00 1f 01 01 01 01 01 1e 1f 20 02 1e d2 45 48 e0 45 48 48 45 48 dc fd 
+        ff 96 1e 00 01 01 cf 1e 00 00 01 00 4f 01 23 01 cf 01 d0 02 2f 1e 01 02 1e 2f 02 02 02 2f 41 fd 
+        ff 9f 00 cf 01 00 f0 00 4f 21 4f 24 01 cf 1e 4f 1e 01 02 02 0e 02 30 02 d0 1e 02 30 02 02 42 fd 
+        ff a0 66 00 4f 1e 01 1f 00 20 00 4f 01 01 00 01 1f 02 21 1e d0 02 02 02 1e 1e 21 65 2f 01 41 fd 
+        ff 96 20 21 01 01 01 01 02 00 01 2a 01 01 1e 01 01 1d cf 1e 1e 1e 2f 1e 20 1e 1e 1e 01 22 42 fd 
+        ff 9f 1e 23 1e 0f 0f 01 1e 23 25 01 1e 1f 1e 1e 4f 01 1e 02 30 02 02 01 1e 30 01 01 01 1f 44 fd 
+        ff a0 1e 01 00 01 00 1e 1e 1e 01 1e 01 02 1e 01 0f 1e 01 4f 01 d0 01 01 1e 2f 01 d0 01 01 42 fd 
+        ff b0 14 11 12 10 ba 11 10 12 14 ae cf 01 01 1e 1e 02 1e 1f 01 01 01 d0 1e 1e 01 01 21 20 41 fd 
+        ff 01 01 01 01 1e 06 01 01 4f 01 05 1e 01 01 01 1e 02 1e 1e 1e 2f 30 01 1e d0 01 1f 01 1d 43 fd 
+        ff 24 01 01 01 1e b3 14 13 10 11 b7 13 14 15 14 ae 1e 1e 1e 03 1e 01 01 1e 01 01 1d 1c 1f 43 fd 
+        ff 22 20 1e 01 01 05 01 01 01 01 01 01 01 01 01 06 1e 01 c8 01 01 01 23 1e 22 01 20 01 01 42 fd 
+        ff 01 f3 01 01 01 06 1e c9 1e 01 01 1f 22 01 01 07 01 00 1e 01 25 01 1e 24 00 21 01 66 00 41 fd 
+        ff 23 1e 21 1e 1e 07 1e 1e 1e 1e 01 01 1f 01 01 b0 12 13 12 13 12 13 12 ae 00 1e 01 1e 01 43 fd 
+        ff 1e 22 1f 20 1e be 12 13 12 ad 1e 1e 23 1e 4f 4f 1e 1e 1e 23 1e 22 1f 9f 1e 20 21 1e 1f 42 fd 
+        ff 1e 1e 1e 1e 1e 1e 01 1e 1e 9f 1e 1e 1e 1e 1e 1e 1e 1e 1e 1e 1e 1e 23 96 1e 1e 22 1e 24 41 fd 
+        ff 1e 1e 1e 1e 1e 1e 1e 01 1e a0 1e 1e 2e 2e 2e f3 c8 1e 1e 1e 1e 1e 1e b3 12 11 ae 23 01 43 fd 
+        ff 1e 1e 31 2e 31 1e 4f 01 01 9f 1e 1e 1e 1e 1e 1e 1e c9 1e 1e 1e 1e c8 9f 1e 01 96 1e 01 42 fd 
+        ff 01 1e 31 2e 31 1e 1e 4f cc a0 01 20 1e af 10 ba 11 ba 12 14 15 ba 14 f4 11 12 b1 01 c9 41 fd 
+        ff 1f 1e 31 31 31 1e 20 01 00 9f 01 1e 25 08 24 05 23 07 22 1e 21 08 20 06 1e 1e 1e dd 45 db fd 
+        ff 1e 1e 31 f5 31 1e 1f 1e 1e b0 12 ba 11 a1 11 0d 15 0c 10 ba 14 a1 15 bf 1e 68 1e 41 c9 1e fd 
+        ff 24 1e 31 31 31 1e 1e 1e 0f 1e 1e 08 25 05 1c 06 1d 07 1c 08 1f 05 1e dd e1 dc 21 44 1e 1e fd 
+        ff 1e 1e c9 31 c9 1e 1e 24 1e 0f 1e be 12 a2 15 ca 10 0d 11 b7 15 b1 1e de 81 df c9 44 1e 23 fd 
+        ff 1e 1e 1e 1f 1e 01 00 20 1e 1e 1e 01 01 07 27 07 25 08 26 1e 25 1e 26 de 3e df 1e 41 c9 1e fd 
+        ff 1e 1e 01 1e 01 1e 01 01 01 01 01 01 01 be 15 b7 14 b1 01 01 01 2e 01 da e0 e0 45 db 1e 1e fd 
+        fb fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fa 
+    own_map =
+        32 32
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 04 04 04 04 04 04 04 04 04 04 04 04 04 04 04 00 
+        00 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 04 04 04 04 04 04 04 04 04 04 04 04 04 04 04 00 
+        00 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 04 04 04 04 04 04 04 04 04 04 04 04 04 04 04 00 
+        00 01 01 01 00 01 01 01 01 01 01 01 01 01 01 01 04 04 04 04 04 04 04 04 04 04 04 04 04 04 04 00 
+        00 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 04 04 04 04 04 04 04 04 04 04 04 04 04 04 04 00 
+        00 01 01 01 01 01 01 01 00 00 00 00 00 00 00 00 00 00 00 04 04 04 04 04 04 04 04 04 04 04 04 00 
+        00 06 00 00 00 00 00 00 06 06 06 06 06 06 06 06 00 00 00 04 04 04 04 04 04 04 04 04 04 04 04 00 
+        00 06 06 06 06 00 06 06 06 06 06 06 06 06 06 06 06 00 04 04 04 04 04 04 04 04 04 04 04 04 04 00 
+        00 06 06 06 06 06 06 06 06 06 06 06 06 06 06 06 06 00 00 04 04 04 04 04 04 04 04 04 04 04 04 00 
+        00 06 06 06 06 06 06 06 06 06 06 06 06 06 06 06 00 00 00 04 04 04 04 04 04 04 04 04 04 04 04 00 
+        00 06 06 06 06 06 06 06 06 06 06 06 06 06 06 06 06 00 06 00 04 04 04 04 04 04 04 04 04 04 04 00 
+        00 06 06 06 06 06 06 06 06 06 06 06 06 06 06 06 06 06 06 00 04 04 04 04 04 04 04 04 04 04 04 00 
+        00 06 06 06 06 06 06 06 06 06 06 06 06 06 06 06 06 06 06 06 04 04 04 04 00 04 04 04 00 00 00 00 
+        00 06 06 06 06 06 06 06 06 06 06 06 06 06 06 06 06 06 06 06 04 04 00 04 00 04 04 00 00 05 05 00 
+        00 05 00 00 06 06 06 06 06 06 00 06 06 06 00 06 06 06 06 06 04 04 00 00 00 04 00 00 05 05 05 00 
+        00 05 05 00 00 00 06 06 00 06 06 06 06 06 00 06 06 06 06 06 04 04 05 05 05 00 00 05 05 05 05 00 
+        00 05 05 05 00 06 00 00 05 00 00 06 00 00 06 06 00 06 05 05 05 05 05 05 05 05 05 05 05 05 05 00 
+        00 05 05 05 05 00 00 05 05 05 00 00 00 00 00 00 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 00 
+        00 05 05 05 05 05 05 05 05 05 05 05 00 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 00 
+        00 05 05 05 05 00 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 00 
+        00 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 00 
+        00 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 00 
+        00 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 00 
+        00 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 00 
+        00 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 00 
+        00 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 00 
+        00 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 00 
+        00 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 00 
+        00 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 00 
+        00 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 05 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    hgt_map = 
+        32 32
+        7f 7f 7e 80 80 80 80 80 80 7f 80 7e 80 81 80 81 7f 80 80 80 7e 80 7f 80 7f 80 80 80 81 80 81 81 
+        7f 7f 7e 80 80 80 80 80 80 7f 80 7e 80 81 80 81 7f 80 80 80 7e 80 7f 80 7f 80 80 80 81 80 81 81 
+        7f 7f 80 80 80 80 80 80 81 80 7f 80 80 80 7f 80 7f 80 80 80 80 7f 7e 81 81 80 80 7d 80 7f 80 80 
+        80 80 81 80 80 81 80 81 80 7e 80 80 80 7e 80 7e 80 81 81 80 7e 80 80 80 81 81 80 80 7e 80 7e 7e 
+        7e 7e 80 80 80 80 80 80 80 80 81 80 81 80 7e 80 7e 80 7e 7d 80 7e 81 80 81 81 80 81 80 7e 80 80 
+        7f 7f 80 80 80 7e 80 80 81 7d 80 80 7e 80 80 7e 7d 80 7e 80 7e 80 81 81 80 80 80 7e 80 80 7e 7e 
+        80 80 80 80 80 80 80 80 80 80 7f 80 80 7d 7f 80 80 7f 80 80 80 7f 80 80 7f 7f 80 80 7d 7f 80 80 
+        7e 7e 80 80 80 80 81 80 80 7e 80 80 7f 80 80 80 7e 80 80 80 7e 80 80 80 7e 7f 80 7f 80 80 80 80 
+        80 80 80 80 80 80 7e 7f 7f 80 81 7d 80 80 7d 7f 80 7f 80 7f 80 7e 7f 7f 80 81 7d 80 80 7d 7f 7f 
+        80 80 80 82 80 80 7f 80 80 7f 80 80 80 7f 80 80 7e 80 7d 80 80 7f 80 80 80 80 80 80 7f 80 80 80 
+        81 81 82 84 82 7e 80 7e 80 80 80 7f 81 80 7f 80 81 80 80 7f 7e 80 7e 80 80 80 7f 81 80 7f 80 80 
+        7f 7f 81 84 83 80 80 7f 7c 80 7d 80 80 7d 80 80 7e 7f 7f 80 7d 80 7f 7f 80 7f 80 80 7d 80 7f 7f 
+        80 80 7f 83 84 84 82 80 80 82 81 80 7e 7f 81 7d 80 7f 80 7e 80 7f 80 80 7f 81 80 7e 7f 81 7d 7d 
+        80 80 80 80 80 81 83 82 84 82 80 7d 80 80 7d 7f 80 80 80 80 80 7f 80 7f 80 80 7d 80 80 7d 7f 7f 
+        7e 7e 80 7f 80 80 82 84 83 84 82 80 80 7e 80 80 7e 81 82 84 82 80 82 80 80 7f 80 80 7e 80 80 80 
+        83 83 7e 80 7f 80 81 80 80 80 81 80 7f 80 7e 7d 80 83 83 85 82 81 84 7f 80 81 80 7f 80 7e 7f 7f 
+        82 82 86 80 80 7e 80 7f 80 7f 80 7e 80 81 80 81 81 81 84 86 85 84 7f 80 7f 80 7e 80 81 80 81 81 
+        82 82 84 86 80 80 7f 7e 85 80 7d 80 7d 80 7f 80 7f 7d 7e 80 80 7f 7e 81 80 7d 80 7d 80 7f 80 80 
+        80 80 81 83 85 7e 7f 84 83 85 80 7f 80 7e 80 7e 80 81 80 80 7e 80 80 80 7e 80 7f 80 7e 80 7e 7e 
+        7e 7e 80 81 82 81 7e 7f 80 80 81 80 81 80 7e 80 7e 80 7e 7d 7e 7e 7f 80 80 81 80 81 80 7e 80 80 
+        7d 7d 80 7e 80 7e 80 7f 81 7f 80 80 7e 80 80 7e 7d 80 7e 80 7f 81 7e 81 7f 80 80 7e 80 80 7e 7e 
+        80 80 81 82 83 80 7f 80 80 80 82 80 80 7f 81 80 81 83 81 83 80 83 80 80 80 7f 80 80 7d 7f 80 80 
+        85 85 87 87 89 85 88 88 80 7e 82 80 85 85 86 86 87 89 88 88 82 84 80 80 7e 80 80 7f 80 80 80 80 
+        80 80 7f 87 85 87 7e 7f 7f 80 81 7d 80 83 83 83 86 86 88 86 80 82 7f 7f 80 81 7d 80 80 7d 7f 7f 
+        7e 7e 80 85 86 87 7f 80 80 7f 80 80 80 80 80 80 81 80 82 80 80 81 80 80 7f 80 80 80 7f 80 80 80 
+        81 81 80 86 85 85 80 7e 80 80 80 7f 81 80 7f 80 81 80 80 7f 7e 80 7e 80 80 80 7f 81 80 7f 80 80 
+        7e 7e 7f 85 86 85 80 7f 7f 80 7f 80 80 7d 80 80 7e 7f 7f 80 7d 80 7f 7f 80 7f 80 80 7d 80 80 80 
+        80 80 7f 86 84 86 7f 80 80 7f 81 80 7e 7f 81 7d 80 7f 80 7e 80 7f 80 80 7f 81 80 7e 7f 81 7d 7d 
+        80 80 80 88 87 86 7f 80 7f 80 80 7d 80 80 7f 7f 80 80 80 80 80 7f 80 7f 80 80 7f 80 80 7d 7f 7f 
+        7e 7e 80 7f 80 7e 80 7f 80 80 7f 80 80 7e 80 80 7e 80 7f 80 7e 80 7f 80 80 7f 80 80 7e 80 80 80 
+        80 80 80 80 7f 80 7f 80 7f 80 81 80 7f 80 7e 80 80 80 80 7f 80 7f 80 7f 80 81 80 7f 80 7e 7d 7d 
+        80 80 80 80 7f 80 7f 80 7f 80 81 80 7f 80 7e 80 80 80 80 7f 80 7f 80 7f 80 81 80 7f 80 7e 7d 7d 
+    blg_map = 
+        32 32
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 1f 08 49 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 35 08 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 1f 49 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 1f 00 00 00 00 00 00 00 00 11 11 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 1e 00 00 00 00 00 08 00 00 00 1e 00 1f 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 1e 00 00 47 00 08 00 08 00 00 1e 00 08 00 00 00 00 11 00 00 00 1f 00 00 00 00 00 00 00 
+        00 00 32 00 08 00 00 00 00 00 00 08 00 00 00 00 00 00 00 00 1f 00 00 00 00 00 00 33 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 1e 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 0c 0c 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0c 00 00 08 00 1f 00 00 00 00 00 1f 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 1e 00 00 00 00 00 00 00 00 00 00 1f 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 1f 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 19 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 0e 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 32 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 08 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 12 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 08 00 00 00 00 00 00 00 00 00 00 3f 00 00 00 00 12 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 08 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 23 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0f 00 00 01 00 00 
+        00 00 00 00 00 00 00 00 00 0c 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 3f 00 3f 00 00 00 00 0c 00 00 00 00 00 05 00 00 00 00 00 00 00 00 00 00 40 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+; ------------------------ 
+;--- map dumps end here ---
+; ------------------------ 
+end
+
+;------------------------------------------------------------
+;--- End Of File                                          ---
+;------------------------------------------------------------

@@ -1,0 +1,93 @@
+begin_level
+  set     = 3  sky     = objects/Am_1.base
+  slot0   = palette/standard.pal
+  slot1   = palette/red.pal
+  slot2   = palette/blau.pal
+  slot3   = palette/gruen.pal
+  slot4   = palette/inverse.pal
+  slot5   = palette/invdark.pal
+  slot6   = palette/sw.pal
+  slot7   = palette/invtuerk.pal
+end
+
+; Mission Briefing Map
+begin_mbmap
+  name = MB_15.IFF
+end
+
+; Mission Debriefing Map
+begin_dbmap
+  name = DB_15.IFF
+end
+
+; Beam Gates
+begin_gate
+  sec_x         = 5  sec_y         = 4  closed_bp     = 5
+  opened_bp     = 6
+  target_level  = 10  keysec_x      = 1  keysec_y      = 1  keysec_x      = 9  keysec_y      = 2  keysec_x      = 10  keysec_y      = 1  keysec_x      = 5  keysec_y      = 1  keysec_x      = 5  keysec_y      = 1  mb_status     = unknown
+end
+
+; Player Host Station
+begin_robo
+  owner         = 1
+  vehicle       = 56
+  pos_x         = 15001  pos_y         = -370  pos_z         = -5399  energy        = 800000  reload_const  = 153125end
+
+; Enemy Host Stations
+begin_robo
+  owner         = 4  vehicle       = 60  pos_x         = 9001  pos_y         = -300  pos_z         = -1799  energy        = 850000  reload_const  = 616666  con_budget    = 58  con_delay     = 7000  def_budget    = 92  def_delay     = 2000  rec_budget    = 54  rec_delay     = 62000  rob_budget    = 59  rob_delay     = 4000  pow_budget    = 74  pow_delay     = 40000  rad_budget    = 29  rad_delay     = 24000  saf_budget    = 79  saf_delay     = 30000  cpl_budget    = 37  cpl_delay     = 72000end
+
+; Stoudson Bomb
+begin_item
+  sec_x         = 5  sec_y         = 3  inactive_bp   = 35  active_bp     = 36  trigger_bp    = 36  type          = 1
+  countdown     = 215000 ;20 seconds - 42 minutes
+  keysec_x      = 6  keysec_y      = 3  keysec_x      = 4  keysec_y      = 3  keysec_x      = 2  keysec_y      = 4  keysec_x      = 8  keysec_y      = 2  keysec_x      = 12  keysec_y      = 4  keysec_x      = 9  keysec_y      = 4end
+
+;Predefined Squads
+begin_squad
+  owner     = 4  vehicle   = 33  num       = 9  pos_x     = 12601  pos_z     = -1799end
+
+begin_squad
+  owner     = 4  vehicle   = 34  num       = 12  pos_x     = 3001  pos_z     = -5399  mb_status = unknown
+end
+
+; Prototype Modifications
+include data:scripts/startup2.scr
+
+begin_enable 1  vehicle   = 1  vehicle   = 2  vehicle   = 3  vehicle   = 4  vehicle   = 5  vehicle   = 6  vehicle   = 7  vehicle   = 9  vehicle   = 10  vehicle   = 11  vehicle   = 12  vehicle   = 14  vehicle   = 15  vehicle   = 16  building  = 11  building  = 63  building  = 2  building  = 28  building  = 3end ; end of enable
+
+begin_enable 4  vehicle   = 8  vehicle   = 32  vehicle   = 33  vehicle   = 34  vehicle   = 35  vehicle   = 36  vehicle   = 37  vehicle   = 38  vehicle   = 131  building  = 17  building  = 31  building  = 53  building  = 73end ; end of enable
+
+begin_maps
+  typ_map =
+    14 6
+    f8 fc fc fc fc fc fc fc fc fc fc fc fc f9
+    ff 89 bd 97 a5 b2 bd 0a ab a6 ad 86 06 fd
+    ff a1 98 82 20 99 02 97 05 21 a8 87 a8 fd
+    ff b8 84 bd af 9e 08 52 a0 bb 07 00 9c fd
+    ff b3 a6 10 b2 2c 98 06 b8 9c 00 1b 89 fd
+    fb fe fe fe fe fe fe fe fe fe fe fe fe fa
+  own_map =
+    14 6
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 04 04 04 04 04 04 04 04 00 00 00 00 00 
+    00 04 04 04 04 04 04 04 04 00 00 00 00 00 
+    00 04 04 04 04 04 04 04 04 04 00 00 00 00 
+    00 04 04 04 04 04 04 04 04 04 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+  hgt_map =
+    14 6
+    41 41 45 41 43 46 44 46 47 44 45 49 47 47 
+    41 41 45 41 43 46 44 46 47 44 45 49 47 47 
+    48 48 44 44 44 47 49 4b 49 4b 4e 4c 48 48 
+    4c 4c 49 4c 48 49 4a 47 46 47 4a 4a 49 49 
+    4c 4c 4a 47 49 47 47 49 47 46 49 46 48 48 
+    4c 4c 4a 47 49 47 47 49 47 46 49 46 48 48 
+  blg_map =
+    14 6
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 11 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 end ; end of maps

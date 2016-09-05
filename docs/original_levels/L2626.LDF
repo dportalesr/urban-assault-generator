@@ -1,0 +1,286 @@
+;#*+ don't edit the magic runes
+
+;------------------------------------------------------------
+;--- Machine Generated Level Description File             ---
+;------------------------------------------------------------
+
+;------------------------------------------------------------
+;--- Original Header                                      ---
+;------------------------------------------------------------
+; Designed by : 	Stefan 'Opti'
+; Grösse : 		3x10 
+; Schwierigkeit : 	Turorium
+; Gegnerrassen : 	Kyterneser
+; Designed am :		Dez 96
+; last changes :	09.02.98
+;	09-Feb-98 	Bernd MissionBriefingMap aufgeräumt
+;	05-Mai-98	Stefan: neue Keywords
+;	08-May-98	Bernd: neuer Himmel
+;	11-Mai-98	Stefan: User Energie auf Central Park Level
+;	14-Mai-98	BErnd: Missionbriefing Bild anderer Dummy
+;	03-06-98	Stefan: Land / Fahrzeuge neu plaziert
+;	19-06-98	Stefan: Ambiencetrack
+;	02-07-98	Stefan: 3 Wasp für User vorplaziert, Schiessende Dartboards
+;	03-Jul-98	Bernd: Briefing Maps
+;	07-07-98	Stefan: 1 Sektor grösser, mehr Feind HS, Delays	
+;------------------------------------------------------------
+;--- Main Level Info                                      ---
+;------------------------------------------------------------
+begin_level
+    set  = 1
+    sky  = objects/wow1.base
+    slot0        = palette/standard.pal
+    slot1        = palette/red.pal
+    slot2        = palette/blau.pal
+    slot3        = palette/gruen.pal
+    slot4        = palette/inverse.pal
+    slot5        = palette/invdark.pal
+    slot6        = palette/sw.pal
+    slot7        = palette/invtuerk.pal
+    event_loop	 = 2
+    title_default = Second
+    title_deutsch = Zweites
+    title_english = Second
+    movie	  = mov:tut2.mpg
+	ambiencetrack   = 	4_00_4000
+end
+
+;------------------------------------------------------------
+;--- Mission Briefing Maps                                ---
+;------------------------------------------------------------
+begin_mbmap
+    name         = 	mb_26.iff
+end
+begin_dbmap
+    name         = 	db_26.iff
+end
+
+;------------------------------------------------------------
+;--- Beam Gates                                           ---
+;------------------------------------------------------------
+
+;------------------------------------------------------------
+;--- Robo Definitions                                     ---
+;------------------------------------------------------------
+begin_robo
+    owner        = 1
+    vehicle      = 56
+    pos_x        = 4051
+    pos_y        = -330
+    pos_z        = -7388
+    energy       = 300000
+end
+begin_robo
+    owner        = 7
+    vehicle      = 132
+    pos_x        = 8024
+    pos_y        = -330
+    pos_z        = -8794
+    energy       = 250000
+    con_budget   = 70
+    con_delay    = 290000
+    def_budget   = 80
+    def_delay    = 200000
+    rec_budget   = 80
+    rec_delay    = 250000
+    rob_budget   = 80
+    rob_delay    = 300000
+    pow_budget	 = 0
+    pow_delay    = 0
+    rad_budget 	 = 0
+    rad_delay    = 0
+    saf_budget 	 = 0
+    saf_delay    = 0
+    cpl_budget   = 0
+    cpl_delay    = 0
+end
+begin_robo
+    owner        = 7
+    vehicle      = 132
+    pos_x        = 6994
+    pos_y        = -330
+    pos_z        = -1724
+    energy       = 270000
+    con_budget   = 90
+    con_delay    = 180000
+    def_budget   = 90
+    def_delay    = 190000
+    rec_budget   = 90
+    rec_delay    = 200000
+    rob_budget   = 90
+    rob_delay    = 220000
+    pow_budget	 = 0
+    pow_delay    = 0
+    rad_budget 	 = 0
+    rad_delay    = 0
+    saf_budget 	 = 0
+    saf_delay    = 0
+    cpl_budget   = 0
+    cpl_delay    = 0
+end
+begin_robo
+    owner        = 7
+    vehicle      = 132
+    pos_x        = 2006
+    pos_y        = -330
+    pos_z        = -2251
+    energy       = 250000
+    con_budget   = 98
+    con_delay    = 190000
+    def_budget   = 70
+    def_delay    = 200000
+    rec_budget   = 80
+    rec_delay    = 220000
+    rob_budget   = 85
+    rob_delay    = 230000
+    pow_budget	 = 0
+    pow_delay    = 0
+    rad_budget 	 = 0
+    rad_delay    = 0
+    saf_budget 	 = 0
+    saf_delay    = 0
+    cpl_budget   = 0
+    cpl_delay    = 0
+end
+begin_robo
+    owner        = 7
+    vehicle      = 132
+    pos_x        = 4988
+    pos_y        = -330
+    pos_z        = -3788
+    energy       = 280000
+    con_budget   = 96
+    con_delay    = 190000
+    def_budget   = 94
+    def_delay    = 220000
+    rec_budget   = 95
+    rec_delay    = 200000
+    rob_budget   = 95
+    rob_delay    = 180000
+    pow_budget	 = 0
+    pow_delay    = 0
+    rad_budget 	 = 0
+    rad_delay    = 0
+    saf_budget 	 = 0
+    saf_delay    = 0
+    cpl_budget   = 0
+    cpl_delay    = 0
+end
+;------------------------------------------------------------
+;--- Predefined Squads                                    ---
+;------------------------------------------------------------
+begin_squad
+	owner		=	1
+	vehicle		=	6
+	num		=	3
+	pos_x		=	4519
+	pos_z		=	-8063
+end
+begin_squad
+	owner		=	7
+	vehicle		=	142
+	num		=	1
+	pos_x		=	7724
+	pos_z		=	-6132
+end
+begin_squad
+	owner		=	7
+	vehicle		=	142
+	num		=	2
+	pos_x		=	4594
+	pos_z		=	-2288
+end
+begin_squad
+	owner		=	7
+	vehicle		=	142
+	num		=	1
+	pos_x		=	2494
+	pos_z		=	-3863
+end
+begin_squad
+	owner		=	7
+	vehicle		=	142
+	num		=	1
+	pos_x		=	4331
+	pos_z		=	-3094
+end
+begin_squad
+	owner		=	7
+	vehicle		=	142
+	num		=	2
+	pos_x		=	1781
+	pos_z		=	-6994
+end
+;------------------------------------------------------------
+;--- Prototype Modifications                              ---
+;------------------------------------------------------------
+include data:scripts/startup2.scr
+;------------------------------------------------------------
+;--- Prototype Enabling                                   ---
+;------------------------------------------------------------
+begin_enable 7
+	vehicle	=	142
+end
+;------------------------------------------------------------
+;--- Tech Upgrades                                        ---
+;------------------------------------------------------------
+
+;------------------------------------------------------------
+;--- Map Dumps                                            ---
+;------------------------------------------------------------
+begin_maps
+; ------------------------------------------ 
+;--- machine generated map dumps, go away ---
+; ------------------------------------------ 
+    typ_map =
+        8 9
+        f8 fc fc fc fc fc fc f9 
+        ff 43 e8 e8 ad 35 35 fd 
+        ff 32 b4 a1 b6 32 35 fd 
+        ff 35 e9 a2 ea 34 34 fd 
+        ff 34 34 9b 32 34 32 fd 
+        ff 50 00 9a 44 34 34 fd 
+        ff 35 32 46 33 35 33 fd 
+        ff 50 32 46 35 33 35 fd 
+        fb fe fe fe fe fe fe fa 
+    own_map =
+        8 9
+        00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 
+    hgt_map = 
+        8 9
+        80 80 80 80 80 80 80 80 
+        80 80 80 80 80 80 80 80 
+        80 80 80 80 80 80 80 80 
+        80 80 80 80 80 80 80 80 
+        80 80 80 80 80 80 80 80 
+        80 80 80 80 80 80 80 80 
+        80 80 80 80 80 80 80 80 
+        80 80 80 80 80 80 80 80 
+        80 80 80 80 80 80 80 80 
+    blg_map = 
+        8 9
+        00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 
+; ------------------------ 
+;--- map dumps end here ---
+; ------------------------ 
+end
+
+;------------------------------------------------------------
+;--- End Of File                                          ---
+;------------------------------------------------------------

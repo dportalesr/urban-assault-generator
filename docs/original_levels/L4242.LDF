@@ -1,0 +1,501 @@
+;#*+ don't edit the magic runes
+
+;------------------------------------------------------------
+;--- Original Header                                      ---
+;------------------------------------------------------------
+;
+;	designed by   	:	Stefan 'Opti' Karau
+;	Name          	:	PEACEMAKER  
+;      	created am    	:	30.12.1996
+;       last changes  	:	09.03.1998
+;	Schwierigkeit 	:	7
+;	Gegner        	:	Kyterneser, Taerkasten
+;	ehemals       	:	Level 44
+;	ai-tuning     	:	 Henrik Volkening
+;	updated       	: 	20.02.1998
+;	09-Feb-98 	Bernd:  MissionBriefingMap aufgeräumt 
+;	27-Feb-98 	Bernd:  Neue Briefing Maps eingebaut
+;	23-Mär-98	Stefan: Höhenmap korrigiert
+;	27-Mär-98	Stefan: Fahrzeuge im Missionsbriefing versteckt
+;	05-Mai-98	Stefan: Reload Const
+;	06-Mai-98	Stefan: Reload Const
+;	08-Mai-98	Stefan: Reload Const
+;			Bernd: Himmel
+;	19-06-98	Stefan: Ambiencetrack
+;------------------------------------------------------------
+;--- Main Level Info                                      ---
+;------------------------------------------------------------
+begin_level
+    set  = 1
+    sky  = objects/wow9.base
+    slot0        = palette/standard.pal
+    slot1        = palette/red.pal
+    slot2        = palette/blau.pal
+    slot3        = palette/gruen.pal
+    slot4        = palette/inverse.pal
+    slot5        = palette/invdark.pal
+    slot6        = palette/sw.pal
+    slot7        = palette/invtuerk.pal
+    title_default        = PEACEMAKER
+    title_deutsch        = FRIEDENSTIFTER
+    title_english        = PEACEMAKER
+	ambiencetrack   = 	6_23000_45000
+end
+
+;------------------------------------------------------------
+;--- Mission Briefing Maps                                ---
+;------------------------------------------------------------
+begin_mbmap
+    name         =  MB_42.IFF
+    size_x       = 480
+    size_y       = 480
+end
+begin_dbmap
+    name         =  DB_42.IFF
+    size_x       = 480
+    size_y       = 480
+end
+;------------------------------------------------------------
+;--- Beam Gates                                           ---
+;------------------------------------------------------------
+begin_gate
+    sec_x        = 17
+    sec_y        = 17
+    closed_bp    = 5
+    opened_bp    = 6
+    target_level = 53		; Sulen in der Nacht
+    keysec_x     = 15
+    keysec_y     = 2
+    keysec_x     = 6
+    keysec_y     = 8
+end
+
+;------------------------------------------------------------
+;--- Robo Definitions                                     ---
+;------------------------------------------------------------
+begin_robo
+    owner        = 1
+    vehicle      = 56
+    pos_x        = 14551
+    pos_y        = -330
+    pos_z        = -20173
+    energy       = 730000
+    viewangle    = 340
+    reload_const = 148750
+end
+begin_robo
+    owner        = 6
+    vehicle      = 59
+    pos_x        = 7651
+    pos_y        = -300
+    pos_z        = -8551
+    energy       = 700000
+    reload_const = 566666
+    	con_budget      	=       40	; 95
+	con_delay		= 	0
+        def_budget      	=       98	; 40
+	def_delay		=	0
+        rec_budget      	=       80
+	rec_delay		=	0
+        rob_budget      	=       95	; 98
+	rob_delay		=	0
+        pow_budget		= 	0
+	pow_delay		= 	0
+        rad_budget 		= 	0
+	rad_delay		=	0
+        saf_budget 		=	0
+	saf_delay		= 	0
+        cpl_budget      	=      	20
+	cpl_delay		=	0
+end
+begin_robo
+    owner        = 4
+    vehicle      = 60
+    pos_x        = 18911
+    pos_y        = -300
+    pos_z        = -3151
+    energy       = 700000
+    reload_const = 566666
+    	con_budget      	=       40
+	con_delay		= 	0
+        def_budget      	=       95
+	def_delay		=	0
+        rec_budget      	=       80
+	rec_delay		=	0
+        rob_budget      	=       95	; 90
+	rob_delay		=	0	; 480000
+        pow_budget		= 	0
+	pow_delay		= 	0
+        rad_budget 		= 	0
+	rad_delay		=	0
+        saf_budget 		=	0
+	saf_delay		= 	0
+        cpl_budget      	=      	20
+	cpl_delay		=	0
+end
+
+;------------------------------------------------------------
+;--- Predefined Squads                                    ---
+;------------------------------------------------------------
+begin_squad
+    owner        = 6
+    vehicle      = 28		; modi Ghagoil
+    num  = 4
+    pos_x        = 5551
+    pos_z        = -14401
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 24		; Ghagoil
+    num  = 4
+    pos_x        = 7721
+    pos_z        = -12751
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 28		; modi Ghagoil
+    num  = 3
+    pos_x        = 16124
+    pos_z        = -11401
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 25		; Flugi
+    num  = 3
+    pos_x        = 18524
+    pos_z        = -13874
+end
+begin_squad
+    owner        = 6
+    vehicle      = 29		
+    num  = 1
+    pos_x        = 12900
+    pos_z        = -19763
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 35		
+    num  = 1
+    pos_x        = 14025
+    pos_z        = -21000
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 33		; Mnosjetz
+    num  = 4
+    pos_x        = 17324
+    pos_z        = -4351
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 4
+    pos_x        = 2901
+    pos_z        = -5534
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 4
+    pos_x        = 1988
+    pos_z        = -4200
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 4
+    pos_x        = 3150
+    pos_z        = -4200
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 4
+    pos_x        = 4088
+    pos_z        = -3975
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 6
+    pos_x        = 1838
+    pos_z        = -6713
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 6
+    pos_x        = 3975
+    pos_z        = -6638
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 8
+    pos_x        = 1350
+    pos_z        = -9975
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 8
+    pos_x        = 17475
+    pos_z        = -5106
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 8
+    pos_x        = 20663
+    pos_z        = -4125
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 6
+    pos_x        = 14925
+    pos_z        = -2813
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 6
+    pos_x        = 14925
+    pos_z        = -1650
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 6
+    pos_x        = 19725
+    pos_z        = -6163
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 6
+    pos_x        = 22313
+    pos_z        = -4125
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 33		; Mnosjetz
+    num  = 4
+    pos_x        = 5324
+    pos_z        = -19874
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 2
+    useable      
+    pos_x        = 15974
+    pos_z        = -22201
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 4
+    vehicle      = 37		; Leonid
+    num  = 2
+    pos_x        = 18524
+    pos_z        = -19501
+end
+begin_squad
+    owner        = 4
+    vehicle      = 32		; Eisenhans
+    num  = 4
+    pos_x        = 17101
+    pos_z        = -20624
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 1
+    vehicle      = 1
+    num  = 3
+    pos_x        = 11623
+    pos_z        = -4954
+end
+begin_squad
+    owner        = 1
+    vehicle      = 3
+    num  = 1
+    pos_x        = 13801
+    pos_z        = -17701
+end
+
+;------------------------------------------------------------
+;--- Prototype Modifications                              ---
+;------------------------------------------------------------
+include data:scripts/startup2.scr
+modify_vehicle 	56
+    shield       = 40
+end
+;------------------------------------------------------------
+;--- Prototype Enabling                                   ---
+;------------------------------------------------------------
+begin_enable 4
+;    vehicle = 32	; Eisenhans
+    vehicle = 33	; Hetzel
+    vehicle = 35	; Otschko
+    vehicle = 36	; Serp
+;    vehicle = 37	; Leonid
+end
+begin_enable 6
+    vehicle = 22	; Speedy
+    vehicle = 23	; Ufo
+;    vehicle = 24	; Ghagoil
+    vehicle = 25	; Ghagoil 3
+    vehicle = 26	; Tekh
+    vehicle = 28	; Ghagoil 2
+    vehicle = 29	; Ormu
+end
+
+;------------------------------------------------------------
+;--- Tech Upgrades                                        ---
+;------------------------------------------------------------
+begin_gem
+    sec_x        = 14
+    sec_y        = 7
+    building     = 50
+    type = 1
+    begin_action	
+        modify_vehicle   16
+        	add_energy = 200
+	end	
+	modify_weapon    16
+		add_energy = 300
+        end      
+    end_action
+end
+
+begin_gem
+    sec_x        = 9
+    sec_y        = 8
+    building     = 4
+    type         = 3
+	begin_action
+        	modify_vehicle   5
+            		enable	=  1
+		end       
+        end_action
+end
+;------------------------------------------------------------
+;--- Map Dumps                                            ---
+;------------------------------------------------------------
+begin_maps
+; ------------------------------------------ 
+;--- machine generated map dumps, go away ---
+; ------------------------------------------ 
+    typ_map =
+        20 20
+        f8 fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc f9 
+        ff 01 1e 01 01 01 01 01 01 01 1e 1e 01 b2 12 bd ae 1c 01 fd 
+        ff 1e af ad 22 1e 1e 01 1e 1e 1e 1e 01 bc 18 0e 05 1d 01 fd 
+        ff 1e b0 b8 10 11 15 10 11 12 13 14 15 b8 bd 15 ab 1e 01 fd 
+        ff 1e 1e 01 01 01 01 4e 4d 01 01 4b 4c 01 01 01 d0 1f 01 fd 
+        ff 1e 0e 31 01 44 01 31 01 43 ae 01 01 44 44 01 2d 20 01 fd 
+        ff 1f 22 01 00 00 20 01 cf 4e 08 01 01 22 01 00 01 01 01 fd 
+        ff 20 01 1e 01 22 1f cf 1e b2 ab 01 01 01 66 01 01 01 01 fd 
+        ff 01 01 00 1e 1f 0f 01 1e 64 4c 01 01 1a 1e 1e 01 01 01 fd 
+        ff 01 1e 1e 01 1f 1e 1f cf b4 ae 01 01 01 1e 1e cf 01 01 fd 
+        ff 01 1e 1e 01 cf 20 20 b2 0d 0c ae 31 01 01 22 01 1e 01 fd 
+        ff 01 1e 01 01 01 cf 48 b8 b8 47 b8 16 cf 01 01 22 1e 1e fd 
+        ff 01 01 1e 1e cf 19 1a 02 4d bc 02 1a 18 cf 22 01 1e 1e fd 
+        ff 01 01 1e cf 1c 1a 31 4c b2 ab 31 02 19 1a cf 01 01 01 fd 
+        ff 01 01 01 1e 1d 01 1e 22 05 4d 31 1e 1e 1d 1c 01 22 01 fd 
+        ff 01 01 d0 1c c9 01 1e 1e b4 ae 1a 30 1e 02 1f 01 01 01 fd 
+        ff 01 01 01 d0 1f 01 22 1e b4 b6 30 22 30 01 01 af b9 ad fd 
+        ff 01 01 01 01 d0 01 1e 1e ac ab 01 01 01 01 22 b3 ca b5 fd 
+        ff 01 01 22 01 01 31 01 01 01 01 31 01 22 01 01 b0 b7 b1 fd 
+        fb fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fa 
+    own_map =
+        20 20
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 04 04 04 04 04 04 04 04 04 04 04 04 04 04 04 04 04 04 00 
+        00 04 04 04 04 04 04 04 04 04 04 04 04 04 04 04 04 04 04 00 
+        00 04 04 04 04 04 04 04 04 04 04 04 04 04 04 04 04 04 04 00 
+        00 04 04 04 04 04 04 00 00 00 00 00 00 04 04 04 04 04 04 00 
+        00 04 04 04 04 00 00 06 06 00 00 06 06 00 00 04 04 04 04 00 
+        00 04 04 04 00 06 06 06 06 00 00 06 06 06 06 00 04 04 04 00 
+        00 04 04 00 06 06 06 06 06 00 00 06 06 06 06 06 00 04 04 00 
+        00 04 04 00 06 06 06 06 06 00 00 06 06 06 06 06 00 04 04 00 
+        00 04 00 06 06 06 06 06 06 00 00 06 06 06 06 06 06 00 04 00 
+        00 04 00 06 06 06 06 06 00 00 00 00 06 06 06 06 06 00 04 00 
+        00 04 00 06 06 06 06 00 00 00 00 00 00 06 06 06 06 00 04 00 
+        00 04 04 00 06 06 01 01 01 00 00 01 01 01 06 06 00 00 04 00 
+        00 04 04 00 06 01 01 01 01 00 00 01 01 01 01 06 00 04 04 00 
+        00 04 04 04 01 01 01 01 01 00 00 01 01 01 01 01 04 04 04 00 
+        00 04 04 04 01 01 01 01 01 00 00 01 01 01 01 01 04 04 04 00 
+        00 04 04 04 04 01 01 01 01 00 00 01 01 01 01 04 04 04 04 00 
+        00 04 04 04 04 04 01 01 01 00 00 01 01 01 04 04 04 04 04 00 
+        00 04 04 04 04 04 04 04 04 04 04 04 04 04 04 04 04 04 04 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    hgt_map = 
+        20 20
+        81 81 80 81 7f 7e 80 80 7e 80 7f 80 7f 80 7e 80 81 80 81 81 
+        81 81 80 81 7f 7e 80 80 7e 80 7f 80 7f 80 7e 80 81 80 81 81 
+        80 80 7f 80 7f 80 7e 80 7f 7f 7e 7e 7f 7d 80 7d 80 7f 80 80 
+        7e 7e 80 7e 80 7f 7e 7e 7d 7c 7c 7d 7d 7d 7e 7d 7e 80 7e 7e 
+        80 80 7e 80 7e 7e 7e 83 82 81 81 82 83 7e 7d 7d 7e 7e 80 80 
+        80 80 80 7e 7d 83 83 82 81 81 7d 81 83 83 82 7d 7d 7e 7e 7e 
+        7d 7d 7e 7e 83 82 81 81 80 7f 80 81 82 82 81 82 7d 7d 7e 7e 
+        7e 7e 7e 83 82 81 81 81 7e 80 80 80 80 81 80 81 82 7d 7e 7e 
+        7e 7e 7d 82 81 81 82 81 81 81 80 7f 80 81 7f 80 82 7d 7d 7d 
+        7e 7e 83 82 81 80 80 82 83 82 81 80 7f 80 80 80 81 82 7d 7d 
+        83 83 83 82 81 81 82 81 82 82 82 81 80 82 7f 81 80 82 82 82 
+        82 82 82 82 81 81 84 82 82 83 83 83 83 85 82 80 7d 80 80 80 
+        81 81 81 7f 81 83 7e 7d 7d 83 83 7d 7e 7e 83 7f 7f 81 80 80 
+        80 80 80 80 82 7d 7d 7d 7e 83 83 7e 7e 7e 7d 82 80 7f 80 80 
+        80 80 7d 7d 7f 7f 7f 7d 7e 83 83 7e 7e 7d 7e 7f 7f 80 80 80 
+        80 80 80 7d 7f 7f 7d 7e 7e 83 83 7e 7e 7f 7f 7f 7f 80 80 80 
+        81 81 80 7d 7d 7d 7d 7d 7e 83 83 7e 7f 7e 7e 7f 7f 80 81 81 
+        81 81 80 80 80 80 7d 7d 7e 83 83 7e 7e 7f 80 80 80 80 81 81 
+        81 81 81 81 80 80 80 7e 7e 80 80 7e 7e 80 80 80 80 81 81 81 
+        81 81 81 81 80 80 80 7e 7e 80 80 7e 7e 80 80 80 80 81 81 81 
+    blg_map = 
+        20 20
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 11 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 1f 00 00 00 
+        00 00 11 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 1e 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 1e 00 00 00 00 00 00 32 00 00 00 00 00 
+        00 00 00 00 00 00 0c 00 00 04 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 1e 00 00 00 00 00 00 00 1e 00 00 00 
+        00 00 00 00 00 1e 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 1e 00 00 00 00 00 00 1e 00 00 00 00 00 00 
+        00 00 00 00 00 1e 00 00 00 00 00 00 00 00 1e 00 00 00 00 00 
+        00 00 00 00 1e 00 00 00 00 00 00 00 00 00 00 1e 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 1f 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 1f 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 1f 00 00 00 00 00 00 00 00 00 00 00 05 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+; ------------------------ 
+;--- map dumps end here ---
+; ------------------------ 
+end
+
+;------------------------------------------------------------
+;--- End Of File                                          ---
+;------------------------------------------------------------

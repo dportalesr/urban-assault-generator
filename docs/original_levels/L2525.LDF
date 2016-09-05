@@ -1,0 +1,182 @@
+;#*+ don't edit the magic runes
+
+;------------------------------------------------------------
+;--- Machine Generated Level Description File             ---
+;------------------------------------------------------------
+
+;------------------------------------------------------------
+;--- Original Header                                      ---
+;------------------------------------------------------------
+; Designed by : 	Stefan 'Opti' Karau
+; Levelgröße : 		5 
+; Schwierigkeit : 	Tutorium
+; Gegnerrassen : 	Kyterneser (kann nicht bauen)
+; designed am :		Dez. 96
+; last changes :	09.02.98
+;	09-Feb-98 	Bernd MissionBriefingMap aufgeräumt
+;	05-Mai-98	Stefan: die neuen Keywords
+;	11-Mai-98	Stefan: User Energie auf Central Park Level
+;	14-Mai-98	BErnd: Missionbriefing Bild anderer Dummy
+;	18-Mai-98	Stefan: größere Map
+;	19-06-98	Stefan: Ambiencetrack
+;	03-jul-98	Bernd: Briefingmaps
+;	06-07-98	Stefan: Kraftersector an Startposition ausgetauscht
+;------------------------------------------------------------
+;--- Main Level Info                                      ---
+;------------------------------------------------------------
+begin_level
+    set  = 1
+    sky  = objects/wowb.base
+    slot0        = palette/standard.pal
+    slot1        = palette/red.pal
+    slot2        = palette/blau.pal
+    slot3        = palette/gruen.pal
+    slot4        = palette/inverse.pal
+    slot5        = palette/invdark.pal
+    slot6        = palette/sw.pal
+    slot7        = palette/invtuerk.pal
+    event_loop	 = 1
+    title_default = First
+    title_deutsch = Erstes
+    title_english = First
+    movie	  = mov:tut1.mpg
+	ambiencetrack   = 	4_00_4000
+end
+
+;------------------------------------------------------------
+;--- Mission Briefing Maps                                ---
+;------------------------------------------------------------
+begin_mbmap
+    name         = 	mb_25.iff
+end
+begin_dbmap
+    name         = 	db_25.iff
+end
+
+;------------------------------------------------------------
+;--- Beam Gates                                           ---
+;------------------------------------------------------------
+
+;------------------------------------------------------------
+;--- Robo Definitions                                     ---
+;------------------------------------------------------------
+begin_robo
+    owner        = 1
+    vehicle      = 56
+    pos_x        = 5438
+    pos_y        = -330
+    pos_z        = -5551
+    energy       = 300000
+    viewangle    = 45
+end
+begin_robo
+    owner        = 7
+    vehicle      = 132
+    pos_x        = 2024
+    pos_y        = -330
+    pos_z        = -1724
+    energy       = 50000
+    con_budget   = 99
+    con_delay    = 0
+    def_budget   = 99
+    def_delay    = 0
+    rec_budget   = 99
+    rec_delay    = 0
+    rob_budget   = 99
+    rob_delay    = 0
+    pow_budget	 = 0
+    pow_delay    = 0
+    rad_budget 	 = 0
+    rad_delay    = 0
+    saf_budget 	 = 0
+    saf_delay    = 0
+    cpl_budget   = 99
+    cpl_delay    = 0
+end
+
+;------------------------------------------------------------
+;--- Predefined Squads                                    ---
+;------------------------------------------------------------
+begin_squad
+	owner		=	7
+	vehicle		=	138
+	num		=	2
+	pos_x		=	3674
+	pos_z		=	-1951
+end
+begin_squad
+	owner		=	7
+	vehicle		=	138
+	num		=	1
+	pos_x		=	5524
+	pos_z		=	-1724
+end
+begin_squad
+	owner		=	7
+	vehicle		=	138
+	num		=	1
+	pos_x		=	1801
+	pos_z		=	-3188
+end
+;------------------------------------------------------------
+;--- Prototype Modifications                              ---
+;------------------------------------------------------------
+include data:scripts/startup2.scr
+;------------------------------------------------------------
+;--- Prototype Enabling                                   ---
+;------------------------------------------------------------
+begin_enable 7
+	vehicle	=	138
+end
+;------------------------------------------------------------
+;--- Tech Upgrades                                        ---
+;------------------------------------------------------------
+
+;------------------------------------------------------------
+;--- Map Dumps                                            ---
+;------------------------------------------------------------
+begin_maps
+; ------------------------------------------ 
+;--- machine generated map dumps, go away ---
+; ------------------------------------------ 
+    typ_map =
+        6 6
+        f8 fc fc fc fc f9 
+        ff 35 34 32 ec fd 
+        ff ec eb 50 35 fd 
+        ff 35 34 34 32 fd 
+        ff 00 33 34 00 fd 
+        fb fe fe fe fe fa 
+    own_map =
+        6 6
+        00 00 00 00 00 00 
+        00 00 00 00 00 00 
+        00 00 00 00 00 00 
+        00 00 00 00 00 00 
+        00 00 00 00 00 00 
+        00 00 00 00 00 00 
+    hgt_map = 
+        6 6
+        80 80 80 80 80 80 
+        80 80 80 80 80 80 
+        80 80 80 80 80 80 
+        80 80 80 80 80 80 
+        80 80 80 80 80 80 
+        80 80 80 80 80 80 
+    blg_map = 
+        6 6
+        00 00 00 00 00 00 
+        00 00 00 00 00 00 
+        00 00 00 00 00 00 
+        00 00 00 00 00 00 
+        00 00 00 00 00 00 
+        00 00 00 00 00 00 
+; ------------------------ 
+;--- map dumps end here ---
+; ------------------------ 
+end
+
+
+;------------------------------------------------------------
+;--- End Of File                                          ---
+;------------------------------------------------------------

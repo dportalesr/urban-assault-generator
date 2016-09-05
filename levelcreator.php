@@ -93,54 +93,56 @@ var $h_ypos = array_fill_keys($races, array());
 
 function level($mode){
 	do {
-		$this->sizex = rand(0,29)+3;// Calculo de tamaño del mapa (mínimo 3, máximo 32)
-		$this->sizey = rand(0,29)+3;
-	} while($$this->sizex * $$this->sizey < 64);//Verifica que el área total no sea demasiado pequeña. Mínima de 64 u2)
+		$this->sizex = rand(0,29) + 3;// Calculo de tamaño del mapa (mínimo 3, máximo 32)
+		$this->sizey = rand(0,29) + 3;
+	} while($this->sizex * $this->sizey < 64);//Verifica que el área total no sea demasiado pequeña. Mínima de 64 u2)
 
 	################################### Main Level Info
-	$set = rand(0,5)+1; //st = set (tipo de mapa)
-	echo "\n".'begin_level\n\t set = '.$set.' '."\n";
-	echo "\t".'sky = objects/'.array_rand($sky).'.base'."\n\t"; //se selecciona el mapa de bits para el cielo
-	echo	'slot0 = palette/standard.pal'."\n\t".
-			'slot1 = palette/red.pal'."\n\t".
-			'slot2 = palette/blau.pal'."\n\t".
-			'slot3 = palette/gruen.pal'."\n\t".
-			'slot4 = palette/inverse.pal'."\n\t".
-			'slot5 = palette/invdark.pal'."\n\t".
-			'slot6 = palette/sw.pal'."\n\t".
-			'slot7 = palette/invtuerk.pal'."\n".
-			'end'."\n";
+	$set = rand(0,5) + 1; //st = set (tipo de mapa)
+	echo "\nbegin_level",
+				"\n\tset = ", $set,
+				"\n\tsky = objects/", array_rand($sky), ".base", //se selecciona el mapa de bits para el cielo
+				"\n\tslot0 = palette/standard.pal",
+				"\n\tslot1 = palette/red.pal",
+				"\n\tslot2 = palette/blau.pal",
+				"\n\tslot3 = palette/gruen.pal",
+				"\n\tslot4 = palette/inverse.pal",
+				"\n\tslot5 = palette/invdark.pal",
+				"\n\tslot6 = palette/sw.pal",
+				"\n\tslot7 = palette/invtuerk.pal",
+			"end";
 
 	################################### Mission Briefing Maps
 
-	echo	'begin_mbmap'."\n\t".
-			'name = MB_15.IFF'."\n".
-			'end'."\n".
-			'begin_dbmap'."\n\t".
-			'name = DB_15.IFF'."\n".
-			'end'."\n";
+	echo "\nbegin_mbmap",
+				"\n\tname = MB_15.IFF",
+				"\nend",
+
+				"\nbegin_dbmap",
+				"\n\tname = DB_15.IFF",
+				"\nend";
 
 	################################### Beam Gates
 
-	echo	'begin_gate'."\n\t".
-			'sec_x = '.(rand(0,$$this->sizex-2)+1)."\n". //Se calculan las coordenadas para al menos 2 sectores
-			'sec_y = '.(rand(0,$$this->sizey-2)+1)."\n\t".
-			'closed_bp = 5'."\n\t".
-			'opened_bp = 6'."\n\t".
-			'target_level = 1'."\n"; //Pend: Hacer lista de los Target Levels para escoger..
+	echo "\nbegin_gate".
+				"\n\tsec_x = ", rand(0, $this->sizex - 2) + 1, //Se calculan las coordenadas para al menos 2 sectores
+				"\n\tsec_y = ", rand(0, $this->sizey - 2) + 1,
+				"\n\tclosed_bp =",
+				"\n\topened_bp =",
+				"\n\ttarget_level = 1\n"; //Pend: Hacer lista de los Target Levels para escoger..
 
 	#Se establecen otras coordenadas (min 2, max 28)
 	for($c=0;$c<6;$c++)
 		if(rand(0,1))
-			echo "\t".'keysec_x = '.(rand(0,$$this->sizex-2)+1)."\n\t".'keysec_y = '.(rand(0,$$this->sizey-2)+1)."\n".'mb_status = unknown;'."\n";
+			echo "\t".'keysec_x = '.(rand(0,$this->sizex-2)+1)",'keysec_y = '.(rand(0,$this->sizey-2)+1)."\n".'mb_status = unknown;'."\n";
 
 	echo	'end'."\n".
-			'begin_robo'."\n\t".
-			'owner = 1 ;'."\n\t".
+			'begin_robo'",
+			'owner = 1 ;'",
 			'vehicle = 56'."\n";
 
-	$res_xpos = $h_xpos['res'][0] = rand(0,$$this->sizex-2)+1; # Origen X (min 2)
-	$res_ypos = $h_ypos['res'][0] = rand(0,$$this->sizey-2)+1; # Origen Y (min 2)
+	$res_xpos = $h_xpos['res'][0] = rand(0,$this->sizex-2)+1; # Origen X (min 2)
+	$res_ypos = $h_ypos['res'][0] = rand(0,$this->sizey-2)+1; # Origen Y (min 2)
 	$egy = 600 + rand(0,600);# 1500 - 3000
 
 	'pos_x = '.((12*$res_xpos)+6).'00'."\n".
@@ -152,7 +154,7 @@ function level($mode){
 
 	addHost(); # Coloca una HostStation nueva
 
-	$ideal_nhosts = $$this->sizex * $$this->sizey * 3/144; # Se calcula el número máximo ideal de HostStations para el mapa
+	$ideal_nhosts = $this->sizex * $this->sizey * 3/144; # Se calcula el número máximo ideal de HostStations para el mapa
 	# agregar HostStations mientras las HS sean menor a 6 y no mayor que el número máximo ideal
 	for($c=0;$c<$ideal_nhosts && array_sum($n_hosts) < 6;$c++)
 		if(rand(0,1)) # 50% posibilidades
@@ -162,17 +164,17 @@ function level($mode){
 
 	for ($c=0;$c<2;$c++){ # 2 superitems max
 		if(rand(0,1)){
-			echo	'begin_item'."\n\t".
-					'sec_x = '.(rand(0,$$this->sizex-2)+1)."\n\t".
-					'sec_y = '.(rand(0,$$this->sizey-2)+1)."\n\t";
+			echo	'begin_item'",
+					'sec_x = '.(rand(0,$this->sizex-2)+1)",
+					'sec_y = '.(rand(0,$this->sizey-2)+1)."\n\t";
 
 			if ($set==6)
-				echo	'inactive_bp = 68'."\n\t".
-						'active_bp = 69'."\n\t".
+				echo	'inactive_bp = 68'",
+						'active_bp = 69'",
 						'trigger_bp = 70'."\n\t";
 			else
-				echo	'inactive_bp = 35'."\n\t".
-						'active_bp = 36'."\n\t".
+				echo	'inactive_bp = 35'",
+						'active_bp = 36'",
 						'trigger_bp = 37'."\n\t";
 
 			echo 'type = 1'."\n\t";
@@ -181,7 +183,7 @@ function level($mode){
 			#10 posibles pares de sectores
 			for ($c2=0;$c2<10;$c2++)
 				if (rand(0,1))
-					echo "\t".'keysec_x = '.(rand(0,$$this->sizex-2)+1)."\n\t".'keysec_y = '.(rand(0,$$this->sizey-2)+1)."\n";
+					echo "\t".'keysec_x = '.(rand(0,$this->sizex-2)+1)",'keysec_y = '.(rand(0,$this->sizey-2)+1)."\n";
 
 			echo 'end'."\n";
 		}
@@ -201,146 +203,146 @@ function level($mode){
 	////////////////////////// Prototype Enabling
 
 	if ($n_hosts['sul']){
-		echo	'begin_enable 2'."\n\t".
-				'vehicle = 71'."\n\t".
-				'vehicle = 72'."\n\t".
-				'vehicle = 73'."\n\t".
+		echo	'begin_enable 2'",
+				'vehicle = 71'",
+				'vehicle = 72'",
+				'vehicle = 73'",
 				'vehicle = 74'."\n".
 				'end'."\n";
 	}
 
 	if ($n_hosts['myk']){
-	echo	'begin_enable 3'."\n\t".
-			'vehicle = 63'."\n\t".
-			'vehicle = 64'."\n\t".
-			'vehicle = 65'."\n\t".
-			'vehicle = 66'."\n\t".
-			'vehicle = 67'."\n\t".
-			'vehicle = 68'."\n\t".
-			'vehicle = 69'."\n\t".
-			'vehicle = 70'."\n\t".
-			'building = 10'."\n\t".
-			'building = 13'."\n\t".
-			'building = 33'."\n\t".
-			'building = 34'."\n\t".
-			'building = 72'."\n\t".
+	echo	'begin_enable 3'",
+			'vehicle = 63'",
+			'vehicle = 64'",
+			'vehicle = 65'",
+			'vehicle = 66'",
+			'vehicle = 67'",
+			'vehicle = 68'",
+			'vehicle = 69'",
+			'vehicle = 70'",
+			'building = 10'",
+			'building = 13'",
+			'building = 33'",
+			'building = 34'",
+			'building = 72'",
 			'end'."\n";
 	}
 
 	if ($n_hosts['tae']){
-	echo	'begin_enable 4'."\n\t".
-			'vehicle = 8'."\n\t".
-			'vehicle = 32'."\n\t".
-			'vehicle = 33'."\n\t".
-			'vehicle = 34'."\n\t".
-			'vehicle = 35'."\n\t".
-			'vehicle = 36'."\n\t".
-			'vehicle = 37'."\n\t".
-			'vehicle = 38'."\n\t".
-			'vehicle = 131'."\n\t".
-			'building = 53'."\n\t".
-			'building = 17'."\n\t".
-			'building = 31'."\n\t".
-			'building = 20'."\n\t".
-			'building = 21'."\n\t".
-			'building = 73'."\n\t".
+	echo	'begin_enable 4'",
+			'vehicle = 8'",
+			'vehicle = 32'",
+			'vehicle = 33'",
+			'vehicle = 34'",
+			'vehicle = 35'",
+			'vehicle = 36'",
+			'vehicle = 37'",
+			'vehicle = 38'",
+			'vehicle = 131'",
+			'building = 53'",
+			'building = 17'",
+			'building = 31'",
+			'building = 20'",
+			'building = 21'",
+			'building = 73'",
 			'end'."\n";
 	}
 
 	if ($n_hosts['bla']){
-	echo	'begin_enable 5'."\n\t".
-			'vehicle = 1'."\n\t".
-			'vehicle = 2'."\n\t".
-			'vehicle = 3'."\n\t".
-			'vehicle = 4'."\n\t".
-			'vehicle = 5'."\n\t".
-			'vehicle = 6'."\n\t".
-			'vehicle = 7'."\n\t".
-			'vehicle = 9'."\n\t".
-			'vehicle = 10'."\n\t".
-			'vehicle = 12'."\n\t".
-			'vehicle = 14'."\n\t".
-			'vehicle = 15'."\n\t".
-			'vehicle = 22'."\n\t".
-			'vehicle = 23'."\n\t".
-			'vehicle = 24'."\n\t".
-			'vehicle = 25'."\n\t".
-			'vehicle = 26'."\n\t".
-			'vehicle = 27'."\n\t".
-			'vehicle = 28'."\n\t".
-			'vehicle = 29'."\n\t".
-			'vehicle = 30'."\n\t".
-			'vehicle = 31'."\n\t".
-			'vehicle = 8'."\n\t".
-			'vehicle = 32'."\n\t".
-			'vehicle = 33'."\n\t".
-			'vehicle = 34'."\n\t".
-			'vehicle = 35'."\n\t".
-			'vehicle = 36'."\n\t".
-			'vehicle = 37'."\n\t".
-			'vehicle = 38'."\n\t".
-			'vehicle = 64'."\n\t".
-			'vehicle = 65'."\n\t".
-			'vehicle = 66'."\n\t".
-			'vehicle = 67'."\n\t".
-			'vehicle = 69'."\n\t".
-			'vehicle = 70'."\n\t".
-			'vehicle = 71'."\n\t".
-			'vehicle = 72'."\n\t".
-			'vehicle = 73'."\n\t".
-			'vehicle = 74'."\n\t".
-			'vehicle = 131'."\n\t".
-			'building = 63'."\n\t".
-			'building = 1'."\n\t".
-			'building = 18'."\n\t".
-			'building = 3'."\n\t".
-			'building = 30'."\n\t".
-			'building = 52'."\n\t".
-			'building = 8'."\n\t".
-			'building = 12'."\n\t".
-			'building = 60'."\n\t".
-			'building = 22'."\n\t".
-			'building = 71'."\n\t".
-			'building = 53'."\n\t".
-			'building = 17'."\n\t".
-			'building = 31'."\n\t".
-			'building = 20'."\n\t".
-			'building = 21'."\n\t".
-			'building = 73'."\n\t".
-			'building = 10'."\n\t".
-			'building = 13'."\n\t".
-			'building = 33'."\n\t".
-			'building = 34'."\n\t".
-			'building = 72'."\n\t".
+	echo	'begin_enable 5'",
+			'vehicle = 1'",
+			'vehicle = 2'",
+			'vehicle = 3'",
+			'vehicle = 4'",
+			'vehicle = 5'",
+			'vehicle = 6'",
+			'vehicle = 7'",
+			'vehicle = 9'",
+			'vehicle = 10'",
+			'vehicle = 12'",
+			'vehicle = 14'",
+			'vehicle = 15'",
+			'vehicle = 22'",
+			'vehicle = 23'",
+			'vehicle = 24'",
+			'vehicle = 25'",
+			'vehicle = 26'",
+			'vehicle = 27'",
+			'vehicle = 28'",
+			'vehicle = 29'",
+			'vehicle = 30'",
+			'vehicle = 31'",
+			'vehicle = 8'",
+			'vehicle = 32'",
+			'vehicle = 33'",
+			'vehicle = 34'",
+			'vehicle = 35'",
+			'vehicle = 36'",
+			'vehicle = 37'",
+			'vehicle = 38'",
+			'vehicle = 64'",
+			'vehicle = 65'",
+			'vehicle = 66'",
+			'vehicle = 67'",
+			'vehicle = 69'",
+			'vehicle = 70'",
+			'vehicle = 71'",
+			'vehicle = 72'",
+			'vehicle = 73'",
+			'vehicle = 74'",
+			'vehicle = 131'",
+			'building = 63'",
+			'building = 1'",
+			'building = 18'",
+			'building = 3'",
+			'building = 30'",
+			'building = 52'",
+			'building = 8'",
+			'building = 12'",
+			'building = 60'",
+			'building = 22'",
+			'building = 71'",
+			'building = 53'",
+			'building = 17'",
+			'building = 31'",
+			'building = 20'",
+			'building = 21'",
+			'building = 73'",
+			'building = 10'",
+			'building = 13'",
+			'building = 33'",
+			'building = 34'",
+			'building = 72'",
 			'end'."\n";
 	}
 
 	if ($n_hosts['gho']){
-	echo	'begin_enable 6'."\n\t".
-			'vehicle = 22'."\n\t".
-			'vehicle = 23'."\n\t".
-			'vehicle = 24'."\n\t".
-			'vehicle = 25'."\n\t".
-			'vehicle = 26'."\n\t".
-			'vehicle = 27'."\n\t".
-			'vehicle = 28'."\n\t".
-			'vehicle = 29'."\n\t".
-			'vehicle = 30'."\n\t".
-			'vehicle = 31'."\n\t".
-			'vehicle = 130'."\n\t".
-			'building = 30'."\n\t".
-			'building = 52'."\n\t".
-			'building = 8'."\n\t".
-			'building = 12'."\n\t".
-			'building = 60'."\n\t".
-			'building = 22'."\n\t".
-			'building = 71'."\n\t".
+	echo	'begin_enable 6'",
+			'vehicle = 22'",
+			'vehicle = 23'",
+			'vehicle = 24'",
+			'vehicle = 25'",
+			'vehicle = 26'",
+			'vehicle = 27'",
+			'vehicle = 28'",
+			'vehicle = 29'",
+			'vehicle = 30'",
+			'vehicle = 31'",
+			'vehicle = 130'",
+			'building = 30'",
+			'building = 52'",
+			'building = 8'",
+			'building = 12'",
+			'building = 60'",
+			'building = 22'",
+			'building = 71'",
 			'end'."\n";
 	}
 
 	################################### Tech
 	################################### Map Dumps
-	################################### Machine generated map dumps 
+	################################### Machine generated map dumps
 
 	echo 'begin_maps'."\n";
 
@@ -367,36 +369,36 @@ function addHost(){
 				case 'bla': $vhst = 62;break;
 				case 'gho': $vhst = rand(0,1)?59:57;break;
 			}
-			
+
 			list($x_pos,$y_pos) = distribute_host($hst); #se verifican las distancias entre HostStations (X)
 			$h_xpos[$hst][] = $x_pos;
 			$h_ypos[$hst][] = $y_pos;
 			$egy = 800+rand(0,600); #se calcula la energía inicial (min 2000, max 3500)
 
-			echo	'begin_robo'."\n\t".
-					'owner	= '.(array_search($hst,$races)+1)."\n\t".
-					'vehicle	= '.$vhst."\n\t".
+			echo	'begin_robo'",
+					'owner	= '.(array_search($hst,$races)+1)",
+					'vehicle	= '.$vhst",
 
-			'pos_x        = '.((12*$x_pos)+6).'00'."\n\t". #Posición X
-			'pos_y        = -'.(20+rand(0,25)).'0'."\n\t". #Posición Z
-			'pos_z        = -'.((12*$y_pos)+6).'00'."\n\t". #Posición Y
-			'energy       = '.$egy.'000'."\n\t".
-			'reload_const = '.(21*$egy).'0'."\n\t". #ReloadConst = Energy * .3
-			'con_budget   = '.(rand(0,50)+50)."\n\t".
-			'con_delay    = '.(rand(0,75)).'000'."\n\t".
-			'def_budget   = '.(rand(0,40)+60)."\n\t".
-			'def_delay    = '.(rand(0,75)).'000'."\n\t".
-			'rec_budget   = '.(rand(0,50)+50)."\n\t".
-			'rec_delay    = '.(rand(0,75)).'000'."\n\t".
-			'rob_budget   = '.(rand(0,50)+50)."\n\t".
-			'rob_delay    = '.(rand(0,75)).'000'."\n\t".
-			'pow_budget   = '.(rand(0,60)+40)."\n\t".
-			'pow_delay    = '.(rand(0,75)).'000'."\n\t".
-			'rad_budget   = '.(rand(0,20)+10)."\n\t".
-			'rad_delay    = '.(rand(0,75)).'000'."\n\t".
-			'saf_budget   = '.(rand(0,50)+50)."\n\t".
-			'saf_delay    = '.(rand(0,75)).'000'."\n\t".
-			'cpl_budget   = '.(rand(0,70)+30)."\n\t".
+			'pos_x        = '.((12*$x_pos)+6).'00'", #Posición X
+			'pos_y        = -'.(20+rand(0,25)).'0'", #Posición Z
+			'pos_z        = -'.((12*$y_pos)+6).'00'", #Posición Y
+			'energy       = '.$egy.'000'",
+			'reload_const = '.(21*$egy).'0'", #ReloadConst = Energy * .3
+			'con_budget   = '.(rand(0,50)+50)",
+			'con_delay    = '.(rand(0,75)).'000'",
+			'def_budget   = '.(rand(0,40)+60)",
+			'def_delay    = '.(rand(0,75)).'000'",
+			'rec_budget   = '.(rand(0,50)+50)",
+			'rec_delay    = '.(rand(0,75)).'000'",
+			'rob_budget   = '.(rand(0,50)+50)",
+			'rob_delay    = '.(rand(0,75)).'000'",
+			'pow_budget   = '.(rand(0,60)+40)",
+			'pow_delay    = '.(rand(0,75)).'000'",
+			'rad_budget   = '.(rand(0,20)+10)",
+			'rad_delay    = '.(rand(0,75)).'000'",
+			'saf_budget   = '.(rand(0,50)+50)",
+			'saf_delay    = '.(rand(0,75)).'000'",
+			'cpl_budget   = '.(rand(0,70)+30)",
 			'cpl_delay    = '.(rand(0,75)).'000'."\n".
 			'end'."\n";
 		}
@@ -407,8 +409,8 @@ function addHost(){
 
 function distribute_host($loc_race){
 	do{
-		$test_x = rand(0,$$this->sizex-2)+1;
-		$test_y = rand(0,$$this->sizey-2)+1;
+		$test_x = rand(0,$this->sizex-2)+1;
+		$test_y = rand(0,$this->sizey-2)+1;
 		$invalid_pos = false;
 
 		foreach($races as $enemyrace){
@@ -426,7 +428,7 @@ function distribute_host($loc_race){
 	return array($test_x,$test_y);
 }
 
-/////////////////// Función para Posicionar Escuadrones iniciales 
+/////////////////// Función para Posicionar Escuadrones iniciales
 
 function addSquad(){
 	echo 'begin_squad'."\n";
@@ -466,7 +468,7 @@ function addSquad(){
 
 	do {
 		$band = 0;
-		$pos = rand(0,$$this->sizex-2)+1; //Se asignan unas coordenadas X
+		$pos = rand(0,$this->sizex-2)+1; //Se asignan unas coordenadas X
 
 		for ($cc=1;$cc<7;$cc++){
 			for ($cc2=0;$cc2<3;$cc2++){
@@ -479,7 +481,7 @@ function addSquad(){
 
 	do{
 		$band=0;
-		$pos = rand(0,$$this->sizey-2)+1; //Se asignan unas coordenadas Y
+		$pos = rand(0,$this->sizey-2)+1; //Se asignan unas coordenadas Y
 
 		for ($cc=1;$cc<7;$cc++){
 			for ($cc2=0;$cc2<3;$cc2++){
@@ -502,31 +504,31 @@ function maps(){
 	///////////////////// typ
 
 	# definition
-	echo "\t".'typ_map ='."\n\t".$$this->sizex.' '.$$this->sizey."\n";
+	echo "\t".'typ_map ='."\n\t",$this->sizex.' '.$this->sizey."\n";
 
 	# 1era fila
-	echo "\t\t".'f8 '; for($c=0;$c<$$this->sizex-2;$c++) echo 'fc ';echo 'f9'."\n";
+	echo "\t\t".'f8 '; for($c=0;$c<$this->sizex-2;$c++) echo 'fc ';echo 'f9'."\n";
 
 	# body
-	for($c=0;$c<$$this->sizey-2;$c++){
+	for($c=0;$c<$this->sizey-2;$c++){
 		echo "\t\tff";
-		for($c2=0;$c2<$$this->sizex-2;$c2++)
+		for($c2=0;$c2<$this->sizex-2;$c2++)
 			echo printf(" %02x",array_rand($slots[$st-1]));
 		echo " fd\n";
 	}
 
 	# ultima fila
-	echo "\t\t".'fb';for ($c=0;$c<$$this->sizex-2;$c++) echo ' fe';echo ' fa'."\n";
-	
+	echo "\t\t".'fb';for ($c=0;$c<$this->sizex-2;$c++) echo ' fe';echo ' fa'."\n";
+
 	///////////////////// own
 
 	# definition
-	echo "\t".'own_map ='."\n\t".$$this->sizex.' '.$$this->sizey."\n";
+	echo "\t".'own_map ='."\n\t",$this->sizex.' '.$this->sizey."\n";
 
 	# inicializado en 0
-	$map = array_fill(0, $$this->sizex-1, array_fill(0, $$this->sizey-1, 0));
-	
-	$idealnumsects = ($$this->sizex-2) * ($$this->sizey-2) * 3 / 2 * array_sum($n_hosts); // i (número ideal de sectores para cada raza) = área total de sectores / número total de HostStations + 30%
+	$map = array_fill(0, $this->sizex-1, array_fill(0, $this->sizey-1, 0));
+
+	$idealnumsects = ($this->sizex-2) * ($this->sizey-2) * 3 / 2 * array_sum($n_hosts); // i (número ideal de sectores para cada raza) = área total de sectores / número total de HostStations + 30%
 
 	# Mapear colores
 	color_race(1,1);
@@ -537,16 +539,16 @@ function maps(){
 	color_race(6,$n_hosts['gho']);
 
 	# Imprimir mapa
-	for ($c=0;$c<$$this->sizey;$c++){ echo "\t\t"; for($c2=0;$c2<$$this->sizex;$c2++) printf("%02d ",$map[$c2][$c]); echo "\n";}
-	
+	for ($c=0;$c<$this->sizey;$c++){ echo "\t\t"; for($c2=0;$c2<$this->sizex;$c2++) printf("%02d ",$map[$c2][$c]); echo "\n";}
+
 	///////////////////// hgt
 
-	echo "\t".'hgt_map ='."\n\t".$$this->sizex.' '.$$this->sizey."\n";
+	echo "\t".'hgt_map ='."\n\t",$this->sizex.' '.$this->sizey."\n";
 	$x = $y = 1;
 	$alturabase = 50 + (rand(0,50)-25);
 
-	for ($c=1;$c<$$this->sizey-1;$c++){
-		for ($c2=1;$c2<$$this->sizex-1;$c2++){
+	for ($c=1;$c<$this->sizey-1;$c++){
+		for ($c2=1;$c2<$this->sizex-1;$c2++){
 			$map[$c2][$c] = $alturabase;
 			altura_arnd($alturabase, $c2,$c);
 			if ($map[$c2-1][$c]!=0 && $map[$c2-1][$c]!=1)
@@ -555,49 +557,49 @@ function maps(){
 	}
 
 	////// Igualar bordes horizontales
-	for ($c=0;$c<$$this->sizex;$c++){
+	for ($c=0;$c<$this->sizex;$c++){
 		$map[$c][0] = $map[$c][1];
-		$map[$c][$$this->sizey-1] = $map[$c][$$this->sizey-2];
+		$map[$c][$this->sizey-1] = $map[$c][$this->sizey-2];
 	}
 
 	////// Igualar bordes verticales
-	for ($c=0;$c<$$this->sizey;$c++){
+	for ($c=0;$c<$this->sizey;$c++){
 		$map[0][$c] = $map[1][$c];
-		$map[$$this->sizex-1][$c] = $map[$$this->sizex-2][$c];
+		$map[$this->sizex-1][$c] = $map[$this->sizex-2][$c];
 	}
 
-	for ($c=0;$c<$$this->sizey;$c++){
+	for ($c=0;$c<$this->sizey;$c++){
 		echo "\t\t";
-		for ($c2=0;$c2<$$this->sizex;$c2++)
+		for ($c2=0;$c2<$this->sizex;$c2++)
 			printf("%02x ",$map[$c2][$c]);
 		echo "\n";
 	}
 
 	///////////////////// blg
-	
-	echo "\t".'blg_map ='."\n";
-	echo "\t".$$this->sizex.' '.$$this->sizey."\n";
 
-	for ($c=0;$c<$$this->sizey;$c++){
-		for ($c2=0;$c2<$$this->sizex;$c2++){
+	echo "\t".'blg_map ='."\n";
+	echo "\t".$this->sizex.' '.$this->sizey."\n";
+
+	for ($c=0;$c<$this->sizey;$c++){
+		for ($c2=0;$c2<$this->sizex;$c2++){
 			for($c3=0;$c3<3;$c3++){
 				if ($c2==$h_xpos[2][$c3]&&c==$h_ypos[2][$c3])
-					$blg[$$c2][$c]=10;
+					$blg[$c2][$c]=10;
 				if ($c2==$h_xpos[3][$c3]&&c==$h_ypos[3][$c3])
-					$blg[$$c2][$c]=10;
+					$blg[$c2][$c]=10;
 				if ($c2==$h_xpos[4][$c3]&&c==$h_ypos[4][$c3])
-					$blg[$$c2][$c]=17;
+					$blg[$c2][$c]=17;
 				if ($c2==$h_xpos[5][$c3]&&c==$h_ypos[5][$c3])
-					$blg[$$c2][$c]=14;
+					$blg[$c2][$c]=14;
 				if ($c2==$h_xpos[6][$c3]&&c==$h_ypos[6][$c3])
-					$blg[$$c2][$c]=12;
+					$blg[$c2][$c]=12;
 			}
 		}
 	}
 
-	for ($c=0;c<$$this->sizey;$c++){
+	for ($c=0;c<$this->sizey;$c++){
 		echo "\t\t";
-		for($c2=0;$c2<$$this->sizex;$c2++)
+		for($c2=0;$c2<$this->sizex;$c2++)
 			printf("%02x ",$blg[$c2][$c]);
 		echo "\n";
 	}
@@ -607,13 +609,13 @@ function maps(){
 
 function color_race($raceidx, $racehostnum){ //nr = número identificador de raza, cr = cantidad de HostStations de esa raza
 	if(!$racehostnum) return;
-	
+
 	do {
 		# Coordenadas de la HostStation
 		$x = $h_xpos[$raceidx][$racehostnum-1];
 		$y = $h_ypos[$raceidx][$racehostnum-1];
-		
-		arnd($raceidx,$x,$y); 
+
+		arnd($raceidx,$x,$y);
 
 		for($c=0;$c<$idealnumsects;$c++){
 			if (rand(0,1)){
@@ -671,6 +673,6 @@ function cmpg(){
 }
 }
 #ob_start();
-$obj = new urbanassault(); 
+$obj = new urbanassault();
 $obj->level('single');
 ?>

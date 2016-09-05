@@ -1,0 +1,290 @@
+;#*+ don't edit the magic runes
+;
+;------------------------------------------------------------
+;--- Machine Generated Level Description File             ---
+;------------------------------------------------------------
+;
+;------------------------------------------------------------
+;--- Original Header                                      ---
+;------------------------------------------------------------
+;   	created:    	STEFAN 'Opti' Karau
+;	designed am:	07.07.1997
+;	updated:		12.03.1998
+;	02-04-98		Stefan: n paar Bits geändert
+;	04-APR-98	Bernd: einfacher
+;			Energie von 420000 (!!!) auf 300000 runter 
+;			Shield vom Kyterneser Robo von 40 auf 35 runter
+;			vorplatzierte Ghargoil 1 von 8 auf 10, dafür
+;			vorplatzierte Ghargoil 2 von 8 auf 4
+;	06-APR-98	Bernd Kyt Energy noch weiter auf 280000 runter
+;	19-06-98	Stefan: Ambiencetrack
+;
+;------------------------------------------------------------
+;--- Level Info                                           ---
+;------------------------------------------------------------
+;	info:
+;	- one Ghorkov-host-station in north of this city
+;	- this city has a power-station
+;	- we have indications about data-sets for new vehicles
+;	  in this city
+;	- the tech-center and the power-station are defended
+;	  by Ghorkov vehicles
+;	- we know about new Ghorkov vehicles
+;	primary-goal:
+;	- find the power-station and conquer it
+;	- conquer the key-sector to open the beangate 
+;	- destroy the enemy host-station
+;	secondary-goal:
+;	- find and conquer the tech-center
+;
+;------------------------------------------------------------
+;--- Main Level Info                                      ---
+;------------------------------------------------------------			
+begin_level
+    	set 		= 	4                                        
+    	sky 		= 	objects/Nacht1.base   
+	slot0		=	palette/standard.pal	; STANDARD !
+	slot1		=	palette/red.pal		; ROT Standard-Feind-Einschuß 
+	slot2		=	palette/blau.pal		; COLD!
+	slot3		=	palette/gruen.pal		; NICE !
+	slot4		=	palette/inverse.pal	; COOL !
+	slot5		=	palette/invdark.pal 	; BÖSE UND BRUTAL !
+	slot6		=	palette/sw.pal		; More ! KontrastZeux kommt genial !
+	slot7		=	palette/invtuerk.pal	; Gut für Feinde ! Muß sehr stark sein !
+	title_default	=	SKULLALLEY
+	ambiencetrack   	= 	4_00_15000
+end
+;------------------------------------------------------------
+;--- Mission Briefing Maps                                ---
+;------------------------------------------------------------
+begin_mbmap
+        	name 		= 	 MB_03.IFF
+end
+begin_dbmap
+    	name         	= 	 DB_03.IFF
+end
+;------------------------------------------------------------
+;--- Beam Gates                                           ---
+;------------------------------------------------------------
+begin_gate  					
+	sec_x		=	2
+	sec_y		=	2
+	closed_bp	=	5
+	opened_bp	=	6
+       	target_level    	=       	5	; Surprise
+	keysec_x	=	5
+	keysec_y	=	6
+end
+;------------------------------------------------------------
+;--- Robo Definitions                                     ---
+;------------------------------------------------------------
+begin_robo              			; SPIELERROBO
+    	owner   		= 	1
+    	vehicle 		= 	56
+    	pos_x   		= 	4051
+    	pos_y   		= 	-320
+    	pos_z   		= 	-14741
+    	energy  		= 	320000		;300000
+end
+begin_robo             		 		; Kleiner Kyterneser-Robo 
+   	owner   		= 	6
+   	vehicle 		= 	59
+    	pos_x   		= 	4124
+    	pos_y   		= 	-150
+    	pos_z   		= 	-3074
+       	energy                 	=       280000		; Bernd vobn 420000	( früher wars 222000 !!!!!!!)
+       	con_budget      	=       30		; 70
+	con_delay		= 	0
+       	def_budget      	=       30		; 90
+	def_delay		=	0
+       	rec_budget      	=       90		; 50
+	rec_delay		=	30000
+       	rob_budget      	=       100		; 50
+	rob_delay		=	75000
+       	pow_budget		= 	0
+	pow_delay		= 	0
+       	rad_budget 		= 	0
+	rad_delay		=	0
+       	saf_budget 		=	0
+	saf_delay		= 	0
+       	cpl_budget      	=      	10		; 0
+	cpl_delay		=	340000
+end
+;------------------------------------------------------------
+;--- Predefined Squads                                    ---
+;------------------------------------------------------------
+begin_squad					; Computer, Staffel 1
+	owner		=	6	
+	vehicle		=	28 		; Ghargoil 2
+	num		=	2
+	pos_x		=	6094
+	pos_z		=	-8174
+	mb_status	= 	unknown
+end
+begin_squad					; Computer, Staffel 2
+	owner		=	6
+	vehicle		=	24 		; Huby
+	num		=	4
+	pos_x		=	6224
+	pos_z		=	-7351
+end
+begin_squad					; Computer, Staffel 3
+	owner		=	6
+	vehicle		=	24
+	num		=	2
+	pos_x		=	3001
+	pos_z		=	-8888
+	mb_status	= 	unknown
+end
+begin_squad					; Computer, Staffel 4
+	owner		=	6
+	vehicle		=	28
+	num		=	3
+	pos_x		=	1874
+	pos_z		=	-5288
+end
+begin_squad					; Computer, Staffel 5
+	owner		=	6
+	vehicle		=	24		; Bernd von 28 
+	num		=	1		; Bernd von 2
+	pos_x		=	4463
+	pos_z		=	-4051
+	mb_status	=	unknown
+end
+begin_squad					; Computer, Staffel 6
+	owner		=	6
+	vehicle		=	24 		; Hubi
+	num		=	2
+	pos_x		=	3074
+	pos_z		=	-4351
+end
+begin_squad					; Computer, Staffel 6
+	owner		=	6
+	vehicle		=	24 		; Hubi
+	num		=	2
+	pos_x		=	1801
+	pos_z		=	-10801
+	mb_status	=	unknown
+end
+begin_squad					; User, Staffel 1
+	owner		=	1
+	vehicle		=	16 		; Fox
+	num		=	2
+	pos_x		=	3022
+	pos_z		=	-14601
+end
+begin_squad					; User, Staffel 2
+	owner		=	1
+	vehicle		=	16 		; Fox
+	num		=	3
+	pos_x		=	5001
+	pos_z		=	-13301
+end
+;------------------------------------------------------------
+;--- Prototype Modifications                           ---
+;------------------------------------------------------------
+include data:scripts/startup2.scr
+modify_weapon		83			; Waffe Kyterneser Robo Klein
+    	energy       	= 	3000
+    	shot_time    	= 	1900
+end
+modify_vehicle 	56				; User Robo
+    	shield       	= 	5
+end
+modify_vehicle 	59				; Bernd Shield vom Kleinen Kyterneser runter
+	shield		=	35		; Original 40
+end
+;------------------------------------------------------------
+;--- Prototype Enabling                                   ---
+;------------------------------------------------------------
+begin_enable 6
+    	vehicle 		= 	24		; Ghargoil
+    	vehicle 		= 	29		; Ormu
+end
+;------------------------------------------------------------
+;--- Tech Upgrades                                           ---
+;------------------------------------------------------------
+begin_gem
+    	sec_x        	= 	1
+    	sec_y        	= 	8
+    	building     	= 	4
+    	type         	= 	3
+    	begin_action
+    	    	modify_vehicle   	1
+            			enable	=  	1
+        		end       
+    	end_action
+end
+; ------------------------------------------ 
+;--- machine generated map dumps, go away ---
+; ------------------------------------------ 
+begin_maps
+    typ_map =
+        7 14
+        f8 fc fc fc fc fc f9 
+        ff 00 af ae 22 1e fd 
+        ff b2 ca b6 21 1e fd 
+        ff b4 bb b6 20 1e fd 
+        ff b4 b7 0d ae 1e fd 
+        ff 08 1e b4 b5 1e fd 
+        ff 07 1e b4 ab 0f fd 
+        ff 06 00 08 3c 20 fd 
+        ff 64 23 b4 13 ae fd 
+        ff 96 24 08 1e 96 fd 
+        ff b4 14 a2 15 ab fd 
+        ff 96 2a 9b 29 26 fd 
+        ff b0 14 b1 27 25 fd 
+        fb fe fe fe fe fe fa 
+    own_map =
+        7 14
+        01 01 01 01 01 01 01 
+        01 06 06 06 06 06 06 
+        01 06 06 06 06 06 06 
+        01 06 06 06 06 06 06 
+        01 06 06 06 06 06 01 
+        01 06 06 06 06 06 01 
+        01 06 06 06 00 06 06 
+        01 06 06 06 06 06 06 
+        01 06 01 01 01 06 06 
+        01 01 01 01 01 01 01 
+        00 01 01 01 01 01 00 
+        00 01 01 01 01 01 00 
+        00 01 01 01 01 01 00 
+        00 00 00 00 00 00 00 
+    hgt_map = 
+        7 14
+        7f 7f 7f 7f 7f 7f 7f 
+        7f 7f 7f 7f 7f 7f 7f 
+        7f 7f 7f 7f 7f 7f 7f 
+        7f 7f 7f 7f 7f 7f 7f 
+        7f 7f 7f 7f 7f 7f 7f 
+        7f 7f 7f 7f 7f 7f 7f 
+        7f 7f 7f 7f 7f 7f 7f 
+        7f 7f 7f 7f 7f 7f 7f 
+        7f 7f 7f 7f 7f 7f 7f 
+        7f 7f 7f 7f 7f 7f 7f 
+        7f 7f 7f 7f 7f 7f 7f 
+        7f 7f 7f 7f 7f 7f 7f 
+        7f 7f 7f 7f 7f 7f 7f 
+        7f 7f 7f 7f 7f 7f 7f 
+    blg_map = 
+        7 14
+        00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 
+        00 00 05 00 00 00 00 
+        00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 
+        00 00 00 00 00 0c 00 
+        00 00 00 00 00 00 00 
+        00 04 00 00 00 00 00 
+        00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 
+end
+; ------------------------ 
+;--- map dumps end here ---
+; ------------------------ 
+

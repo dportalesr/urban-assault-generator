@@ -1,0 +1,322 @@
+;#*+ don't edit the magic runes
+
+;------------------------------------------------------------
+;--- Original Header                                      ---
+;------------------------------------------------------------
+;
+;   	Name               	: 	ZWEI HÜGLE
+;      	designed by        	:    	Stefan "Opti" Karau
+;	letzte Änderung am 	:	12.03.1998
+;	Schwierigkeit      	: 	Leicht		
+;   	internal stuff     	:	Formerly known as Brust-Level
+;	updated		   	:	Henrik Volkening
+;	27-Feb-98 	Bernd:  Neue Briefing Maps eingebaut
+;	23-Mär-98	Stefan: Höhenmap korrigiert
+;	04-APR-98	Bernd: Wenn man sich nich rausbeamt, wird im Prinzip nur ein Level übersprungen.
+;	05-Mai-98	Stefan: Reload Const
+;	06-Mai-98	Stefan: Reload Const
+;	08-Mai-98	Stefan: Reload Const
+;	19-06-98	Stefan: Ambiencetrack
+;------------------------------------------------------------
+;--- Main Level Info                                      ---
+;------------------------------------------------------------
+begin_level
+    set  = 3
+    sky  = objects/nt7.base
+    slot0        = palette/standard.pal
+    slot1        = palette/red.pal
+    slot2        = palette/blau.pal
+    slot3        = palette/gruen.pal
+    slot4        = palette/inverse.pal
+    slot5        = palette/invdark.pal
+    slot6        = palette/sw.pal
+    slot7        = palette/invtuerk.pal
+    title_default        = TWO_HILLS
+    title_english        = TWO_HILLS
+    title_deutsch        = ZWEI_HUEGLE
+	ambiencetrack   = 	5_3000_7000
+end
+
+;------------------------------------------------------------
+;--- Mission Briefing Maps                                ---
+;------------------------------------------------------------
+begin_mbmap
+    name         =  MB_34.IFF
+    size_x       = 480
+    size_y       = 480
+end
+begin_dbmap
+    name         =  DB_34.IFF
+    size_x       = 480
+    size_y       = 480
+end
+;------------------------------------------------------------
+;--- Beam Gates                                           ---
+;------------------------------------------------------------
+begin_gate			
+    sec_x        = 1
+    sec_y        = 6
+    closed_bp    = 25
+    opened_bp    = 26
+    target_level = 40
+    keysec_x     = 8
+    keysec_y     = 6
+ end
+begin_gate
+    sec_x        = 8
+    sec_y        = 6
+    closed_bp    = 25
+    opened_bp    = 26
+    target_level = 44           ; Ass. Way
+    keysec_x     = 1
+    keysec_y     = 6
+end
+
+;------------------------------------------------------------
+;--- Robo Definitions                                     ---
+;------------------------------------------------------------
+begin_robo
+    owner        = 1
+    vehicle      = 56
+    pos_x        = 1688
+    pos_y        = -330
+    pos_z        = -7913
+    energy       = 640000
+    viewangle    = 350
+    reload_const = 143125
+end
+begin_robo
+    owner        = 3
+    vehicle      = 58
+    pos_x        = 10201
+    pos_y        = -330
+    pos_z        = -7801
+    energy       = 710000
+    reload_const = 570000
+    	con_budget      	=       99
+	con_delay		= 	0
+        def_budget      	=       95
+	def_delay		=	0
+        rec_budget      	=       90
+	rec_delay		=	0
+        rob_budget      	=       90
+	rob_delay		=	180000
+        pow_budget		= 	0
+	pow_delay		= 	0
+        rad_budget 		= 	0
+	rad_delay		=	0
+        saf_budget 		=	0
+	saf_delay		= 	0
+        cpl_budget      	=      	50
+	cpl_delay		=	220000
+end
+
+;------------------------------------------------------------
+;--- Predefined Squads                                    ---
+;------------------------------------------------------------
+
+begin_squad
+    owner        = 3
+    vehicle      = 64	
+    num  = 3
+    pos_x        = 5101
+    pos_z        = -5438
+useable
+end
+
+begin_squad
+    owner        = 3
+    vehicle      = 65	
+    num  = 2
+    pos_x        = 6973
+    pos_z        = -8588
+useable
+end
+
+begin_squad
+    owner        = 3
+    vehicle      = 65	
+    num  = 2
+    pos_x        = 8888
+    pos_z        = -7388
+useable
+end
+
+begin_squad
+    owner        = 3
+    vehicle      = 65	
+    num  = 2
+    pos_x        = 6863
+    pos_z        = -9751
+useable
+end
+
+begin_squad
+    owner        = 3
+    vehicle      = 65	
+    num  = 2
+    pos_x        = 3713
+    pos_z        = -5213
+useable
+end
+
+begin_squad
+    owner        = 3
+    vehicle      = 65	
+    num  = 2
+    pos_x        = 5213
+    pos_z        = -3186
+useable
+end
+
+begin_squad
+    owner        = 3
+    vehicle      = 64	
+    num  = 2
+    pos_x        = 7501
+    pos_z        = -4351
+useable
+end
+
+begin_squad
+    owner        = 3
+    vehicle      = 64	
+    num  = 2
+    pos_x        = 1763
+    pos_z        = -3823
+useable
+end
+
+begin_squad
+    owner        = 3
+    vehicle      = 64	
+    num  = 2
+    pos_x        = 4838
+    pos_z        = -4801
+useable
+end
+
+begin_squad
+    owner        = 3
+    vehicle      = 64	
+    num  = 2
+    pos_x        = 9263
+    pos_z        = -3713
+useable
+end
+
+begin_squad
+    owner        = 3
+    vehicle      = 64	
+    num  = 2
+    pos_x        = 7463
+    pos_z        = -10163
+useable
+end
+
+begin_squad
+    owner        = 3
+    vehicle      = 67	
+    num  = 1
+    pos_x        = 5025
+    pos_z        = -5738
+useable
+end
+
+;------------------------------------------------------------
+;--- Prototype Modifications                              ---
+;------------------------------------------------------------
+include data:scripts/startup2.scr
+modify_vehicle 	56
+    shield       = 30
+end
+;------------------------------------------------------------
+;--- Prototype Enabling                                   ---
+;------------------------------------------------------------
+
+begin_enable 3
+    vehicle = 64		; X01
+    vehicle = 65		; 5PO
+    vehicle = 67		; Radda
+end
+
+;------------------------------------------------------------
+;--- Tech Upgrades                                        ---
+;------------------------------------------------------------
+
+begin_gem
+    sec_x        = 5
+    sec_y        = 2
+    building     = 50
+    type         = 2
+    begin_action
+        modify_vehicle   9
+       		 add_shield = 3
+		 add_energy = 300
+        end      
+    end_action
+end
+
+;------------------------------------------------------------
+;--- Map Dumps                                            ---
+;------------------------------------------------------------
+begin_maps
+; ------------------------------------------ 
+;--- machine generated map dumps, go away ---
+; ------------------------------------------ 
+    typ_map =
+        10 10
+        f8 fc fc fc fc fc fc fc fc f9 
+        ff 27 17 19 0b 19 1f 1d 20 fd 
+        ff 29 2a 18 06 66 01 24 21 fd 
+        ff 01 2b 2d 97 1d 25 2c 23 fd 
+        ff 26 2b 2c 07 1f 2a 2b e6 fd 
+        ff CD 25 20 06 4d 29 e6 e5 fd 			
+        ff 03 cd 21 05 4e 28 e6 03 fd 	
+        ff cd 23 22 a0 19 27 e6 e5 fd 
+        ff 24 20 1e ac 14 16 26 e6 fd 
+        fb fe fe fe fe fe fe fe fe fa 
+    own_map =
+        10 10
+        00 00 00 00 00 00 00 00 00 00 
+        00 01 00 00 00 00 00 00 03 00 
+        00 01 01 00 00 00 00 03 03 00 
+        00 01 01 01 00 00 03 03 03 00 
+        00 01 01 01 00 00 03 03 03 00 
+        00 01 01 01 01 03 03 03 03 00 
+        00 01 01 01 01 03 03 03 03 00 
+        00 01 01 01 00 00 03 03 03 00 
+        00 01 01 00 00 00 00 03 03 00 
+        00 00 00 00 00 00 00 00 00 00 
+    hgt_map = 
+        10 10
+        80 80 7f 7f 7e 7e 7f 7f 80 80 
+        80 80 7f 7f 7e 7e 7f 7f 80 80 
+        81 81 80 7f 7f 7f 7f 80 81 81 
+        81 81 81 80 7f 7f 80 81 81 81 
+        82 82 81 80 7f 7f 80 81 82 82 
+        82 82 82 81 80 80 81 82 82 82 
+        83 83 82 81 80 80 81 82 83 83 
+        82 82 82 81 7f 7f 81 82 82 82 
+        80 80 80 7f 7f 7f 7f 80 80 80 
+        80 80 80 7f 7f 7f 7f 80 80 80 
+    blg_map = 
+        10 10
+        00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 32 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 0d 00 
+        00 1c 00 00 00 00 00 0d 0a 00 
+        00 19 1c 00 00 00 00 0d 19 00 
+        00 1c 00 00 00 00 00 0d 0a 00 
+        00 00 00 00 00 00 00 00 0d 00 
+        00 00 00 00 00 00 00 00 00 00 
+; ------------------------ 
+;--- map dumps end here ---
+; ------------------------ 
+end
+
+;------------------------------------------------------------
+;--- End Of File                                          ---
+;------------------------------------------------------------

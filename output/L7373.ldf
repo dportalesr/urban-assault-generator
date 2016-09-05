@@ -1,0 +1,237 @@
+begin_level
+  set     = 1  sky     = objects/1998_02.base
+  slot0   = palette/standard.pal
+  slot1   = palette/red.pal
+  slot2   = palette/blau.pal
+  slot3   = palette/gruen.pal
+  slot4   = palette/inverse.pal
+  slot5   = palette/invdark.pal
+  slot6   = palette/sw.pal
+  slot7   = palette/invtuerk.pal
+end
+
+; Mission Briefing Map
+begin_mbmap
+  name = MB_15.IFF
+end
+
+; Mission Debriefing Map
+begin_dbmap
+  name = DB_15.IFF
+end
+
+; Beam Gates
+begin_gate
+  sec_x         = 1  sec_y         = 3  closed_bp     = 5
+  opened_bp     = 6
+  target_level  = 15  keysec_x      = 15  keysec_y      = 26  keysec_x      = 13  keysec_y      = 6  mb_status     = unknown
+end
+
+; Player Host Station
+begin_robo
+  owner         = 1
+  vehicle       = 56
+  pos_x         = 13801  pos_y         = -350  pos_z         = -32999  energy        = 800000  reload_const  = 153125end
+
+; Enemy Host Stations
+begin_robo
+  owner         = 3  vehicle       = 58  pos_x         = 23401  pos_y         = -400  pos_z         = -34199  energy        = 1150000  reload_const  = 716666  con_budget    = 73  con_delay     = 1000  def_budget    = 92  def_delay     = 73000  rec_budget    = 100  rec_delay     = 58000  rob_budget    = 100  rob_delay     = 12000  pow_budget    = 87  pow_delay     = 0  rad_budget    = 14  rad_delay     = 17000  saf_budget    = 66  saf_delay     = 20000  cpl_budget    = 87  cpl_delay     = 62000end
+
+begin_robo
+  owner         = 4  vehicle       = 60  pos_x         = 28201  pos_y         = -290  pos_z         = -16199  energy        = 1070000  reload_const  = 690000  con_budget    = 91  con_delay     = 52000  def_budget    = 99  def_delay     = 55000  rec_budget    = 64  rec_delay     = 56000  rob_budget    = 59  rob_delay     = 23000  pow_budget    = 72  pow_delay     = 11000  rad_budget    = 16  rad_delay     = 23000  saf_budget    = 57  saf_delay     = 35000  cpl_budget    = 36  cpl_delay     = 11000end
+
+begin_robo
+  owner         = 5  vehicle       = 62  pos_x         = 12601  pos_y         = -380  pos_z         = -4199  energy        = 820000  reload_const  = 606666  con_budget    = 81  con_delay     = 11000  def_budget    = 79  def_delay     = 1000  rec_budget    = 80  rec_delay     = 62000  rob_budget    = 92  rob_delay     = 21000  pow_budget    = 88  pow_delay     = 42000  rad_budget    = 21  rad_delay     = 40000  saf_budget    = 88  saf_delay     = 66000  cpl_budget    = 35  cpl_delay     = 69000end
+
+begin_robo
+  owner         = 2  vehicle       = 61  pos_x         = 4201  pos_y         = -370  pos_z         = -8999  energy        = 810000  reload_const  = 603333  con_budget    = 51  con_delay     = 64000  def_budget    = 100  def_delay     = 61000  rec_budget    = 70  rec_delay     = 41000  rob_budget    = 67  rob_delay     = 12000  pow_budget    = 65  pow_delay     = 32000  rad_budget    = 11  rad_delay     = 45000  saf_budget    = 90  saf_delay     = 9000  cpl_budget    = 47  cpl_delay     = 19000end
+
+begin_robo
+  owner         = 2  vehicle       = 61  pos_x         = 3001  pos_y         = -210  pos_z         = -32999  energy        = 1360000  reload_const  = 786666  con_budget    = 63  con_delay     = 66000  def_budget    = 92  def_delay     = 20000  rec_budget    = 99  rec_delay     = 75000  rob_budget    = 64  rob_delay     = 49000  pow_budget    = 40  pow_delay     = 10000  rad_budget    = 23  rad_delay     = 62000  saf_budget    = 78  saf_delay     = 13000  cpl_budget    = 42  cpl_delay     = 54000end
+
+begin_robo
+  owner         = 4  vehicle       = 60  pos_x         = 18601  pos_y         = -310  pos_z         = -6599  energy        = 1070000  reload_const  = 690000  con_budget    = 56  con_delay     = 56000  def_budget    = 64  def_delay     = 10000  rec_budget    = 95  rec_delay     = 56000  rob_budget    = 98  rob_delay     = 32000  pow_budget    = 96  pow_delay     = 9000  rad_budget    = 13  rad_delay     = 39000  saf_budget    = 87  saf_delay     = 71000  cpl_budget    = 81  cpl_delay     = 9000end
+
+; Stoudson Bomb
+begin_item
+  sec_x         = 6  sec_y         = 24  inactive_bp   = 35  active_bp     = 36  trigger_bp    = 36  type          = 1
+  countdown     = 331000 ;20 seconds - 42 minutes
+  keysec_x      = 9  keysec_y      = 18  keysec_x      = 23  keysec_y      = 2end
+
+;Predefined Squads
+begin_squad
+  owner     = 2  vehicle   = 73  num       = 12  pos_x     = 13801  pos_z     = -36599  mb_status = unknown
+end
+
+begin_squad
+  owner     = 2  vehicle   = 73  num       = 5  pos_x     = 12601  pos_z     = -20999  mb_status = unknown
+end
+
+begin_squad
+  owner     = 2  vehicle   = 71  num       = 7  pos_x     = 4201  pos_z     = -2999end
+
+begin_squad
+  owner     = 3  vehicle   = 65  num       = 5  pos_x     = 29401  pos_z     = -30599  mb_status = unknown
+end
+
+begin_squad
+  owner     = 3  vehicle   = 63  num       = 12  pos_x     = 21001  pos_z     = -18599end
+
+begin_squad
+  owner     = 2  vehicle   = 73  num       = 12  pos_x     = 30601  pos_z     = -14999  mb_status = unknown
+end
+
+begin_squad
+  owner     = 5  vehicle   = 33  num       = 5  pos_x     = 36601  pos_z     = -19799  mb_status = unknown
+end
+
+; Prototype Modifications
+include data:scripts/startup2.scr
+
+begin_enable 1  vehicle   = 1  vehicle   = 2  vehicle   = 3  vehicle   = 4  vehicle   = 5  vehicle   = 6  vehicle   = 7  vehicle   = 9  vehicle   = 10  vehicle   = 11  vehicle   = 12  vehicle   = 14  vehicle   = 15  vehicle   = 16  building  = 11  building  = 63  building  = 2  building  = 28  building  = 3end ; end of enable
+
+begin_enable 2  vehicle   = 71  vehicle   = 72  vehicle   = 73  vehicle   = 74  building  = 10end ; end of enable
+
+begin_enable 3  vehicle   = 63  vehicle   = 64  vehicle   = 65  vehicle   = 66  vehicle   = 67  vehicle   = 68  vehicle   = 69  vehicle   = 70  building  = 10  building  = 13  building  = 72end ; end of enable
+
+begin_enable 4  vehicle   = 8  vehicle   = 32  vehicle   = 33  vehicle   = 34  vehicle   = 35  vehicle   = 36  vehicle   = 37  vehicle   = 38  vehicle   = 131  building  = 17  building  = 31  building  = 53  building  = 73end ; end of enable
+
+begin_enable 5  vehicle   = 71  vehicle   = 72  vehicle   = 73  vehicle   = 74  vehicle   = 63  vehicle   = 64  vehicle   = 65  vehicle   = 66  vehicle   = 67  vehicle   = 68  vehicle   = 69  vehicle   = 70  vehicle   = 8  vehicle   = 32  vehicle   = 33  vehicle   = 34  vehicle   = 35  vehicle   = 36  vehicle   = 37  vehicle   = 38  vehicle   = 131  vehicle   = 22  vehicle   = 23  vehicle   = 24  vehicle   = 25  vehicle   = 26  vehicle   = 27  vehicle   = 28  vehicle   = 29  vehicle   = 30  vehicle   = 31  vehicle   = 130  building  = 18  building  = 1  building  = 54  building  = 64  building  = 10  building  = 10  building  = 13  building  = 72  building  = 17  building  = 31  building  = 53  building  = 73  building  = 30  building  = 52  building  = 12  building  = 71end ; end of enable
+
+begin_maps
+  typ_map =
+    32 32
+    f8 fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc f9
+    ff a9 ae 02 b8 88 17 b7 24 1a 4a 63 b1 9f ac a0 b7 3b 1a 14 0c a9 50 63 52 ec a1 5f 47 b2 e8 fd
+    ff b4 bc 32 a2 9d ac a1 21 b3 97 08 61 9d af 62 51 32 b6 08 1a 01 5f 60 9f 22 b5 08 9b 1b 60 fd
+    ff e9 9d 21 24 0c b8 0c eb 16 b8 9f 51 b8 33 00 1f 02 1c b6 1b a9 13 eb 51 ac 00 b2 17 bd ea fd
+    ff 10 b6 87 61 33 a2 22 0c b7 b3 61 50 e9 9a bc 11 ab a3 47 ad af 4c 11 a1 88 29 a4 b3 89 07 fd
+    ff 83 62 0c ae 29 47 b9 99 4d a3 af 84 19 e9 88 06 2c 0a 9f a0 b8 aa 9f bc b5 a9 17 bd a4 06 fd
+    ff 16 00 87 c6 16 82 02 50 4b 48 c6 17 a2 ac a0 43 9a 17 4c 27 96 e9 88 46 62 bd e8 8b 1f b0 fd
+    ff 60 24 b6 0b a0 21 16 eb e8 96 88 24 4e 24 1b 1c 9a 97 61 28 bb 23 ec ea 4e 13 23 a7 84 a7 fd
+    ff 07 01 1c b3 88 b4 a7 eb 51 ad 11 bd 0a 4e 02 aa 4b 1a 61 14 a9 64 50 c6 89 ea 96 0a 96 9a fd
+    ff eb 11 ae 1c b3 1c 17 ae 4d 0c 88 1c ba 16 ae 28 16 10 29 a1 20 8a 0c 00 14 8b 0c a4 1f 60 fd
+    ff 1a 52 a8 b0 14 ac 46 46 ab 50 b6 b3 07 32 06 ba 1b 24 82 4a e8 b5 ba b3 05 1a 23 86 1b 4e fd
+    ff 27 28 1b 48 bb 0c 15 60 28 1a ea a6 01 06 ad a8 18 13 17 46 4a a2 26 ab 25 af ba 26 07 20 fd
+    ff 02 b4 4a b2 1f ab a2 07 89 97 b0 0b 84 99 5f 63 b1 0c 18 84 89 1c 24 1f 8a 43 15 aa a0 a6 fd
+    ff 5f 96 07 ea b3 28 b5 84 bc 9f a7 83 06 96 a3 25 16 28 07 46 83 2c 64 ae 22 01 4c bd 26 11 fd
+    ff 89 0a 84 61 4b eb 0c af 52 84 43 e8 20 62 a0 18 a3 29 a2 33 ac 06 06 bc a0 15 b9 ab a7 b1 fd
+    ff b0 a2 1b 1c 09 12 51 eb 06 4b 15 4d a3 eb 86 ae b1 0c bd 85 22 28 3b 5f 5f 2c 89 b8 ab 10 fd
+    ff 4d 29 02 ea 21 10 1d 89 b2 60 a2 13 10 bd 97 08 09 1c b7 4a b1 89 24 97 b2 33 b7 00 4e 22 fd
+    ff 43 2c 02 14 29 4a 27 a8 8a 0c 18 23 ab 9b 19 bd b2 e8 0d b1 ec 00 bb a8 b6 82 ad 19 a2 1b fd
+    ff 8a 15 24 0a 62 aa a9 b1 27 9a 52 8b 20 02 10 c6 ad e9 27 e8 0a 13 ae 18 64 09 32 1b e8 21 fd
+    ff c6 a3 00 af ec 46 33 e9 62 e9 aa 4b a2 b8 ba ad 46 82 ba 83 b8 4a 0d 8a 32 ba 27 a4 32 ae fd
+    ff 47 27 4d ac 51 28 48 99 c6 9a ec 60 af 13 89 88 11 22 82 b0 a2 05 b0 a8 00 83 61 0d 0b 1c fd
+    ff 0b b0 3b 32 62 ab b9 9b 60 a9 a2 0b eb b9 00 a3 16 46 4e 1f 05 61 23 64 0a 9d 60 18 43 82 fd
+    ff 4c 17 8a 15 99 b8 ec 12 1c ba eb 28 b9 87 4d 08 43 62 9f b0 06 b8 bd e9 01 89 b7 0c 0a 43 fd
+    ff 46 aa 88 1d 50 17 0d 25 83 60 0c 2c aa 9a 87 e8 24 3b e9 bd 4a af 61 a6 5f 17 85 ab 5f 00 fd
+    ff 82 bb a9 e8 a4 01 4d aa 50 b1 0d 05 96 a3 b2 3b 22 0b b1 af 0a 23 60 00 27 9a b8 ea 05 a8 fd
+    ff 83 ac 20 a0 07 0c ae 1a af eb a8 11 4a 4b b1 97 07 43 99 b4 89 28 09 b3 4b 06 86 27 52 b3 fd
+    ff eb 51 4b ea b5 97 0a e8 88 af bd 83 09 17 62 07 aa b9 83 12 82 21 08 a9 c6 07 48 50 0a 61 fd
+    ff 1b b4 b7 27 14 48 51 bb 9d 4d 13 05 19 b1 a3 ec b6 b1 4e a9 e9 14 51 23 09 28 a7 9f 9d 89 fd
+    ff 1a 11 47 4e 29 05 a0 06 5f 10 b9 b2 e9 a9 b7 a2 52 85 08 10 5f 4e 1c a4 8b 23 13 0b ae 24 fd
+    ff e8 25 61 29 88 0d 82 5f 10 ad 48 62 9b 4c 09 ba 22 b2 18 17 27 83 24 61 aa ac e9 ac 61 0c fd
+    ff 10 61 63 e9 8a 13 85 1b 86 4a 11 4d 29 96 4e a9 09 16 82 05 bd 10 4a b8 1d 28 97 0c 97 ae fd
+    fb fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fa
+  own_map =
+    32 32
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 04 05 05 05 05 05 05 05 05 05 04 04 04 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 05 05 05 05 05 05 05 05 05 05 04 04 04 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 05 05 05 05 05 05 05 05 05 05 05 04 04 04 04 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 05 05 05 05 05 05 05 05 05 05 04 04 04 04 04 04 04 04 00 00 00 00 00 00 
+    00 00 02 02 02 02 02 05 05 05 05 05 05 05 05 05 05 05 04 04 04 04 04 04 04 04 04 04 04 00 00 00 
+    00 00 02 02 02 02 02 05 05 05 05 05 05 05 05 05 05 04 04 04 04 04 04 04 04 04 04 04 04 00 00 00 
+    00 02 02 02 02 02 02 05 05 05 05 05 05 05 05 05 05 04 04 04 04 04 04 04 04 04 04 04 04 04 04 00 
+    00 02 02 02 02 02 02 02 05 05 05 05 05 05 05 05 05 04 04 04 04 04 04 04 04 04 04 04 04 04 04 00 
+    00 02 02 02 02 02 02 02 05 05 05 05 05 05 05 05 05 04 04 04 04 04 04 04 04 04 04 04 04 04 04 00 
+    00 00 02 02 02 02 02 02 05 05 05 05 05 02 00 00 00 04 04 04 04 04 04 04 04 00 00 00 04 04 04 00 
+    00 00 00 00 00 02 02 02 02 05 05 05 05 02 02 02 00 04 04 04 04 04 04 04 04 00 00 00 04 04 04 00 
+    00 00 00 00 00 00 00 02 02 02 02 02 02 02 02 02 00 04 04 04 04 04 04 04 04 00 00 00 04 04 04 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 02 02 02 02 00 00 04 04 04 04 04 04 04 00 00 00 00 04 04 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 02 02 02 02 00 00 00 04 04 04 04 04 04 00 00 00 04 04 04 00 
+    00 00 00 00 00 00 00 00 00 02 02 02 02 02 02 02 00 00 00 04 04 04 00 00 00 00 00 00 04 04 04 00 
+    00 00 00 00 00 00 00 00 02 02 02 02 02 02 02 02 00 00 00 00 00 00 00 00 00 00 00 00 04 04 04 00 
+    00 00 00 00 00 00 00 00 02 02 02 02 02 02 02 00 00 00 00 00 00 00 00 00 00 00 00 00 04 04 04 00 
+    00 02 02 02 02 00 00 02 02 02 02 02 02 02 02 02 00 00 00 03 03 03 03 00 00 00 00 00 00 04 04 00 
+    00 02 02 02 02 02 02 02 02 02 02 02 02 02 02 02 00 00 00 03 03 03 03 03 00 00 00 00 00 00 00 00 
+    00 02 02 02 02 02 02 02 02 02 02 02 02 02 02 02 00 00 00 03 03 03 03 03 00 00 00 00 00 00 00 00 
+    00 02 02 02 02 02 02 02 02 02 02 02 02 00 00 00 00 00 00 03 03 03 03 03 00 00 00 00 00 00 00 00 
+    00 02 02 02 02 02 02 02 02 02 02 02 00 00 00 00 00 03 03 03 03 03 03 03 03 00 00 00 00 00 00 00 
+    00 02 02 02 02 02 02 02 02 02 02 02 00 00 00 00 00 03 03 03 03 03 03 03 03 03 00 00 00 00 00 00 
+    00 02 02 02 02 02 02 02 02 02 02 02 00 00 00 00 00 03 03 03 03 03 03 03 03 03 00 00 00 00 00 00 
+    00 02 02 02 02 02 02 02 02 02 00 00 00 00 03 03 03 03 03 03 03 03 03 03 03 03 00 00 00 00 00 00 
+    00 02 02 02 02 02 02 02 02 02 02 00 00 00 03 03 03 03 03 03 03 03 03 03 03 03 00 00 00 00 00 00 
+    00 02 02 02 02 02 02 02 02 02 02 00 00 03 03 03 03 03 03 03 03 03 03 03 03 03 00 00 00 00 00 00 
+    00 02 02 02 02 02 02 02 02 02 02 00 03 03 03 03 03 03 03 03 03 03 03 03 03 03 00 00 00 00 00 00 
+    00 00 02 02 02 02 02 02 02 02 02 00 03 03 03 03 03 03 03 03 03 03 03 03 00 00 00 00 00 00 00 00 
+    00 00 00 02 02 02 02 02 02 00 00 00 03 03 03 03 03 03 03 03 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+  hgt_map =
+    32 32
+    36 36 37 37 37 37 32 33 35 32 32 32 30 32 31 30 33 34 34 2e 30 2e 2c 2b 2d 2a 29 2a 2a 2b 2d 2d 
+    36 36 37 37 37 37 32 33 35 32 32 32 30 32 31 30 33 34 34 2e 30 2e 2c 2b 2d 2a 29 2a 2a 2b 2d 2d 
+    2c 2c 2c 2d 31 33 32 33 33 33 32 34 37 38 37 36 38 3c 3e 3d 3c 3d 3c 3a 3e 3d 3c 3e 39 39 39 39 
+    39 39 39 3c 3a 3b 39 38 38 36 3a 3b 38 3a 3a 3b 3d 3c 3d 3e 3f 3d 3f 3e 3e 42 40 42 3f 42 40 40 
+    44 44 40 3d 41 45 43 40 42 43 46 43 43 3e 3e 40 3f 44 3f 3f 3e 44 42 45 44 45 46 44 46 4b 4a 4a 
+    4a 4a 45 48 48 4b 48 45 46 48 49 48 47 45 47 42 40 41 43 43 43 47 42 46 44 45 45 48 47 48 4b 4b 
+    49 49 4d 4b 4a 47 47 47 46 46 45 45 40 41 43 42 3f 3e 41 3f 3c 3a 3b 3f 3d 3f 42 45 44 45 45 45 
+    42 42 43 44 43 43 3f 42 40 3f 3d 40 3b 3d 3b 3b 3d 3c 3b 3c 3a 3b 38 39 3a 3a 38 36 34 2f 2f 2f 
+    30 30 2c 2e 2f 2d 2e 2e 2a 29 2a 28 24 26 24 25 25 26 28 27 22 26 22 24 24 27 24 27 26 28 29 29 
+    2a 2a 2a 26 26 27 26 24 27 24 23 28 27 29 29 28 27 2d 2c 2d 2c 2a 2e 30 2f 2f 34 36 37 32 33 33 
+    35 35 35 36 36 36 36 39 36 3a 3b 3b 3c 3d 39 37 3d 3b 3f 3b 3d 3d 3f 3e 3d 3e 40 3b 3f 3c 3b 3b 
+    3d 3d 3d 3d 3b 3d 3c 3c 3c 3e 3c 42 41 42 41 43 41 3d 3e 41 45 40 3d 42 3f 41 3b 3d 3d 3e 44 44 
+    40 40 43 43 3f 3e 42 41 44 43 40 44 45 42 42 41 3f 3c 3d 3a 3e 3d 3e 3f 40 41 45 42 41 42 42 42 
+    3e 3e 3c 3d 3d 3e 41 42 40 45 43 49 47 47 44 47 44 48 49 48 46 49 47 46 46 46 45 49 4c 49 47 47 
+    4b 4b 4c 4d 4d 4e 4d 4b 4c 4e 4e 4d 4a 4d 4b 49 49 48 42 43 43 46 46 47 43 43 45 47 45 49 4a 4a 
+    49 49 49 4b 4a 45 43 45 47 49 4a 4a 4e 4a 4a 4c 48 45 49 47 49 46 49 49 49 49 4a 4b 47 48 46 46 
+    46 46 47 46 46 44 42 45 47 47 48 48 49 49 47 47 4b 4c 48 49 4c 4e 4c 4c 49 4b 4c 4d 4d 4e 49 49 
+    4c 4c 4b 4c 4d 4c 4a 4c 4c 4c 4c 49 4a 4a 49 4a 45 48 4c 4b 4d 4c 4b 4a 4b 4c 4b 48 46 48 49 49 
+    49 49 48 4b 47 4b 4a 4d 4e 4f 4d 4f 4f 54 52 54 52 56 59 5b 5a 5a 5c 5b 5c 5d 5f 61 61 60 5f 5f 
+    5c 5c 59 5b 5b 5c 5e 60 61 63 65 63 64 65 65 63 61 5e 5d 5b 5e 5d 61 5f 5b 5b 5d 5b 5b 5c 58 58 
+    5e 5e 5d 5c 5f 5e 5a 5f 61 61 5f 5f 5d 5f 5e 60 5e 5d 5e 5c 59 56 56 55 58 57 58 5a 58 59 56 56 
+    58 58 59 56 57 5a 5c 5a 5e 5b 5d 5f 5d 5f 5e 5e 59 58 56 54 55 59 56 59 57 58 57 5a 5c 57 58 58 
+    58 58 56 56 59 5a 58 59 59 57 55 57 59 54 55 54 58 55 58 58 52 53 53 56 53 52 52 4f 4e 4f 51 51 
+    52 52 50 52 57 58 54 57 5b 57 59 59 5d 5b 5e 5d 5f 60 5f 62 66 62 63 61 63 60 61 5c 5e 60 5a 5a 
+    5d 5d 5a 5b 58 5c 5b 5b 5a 58 5b 5b 59 5c 5b 5f 5e 5d 62 61 62 60 5e 60 62 63 66 64 66 66 64 64 
+    66 66 63 60 61 60 5d 5b 5e 5e 5e 5d 5e 58 57 57 59 5a 56 54 59 59 58 56 5a 5c 5f 5d 62 61 5d 5d 
+    60 60 5f 5f 63 64 5f 60 61 62 63 62 5f 62 5f 5d 60 62 61 63 62 5c 5f 5c 5e 62 64 64 64 64 65 65 
+    61 61 64 69 65 65 62 66 65 60 5f 5c 5d 5d 5d 5d 5a 5c 5b 5d 5d 5b 5c 5d 57 59 5b 5b 5d 5e 5f 5f 
+    62 62 64 67 64 62 66 65 65 62 64 66 63 63 67 66 6b 67 69 68 6a 65 65 68 66 68 69 69 68 6a 6c 6c 
+    69 69 6a 6b 6f 6f 72 72 73 76 72 70 6f 71 70 74 71 72 73 70 6e 70 6f 6f 6c 6d 6b 68 6b 6c 6e 6e 
+    6b 6b 69 6e 6e 6f 73 74 73 72 6e 71 72 71 75 72 71 72 70 72 70 6b 6f 6b 6d 69 6b 6b 6a 6c 6d 6d 
+    6b 6b 69 6e 6e 6f 73 74 73 72 6e 71 72 71 75 72 71 72 70 72 70 6b 6f 6b 6d 69 6b 6b 6a 6c 6d 6d 
+  blg_map =
+    32 32
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 0b 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 11 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 0a 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 11 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 0a 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0a 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 end ; end of maps

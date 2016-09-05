@@ -1,0 +1,427 @@
+;#*+ don't edit the magic runes
+
+;------------------------------------------------------------
+;--- Machine Generated Level Description File             ---
+;------------------------------------------------------------
+
+;------------------------------------------------------------
+;--- Original Header                                      ---
+;------------------------------------------------------------
+; 	Name:		Schachbrett - Level
+; 	Designed by:	Stefan 'Opti' Karau
+; 	Grösse:		10
+; 	last changes:	10.03.1998
+;	27-Feb-98 	Bernd:  Neue Briefing Maps eingebaut
+;	02-04-98		Stefan: n paar Bits geändert
+;	04-Apr-98	Bernd: Einfacher
+;			Kyt-Robo Energy von 380000 auf 340000
+;			Kyt-Shield von 40 auf 38
+;	08-May-98	Bernd: Neuer Himmel
+;	03-06-98	Stefan: Bombe eingebaut
+;	05-06-98	Stefan: Bombe Countdown etwas kürzer
+;	08-06-98	Stefan: Bombe raus
+;	19-06-98	Stefan: Ambiencetrack	
+;	02-06-98	Stefan: zusätzliche Gegnersquadrone
+;------------------------------------------------------------
+;--- Level Info                                           ---
+;------------------------------------------------------------
+;	info:
+;	- one Ghorkov-host-station on this city
+;	- we know about a power-station in this city
+;	- attancione in the north standing flak-stations
+;	- we know in this city is an information about an new
+;	  vehicles
+;	- probale is this tech-center in the near from the 
+;	  flak-stations 
+;	primary-goal:
+;	- destroy the flak-stations
+;	- destroy the enemy host-station
+;	secondary-goal:
+;	- find and conquer the tech-center
+;	- found the power-station and conquer it
+;
+;------------------------------------------------------------
+;--- Main Level Info                                      ---
+;------------------------------------------------------------
+;------------------------------------------------------------
+;--- Main Level Info                                      ---
+;------------------------------------------------------------
+begin_level
+    	set		= 	1
+    	sky		= 	objects/wowc.base
+    	slot0        	= 	palette/standard.pal
+    	slot1        	= 	palette/red.pal
+    	slot2        	= 	palette/blau.pal
+    	slot3        	= 	palette/gruen.pal
+    	slot4        	= 	palette/inverse.pal
+    	slot5        	= 	palette/invdark.pal
+    	slot6        	= 	palette/sw.pal
+    	slot7        	= 	palette/invtuerk.pal
+    	title_default        	= 	CHECKER-BOARD
+	ambiencetrack   	= 	2_50000_90000
+end
+
+;------------------------------------------------------------
+;--- Mission Briefing Maps                                ---
+;------------------------------------------------------------
+begin_mbmap
+    	name         	= 	 MB_04.IFF
+    	size_x       	= 	480
+    	size_y       	= 	480
+end
+begin_dbmap
+    	name         	= 	 DB_04.IFF
+    	size_x       	= 	480
+    	size_y       	= 	480
+end
+;------------------------------------------------------------
+;--- Beam Gates                                           ---
+;------------------------------------------------------------
+begin_gate
+    	sec_x        	= 	4
+    	sec_y        	= 	4
+    	closed_bp    	= 	5
+    	opened_bp    	= 	6
+    	target_level 	= 	10	; Labyrinth small oder auf der Flucht
+    	keysec_x     	= 	6
+    	keysec_y     	= 	4
+    	keysec_x     	= 	2
+    	keysec_y     	= 	2
+    	keysec_x     	= 	4
+    	keysec_y     	= 	2
+    	keysec_x     	= 	6
+    	keysec_y     	= 	2
+    	keysec_x     	= 	8
+    	keysec_y     	= 	2
+end
+
+;------------------------------------------------------------
+;--- Robo Definitions                                     ---
+;------------------------------------------------------------
+begin_robo
+    	owner        	= 	1
+    	vehicle      	= 	56
+    	pos_x        	= 	6451
+    	pos_y        	= 	-330
+    	pos_z        	= 	-10124
+    	energy       	= 	370000
+    	con_budget   	= 	25
+    	rad_budget   	= 	25
+    	pow_budget   	= 	25
+    	def_budget   	= 	25
+end
+begin_robo
+    	owner        	= 	6
+    	vehicle      	= 	59
+    	pos_x        	= 	6523
+    	pos_y        	= 	-350
+    	pos_z        	= 	-1652
+    	energy       	= 	340000		; Bernd von 380000
+    	con_budget   	= 	80		
+    	con_delay    	= 	200000
+    	def_budget   	= 	10		
+    	def_delay    	= 	0
+    	rec_budget   	= 	20		
+    	rec_delay    	= 	0
+    	rob_budget   	= 	70		
+    	rob_delay    	= 	3000 
+    	pow_budget	= 	0		
+    	pow_delay    	= 	0
+    	rad_budget 	= 	0		
+    	rad_delay    	= 	0
+    	saf_budget 	= 	0		
+    	saf_delay    	= 	0
+    	cpl_budget   	= 	10		
+    	cpl_delay    	= 	100000
+end
+
+;------------------------------------------------------------
+;--- Predefined Squads                                    ---
+;------------------------------------------------------------
+begin_squad
+    owner        = 1
+    vehicle      = 1
+    num  = 1
+    pos_x        = 1424
+    pos_z        = -9863
+end
+begin_squad
+    owner        = 1
+    vehicle      = 1
+    num  = 1
+    pos_x        = 2156
+    pos_z        = -9882
+end
+begin_squad
+    owner        = 1
+    vehicle      = 1
+    num  = 1
+    pos_x        = 4519
+    pos_z        = -10088
+end
+begin_squad
+    owner        = 1
+    vehicle      = 1
+    num  = 1
+    pos_x        = 8813
+    pos_z        = -10144
+end
+begin_squad
+    owner        = 1
+    vehicle      = 1
+    num  = 1
+    pos_x        = 9413
+    pos_z        = -10144
+end
+begin_squad
+    owner        = 1
+    vehicle      = 1
+    num  = 1
+    pos_x        = 3901
+    pos_z        = -10088
+end
+begin_squad
+    owner        = 6
+    vehicle      = 24
+    num  = 1
+    useable      
+    pos_x        = 4163
+    pos_z        = -1763
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 28	; Ghagoil 2
+    num  = 1
+    useable      
+    pos_x        = 1763
+    pos_z        = -1763
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 24
+    num  = 1
+    useable      
+    pos_x        = 8963
+    pos_z        = -1763
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 24
+    num  = 1
+    useable      
+    pos_x        = 2963
+    pos_z        = -3001
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 28	; Ghagoil 2
+    num  = 1
+    useable      
+    pos_x        = 5438
+    pos_z        = -3001
+end
+begin_squad
+    owner        = 6
+    vehicle      = 24
+    num  = 1
+    useable      
+    pos_x        = 7801
+    pos_z        = -3001
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 24
+    num  = 1
+    useable      
+    pos_x        = 10163
+    pos_z        = -3001
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 29		;Ormu
+    num  = 1
+    useable      
+    pos_x        = 7001
+    pos_z        = -2001
+    mb_status    = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 28
+    num  = 4
+    useable      
+    pos_x        = 2701
+    pos_z        = -7538
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 28
+    num  = 2
+    useable      
+    pos_x        = 3263
+    pos_z        = -7482
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 28
+    num  = 4
+    useable      
+    pos_x        = 5101
+    pos_z        = -7482
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 28
+    num  = 2
+    useable      
+    pos_x        = 5681
+    pos_z        = -7482
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 28
+    num  = 4
+    useable      
+    pos_x        = 7501
+    pos_z        = -7482
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 28
+    num  = 2
+    useable      
+    pos_x        = 8081
+    pos_z        = -7463
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 28
+    num  = 4
+    useable      
+    pos_x        = 9901
+    pos_z        = -7501
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 28
+    num  = 2
+    useable      
+    pos_x        = 10444
+    pos_z        = -7463
+    mb_status	 = unknown
+end
+;------------------------------------------------------------
+;--- Prototype Modifications                           ---
+;------------------------------------------------------------
+include data:scripts/startup2.scr
+modify_weapon		83			; Waffe vom Kyterneser
+    	energy       	= 	6000
+    	shot_time    	= 	1800
+end
+modify_vehicle 	56				; User Robo
+    	shield       	= 	10
+end
+modify_vehicle 	59				; Bernd Shield vom Kleinen Kyterneser runter
+	shield		=	38		; Original 40
+end
+
+;------------------------------------------------------------
+;--- Prototype Enabling                                   ---
+;------------------------------------------------------------
+begin_enable 6
+    vehicle = 22		; Speedy
+    vehicle = 24		; Ghagoil
+    vehicle = 26		; Tekh
+    vehicle = 29		; Ormu
+end
+
+;------------------------------------------------------------
+;--- Tech Upgrades                                        ---
+;------------------------------------------------------------
+begin_gem
+    	sec_x        	= 	1
+    	sec_y        	= 	3
+    	building     	= 	4
+    	type 		= 	3
+	begin_action
+        		modify_vehicle   	6
+            			enable    	= 	1
+        		end      
+    	end_action
+end
+;------------------------------------------------------------
+;--- Map Dumps                                                 ---
+;------------------------------------------------------------
+begin_maps
+; ------------------------------------------ 
+;--- machine generated map dumps, go away ---
+; ------------------------------------------ 
+    typ_map =
+        10 10
+        f8 fc fc fc fc fc fc fc fc f9 
+        ff 0b 20 1f 1e 01 4d 01 01 fd 
+        ff 97 4f 1a 4f 19 4f 44 4f fd 
+        ff 64 01 b2 ba ae 4e 18 01 fd 
+        ff b0 15 bb ca ab 0f 1e 1e fd 
+        ff 01 1e ac ab 1c 1e 01 1e fd 
+        ff 2c 30 24 30 22 01 25 01 fd 
+        ff 1e cd 1a cd 17 cd 01 cd fd 
+        ff 19 01 01 1c 20 1f 01 25 fd 
+        fb fe fe fe fe fe fe fe fe fa 
+    own_map =
+        10 10
+        00 00 00 00 00 00 00 00 00 00 
+        00 06 01 06 01 06 01 06 01 00 
+        00 01 06 01 06 01 06 01 06 00 
+        00 06 01 06 01 06 01 06 01 00 
+        00 01 06 01 06 01 06 01 06 00 
+        00 06 01 06 01 06 01 06 01 00 
+        00 01 06 01 06 01 06 01 06 00 
+        00 06 01 06 01 06 01 06 01 00 
+        00 01 06 01 06 01 06 01 06 00 
+        00 00 00 00 00 00 00 00 00 00 
+    hgt_map = 
+        10 10
+        80 80 7f 80 7f 80 7f 80 81 81 
+        80 80 7f 80 7f 80 7f 80 81 81 
+        7f 7f 7e 80 80 7e 80 7e 80 80 
+        80 80 80 80 7e 80 7f 80 7f 7f 
+        7f 7f 7f 80 80 81 80 81 80 80 
+        80 80 7f 81 7d 80 80 7e 80 80 
+        7f 7f 80 80 80 7f 80 80 7e 7e 
+        80 80 80 80 7f 80 80 7f 80 80 
+        7e 7e 7f 7f 80 81 7e 80 80 80 
+        7e 7e 7f 7f 80 81 7e 80 80 80 
+    blg_map = 
+        10 10
+        00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 
+        00 00 08 00 08 00 08 00 08 00 
+        00 04 00 00 00 00 00 00 00 00 
+        00 00 00 00 05 00 0c 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 
+        00 00 1c 00 1c 00 1c 00 1c 00 
+        00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 
+; ------------------------ 
+;--- map dumps end here ---
+; ------------------------ 
+end
+
+;------------------------------------------------------------
+;--- End Of File                                          ---
+;------------------------------------------------------------

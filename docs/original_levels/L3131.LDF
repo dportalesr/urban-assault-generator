@@ -1,0 +1,311 @@
+;#*+ don't edit the magic runes
+
+;------------------------------------------------------------
+;--- Original Header                                      ---
+;------------------------------------------------------------
+;
+;	Name          	:	Hurz
+;	Designed by   	:	Didi
+;       Designed am   	: 	Juli 1997
+;     	last changes  	:	19.05.1998
+;	Gegner        	:	Kyterneser
+;	ehemals       	:	Level 93
+;       AI-Tuning     	: 	Steffen Priebus
+;	27-Feb-98 	Bernd Neue Briefing Maps eingebaut
+;	05_Mai-98	Stefan: Reload Const
+;	06-Mai-98	Stefan: Reload Const
+;	08-May-98	Bernd:	Neuer Himmel
+;	19-Mai-98	Steffen: dem Ghorkov weniger Land gegeben und 2 Giganten rausgenommen !
+;	18-06-98	Stefan: mehr Land für User, dafür ein kl. Kraftwerk
+;	19-06-98	Stefan: Ambiencetrack
+;	24-06-98	Stefan: Robobudgets alle -5
+;	03-07-98	Stefan: 2. Kyt HS in MB sichtbar gemacht
+;------------------------------------------------------------
+;--- Level Info                                           ---
+;------------------------------------------------------------
+;	info:
+;	- two Ghorkov-host-stations are in this city
+;	- the enemy has two power-stations (a small and a 4-point-power-station)
+;	- we know about two power-stations in this city
+;       - two tech-centers are in this city (wiesel-weapon,KNUDDEL)
+;	primary-goal:
+;	- found or build a power-station 
+;       - destroy enemy power-stations
+;	- destroy the enemy host-stations
+;	secondary-goal:
+;	- find and conquer the tech-centers
+;       - build flaks for defence
+;
+;------------------------------------------------------------
+;--- Main Level Info                                      ---
+;------------------------------------------------------------
+begin_level
+    set  = 4
+    sky  = objects/wowe.base
+    slot0        = palette/standard.pal
+    slot1        = palette/red.pal
+    slot2        = palette/blau.pal
+    slot3        = palette/gruen.pal
+    slot4        = palette/inverse.pal
+    slot5        = palette/invdark.pal
+    slot6        = palette/sw.pal
+    slot7        = palette/invtuerk.pal
+    title_default        = HURZ
+    title_deutsch        = HURZ
+    title_english        = HURZ
+	ambiencetrack   = 	3_61000_100000
+end
+
+;------------------------------------------------------------
+;--- Mission Briefing Maps                                ---
+;------------------------------------------------------------
+begin_mbmap
+    name         =  MB_31.IFF
+    size_x       = 480
+    size_y       = 480
+end
+begin_dbmap
+    name         =  DB_31.IFF
+    size_x       = 480
+    size_y       = 480
+end
+;------------------------------------------------------------
+;--- Beam Gates                                           ---
+;------------------------------------------------------------
+begin_gate
+    sec_x        = 7
+    sec_y        = 7
+    closed_bp    = 5
+    opened_bp    = 6
+    target_level = 41		; ein weites Feld
+    keysec_x     = 7
+    keysec_y     = 12
+    keysec_x     = 14
+    keysec_y     = 1
+    keysec_x     = 11
+    keysec_y     = 10
+end
+
+;------------------------------------------------------------
+;--- Robo Definitions                                     ---
+;------------------------------------------------------------
+begin_robo
+    owner        = 1
+    vehicle      = 56
+    pos_x        = 4388
+    pos_y        = -330
+    pos_z        = -3713
+    energy       = 640000
+    reload_const = 143125
+end
+begin_robo
+    owner        = 6
+    vehicle      = 59
+    pos_x        = 8663
+    pos_y        = -320
+    pos_z        = -14663
+    energy       = 450000
+    con_budget   = 93		; 97
+    con_delay	 = 00
+    def_budget   = 89		; 94
+    def_delay    = 00
+    rec_budget   = 83		; 88
+    rec_delay    = 00
+    rob_budget   = 75		; 80
+    rob_delay    = 80000
+    pow_budget   = 0
+    pow_delay    = 00
+    rad_budget   = 0
+    rad_delay    = 00
+    saf_budget   = 0
+    saf_delay    = 00
+    cpl_budget   = 85		; 90
+    cpl_delay    = 1200000
+end
+begin_robo
+    owner        = 6
+    vehicle      = 59
+    pos_x        = 15188
+    pos_y        = -320
+    pos_z        = -10013
+    energy       = 450000
+    con_budget   = 85		; 90
+    con_delay	 = 00
+    def_budget   = 89		; 94
+    def_delay    = 400000
+    rec_budget   = 80		; 85
+    rec_delay    = 00
+    rob_budget   = 75		; 80
+    rob_delay    = 00
+    pow_budget   = 0
+    pow_delay    = 00
+    rad_budget   = 0
+    rad_delay    = 00
+    saf_budget   = 0
+    saf_delay    = 00
+    cpl_budget   = 5		; 10
+    cpl_delay    = 00
+end
+;------------------------------------------------------------
+;--- Predefined Squads                                    ---
+;------------------------------------------------------------
+begin_squad
+    owner        = 6
+    vehicle      = 27
+    num  = 2
+    useable 
+    pos_x        = 9188
+    pos_z        = -17025
+end
+begin_squad
+    owner        = 6
+    vehicle      = 27
+    num  = 2
+    useable 
+    pos_x        = 12263
+    pos_z        = -12863
+end
+begin_squad
+    owner        = 6
+    vehicle      = 29
+    num  = 1
+    useable 
+    pos_x        = 7500
+    pos_z        = -4163
+    mb_status    = unknown
+end
+
+;------------------------------------------------------------
+;--- Prototype Modifications                              ---
+;------------------------------------------------------------
+include data:scripts/startup2.scr
+modify_vehicle 	56
+    shield       = 30
+end
+;------------------------------------------------------------
+;--- Prototype Enabling                                   ---
+;------------------------------------------------------------
+begin_enable 6
+    vehicle = 22	; Speedy
+    vehicle = 24	; Ghagoil
+    vehicle = 25	; Ghagoil 3
+    vehicle = 26	; Tekh
+    vehicle = 28	; Ghagoil 2
+    vehicle = 29	; Ormu
+    vehicle = 23	; Ufo
+end
+;------------------------------------------------------------
+;--- Tech Upgrades                                        ---
+;------------------------------------------------------------
+begin_gem
+    sec_x        = 14
+    sec_y        = 1
+    building     = 51
+    type = 1
+    begin_action
+        modify_vehicle   1
+      		  add_energy = 200
+	end
+	modify_weapon    1
+		  add_energy = 200
+        end      
+    end_action
+end
+begin_gem
+    sec_x        = 12
+    sec_y        = 12
+    building     = 4
+    type         = 3
+	begin_action
+        	modify_vehicle   10
+            		enable	=  1
+		end       
+        end_action
+end
+;------------------------------------------------------------
+;--- Map Dumps                                            ---
+;------------------------------------------------------------
+begin_maps
+; ------------------------------------------ 
+;--- machine generated map dumps, go away ---
+; ------------------------------------------ 
+    typ_map =
+        16 16
+        f8 fc fc fc fc fc fc fc fc fc fc fc fc fc fc f9 
+        ff 01 01 30 31 af 15 ad 19 1f 1c 01 01 01 65 fd 
+        ff 01 1c 19 af b5 cf 97 21 22 01 1a 01 01 01 fd 
+        ff 01 2c 1f b0 b1 01 b3 ae 01 1d 01 26 c6 01 fd 
+        ff 01 2d 1e 2d 2a 43 8d 0d ae 01 c9 22 23 1e fd 
+        ff 01 2a 01 2b 01 01 b3 bb b5 01 1e 25 01 1e fd 
+        ff 01 01 01 01 01 01 b4 0c b5 01 1e 1e 01 1e fd 
+        ff 2b 01 01 01 01 af ca 0c a2 ae 02 1e 1e 01 fd 
+        ff 2c 01 2a 01 01 b4 a2 a3 a1 b1 2c 30 1e 01 fd 
+        ff 01 31 2f 29 01 b4 b8 a2 b6 02 1e 1e 27 1e fd 
+        ff 01 01 01 01 01 97 4a b4 b6 31 0f 2f 30 30 fd 
+        ff 01 01 18 01 b2 0c 13 47 a2 ae cf 0a 26 30 fd 
+        ff 01 01 19 01 b4 b6 0f b4 47 b6 19 64 1d 30 fd 
+        ff 01 c9 4d 4e ac b8 13 0d a2 b8 10 b1 20 1e fd 
+        ff 01 01 01 01 4d 4c 24 b0 ab 23 21 02 02 02 fd 
+        fb fe fe fe fe fe fe fe fe fe fe fe fe fe fe fa 
+    own_map =
+        16 16
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 01 01 01 01 01 01 01 01 01 01 01 00 00 00 00 
+        00 01 01 01 01 01 06 01 01 01 01 01 01 00 00 00 
+        00 01 01 01 01 01 06 01 01 01 01 01 00 00 00 00 
+        00 01 01 01 01 01 06 00 01 01 01 01 00 00 00 00 
+        00 01 01 01 01 01 06 00 00 00 00 00 00 00 00 00 
+        00 01 06 06 06 06 06 00 00 00 00 00 00 00 00 00 
+        00 01 01 01 01 06 00 00 00 00 00 00 00 00 00 00 
+        00 01 01 01 01 06 00 00 00 00 00 00 00 00 00 00 
+        00 01 01 01 01 00 00 00 00 00 06 00 00 00 00 00 
+        00 01 01 00 00 00 00 00 00 06 06 06 00 00 00 00 
+        00 01 01 00 00 00 06 06 06 06 06 06 06 00 00 00 
+        00 01 01 00 00 00 06 06 06 06 00 00 00 00 00 00 
+        00 01 01 00 00 00 06 06 06 00 00 00 00 00 00 00 
+        00 01 01 01 01 00 00 06 06 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    hgt_map = 
+        16 16
+        80 80 7f 80 7f 80 7e 7f 80 7e 7e 7b 7b 7b 82 82 
+        80 80 7f 80 7f 80 7e 7f 80 7e 7e 7b 7b 7b 82 82 
+        7f 7f 7e 7e 80 7d 83 7d 7e 7d 7d 7b 7c 7d 7c 7c 
+        80 80 80 80 7e 81 86 81 7d 7e 7b 7c 7d 7e 7f 7f 
+        7e 7e 7f 80 80 81 86 82 80 7e 7f 76 7c 7c 7b 7b 
+        80 80 7e 81 7d 80 85 7f 7e 80 7e 77 7d 7d 80 80 
+        7f 7f 85 86 84 85 85 80 7d 7f 80 79 78 7b 80 80 
+        80 80 80 82 7f 85 80 7f 80 7c 80 7e 80 80 80 80 
+        7e 7e 7e 7e 80 86 7d 80 7e 7c 7c 7f 7c 7e 7d 7d 
+        7f 7f 82 7f 7e 7f 80 80 7f 80 80 7e 7c 7b 7f 7f 
+        7f 7f 84 80 7f 7f 7e 80 7f 81 7f 81 7e 7f 7c 7c 
+        7f 7f 84 7f 7f 83 82 83 83 83 7f 7e 7f 7e 7f 7f 
+        7e 7e 86 80 7e 82 82 84 82 80 7c 80 7e 7f 7d 7d 
+        7f 7f 8a 7f 80 82 83 83 81 83 80 80 80 7e 7f 7f 
+        7c 7c 7d 7f 7f 7e 7f 7f 7d 7f 7f 7e 80 7f 80 80 
+        7c 7c 7d 7f 7f 7e 7f 7f 7d 7f 7f 7e 80 7f 80 80 
+    blg_map = 
+        16 16
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 33 00 
+        00 00 00 00 00 00 1e 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 15 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 3f 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 05 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 0c 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 1e 00 00 00 00 
+        00 00 00 00 00 00 00 34 00 00 00 00 04 00 00 00 
+        00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+; ------------------------ 
+;--- map dumps end here ---
+; ------------------------ 
+end
+
+;------------------------------------------------------------
+;--- End Of File                                          ---
+;------------------------------------------------------------

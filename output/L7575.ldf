@@ -1,0 +1,199 @@
+begin_level
+  set     = 5  sky     = objects/1998_03.base
+  slot0   = palette/standard.pal
+  slot1   = palette/red.pal
+  slot2   = palette/blau.pal
+  slot3   = palette/gruen.pal
+  slot4   = palette/inverse.pal
+  slot5   = palette/invdark.pal
+  slot6   = palette/sw.pal
+  slot7   = palette/invtuerk.pal
+end
+
+; Mission Briefing Map
+begin_mbmap
+  name = MB_15.IFF
+end
+
+; Mission Debriefing Map
+begin_dbmap
+  name = DB_15.IFF
+end
+
+; Beam Gates
+begin_gate
+  sec_x         = 8  sec_y         = 15  closed_bp     = 5
+  opened_bp     = 6
+  target_level  = 15  keysec_x      = 5  keysec_y      = 13  keysec_x      = 10  keysec_y      = 5  keysec_x      = 3  keysec_y      = 2  keysec_x      = 12  keysec_y      = 18  mb_status     = unknown
+end
+
+; Player Host Station
+begin_robo
+  owner         = 1
+  vehicle       = 56
+  pos_x         = 5401  pos_y         = -430  pos_z         = -10199  energy        = 1000000  reload_const  = 165625end
+
+; Enemy Host Stations
+begin_robo
+  owner         = 6  vehicle       = 59  pos_x         = 3001  pos_y         = -230  pos_z         = -18599  energy        = 910000  reload_const  = 636666  con_budget    = 59  con_delay     = 15000  def_budget    = 93  def_delay     = 51000  rec_budget    = 76  rec_delay     = 41000  rob_budget    = 50  rob_delay     = 6000  pow_budget    = 54  pow_delay     = 54000  rad_budget    = 15  rad_delay     = 6000  saf_budget    = 95  saf_delay     = 24000  cpl_budget    = 76  cpl_delay     = 61000end
+
+begin_robo
+  owner         = 2  vehicle       = 61  pos_x         = 12601  pos_y         = -290  pos_z         = -23399  energy        = 1370000  reload_const  = 790000  con_budget    = 77  con_delay     = 66000  def_budget    = 92  def_delay     = 49000  rec_budget    = 76  rec_delay     = 75000  rob_budget    = 62  rob_delay     = 50000  pow_budget    = 51  pow_delay     = 33000  rad_budget    = 20  rad_delay     = 65000  saf_budget    = 99  saf_delay     = 2000  cpl_budget    = 91  cpl_delay     = 3000end
+
+begin_robo
+  owner         = 5  vehicle       = 62  pos_x         = 15001  pos_y         = -370  pos_z         = -8999  energy        = 940000  reload_const  = 646666  con_budget    = 98  con_delay     = 57000  def_budget    = 87  def_delay     = 14000  rec_budget    = 71  rec_delay     = 64000  rob_budget    = 82  rob_delay     = 69000  pow_budget    = 83  pow_delay     = 45000  rad_budget    = 29  rad_delay     = 43000  saf_budget    = 82  saf_delay     = 16000  cpl_budget    = 40  cpl_delay     = 72000end
+
+begin_robo
+  owner         = 6  vehicle       = 57  pos_x         = 10201  pos_y         = -380  pos_z         = -10199  energy        = 1310000  reload_const  = 770000  con_budget    = 87  con_delay     = 49000  def_budget    = 98  def_delay     = 30000  rec_budget    = 81  rec_delay     = 53000  rob_budget    = 53  rob_delay     = 61000  pow_budget    = 47  pow_delay     = 70000  rad_budget    = 19  rad_delay     = 2000  saf_budget    = 82  saf_delay     = 2000  cpl_budget    = 99  cpl_delay     = 15000end
+
+begin_robo
+  owner         = 4  vehicle       = 60  pos_x         = 16201  pos_y         = -430  pos_z         = -4199  energy        = 1370000  reload_const  = 790000  con_budget    = 77  con_delay     = 42000  def_budget    = 84  def_delay     = 46000  rec_budget    = 68  rec_delay     = 54000  rob_budget    = 77  rob_delay     = 61000  pow_budget    = 86  pow_delay     = 12000  rad_budget    = 27  rad_delay     = 56000  saf_budget    = 68  saf_delay     = 40000  cpl_budget    = 96  cpl_delay     = 55000end
+
+; Stoudson Bomb
+begin_item
+  sec_x         = 10  sec_y         = 9  inactive_bp   = 35  active_bp     = 36  trigger_bp    = 36  type          = 1
+  countdown     = 315000 ;20 seconds - 42 minutes
+  keysec_x      = 13  keysec_y      = 2  keysec_x      = 5  keysec_y      = 8  keysec_x      = 6  keysec_y      = 7  keysec_x      = 13  keysec_y      = 19  keysec_x      = 3  keysec_y      = 2  keysec_x      = 4  keysec_y      = 20  keysec_x      = 9  keysec_y      = 9end
+
+;Predefined Squads
+begin_squad
+  owner     = 2  vehicle   = 71  num       = 12  pos_x     = 6601  pos_z     = -20999  mb_status = unknown
+end
+
+begin_squad
+  owner     = 2  vehicle   = 74  num       = 1  pos_x     = 4201  pos_z     = -18599  mb_status = unknown
+end
+
+begin_squad
+  owner     = 4  vehicle   = 36  num       = 12  pos_x     = 6601  pos_z     = -12599  mb_status = unknown
+end
+
+begin_squad
+  owner     = 2  vehicle   = 74  num       = 1  pos_x     = 10201  pos_z     = -23399  mb_status = unknown
+end
+
+begin_squad
+  owner     = 4  vehicle   = 33  num       = 7  pos_x     = 10201  pos_z     = -8999end
+
+begin_squad
+  owner     = 6  vehicle   = 130  num       = 9  pos_x     = 1801  pos_z     = -11399  mb_status = unknown
+end
+
+; Prototype Modifications
+include data:scripts/startup2.scr
+
+begin_enable 1  vehicle   = 1  vehicle   = 2  vehicle   = 3  vehicle   = 4  vehicle   = 5  vehicle   = 6  vehicle   = 7  vehicle   = 9  vehicle   = 10  vehicle   = 11  vehicle   = 12  vehicle   = 14  vehicle   = 15  vehicle   = 16  building  = 11  building  = 63  building  = 2  building  = 28  building  = 3end ; end of enable
+
+begin_enable 2  vehicle   = 71  vehicle   = 72  vehicle   = 73  vehicle   = 74  building  = 10end ; end of enable
+
+begin_enable 4  vehicle   = 8  vehicle   = 32  vehicle   = 33  vehicle   = 34  vehicle   = 35  vehicle   = 36  vehicle   = 37  vehicle   = 38  vehicle   = 131  building  = 17  building  = 31  building  = 53  building  = 73end ; end of enable
+
+begin_enable 5  vehicle   = 71  vehicle   = 72  vehicle   = 73  vehicle   = 74  vehicle   = 63  vehicle   = 64  vehicle   = 65  vehicle   = 66  vehicle   = 67  vehicle   = 68  vehicle   = 69  vehicle   = 70  vehicle   = 8  vehicle   = 32  vehicle   = 33  vehicle   = 34  vehicle   = 35  vehicle   = 36  vehicle   = 37  vehicle   = 38  vehicle   = 131  vehicle   = 22  vehicle   = 23  vehicle   = 24  vehicle   = 25  vehicle   = 26  vehicle   = 27  vehicle   = 28  vehicle   = 29  vehicle   = 30  vehicle   = 31  vehicle   = 130  building  = 18  building  = 1  building  = 54  building  = 64  building  = 10  building  = 10  building  = 13  building  = 72  building  = 17  building  = 31  building  = 53  building  = 73  building  = 30  building  = 52  building  = 12  building  = 71end ; end of enable
+
+begin_enable 6  vehicle   = 22  vehicle   = 23  vehicle   = 24  vehicle   = 25  vehicle   = 26  vehicle   = 27  vehicle   = 28  vehicle   = 29  vehicle   = 30  vehicle   = 31  vehicle   = 130  building  = 30  building  = 52  building  = 12  building  = 71end ; end of enable
+
+begin_maps
+  typ_map =
+    15 24
+    f8 fc fc fc fc fc fc fc fc fc fc fc fc fc f9
+    ff db 00 da b9 ba 7c 48 bf 35 86 44 61 0b fd
+    ff 9f 39 7c af 2f 22 d3 35 2b d3 99 6d 82 fd
+    ff 3e d6 07 1d 41 07 2e d2 7b 25 ba 31 7e fd
+    ff b2 09 d5 42 98 2a dc d4 5e 07 0a 1e 47 fd
+    ff 1e 4f 32 48 20 00 82 ac b7 71 11 15 30 fd
+    ff 3a 86 a2 b6 71 26 9f 48 a1 3e 18 af b5 fd
+    ff 41 2b c6 22 97 b3 a6 bf 27 3a 48 62 5d fd
+    ff 42 b5 2c 6c 33 11 e0 41 9f d7 79 52 18 fd
+    ff 7f 86 0b b5 d3 d9 7c 6c 1e 34 db a2 2d fd
+    ff b4 db 87 31 1c d3 54 1a 9f 22 a1 08 b1 fd
+    ff 1a a7 d5 1e a3 05 6c 82 de 9f be de 99 fd
+    ff 83 d3 2b 83 1a 25 7c a3 11 71 bc b5 6a fd
+    ff 99 9b 5d 1d b5 9b 22 d8 0d 69 a3 b7 1e fd
+    ff 63 43 96 be 82 9d 3a 6b df 0c 4f 1b 09 fd
+    ff ad 0c 30 7f 57 7c d3 0d 3b 7e c7 4b a1 fd
+    ff bb 78 28 69 2d c6 5c 87 d2 2e 24 ba 62 fd
+    ff 30 18 96 af 72 1b d8 06 1f 09 28 1a 61 fd
+    ff 79 ae bf 14 b2 9d d2 86 6d c7 21 1b d4 fd
+    ff bc 5e ae a8 9b d3 30 6a a6 0d 43 ab c7 fd
+    ff 23 6c 2e 26 2f b7 79 98 1c 7b be 57 6a fd
+    ff d2 07 9d 29 82 22 52 96 a3 20 48 2f 39 fd
+    ff de 1c d4 78 34 b9 07 5f 1d b0 05 08 29 fd
+    fb fe fe fe fe fe fe fe fe fe fe fe fe fe fa
+  own_map =
+    15 24
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 04 04 05 05 05 05 05 00 
+    00 00 00 00 05 05 05 05 05 05 05 05 05 05 00 
+    00 00 00 00 05 05 05 05 05 05 05 05 05 05 00 
+    00 00 00 05 05 05 05 05 05 05 05 05 05 05 00 
+    00 00 00 05 05 05 05 05 05 05 05 05 05 05 00 
+    00 00 00 05 05 05 05 06 06 06 06 05 05 05 00 
+    00 00 00 05 06 06 06 06 06 06 06 05 05 05 00 
+    00 00 00 06 06 06 06 06 06 06 06 05 05 05 00 
+    00 00 06 06 06 06 06 06 06 06 06 00 00 05 00 
+    00 06 06 06 06 06 06 06 06 06 06 00 00 00 00 
+    00 06 06 06 06 06 06 00 00 00 00 00 00 00 00 
+    00 06 06 06 06 06 06 02 00 00 00 00 00 00 00 
+    00 06 06 06 06 06 06 06 02 00 00 00 00 00 00 
+    00 06 06 06 06 06 06 06 02 02 00 00 00 00 00 
+    00 06 06 06 06 06 06 06 02 02 00 00 00 00 00 
+    00 06 06 06 06 06 06 06 06 02 02 00 00 00 00 
+    00 02 06 06 06 06 06 06 06 02 02 00 00 00 00 
+    00 00 00 00 06 06 06 06 06 02 02 02 00 00 00 
+    00 00 00 00 06 06 06 06 06 02 02 02 00 00 00 
+    00 00 00 00 06 06 06 06 06 02 02 02 00 00 00 
+    00 00 00 00 00 00 06 06 06 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+  hgt_map =
+    15 24
+    21 21 23 24 24 20 23 24 20 24 21 24 20 1f 1f 
+    21 21 23 24 24 20 23 24 20 24 21 24 20 1f 1f 
+    20 20 20 20 22 24 29 25 29 28 26 28 25 25 25 
+    24 24 24 26 23 26 24 27 2a 26 26 23 25 28 28 
+    26 26 27 25 26 29 26 2a 29 28 26 28 2a 28 28 
+    29 29 2d 2e 2b 2e 2c 2a 2b 2b 29 2b 2c 30 30 
+    2d 2d 2e 2e 32 2f 33 2d 2f 2c 2d 2f 2d 2c 2c 
+    2d 2d 2c 2d 2e 30 2a 2d 2a 2b 2b 2d 28 29 29 
+    2f 2f 2d 30 2f 29 2b 28 29 29 29 28 2e 2b 2b 
+    2d 2d 2b 2d 2d 2f 2c 2f 2f 2b 31 30 30 32 32 
+    30 30 30 31 30 30 30 30 2f 30 32 2e 2e 2d 2d 
+    31 31 2e 2e 32 33 30 30 2d 2d 32 31 30 32 32 
+    32 32 34 31 31 35 32 32 30 2e 30 31 31 2f 2f 
+    2f 2f 2f 2d 31 2f 2e 2f 2c 30 2e 2c 2c 2b 2b 
+    2a 2a 2c 29 29 29 2b 29 2e 2e 2d 2d 2f 2d 2d 
+    2d 2d 2f 2d 30 2f 2e 2f 2d 30 33 33 32 31 31 
+    2e 2e 2e 30 2f 30 32 2f 32 2f 32 31 30 2e 2e 
+    34 34 33 2e 2f 31 2f 2e 30 2e 31 34 30 33 33 
+    32 32 32 31 31 31 30 2f 32 32 30 34 37 35 35 
+    35 35 35 35 34 39 39 37 3b 3b 39 37 34 37 37 
+    38 38 38 35 35 35 3a 37 38 34 33 31 33 36 36 
+    33 33 34 32 33 33 31 33 2f 31 32 34 30 34 34 
+    32 32 34 32 31 35 33 31 2e 30 34 31 34 32 32 
+    32 32 34 32 31 35 33 31 2e 30 34 31 34 32 32 
+  blg_map =
+    15 24
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 11 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 0b 00 00 
+    00 00 00 00 00 00 00 00 0c 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 0c 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 0a 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 end ; end of maps

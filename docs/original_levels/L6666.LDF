@@ -1,0 +1,492 @@
+;#*+ don't edit the magic runes
+
+;------------------------------------------------------------
+;--- Machine Generated Level Description File             ---
+;------------------------------------------------------------
+
+;------------------------------------------------------------
+;--- Original Header                                      ---
+;------------------------------------------------------------
+; 	Name               : One Way
+; 	Designed by        : Stefan 'Opti' Karau
+; 	Grösse             : 3x32 
+; 	Gegnerrassen       : Kyterneser
+; 	letzte Änderung am : 09.04.1998
+;	AI-Tuning          : Steffen Priebus
+;	23-Mär-98	Stefan: Höhenmap korrigiert
+;	28-Apr-98	Stefan: Reload Const
+;	05-Mai-98	Stefan: Reload Const
+;	06-Mai-98	Stefan: Reload Const
+;	08-Mai-98	Stefan: Relaod Const
+;	03-jun-98	Bernd: Missionbriefing
+;	19-06-98	Stefan: Ambiencetrack
+;	06-07-98	Stefan: vorplazierte Fahrzeuge im MB versetckt
+;------------------------------------------------------------
+;--- Level Info                                           ---
+;------------------------------------------------------------
+; Info:
+;- two Ghorkow-Stations in the south.
+;- one tech center
+;- the Ghorkow are be abled to build flak-stations and power-stations
+; primary goal:
+;- destroy the enemy host-stations
+;- destroy the flak-stations
+; secondary goal:
+;- conquer the tech center
+;------------------------------------------------------------
+;--- Main Level Info                                      ---
+;------------------------------------------------------------
+begin_level
+    set  = 1
+    sky  = objects/smod5.bas
+    slot0        = palette/standard.pal
+    slot1        = palette/red.pal
+    slot2        = palette/blau.pal
+    slot3        = palette/gruen.pal
+    slot4        = palette/inverse.pal
+    slot5        = palette/invdark.pal
+    slot6        = palette/sw.pal
+    slot7        = palette/invtuerk.pal
+    title_default        = one_way
+    title_deutsch        = Einbahnstrasse
+    title_english        = one_way
+	ambiencetrack   = 	2_180000_240000
+end
+
+;------------------------------------------------------------
+;--- Mission Briefing Maps                                ---
+;------------------------------------------------------------
+begin_mbmap
+    name         =  MB_66.IFF
+end
+begin_dbmap
+    name         =  DB_66.IFF
+end
+
+;------------------------------------------------------------
+;--- Beam Gates                                           ---
+;------------------------------------------------------------
+begin_gate
+    sec_x        = 1
+    sec_y        = 30
+    closed_bp    = 25
+    opened_bp    = 26
+    target_level = 71	;smile
+    keysec_x     = 1
+    keysec_y     = 5
+end
+
+;------------------------------------------------------------
+;--- Robo Definitions                                     ---
+;------------------------------------------------------------
+begin_robo
+    owner        = 1
+    vehicle      = 56
+    pos_x        = 1588
+    pos_y        = -330
+    pos_z        = -1538
+    energy       = 910000
+    reload_const = 160000
+    viewangle    = 180
+end
+begin_robo
+    owner        = 6
+    vehicle      = 59
+    pos_x        = 1501
+    pos_y        = -330
+    pos_z        = -12601
+    energy       = 730000
+    reload_const = 576666
+        con_budget      	=       99
+        con_delay               =       00
+        def_budget      	=       99
+        def_delay               =       00
+        rec_budget      	=       97
+        rec_delay               =       00
+        rob_budget      	=       80
+        rob_delay               =       00 
+        pow_budget		= 	99
+        pow_delay               =       00
+        rad_budget 		= 	00
+        rad_delay               =       00
+        saf_budget 		=	70
+        saf_delay               =       00
+        cpl_budget      	=      	00
+        cpl_delay               =       00
+end
+begin_robo
+    owner        = 6
+    vehicle      = 57
+    pos_x        = 1501
+    pos_y        = -330
+    pos_z        = -33001
+    energy       = 730000
+    reload_const = 576666
+        con_budget      	=       99
+        con_delay               =       00
+        def_budget      	=       99
+        def_delay               =       00
+        rec_budget      	=       96
+        rec_delay               =       00
+        rob_budget      	=       87
+        rob_delay               =       00 
+        pow_budget		= 	50
+        pow_delay               =       00
+        rad_budget 		= 	00
+        rad_delay               =       00
+        saf_budget 		=	90
+        saf_delay               =       00
+        cpl_budget      	=      	00
+        cpl_delay               =       00
+end
+
+;------------------------------------------------------------
+;--- Predefined Squads                                    ---
+;------------------------------------------------------------
+begin_squad
+    owner        = 6
+    vehicle      = 26
+    num  = 3
+    pos_x        = 1688
+    pos_z        = -4013
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 24
+    num  = 2
+    pos_x        = 1575
+    pos_z        = -5363
+end
+begin_squad
+    owner        = 6
+    vehicle      = 25
+    num  = 2
+    pos_x        = 1913
+    pos_z        = -7238
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 24
+    num  = 5
+    pos_x        = 1650
+    pos_z        = -7538
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 25
+    num  = 3
+    pos_x        = 1575
+    pos_z        = -9038
+end
+begin_squad
+    owner        = 6
+    vehicle      = 27
+    num  = 3
+    pos_x        = 1538
+    pos_z        = -10013
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 24
+    num  = 4
+    pos_x        = 1500
+    pos_z        = -12375
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 26
+    num  = 3
+    pos_x        = 1575
+    pos_z        = -14325
+end
+begin_squad
+    owner        = 6
+    vehicle      = 25
+    num  = 2
+    pos_x        = 1688
+    pos_z        = -15375
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 26
+    num  = 3
+    pos_x        = 1688
+    pos_z        = -15375
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 26
+    num  = 2
+    pos_x        = 1500
+    pos_z        = -17888
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 24
+    num  = 4
+    pos_x        = 1763
+    pos_z        = -19575
+end
+begin_squad
+    owner        = 6
+    vehicle      = 27
+    num  = 1
+    pos_x        = 1650
+    pos_z        = -21901
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 28
+    num  = 3
+    pos_x        = 1613
+    pos_z        = -24113
+end
+begin_squad
+    owner        = 6
+    vehicle      = 26
+    num  = 2
+    pos_x        = 1613
+    pos_z        = -24113
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 30
+    num  = 3
+    pos_x        = 1650
+    pos_z        = -26888
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 24
+    num  = 4
+    pos_x        = 1800
+    pos_z        = -29363
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 26
+    num  = 3
+    pos_x        = 1500
+    pos_z        = -32024
+end
+begin_squad
+    owner        = 6
+    vehicle      = 26
+    num  = 2
+    pos_x        = 1500
+    pos_z        = -34763
+    mb_status	 = unknown
+end
+begin_squad
+    owner        = 6
+    vehicle      = 26
+    num  = 2
+    pos_x        = 1613
+    pos_z        = -36413
+    mb_status	 = unknown
+end
+
+;------------------------------------------------------------
+;--- Prototype Modifications                              ---
+;------------------------------------------------------------
+include data:scripts/startup2.scr
+
+;------------------------------------------------------------
+;--- Prototype Enabling                                   ---
+;------------------------------------------------------------
+
+begin_enable 6
+    vehicle = 22	; Speedy
+    vehicle = 23	; Ufo
+    vehicle = 24	; Ghagoil
+    vehicle = 25	; Ghagoil 3
+    vehicle = 26	; Tekh
+    vehicle = 27	; Gigant
+    vehicle = 28	; Ghagoil 2
+    vehicle = 29	; Ormu
+    vehicle = 30	; modi Gigant
+    building = 52	; Kraftwerk klein
+    building = 30	; Kyt-Flak
+end
+
+;------------------------------------------------------------
+;--- Tech Upgrades                                        ---
+;------------------------------------------------------------
+begin_gem
+    sec_x        = 1
+    sec_y        = 8
+    building     = 51
+    type         = 1
+    begin_action	
+        modify_vehicle   14
+        	add_energy = 10000
+	end
+	modify_weapon 14
+		add_shot_time      = -100
+		add_shot_time_user = -150
+        end      
+    end_action
+end
+;------------------------------------------------------------
+;--- Map Dumps                                            ---
+;------------------------------------------------------------
+begin_maps
+; ------------------------------------------ 
+;--- machine generated map dumps, go away ---
+; ------------------------------------------ 
+    typ_map =
+        3 32
+        f8 fc f9 
+        ff 0b fd 
+        ff 05 fd 
+        ff 07 fd 
+        ff 46 fd 
+        ff c9 fd 
+        ff 17 fd 
+        ff 18 fd 
+        ff 65 fd 
+        ff 19 fd 
+        ff 0f fd 
+        ff 0b fd 
+        ff 05 fd 
+        ff 06 fd 
+        ff 07 fd 
+        ff 9b fd 
+        ff 99 fd 
+        ff a0 fd 
+        ff 9f fd 
+        ff 05 fd 
+        ff 97 fd 
+        ff 96 fd 
+        ff a0 fd 
+        ff 9b fd 
+        ff 96 fd 
+        ff 46 fd 
+        ff 1a fd 
+        ff 0f fd 
+        ff 19 fd 
+        ff 18 fd 
+        ff 03 fd 
+        fb fe fa 
+    own_map =
+        3 32
+        00 00 00 
+        00 01 00 
+        00 00 00 
+        00 00 00 
+        00 00 00 
+        00 07 00 
+        00 06 00 
+        00 06 00 
+        00 06 00 
+        00 06 00 
+        00 06 00 
+        00 06 00 
+        00 06 00 
+        00 06 00 
+        00 06 00 
+        00 06 00 
+        00 06 00 
+        00 06 00 
+        00 06 00 
+        00 06 00 
+        00 06 00 
+        00 06 00 
+        00 06 00 
+        00 06 00 
+        00 06 00 
+        00 06 00 
+        00 06 00 
+        00 06 00 
+        00 06 00 
+        00 06 00 
+        00 06 00 
+        00 00 00 
+    hgt_map = 
+        3 32
+        8e 8e 8e 
+        8e 8e 8e 
+        8e 8e 8e 
+        8e 8e 8e 
+        8e 8e 8e 
+        8e 8e 8e 
+        8e 8e 8e 
+        8e 8e 8e 
+        8e 8e 8e 
+        8e 8e 8e 
+        8e 8e 8e 
+        8e 8e 8e 
+        8e 8e 8e 
+        8e 8e 8e 
+        8e 8e 8e 
+        8e 8e 8e 
+        8e 8e 8e 
+        8e 8e 8e 
+        8f 8f 8f 
+        8e 8e 8e 
+        8e 8e 8e 
+        8e 8e 8e 
+        8e 8e 8e 
+        8e 8e 8e 
+        8f 8f 8f 
+        8e 8e 8e 
+        8e 8e 8e 
+        8e 8e 8e 
+        8e 8e 8e 
+        8e 8e 8e 
+        8e 8e 8e 
+        8e 8e 8e 
+    blg_map = 
+        3 32
+        00 00 00 
+        00 00 00 
+        00 00 00 
+        00 00 00 
+        00 00 00 
+        00 01 00 
+        00 00 00 
+        00 00 00 
+        00 33 00 
+        00 00 00 
+        00 34 00 
+        00 00 00 
+        00 00 00 
+        00 00 00 
+        00 00 00 
+        00 00 00 
+        00 00 00 
+        00 00 00 
+        00 00 00 
+        00 00 00 
+        00 00 00 
+        00 00 00 
+        00 00 00 
+        00 00 00 
+        00 00 00 
+        00 00 00 
+        00 00 00 
+        00 0c 00 
+        00 00 00 
+        00 00 00 
+        00 19 00 
+        00 00 00 
+; ------------------------ 
+;--- map dumps end here ---
+; ------------------------ 
+end
+
+;------------------------------------------------------------
+;--- End Of File                                          ---
+;------------------------------------------------------------

@@ -1,0 +1,282 @@
+;#*+ don't edit the magic runes
+
+;------------------------------------------------------------
+;--- Machine Generated Level Description File             ---
+;------------------------------------------------------------
+
+;------------------------------------------------------------
+;--- Original Header                                      ---
+;------------------------------------------------------------
+;
+;	designed by  :	Floh
+;	designed am  :	1996
+;	last changes :	09.03.1998
+; 	Name         :	Mykophobia
+; 	Gegner       :	Mykonier
+; 	ehemals      :	Level 33
+;	ai-tuning:   :  Henrik Volkening
+;	updated	     :  04.03.1998
+;				09-Feb-98 Bernd MissionBriefingMap aufgeräumt
+;	12-Mär-98	Stefan: 3 Upgrade berichtigt
+;	05-Mai-98	Stefan: Reload Const
+;	06-Mai-98	Stefan: Reload Const
+;	08-Mai-98	Stefan: Reload Const
+;	13-Mai-98	Stefan: Radarstationen
+;	19-06-98	Stefan: Ambiencetrack
+;------------------------------------------------------------
+;Info:
+;------------------------------------------------------------
+;- 1 Mykoniac-Station in the middle
+;- some power-plants
+;- the Mykoniac is able to build flak-stations
+;- there seme to be a lot of power-plants, but most of them are imitations
+;- Perhaps you have entered a secret energy-storage of  the Mykoniacs
+;- And they have build a lot of imitations to confuse you
+;- 1 tech upgrade-centre
+;Primary goal:
+;- destroy the enemy host-station
+;- destroy the power-plants 
+;secondary goal:
+;- conquer the tech centre
+;------------------------------------------------------------
+;--- Main Level Info                                      ---
+;------------------------------------------------------------
+begin_level
+    set  = 6
+    sky  = objects/ct6.base
+    slot0        = palette/standard.pal
+    slot1        = palette/red.pal
+    slot2        = palette/blau.pal
+    slot3        = palette/gruen.pal
+    slot4        = palette/inverse.pal
+    slot5        = palette/invdark.pal
+    slot6        = palette/sw.pal
+    slot7        = palette/invtuerk.pal
+    title_default        = Mykophobia
+    title_deutsch        = Mykophobie
+    title_english        = Mykophobia
+    ambiencetrack        = 5_18000_45000
+end
+
+;------------------------------------------------------------
+;--- Mission Briefing Maps                                ---
+;------------------------------------------------------------
+begin_mbmap
+    name         =  MB_60.IFF
+    size_x       = 480
+    size_y       = 480
+end
+begin_dbmap
+    name         =  DB_60.IFF
+    size_x       = 480
+    size_y       = 480
+end
+;------------------------------------------------------------
+;--- Beam Gates                                           ---
+;------------------------------------------------------------
+begin_gate
+    sec_x        = 17
+    sec_y        = 10
+    closed_bp    = 5
+    opened_bp    = 6
+    keysec_x     = 7
+    keysec_y     = 5
+    keysec_x     = 13
+    keysec_y     = 5
+    keysec_x     = 13
+    keysec_y     = 15
+    keysec_x     = 7
+    keysec_y     = 15
+    keysec_x     = 5
+    keysec_y     = 7
+    keysec_x     = 15
+    keysec_y     = 7
+    keysec_x     = 15
+    keysec_y     = 13
+    keysec_x     = 5
+    keysec_y     = 13
+    target_level = 70		; Assimilation from Bor...konier
+end
+
+;------------------------------------------------------------
+;--- Robo Definitions                                     ---
+;------------------------------------------------------------
+begin_robo
+    owner        = 1
+    vehicle      = 56
+    pos_x        = 3753
+    pos_y        = -300
+    pos_z        = -21713
+    energy       = 910000
+    reload_const = 160000
+end
+begin_robo
+    owner        = 3
+    vehicle      = 58
+    pos_x        = 12338
+    pos_y        = -300
+    pos_z        = -13013
+    energy       = 800000
+    reload_const = 600000
+    	con_budget      	=       95
+	con_delay		= 	0
+        def_budget      	=       95	
+	def_delay		=	0
+        rec_budget      	=       75
+	rec_delay		=	0
+        rob_budget      	=       85
+	rob_delay		=	300000
+        pow_budget		= 	40
+	pow_delay		= 	0
+        rad_budget 		= 	0
+	rad_delay		=	0
+        saf_budget 		=	0
+	saf_delay		= 	0
+        cpl_budget      	=      	50
+	cpl_delay		=	0
+end
+
+;------------------------------------------------------------
+;--- Predefined Squads                                    ---
+;------------------------------------------------------------
+
+;------------------------------------------------------------
+;--- Prototype Modifications                              ---
+;------------------------------------------------------------
+include data:scripts/startup2.scr
+
+;------------------------------------------------------------
+;--- Prototype Enabling                                   ---
+;------------------------------------------------------------
+begin_enable 3
+    vehicle = 63	; Schwer
+    vehicle = 64	; X01
+    vehicle = 65	; 5P0
+    vehicle = 66	; Static
+    vehicle = 67	; Radda
+    vehicle = 69	; Eraz
+    vehicle = 70	; Bomb
+    building = 10	; Kraftwerk
+end
+;------------------------------------------------------------
+;--- Tech Upgrades                                        ---
+;------------------------------------------------------------
+
+begin_gem
+    sec_x        = 7
+    sec_y        = 2   
+    building     = 50
+    type         = 1
+    begin_action	
+        modify_vehicle   3
+        	add_energy = 1300
+	end	
+	modify_weapon    3
+		add_energy = 4000
+        end      
+    end_action
+end
+
+;------------------------------------------------------------
+;--- Map Dumps                                            ---
+;------------------------------------------------------------
+begin_maps
+; ------------------------------------------ 
+;--- machine generated map dumps, go away ---
+; ------------------------------------------ 
+    typ_map =
+        20 20
+        f8 fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc f9 
+        ff 01 01 01 01 01 24 21 24 01 01 20 01 1a 01 01 24 01 01 fd 
+        ff 01 21 01 22 24 24 66 01 01 24 29 20 24 22 01 b2 bd ae fd 
+        ff 01 20 c9 20 01 29 1a 20 01 01 01 24 1a 24 20 bc c9 bc fd 
+        ff 20 b2 ae 21 29 e5 e5 e5 e5 21 e5 e5 e5 e5 01 ac ba ab fd 
+        ff 01 ac b5 1a 27 e5 c9 1f e5 e5 e5 1f c9 e5 27 1a a0 29 fd 
+        ff 01 01 a0 e5 e5 f1 1f 1f 4b e5 4b 1f 1f f1 e5 e5 a0 29 fd 
+        ff 01 20 a0 e5 c9 1f 1f e5 e5 e5 e5 e5 1f 1f c9 e5 a0 1a fd 
+        ff 01 1a a0 e5 1f 1f e5 e5 4b e5 4b e5 e5 1f 1f e5 a0 4d fd 
+        ff 21 01 a0 e5 e5 4b e5 4b c9 e5 c9 4b e5 4b e5 e5 b3 ae fd 
+        ff 24 20 9f 01 e5 e5 e5 e5 e5 e5 e5 e5 e5 e5 e5 48 ca b6 fd 
+        ff 24 1a a0 e5 e5 4b e5 4b c9 e5 c9 4b e5 4b e5 e5 b3 ab fd 
+        ff 01 29 a0 e5 1f 1f e5 e5 4b e5 4b e5 e5 1f 1f e5 a0 22 fd 
+        ff 4d 22 a0 e5 c9 1f 1f e5 e5 e5 e5 e5 1f 1f c9 e5 a0 29 fd 
+        ff 1a 29 a0 e5 e5 f1 1f 1f 4b e5 4b 1f 1f f1 e5 e5 a0 01 fd 
+        ff 20 b2 b5 22 27 e5 c9 1f e5 e5 e5 1f c9 e5 29 20 a0 01 fd 
+        ff 01 b0 b1 4d 25 e5 e5 e5 e5 01 e5 e5 e5 e5 01 b2 b7 ad fd 
+        ff 01 23 c9 01 29 01 4d 4d 22 2a 29 2a 20 01 2a 96 c9 96 fd 
+        ff 24 01 01 25 01 24 20 2a 29 20 29 22 2a 29 2b b0 bd ab fd 
+        fb fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fa 
+    own_map =
+        20 20
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 06 06 06 00 00 07 00 00 00 00 00 00 00 00 06 06 06 00 
+        00 00 06 06 06 06 06 06 06 06 06 06 06 06 06 06 06 06 06 00 
+        00 00 06 06 06 06 03 03 03 03 06 03 03 03 03 06 06 06 06 00 
+        00 00 00 06 06 06 03 04 04 03 03 03 04 04 03 06 06 06 00 00 
+        00 00 00 06 03 03 03 04 04 04 03 04 04 04 03 03 03 06 00 00 
+        00 00 00 06 03 04 04 04 03 03 03 03 03 04 04 04 03 06 00 00 
+        00 00 00 06 03 04 04 03 03 04 03 04 03 03 04 04 03 06 00 00 
+        00 00 00 06 03 03 04 03 04 03 03 03 04 03 04 03 03 06 00 00 
+        00 00 00 06 06 03 03 03 03 03 03 03 03 03 03 03 06 06 00 00 
+        00 01 00 06 03 03 04 03 04 03 03 03 04 03 04 03 03 06 00 00 
+        00 01 00 06 03 04 04 03 03 04 03 04 03 03 04 04 03 06 00 00 
+        00 01 01 06 03 04 04 04 03 03 03 03 03 04 04 04 03 06 00 00 
+        00 01 01 06 03 03 03 04 04 04 03 04 04 04 03 03 03 06 00 00 
+        00 01 01 01 01 06 03 04 04 03 03 03 04 04 03 06 06 06 00 00 
+        00 01 01 01 01 01 03 03 03 03 06 03 03 03 03 06 06 06 06 00 
+        00 01 01 01 01 01 06 06 06 06 06 06 06 06 06 06 06 06 06 00 
+        00 01 01 01 01 01 01 00 00 00 00 00 00 00 00 00 06 06 06 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+    hgt_map = 
+        20 20
+        7f 7f 7f 80 7f 80 80 7f 7f 7f 7f 7f 7f 7f 7f 7f 82 7f 7f 7f 
+        7f 7f 7f 80 7f 80 80 7f 7f 7f 7f 7f 7f 7f 7f 7f 82 7f 7f 7f 
+        7f 7f 81 80 81 7f 80 7f 81 82 80 81 7f 80 7f 80 81 81 81 81 
+        7f 7f 80 7f 80 7f 7f 7f 7f 7f 7f 7f 7f 7f 7f 7f 7f 7f 81 81 
+        7f 7f 80 7f 7f 7f 87 85 87 85 7f 85 87 85 87 7f 7f 7f 80 80 
+        7f 7f 7f 7f 7f 7f 85 7f 7f 87 7f 87 7f 7f 85 7f 7f 7f 81 81 
+        7f 7f 81 7f 87 85 87 7f 7f 7f 81 7f 7f 7f 87 85 87 7f 80 80 
+        7f 7f 80 7f 85 7f 7f 7f 83 83 83 83 83 7f 7f 7f 85 7f 80 80 
+        82 82 81 7f 87 7f 7f 83 83 7f 85 7f 83 83 7f 7f 87 7f 82 82 
+        80 80 82 7f 85 87 7f 83 7f 7f 87 7f 7f 83 7f 87 85 7f 7f 7f 
+        83 83 80 7f 7f 7f 81 83 85 87 89 87 85 83 81 7f 7f 7f 80 80 
+        81 81 81 7f 85 87 7f 83 7f 7f 87 7f 7f 83 7f 87 85 7f 80 80 
+        7f 7f 81 7f 87 7f 7f 83 83 7f 85 7f 83 83 7f 7f 87 7f 81 81 
+        7f 7f 80 7f 85 7f 7f 7f 83 83 83 83 83 7f 7f 7f 85 7f 80 80 
+        81 81 80 7f 87 85 87 7f 7f 7f 81 7f 7f 7f 87 85 87 7f 7f 7f 
+        80 80 82 7f 7f 7f 85 7f 7f 87 7f 87 7f 7f 85 7f 7f 7f 80 80 
+        80 80 7f 7f 7f 7f 87 85 87 85 7f 85 87 85 87 7f 7f 7f 81 81 
+        81 81 7f 7f 7f 80 7f 7f 7f 7f 7f 7f 7f 7f 7f 7f 7f 7f 82 82 
+        80 80 80 7f 80 7f 81 80 7f 82 80 81 7f 80 7f 80 81 80 82 82 
+        80 80 80 7f 80 7f 81 80 7f 82 80 81 7f 80 7f 80 81 80 82 82 
+    blg_map = 
+        20 20
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 32 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 01 00 00 00 00 00 01 00 00 00 00 00 00 
+        00 00 00 00 00 00 48 00 00 00 00 00 00 00 48 00 00 00 00 00 
+        00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 01 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 01 00 01 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 05 00 00 
+        00 00 00 00 00 00 00 00 00 01 00 01 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 01 00 00 00 00 
+        00 00 00 00 00 00 48 00 00 00 00 00 00 00 48 00 00 00 00 00 
+        00 00 00 00 00 00 00 01 00 00 00 00 00 01 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+; ------------------------ 
+;--- map dumps end here ---
+; ------------------------ 
+end
+
+;------------------------------------------------------------
+;--- End Of File                                          ---
+;------------------------------------------------------------

@@ -1,0 +1,332 @@
+;#*+ don't edit the magic runes
+
+;------------------------------------------------------------
+;--- Machine Generated Level Description File             ---
+;------------------------------------------------------------
+
+;------------------------------------------------------------
+;--- Original Header                                      ---
+;------------------------------------------------------------
+;   	created:  	Bernd
+;	designed am:	irgendwann 1996	oder 95 oder, oder, ähmm ... ja
+;	last changes:	12.03.1998
+;   	Name:  		Virgin Steel
+;       	AI-Tuning :  	Steffen Priebus
+;
+;	12-Mär-98	Stefan: Landschaft geändert, Kraftwerk versetzt
+;	02-04-98		Stefan: n paar Bits geändert
+;	04-Apr-98	Bernd: einfacher
+;			15 statt 17 vorplatzierter Ghargoils
+;			2 statt 4 vorplatzierter Speedies
+;			Shield Kyt-Robo von 40 auf 35
+;			Kyt-Energy von 400000 (!!!) auf 300000 runter 
+;	06-Apr-98q	Kyt-Energy von 300000 auf 280000 runter
+;	18-Mai-98	Stefan: kein Robo Angriffsgeschwader mehr
+;	20-Mai-98	Stefan: Defense Budget runter
+;	19-06-98	Stefan: Ambiancetrack
+;
+;------------------------------------------------------------
+;--- Level Info                                           ---
+;------------------------------------------------------------
+;	info:
+;	- one Ghorkov-host-station on this city
+;	- we know about a power-station on this city
+;	- we has indications about data-sets for new vehicles
+;	  in this city 
+;	- we belive there data-sets in big buildings on this
+;	  city, good look for biggest buildings
+;	primary-goal:
+;	- found the power-station and conquer it
+;	- conquer the key-sector to open the beangate 
+;	- destroy the enemy host-station
+;	secondary-goal:
+;	- find and conquer the tech-center
+;
+;	for debriefing:
+;	- sorry about the wrong information about the
+;	  tech-centers
+;
+;------------------------------------------------------------
+;--- Main Level Info                                      ---
+;------------------------------------------------------------
+begin_level
+    	set  		= 	3
+    	sky 		= 	objects/smod2.base
+    	slot0     		= 	palette/standard.pal
+    	slot1     		= 	palette/red.pal
+    	slot2    		= 	palette/blau.pal
+    	slot3    		= 	palette/gruen.pal
+    	slot4    		= 	palette/inverse.pal
+    	slot5  		= 	palette/invdark.pal
+    	slot6    		= 	palette/sw.pal
+    	slot7     		= 	palette/invtuerk.pal
+    	title_default        	= 	VIRGIN_STEEL
+    	ambiencetrack   	= 	4_00_10000
+end
+
+;------------------------------------------------------------
+;--- Mission Briefing Maps                              ---
+;------------------------------------------------------------
+begin_mbmap
+    	name         	= 	 MB_02.IFF
+    	size_x       	= 	480
+    	size_y       	= 	480
+end
+begin_dbmap
+    	name         	= 	 DB_02.IFF
+    	size_x       	= 	480
+    	size_y       	= 	480
+end
+;------------------------------------------------------------
+;--- Beam Gates                                           ---
+;------------------------------------------------------------
+begin_gate
+    	sec_x        	= 	3
+    	sec_y        	= 	7
+    	closed_bp    	= 	5
+    	opened_bp    	= 	6
+    	target_level 	= 	4		; Chessboard
+    	keysec_x	=	4
+    	keysec_y	=	2
+end
+
+;------------------------------------------------------------
+;--- Robo Definitions                                     ---
+;------------------------------------------------------------
+begin_robo
+    	owner        	= 	1
+    	vehicle      	= 	56
+    	pos_x        	= 	8903
+    	pos_y        	= 	-330
+    	pos_z        	= 	-5723
+    	energy       	= 	290000
+    	viewangle    	= 	15
+end
+begin_robo
+    	owner        	= 	6
+    	vehicle      	= 	59
+    	pos_x        	= 	4350
+    	pos_y        	= 	-130
+    	pos_z        	= 	-7725
+    	energy       	= 	280000
+    	con_budget      =       80		
+    	con_delay       =       85000
+    	def_budget      =       20		
+    	def_delay       =       0
+    	rec_budget     	=       80		
+    	rec_delay       =       40000
+    	rob_budget     	=       0		
+    	rob_delay       =       0 
+    	pow_budget	= 	0		
+    	pow_delay       =       0
+    	rad_budget 	= 	0		
+    	rad_delay       =       0
+    	saf_budget 	=	0		
+    	saf_delay       =       0
+    	cpl_budget      =      	10		
+    	cpl_delay       =       340000
+end
+
+;------------------------------------------------------------
+;--- Predefined Squads                                    ---
+;------------------------------------------------------------
+begin_squad
+    	owner    		= 	6
+    	vehicle  		= 	24
+    	num  		= 	2
+    	pos_x    		= 	3487
+    	pos_z     		= 	-4387
+    	useable
+end
+begin_squad
+    	owner        	= 	6
+    	vehicle      	= 	24
+    	num  		= 	1		; Bernd von 2 auf 1
+    	pos_x        	= 	5475
+    	pos_z        	= 	-6562
+    	mb_status	=	unknown
+    	useable
+end
+begin_squad
+    	owner        	= 	6
+    	vehicle      	= 	24
+    	num  		= 	3
+    	pos_x        	= 	8625
+    	pos_z        	= 	-3488
+    	mb_status	=	unknown
+    	useable
+end
+begin_squad
+    	owner        	= 	6
+    	vehicle      	= 	24
+    	num  		= 	1		; Bernd von 2 auf 1
+    	pos_x        	= 	9034
+    	pos_z        	= 	-1763
+    	useable
+end
+begin_squad
+    	owner        	= 	6
+    	vehicle      	= 	24
+    	num  		= 	2   
+    	pos_x        	= 	5003
+    	pos_z        	= 	-7777
+    	mb_status	=	unknown
+end
+begin_squad
+    	owner        	= 	6
+    	vehicle      	= 	24
+    	num  		= 	2    
+    	pos_x        	= 	7763
+    	pos_z        	= 	-8963
+    	mb_status	=	unknown
+end
+begin_squad
+    	owner        	= 	6
+    	vehicle      	= 	22
+    	num  		= 	1		; Bernd von 2 auf 1
+    	pos_x        	= 	9863
+    	pos_z        	= 	-3451
+    	useable      
+end
+begin_squad
+    	owner        	= 	6
+    	vehicle      	= 	24
+    	num  		= 	2  
+    	pos_x        	= 	10125
+    	pos_z        	= 	-8963
+    	mb_status   	= 	unknown
+    	useable
+end
+begin_squad
+    	owner        	= 	6
+    	vehicle      	= 	24
+    	num  		= 	2     
+    	pos_x        	= 	4573
+    	pos_z        	= 	-2851
+    	mb_status	= 	unknown
+end
+begin_squad
+    	owner        	= 	6
+    	vehicle      	= 	22
+    	num  		= 	1		; Bernd von 2 auf 1     
+    	pos_x        	= 	5774
+    	pos_z        	= 	-3451
+    	mb_status	= 	unknown
+end
+begin_squad
+    	owner        	= 	1
+    	vehicle      	= 	16
+    	num  		= 	2
+    	pos_x        	= 	8981
+    	pos_z        	= 	-5063
+end
+begin_squad
+    	owner        	= 	1
+    	vehicle      	= 	16
+    	num  		= 	2
+    	pos_x        	= 	9612
+    	pos_z        	= 	-6212
+end
+
+;------------------------------------------------------------
+;--- Prototype Modifications                              ---
+;------------------------------------------------------------
+include data:scripts/startup2.scr
+modify_vehicle   	56				; User Robo
+    	shield		= 	5
+end
+modify_weapon	83				; Waffe Kleiner Kyterneser Robo
+    	energy       	= 	3000
+    	shot_time   	= 	1900
+end
+modify_vehicle 	59				; Bernd Shield vom Kleinen Kyterneser runter
+	shield		=	35		; Original 40
+end
+
+;------------------------------------------------------------
+;--- Prototype Enabling                                   ---
+;------------------------------------------------------------
+begin_enable 6
+    	vehicle 		= 	24		; Ghargoil
+    	vehicle 		= 	29		; Ormu
+end
+
+;------------------------------------------------------------
+;--- Tech Upgrades                                           ---
+;------------------------------------------------------------
+begin_gem
+    	sec_x        	= 	1
+    	sec_y        	= 	3
+    	building    	= 	4
+    	type 		= 	3
+	begin_action
+        		modify_vehicle   	2
+            			enable	=  	1
+		end       
+        	end_action
+    	mb_status	=	unknown
+end
+
+;------------------------------------------------------------
+;--- Map Dumps                                            ---
+;------------------------------------------------------------
+begin_maps
+; ------------------------------------------ 
+;--- machine generated map dumps, go away ---
+; ------------------------------------------ 
+    typ_map =
+        10 10
+        f8 fc fc fc fc fc fc fc fc f9 
+        ff 31 02 02 02 b2 14 ad 02 fd 
+        ff b2 13 ae 0f 06 1c b4 ae fd 
+        ff 64 19 b4 13 b8 15 47 ab fd 
+        ff ac 11 b6 20 1a 18 07 4b fd 
+        ff 31 02 07 1c 4d b2 0c ae fd 
+        ff 02 31 97 02 17 b4 bb b6 fd 
+        ff 02 af ca ae 31 ac b8 ab fd 
+        ff 31 ac b7 b1 02 31 4a 1e fd 
+        fb fe fe fe fe fe fe fe fe fa 
+    own_map =
+        10 10
+        01 01 01 01 01 01 01 01 01 01 
+        01 06 06 06 06 06 06 01 01 01 
+        01 06 06 06 06 06 01 01 01 01 
+        01 06 06 06 06 01 01 01 01 01 
+        01 06 06 06 06 01 01 01 01 01 
+        01 06 06 06 06 01 01 01 01 01 
+        01 06 06 06 06 06 01 01 01 01 
+        01 06 06 06 06 06 06 06 01 01 
+        01 06 06 06 06 06 06 06 06 01 
+        01 01 01 01 01 01 01 01 01 01 
+    hgt_map = 
+        10 10
+        80 80 7f 81 80 7f 7f 80 7f 7f 
+        80 80 7f 81 80 7f 7f 80 7f 7f 
+        7f 7f 7f 7e 7f 7e 7f 7e 7f 7f 
+        7f 7f 80 7f 7e 80 80 7e 80 80 
+        80 80 7f 7e 7f 80 7f 7e 7f 7f 
+        7f 7f 7e 7f 7f 7e 7f 7f 7f 7f 
+        80 80 7e 80 7e 7f 7e 7f 80 80 
+        7f 7f 80 81 80 80 7f 7f 80 80 
+        7f 7f 7f 7f 80 80 81 7f 80 80 
+        7f 7f 7f 7f 80 80 81 7f 80 80 
+    blg_map = 
+        10 10
+        00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 34 00 00 00 00 00 
+        00 04 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 
+        00 00 00 05 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 
+; ------------------------ 
+;--- map dumps end here ---
+; ------------------------ 
+end
+
+;------------------------------------------------------------
+;--- End Of File                                                   ---
+;------------------------------------------------------------

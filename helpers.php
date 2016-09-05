@@ -3,24 +3,12 @@ function fid($faction){
   return $faction == 'res' ? 1 : array_search($faction, FACTIONS);
 }
 
-function x($x){
-  return (($x + 0.5) * 1200) + 1; /* + 1 to avoid bugs on sector edge */
+function get_position($coor, $vertical = false){
+  return (($coor + 0.5) * 1200 * ($vertical ? -1 : 1)) + 1; /* + 1 to avoid bugs on sector edge */
 }
 
-function y($y){
-  return (($y + 0.5) * -1200) + 1; /* + 1 to avoid bugs on sector edge */
-}
-
-function rx(){
-  return rand(1, $this->sz_x - 2);
-}
-
-function ry(){
-  return rand(1, $this->sz_y - 2);
-}
-
-function present_factions(){
-  return array_keys(array_filter($this->total_hosts));
+function distance_between($p1, $p2){
+  return sqrt(pow($p1['x'] - $p2['x'], 2) + pow($p1['y'] - $p2['y'], 2));
 }
 
 function sample($arr){

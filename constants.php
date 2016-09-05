@@ -63,6 +63,7 @@ const VEHICLES = array(
   'bla' => array(1,2,3,4,5,6,7,9,10,11,12,14,15,16,71,72,73,74,63,64,65,66,67,68,69,70,8,32,33,34,35,36,37,38,131,22,23,24,25,26,27,28,29,30,31,130)
 );
 
+const HOST_VEHICLES = array('sul' => 61, 'myk' => 58, 'tae' => 60, 'bla' => 62);
 const BUILDINGS = array(
   'res' => array(11,63,2,28,3), # Only tier 1 buildings
   'sul' => array(10),

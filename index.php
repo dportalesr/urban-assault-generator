@@ -17,9 +17,10 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 ***************************/
 
-// TODO
-// - Crear array con factions presentes para no hacer verificaciones "Si faction está presente" después de seleccionar raza con rand
-// - Crear funcion rx y ry para obtener valor random de posició dentro del mapa
+# TODO
+# * Verificar valores closed_bp & opened_bp en beam_gate son válidos para todos los set
+# * Crear array con factions presentes para no hacer verificaciones "Si faction está presente" después de seleccionar raza con rand
+# * Crear funcion random_x y random_y para obtener valor random de posició dentro del mapa
 require('constants.php');
 require('helpers.php');
 
@@ -32,7 +33,6 @@ class Level {
   public $sz_x = 0; # horizontal map size
   public $sz_y = 0; # vertical map size
   public $map = array();
-  public $total_hosts = array();
   public $hosts;
 
   function __construct($level_id){
@@ -56,21 +56,138 @@ class Level {
     if(!DEBUG){ ob_end_clean(); }
   }
 
+
   function generate(){
     if(DEBUG) echo '<pre>'; else ob_start();
 
+    # SET
     $this->render('set');
+
+    # BEAM-GATE
     $this->render('beam_gate');
+
+    # PLAYER STATION
+    $this->hosts['res'] = array(
+      array(
+        'x' => $this->random_x(),
+        'y' => $this->random_y()
+      )
+    );
+    $res_host_x = get_position($this->hosts['res'][0]['x']);
+    $res_host_y = get_position($this->hosts['res'][0]['y'], true);
+    # divided by 4 = [1500 - 3000]
+    $energy = (6 + rand(0, 6)) * 100000;
+    # Drak constant = 550,000
+    $reload_const = floor(((($energy - 550000)/4) + 550000) /4);
+    # Calculates optimal station number for map
+    $optimal_total_hosts = $this->sz_x * $this->sz_y * 3/144;
+
+    $this->render('player_station');
+
+    # ENEMY STATIONS
+    # At least one enemy HostStation
+    $this->add_host_station();
+
+    # Keep trying to add stations until there are more than 5
+    # or number of tries have been more than ideal number of stations
+    for($hs = 0; $hs < $optimal_total_hosts && $this->total_hosts() < 6; $hs++){
+      if(rand(0,2)) # 66% chance
+        $this->add_host_station();
+    }
   }
+
 
   function render($view, $view_vars = array()){
     extract($view_vars,EXTR_SKIP);
     include("template/{$view}.php");
   }
 
+
+  function random_x($as_position = false){
+    $coor = rand(1, $this->sz_x - 2);
+    return $as_position ? get_position($coor) : $coor;
+  }
+
+
+  function random_y($as_position = false){
+    $coor = rand(1, $this->sz_y - 2);
+    return $as_position ? get_position($coor, true) : $coor;
+  }
+
+
+  function total_hosts($for_faction = false){
+    if($for_faction) return sizeof($this->hosts[$for_faction]);
+
+    $total_hosts = 0;
+    foreach (array_slice($this->hosts, 1) as $faction) {
+      $total_hosts+= sizeof($faction);
+    }
+
+    return $total_hosts;
+  }
+
+
   function reset_map($reset_value = 0){
     $this->map = array_fill(0, $this->sz_x, array_fill(0, $this->sz_y, $reset_value));
   }
+
+
+  function add_host_station(){
+    $station_added = false;
+
+    do {
+      $faction = sample(FACTIONS); # Select random faction
+
+      if($this->total_hosts($faction) < 2) { # 2 stations per faction max
+        # Search optimal position for HostStation
+        $new_station_position = $this->distribute_host($faction);
+        if($new_station_position === false) continue;
+
+        $this->hosts[$faction][] = $new_station_position;
+        $station_added = true;
+
+        # HostStation energy (min 2000, max 3500)
+        $energy = (80 + rand(0, 60)) * 10000;
+        # Drak constant = 500,000
+        $reload_const = floor((($energy - 500000)/ 3) + 500000);
+
+        if($faction == 'gho'){
+          # 59: Tarantul I; 57: Scorpio
+          $host_vehicle = rand(0, 2) ? 57 : 59;
+        } else
+          $host_vehicle = HOST_VEHICLES[$faction];
+
+        $this->render('enemy_station');
+      }
+
+      # If no enemy hosts have been added yet, try again
+    } while ($this->total_hosts() == 1 && !$station_added);
+  }
+
+  function distribute_host($new_station_faction){
+    $tries = 0;
+
+    do {
+      $invalid_position = false;
+      $test_coors = array(
+        'x' => $this->random_x(),
+        'y' => $this->random_y()
+      );
+
+      foreach($this->hosts as $faction){
+        foreach($faction as $host_position){
+          $minimal_distance = 4 * 1200; # 4 sectors away
+          if(distance_between($host_position,$test_coors) > $minimal_distance){
+            $invalid_position = true;
+            break 2;
+          }
+        }
+      }
+    } while($invalid_position && $tries++ && $tries < 100);
+
+    return $invalid_position ? false : $test_coors;
+  }
+
 
   function set_territory_around($faction_id, $x, $y){
     $this->set_sector($faction_id, $x - 1, $y - 1);
@@ -86,6 +203,7 @@ class Level {
     $this->set_sector($faction_id, $x + 1, $y + 1);
   }
 
+
   function set_height_around($height, $x, $y){
     $this->set_sector(new_height($height), $x - 1, $y - 1);
     $this->set_sector(new_height($height), $x - 1, $y);
@@ -99,6 +217,7 @@ class Level {
     $this->set_sector(new_height($height), $x + 1, $y);
     $this->set_sector(new_height($height), $x + 1, $y + 1);
   }
+
 
   function set_sector($value, $x, $y) {
     # Outside the boundaries
@@ -121,6 +240,7 @@ class Urbanassault {
     } elseif (is_array($mode)) {
       $levels = $mode;
     }
+
 
     foreach ($levels as $level_id) {
       new Level($level_id);

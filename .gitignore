@@ -1,4 +1,9 @@
+output/*
+!output/
+!output/empty
+
 level.txt
+levelcreator.php
 .DS_Store
 .AppleDouble
 .LSOverride

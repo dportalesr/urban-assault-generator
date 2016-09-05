@@ -8,7 +8,9 @@ function get_position($coor, $vertical = false){
 }
 
 function distance_between($p1, $p2){
-  return sqrt(pow($p1['x'] - $p2['x'], 2) + pow($p1['y'] - $p2['y'], 2));
+  $dx = get_position($p1['x']) - get_position($p2['x']);
+  $dy = get_position($p1['y']) - get_position($p2['y']);
+  return sqrt(pow($dx,2) + pow($dy,2));
 }
 
 function sample($arr){

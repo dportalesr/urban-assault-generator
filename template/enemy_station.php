@@ -1,9 +1,10 @@
+
 begin_robo
-  owner         = <?= $this->fid($faction) ?>;
+  owner         = <?= fid($faction) ?>;
   vehicle       = <?= $host_vehicle ?>;
-  pos_x         = <?= $this->get_position($new_station_position['x']) ?>;
+  pos_x         = <?= get_position($new_station_position['x']) ?>;
   pos_y         = <?= (20 + rand(0, 25)) * -10 ?>;
-  pos_z         = <?= $this->get_position($new_station_position['y'], true) ?>;
+  pos_z         = <?= get_position($new_station_position['y'], true) ?>;
   energy        = <?= $energy ?>;
   reload_const  = <?= $reload_const ?>;
   con_budget    = <?= rand(0, 50) + 50    ?>;

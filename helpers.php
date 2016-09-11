@@ -17,7 +17,7 @@ function sample($arr){
   return $arr[array_rand($arr)];
 }
 
-function set_new_height($height){
+function new_height($height){
   $height += rand(0, 4) - 2;
   if($height < 0) $height = 0;
   if($height > 255) $height = 255;

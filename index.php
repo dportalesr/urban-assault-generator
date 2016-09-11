@@ -319,8 +319,8 @@ class Level {
       'faction' => $faction,
       'vehicle' => $vehicle,
       'num' => $squad_size,
-      'x' => get_position($squad_coors['x']),
-      'y' => get_position($squad_coors['y'], true),
+      'x' => $squad_coors['x'],
+      'y' => $squad_coors['y'],
       'mb_status' => rand(0, 3) ? 'mb_status = unknown' : ''
     );
 

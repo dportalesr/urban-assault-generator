@@ -24,7 +24,7 @@
 require('constants.php');
 require('helpers.php');
 
-const DEBUG = true;
+const DEBUG = false;
 
 class Level {
   public $id;
@@ -41,7 +41,7 @@ class Level {
   public $excluded = array(); # reusable excluded sector/coordinate markers
   public $hosts;
 
-  function __construct($level_id){
+  function __construct($level_id = 1){
     $this->id = $level_id;
     $this->fh = fopen('./output/L'.sprintf('%02d%02d', $this->id, $this->id).'.ldf', 'w');
 
@@ -213,6 +213,7 @@ class Level {
 
 
   function reset_map($type = 'typ'){
+    $reset_value = 0;
     # Default map values
     switch ($type) {
       case 'own':
@@ -231,7 +232,7 @@ class Level {
     $res_x = get_position($this->hosts['res'][0]['x']);
     $res_y = get_position($this->hosts['res'][0]['y'], true);
     # divided by 4 = [1500 - 3000]
-    $energy = (6 + rand(0, 6)) * 100000;
+    $energy = (6 + rand(0, 4)) * 100000;
     # Drak constant = 550,000
     $reload_const = floor(((($energy - 550000)/4) + 550000) /4);
 
@@ -318,8 +319,8 @@ class Level {
       'faction' => $faction,
       'vehicle' => $vehicle,
       'num' => $squad_size,
-      'x' => $squad_coors['x'],
-      'y' => $squad_coors['y'],
+      'x' => get_position($squad_coors['x']),
+      'y' => get_position($squad_coors['y'], true),
       'mb_status' => rand(0, 3) ? 'mb_status = unknown' : ''
     );
 
@@ -335,7 +336,7 @@ class Level {
       case 'typ':
         foreach($this->map as $row => $row_values){
           foreach($row_values as $col => $item){
-            $this->map[$row][$col] = $this->set_sector(sample(SET_LIST[$this->set]), $col, $row);
+            $this->set_sector(sample(SET_LIST[$this->set]), $col, $row);
           }
         }
 
@@ -408,6 +409,8 @@ class Level {
         # Powerstations for enemies
         foreach ($this->hosts as $faction => $stations) {
           foreach ($stations as $station) {
+            $blg = false;
+
             switch ($faction) {
               case 'sul':
                 $blg = 11;
@@ -426,7 +429,7 @@ class Level {
               break;
             }
 
-            $this->map[$station['y']][$station['x']] = $blg;
+            if($blg) $this->map[$station['y']][$station['x']] = $blg;
           }
         }
 
@@ -537,19 +540,12 @@ class Urbanassault {
   function __construct($mode = 'campaing'){
     if(DEBUG) $mode = 'single';
 
-    if(is_string($mode)){
-      if($mode == 'single')
-        $levels = array(1);
-      elseif ($mode == 'campaing') {
-        $levels = LEVELS;
-      }
-    } elseif (is_array($mode)) {
-      $levels = $mode;
-    }
+    $levels = LEVELS;
+    if($mode == 'single') $levels = array_slice(LEVELS, 0, 1, true);
 
-
-    foreach ($levels as $level_id) {
+    foreach ($levels as $level_id => $targets) {
       new Level($level_id);
+      echo "Level $level_id ...... [DONE]<br/>";
     }
   }
 }

@@ -1,0 +1,4758 @@
+new_user
+    playerstatus = 0_0_0_0_0_0_0_0
+    playerstatus = 1_0_0_0_0_0_0_0
+    playerstatus = 2_0_0_0_0_0_0_0
+    playerstatus = 3_0_0_0_0_0_0_0
+    playerstatus = 4_0_0_0_0_0_0_0
+    playerstatus = 5_0_0_0_0_0_0_0
+    playerstatus = 6_0_0_0_0_0_0_0
+    playerstatus = 7_0_0_0_0_0_0_0
+    maxroboenergy = 0
+    maxreloadconst = 0
+    numbuddies    = 128
+    beamenergy    = 500
+    jodiefoster   = 0_0_0_0_0_0_0_0      ; the contact flags
+end
+
+new_input
+    joystick = yes
+    altjoystick = yes
+    forcefeedback = yes
+    input.hotkey[32] = p         ; Pause Game
+    input.hotkey[24] = esc         ; Abort/Quit/Escape
+    input.slider[3] = ~#$left_#$right         ; Ground Unit Left/Right
+    input.slider[4] = ~#$down_#$up         ; Ground Unit Back/Forward
+    input.slider[5] = ~#$z_#$a         ; Ground Unit Gun Down/Up
+    input.slider[1] = ~#$up_#$down         ; Aircraft Nose Down/Up
+    input.slider[2] = ~#$z_#$a         ; Aircraft Decelerate/Accelerate
+    input.slider[0] = ~#$left_#$right         ; Aircraft Left/Right
+    input.button[3] = $num0         ; Brake/Auto-Level Helicopter
+    input.button[0] = $space         ; Fire Weapon
+    input.button[1] = $tab         ; Launch Missile Cam
+    input.button[2] = $x         ; Fire Machine Gun
+    input.hotkey[45] = l         ; Become Current Squad Leader
+    input.hotkey[25] = h         ; HUD On/Off
+    input.hotkey[7] = b         ; Beam Host Station
+    input.hotkey[0] = o         ; Give Order to Units
+    input.hotkey[2] = c         ; Create Vehicle or Building
+    input.hotkey[3] = a         ; Add Vehicle to Current Squad
+    input.hotkey[9] = s         ; Squadron Manager On/Off
+    input.hotkey[38] = 1         ; Aggressiveness  Level 1
+    input.hotkey[39] = 2         ; Aggressiveness  Level 2
+    input.hotkey[40] = 3         ; Aggressiveness  Level 3
+    input.hotkey[41] = 4         ; Aggressiveness  Level 4
+    input.hotkey[42] = 5         ; Aggressiveness  Level 5
+    input.hotkey[8] = m         ; Map On/Off
+    input.button[4] = $rshift         ; Map: Set Waypoints
+    input.hotkey[10] = num1         ; Map: Sector Detail
+    input.hotkey[11] = num2         ; Map: Sector Ownership
+    input.hotkey[12] = num3         ; Map: Vehicle Status
+    input.hotkey[18] = num4         ; Map: Toggle Size
+    input.hotkey[14] = num5         ; Map: Lock on Occupied Unit
+    input.hotkey[16] = numplus         ; Map: Zoom In
+    input.hotkey[17] = numminus         ; Map: Zoom Out
+    input.hotkey[27] = i         ; Information Log On/Off
+    input.hotkey[4] = j         ; Jump into Vehicle
+    input.hotkey[44] = bs         ; Jump to Last Occupied Unit
+    input.hotkey[1] = space         ; Jump from Host Station Bridge to Gun Turret 1
+    input.hotkey[21] = f4         ; Jump to Host Station
+    input.hotkey[23] = f5         ; Jump to Current Squad Leader
+    input.hotkey[22] = f6         ; Cycle Through Units/Jump into Gun Turrets
+    input.hotkey[20] = f7         ; Cycle Through Squad Leaders
+    input.hotkey[31] = f8         ; Jump to Last Message Sender
+    input.hotkey[37] = return         ; Send Chat Message
+    input.hotkey[43] = f1         ; Help (Not Available in Multiplayer)
+    input.hotkey[46] = f2         ; Situation Analyzer
+end
+
+new_sound
+    volume = 127
+    cdvolume = 50
+    invertlr = no
+    cdsound = yes
+end
+
+new_video
+    videomode = 2621920
+    farview = yes
+    16bittexture = yes
+    drawprimitive = no
+    heaven = yes
+    softmouse = yes
+    enemyindicator = yes
+    fxnumber = 16
+end
+
+
+begin_levelstatus 1
+    status = 2
+end
+
+
+begin_levelstatus 2
+    status = 1
+end
+
+
+begin_levelstatus 3
+    status = 1
+end
+
+
+begin_levelstatus 4
+    status = 1
+end
+
+
+begin_levelstatus 5
+    status = 1
+end
+
+
+begin_levelstatus 10
+    status = 1
+end
+
+
+begin_levelstatus 11
+    status = 1
+end
+
+
+begin_levelstatus 12
+    status = 1
+end
+
+
+begin_levelstatus 15
+    status = 1
+end
+
+
+begin_levelstatus 20
+    status = 1
+end
+
+
+begin_levelstatus 21
+    status = 1
+end
+
+
+begin_levelstatus 22
+    status = 1
+end
+
+
+begin_levelstatus 23
+    status = 1
+end
+
+
+begin_levelstatus 25
+    status = 2
+end
+
+
+begin_levelstatus 26
+    status = 2
+end
+
+
+begin_levelstatus 30
+    status = 1
+end
+
+
+begin_levelstatus 31
+    status = 1
+end
+
+
+begin_levelstatus 32
+    status = 1
+end
+
+
+begin_levelstatus 33
+    status = 1
+end
+
+
+begin_levelstatus 34
+    status = 1
+end
+
+
+begin_levelstatus 40
+    status = 1
+end
+
+
+begin_levelstatus 41
+    status = 1
+end
+
+
+begin_levelstatus 42
+    status = 1
+end
+
+
+begin_levelstatus 43
+    status = 1
+end
+
+
+begin_levelstatus 44
+    status = 1
+end
+
+
+begin_levelstatus 50
+    status = 1
+end
+
+
+begin_levelstatus 51
+    status = 1
+end
+
+
+begin_levelstatus 52
+    status = 1
+end
+
+
+begin_levelstatus 53
+    status = 1
+end
+
+
+begin_levelstatus 54
+    status = 1
+end
+
+
+begin_levelstatus 60
+    status = 1
+end
+
+
+begin_levelstatus 61
+    status = 1
+end
+
+
+begin_levelstatus 62
+    status = 1
+end
+
+
+begin_levelstatus 63
+    status = 1
+end
+
+
+begin_levelstatus 64
+    status = 1
+end
+
+
+begin_levelstatus 66
+    status = 1
+end
+
+
+begin_levelstatus 70
+    status = 1
+end
+
+
+begin_levelstatus 71
+    status = 1
+end
+
+
+begin_levelstatus 72
+    status = 1
+end
+
+
+begin_levelstatus 73
+    status = 1
+end
+
+
+begin_levelstatus 74
+    status = 1
+end
+
+
+begin_levelstatus 75
+    status = 1
+end
+
+
+begin_levelstatus 80
+    status = 4
+end
+
+
+begin_levelstatus 81
+    status = 4
+end
+
+
+begin_levelstatus 82
+    status = 4
+end
+
+
+begin_levelstatus 83
+    status = 4
+end
+
+
+begin_levelstatus 84
+    status = 4
+end
+
+
+begin_levelstatus 85
+    status = 4
+end
+
+
+begin_levelstatus 86
+    status = 4
+end
+
+
+begin_levelstatus 87
+    status = 4
+end
+
+
+begin_levelstatus 88
+    status = 4
+end
+
+
+begin_levelstatus 89
+    status = 4
+end
+
+
+begin_levelstatus 90
+    status = 4
+end
+
+
+begin_levelstatus 91
+    status = 4
+end
+
+
+begin_levelstatus 92
+    status = 4
+end
+
+
+begin_levelstatus 93
+    status = 4
+end
+
+
+begin_levelstatus 95
+    status = 4
+end
+
+
+begin_levelstatus 96
+    status = 4
+end
+
+
+begin_levelstatus 98
+    status = 1
+end
+
+
+begin_levelstatus 99
+    status = 1
+end
+
+
+begin_levelstatus 100
+    status = 4
+end
+
+
+begin_levelstatus 101
+    status = 4
+end
+
+
+begin_levelstatus 102
+    status = 4
+end
+
+
+begin_levelstatus 103
+    status = 4
+end
+
+
+begin_levelstatus 104
+    status = 4
+end
+
+
+begin_levelstatus 106
+    status = 4
+end
+
+
+begin_levelstatus 107
+    status = 4
+end
+
+
+begin_levelstatus 108
+    status = 4
+end
+
+
+begin_levelstatus 109
+    status = 4
+end
+
+
+begin_levelstatus 110
+    status = 4
+end
+
+
+begin_levelstatus 111
+    status = 4
+end
+
+
+begin_levelstatus 112
+    status = 4
+end
+
+
+begin_levelstatus 113
+    status = 4
+end
+
+
+begin_levelstatus 114
+    status = 4
+end
+
+
+begin_levelstatus 116
+    status = 4
+end
+
+
+begin_levelstatus 117
+    status = 4
+end
+
+
+begin_levelstatus 118
+    status = 4
+end
+
+
+begin_levelstatus 119
+    status = 4
+end
+
+
+begin_levelstatus 120
+    status = 4
+end
+
+
+begin_levelstatus 122
+    status = 4
+end
+
+
+begin_levelstatus 123
+    status = 4
+end
+
+
+begin_levelstatus 125
+    status = 4
+end
+
+
+begin_levelstatus 126
+    status = 4
+end
+
+
+begin_levelstatus 128
+    status = 4
+end
+
+
+begin_levelstatus 130
+    status = 4
+end
+
+
+begin_levelstatus 131
+    status = 4
+end
+
+
+begin_levelstatus 132
+    status = 4
+end
+
+
+begin_levelstatus 133
+    status = 4
+end
+
+
+begin_levelstatus 134
+    status = 4
+end
+
+
+begin_levelstatus 140
+    status = 4
+end
+
+
+begin_levelstatus 141
+    status = 4
+end
+
+
+begin_levelstatus 142
+    status = 4
+end
+
+
+begin_levelstatus 143
+    status = 4
+end
+
+
+begin_levelstatus 144
+    status = 4
+end
+
+
+begin_levelstatus 145
+    status = 4
+end
+
+
+begin_levelstatus 146
+    status = 4
+end
+
+
+begin_levelstatus 147
+    status = 4
+end
+
+
+begin_levelstatus 149
+    status = 4
+end
+
+new_shell
+    language = LANGUAGE
+    finder = na_0_0_0_0
+    log    = na_0_0_0_0
+    energy = na_0_0_0_0
+    message = na_0_0_0_0
+    map    = na_0_0_0_0_0_0
+    robo_map_status = 1_0_0_15_427_332_7_0_4_426_243_214_205_0
+    robo_finder_status = 1_0_475_15_165_228_0_0_0_0_0_0_0_0
+    vhcl_map_status = 1_1_0_15_207_231_7_1_3_447_229_184_208_0
+    vhcl_finder_status = 1_0_475_15_165_228_0_0_0_0_0_0_0_0
+end
+
+modify_vehicle 1
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 35
+    energy         = 7500
+    num_weapons    = 0
+    weapon         = 1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -7.00
+    fire_z         = 16.00
+end
+
+modify_vehicle 2
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 60
+    energy         = 10000
+    num_weapons    = 0
+    weapon         = 2
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -12.00
+    fire_z         = 28.00
+end
+
+modify_vehicle 3
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 75
+    energy         = 22000
+    num_weapons    = 0
+    weapon         = 3
+    radar          = 2
+    fire_x         = 0.00
+    fire_y         = -16.00
+    fire_z         = 35.00
+end
+
+modify_vehicle 4
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 40
+    energy         = 19000
+    num_weapons    = 0
+    weapon         = 4
+    radar          = 1
+    fire_x         = 40.00
+    fire_y         = 14.00
+    fire_z         = -20.00
+end
+
+modify_vehicle 5
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 30
+    energy         = 22500
+    num_weapons    = 0
+    weapon         = 5
+    radar          = 2
+    fire_x         = 0.00
+    fire_y         = 17.00
+    fire_z         = -19.00
+end
+
+modify_vehicle 6
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 40
+    energy         = 9000
+    num_weapons    = 0
+    weapon         = 6
+    radar          = 1
+    fire_x         = 5.00
+    fire_y         = 5.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 7
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 28
+    energy         = 34000
+    num_weapons    = 0
+    weapon         = 7
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 16.00
+    fire_z         = -9.00
+end
+
+modify_vehicle 8
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 80
+    energy         = 30000
+    num_weapons    = 0
+    weapon         = 8
+    radar          = 1
+    fire_x         = 15.00
+    fire_y         = 5.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 9
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 5000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 4
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 10
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 65
+    energy         = 5000
+    num_weapons    = 0
+    weapon         = 10
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 9.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 11
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 20
+    energy         = 40000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 12
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 40000
+    num_weapons    = 0
+    weapon         = 12
+    radar          = 1
+    fire_x         = 16.00
+    fire_y         = -25.00
+    fire_z         = -27.00
+end
+
+modify_vehicle 13
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 100
+    energy         = 200000
+    num_weapons    = 0
+    weapon         = 13
+    radar          = 5
+    fire_x         = 0.00
+    fire_y         = -15.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 14
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 75
+    energy         = 40000
+    num_weapons    = 0
+    weapon         = 14
+    radar          = 2
+    fire_x         = -24.00
+    fire_y         = -11.00
+    fire_z         = 2.00
+end
+
+modify_vehicle 15
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 65
+    energy         = 15000
+    num_weapons    = 0
+    weapon         = 15
+    radar          = 1
+    fire_x         = -5.00
+    fire_y         = 8.00
+    fire_z         = 12.00
+end
+
+modify_vehicle 16
+    enable         = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 9500
+    num_weapons    = 0
+    weapon         = 16
+    radar          = 1
+    fire_x         = 4.00
+    fire_y         = -24.00
+    fire_z         = 10.00
+end
+
+modify_vehicle 17
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 10000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 18
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 10000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 19
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 10000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 20
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 10000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 21
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 10000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 22
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 3
+    energy         = 15000
+    num_weapons    = 0
+    weapon         = 22
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -15.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 23
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 4
+    energy         = 8000
+    num_weapons    = 0
+    weapon         = 23
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 24
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 55
+    energy         = 9500
+    num_weapons    = 0
+    weapon         = 24
+    radar          = 1
+    fire_x         = 15.00
+    fire_y         = 5.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 25
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 10
+    energy         = 20000
+    num_weapons    = 0
+    weapon         = 25
+    radar          = 1
+    fire_x         = 15.00
+    fire_y         = 5.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 26
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 70
+    energy         = 25000
+    num_weapons    = 0
+    weapon         = 26
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -15.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 27
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 35
+    energy         = 45000
+    num_weapons    = 0
+    weapon         = 27
+    radar          = 1
+    fire_x         = 15.00
+    fire_y         = 20.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 28
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 60
+    energy         = 19000
+    num_weapons    = 2
+    weapon         = 28
+    radar          = 1
+    fire_x         = 30.00
+    fire_y         = 5.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 29
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 5
+    energy         = 6000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 4
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 30
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 35
+    energy         = 44500
+    num_weapons    = 0
+    weapon         = 27
+    radar          = 1
+    fire_x         = 15.00
+    fire_y         = 5.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 31
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 25
+    energy         = 35000
+    num_weapons    = 0
+    weapon         = 31
+    radar          = 1
+    fire_x         = 15.00
+    fire_y         = 5.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 32
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 80
+    energy         = 11000
+    num_weapons    = 0
+    weapon         = 32
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -15.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 33
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 77
+    energy         = 18000
+    num_weapons    = 1
+    weapon         = 33
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 5.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 34
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 25
+    energy         = 40000
+    num_weapons    = 0
+    weapon         = 34
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 35
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 7000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 4
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 36
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 45
+    energy         = 9000
+    num_weapons    = 0
+    weapon         = 36
+    radar          = 1
+    fire_x         = 15.00
+    fire_y         = 5.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 37
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 86
+    energy         = 28000
+    num_weapons    = 0
+    weapon         = 37
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -15.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 38
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 77
+    energy         = 20000
+    num_weapons    = 1
+    weapon         = 38
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 5.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 39
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 100
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 40
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 10000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 41
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 100000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 42
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 100
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 43
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 100
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 44
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 100
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 45
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 100000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 46
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 100000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 47
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 100
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 48
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 120000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 49
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 100
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 50
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 100
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 51
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 100
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 52
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 100
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 53
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 100
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 54
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 100
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 55
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 100
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 56
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 70
+    energy         = 5000000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 3
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 57
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 40
+    energy         = 5000000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 3
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 58
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 40
+    energy         = 10000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 3
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 59
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 40
+    energy         = 10000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 2
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 60
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 40
+    energy         = 5000000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 3
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 61
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 40
+    energy         = 10000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 2
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 62
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 60
+    energy         = 5000000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 3
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 63
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 21
+    energy         = 50000
+    num_weapons    = 0
+    weapon         = 63
+    radar          = 1
+    fire_x         = 15.00
+    fire_y         = 20.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 64
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 58
+    energy         = 19000
+    num_weapons    = 0
+    weapon         = 64
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 25.00
+    fire_z         = 30.00
+end
+
+modify_vehicle 65
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 56
+    energy         = 14000
+    num_weapons    = 0
+    weapon         = 65
+    radar          = 1
+    fire_x         = 15.00
+    fire_y         = 40.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 66
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 35000
+    num_weapons    = 0
+    weapon         = 66
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 67
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 10
+    energy         = 5500
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 4
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 68
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 25
+    energy         = 9500
+    num_weapons    = 0
+    weapon         = 68
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -15.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 69
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 10
+    energy         = 30000
+    num_weapons    = 0
+    weapon         = 69
+    radar          = 1
+    fire_x         = 15.00
+    fire_y         = 5.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 70
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 45000
+    num_weapons    = 0
+    weapon         = 70
+    radar          = 2
+    fire_x         = 15.00
+    fire_y         = 5.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 71
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 30
+    energy         = 20000
+    num_weapons    = 0
+    weapon         = 71
+    radar          = 1
+    fire_x         = 15.00
+    fire_y         = 5.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 72
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 30000
+    num_weapons    = 0
+    weapon         = 72
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 10.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 73
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 3
+    energy         = 6000
+    num_weapons    = 0
+    weapon         = 73
+    radar          = 1
+    fire_x         = 15.00
+    fire_y         = 5.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 74
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 20
+    energy         = 6000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 4
+    fire_x         = 15.00
+    fire_y         = 5.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 75
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 100
+    energy         = 4000
+    num_weapons    = 0
+    weapon         = 84
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 76
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 100
+    energy         = 4000
+    num_weapons    = 0
+    weapon         = 82
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 77
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 100
+    energy         = 4000
+    num_weapons    = 0
+    weapon         = 83
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 78
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 100
+    energy         = 4000
+    num_weapons    = 0
+    weapon         = 81
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 79
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 100
+    energy         = 4000
+    num_weapons    = 0
+    weapon         = 72
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 80
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 100
+    energy         = 4000
+    num_weapons    = 0
+    weapon         = 80
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 81
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 100
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 82
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 100000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 83
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 100
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 84
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 100000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 85
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 100
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 86
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 100
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 87
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 100
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 88
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 100
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 90
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 100
+    energy         = 4000
+    num_weapons    = 0
+    weapon         = 90
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -20.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 91
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 100
+    energy         = 4000
+    num_weapons    = 0
+    weapon         = 91
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 92
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 100
+    energy         = 4000
+    num_weapons    = 0
+    weapon         = 92
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 93
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 100
+    energy         = 4000
+    num_weapons    = 0
+    weapon         = 93
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 94
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 100
+    energy         = 8000
+    num_weapons    = 0
+    weapon         = 94
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -15.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 95
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 100
+    energy         = 8000
+    num_weapons    = 0
+    weapon         = 95
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -15.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 96
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 92
+    energy         = 9200
+    num_weapons    = 2
+    weapon         = 96
+    radar          = 1
+    fire_x         = 60.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 97
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 85
+    energy         = 30000
+    num_weapons    = 0
+    weapon         = 97
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -30.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 98
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 98
+    energy         = 40000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 15
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 100
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 85
+    energy         = 16000
+    num_weapons    = 0
+    weapon         = 100
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -15.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 101
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 85
+    energy         = 16000
+    num_weapons    = 0
+    weapon         = 100
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -15.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 102
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 85
+    energy         = 16000
+    num_weapons    = 0
+    weapon         = 100
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -15.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 103
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 85
+    energy         = 16000
+    num_weapons    = 0
+    weapon         = 100
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -15.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 104
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 85
+    energy         = 16000
+    num_weapons    = 0
+    weapon         = 100
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -15.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 105
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 85
+    energy         = 16000
+    num_weapons    = 0
+    weapon         = 100
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -15.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 106
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 85
+    energy         = 30000
+    num_weapons    = 0
+    weapon         = 106
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -30.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 107
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 8000
+    num_weapons    = 0
+    weapon         = 107
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -15.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 108
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 77
+    energy         = 17000
+    num_weapons    = 0
+    weapon         = 108
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -15.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 109
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 90
+    energy         = 40000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 10
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 110
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 85
+    energy         = 30000
+    num_weapons    = 0
+    weapon         = 108
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -30.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 111
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 90
+    energy         = 17000
+    num_weapons    = 0
+    weapon         = 111
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -15.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 113
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 90
+    energy         = 20000
+    num_weapons    = 0
+    weapon         = 117
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 114
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 8000
+    num_weapons    = 0
+    weapon         = 72
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -15.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 115
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 8000
+    num_weapons    = 0
+    weapon         = 115
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -15.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 116
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 8000
+    num_weapons    = 0
+    weapon         = 111
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -15.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 117
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 100
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 118
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 10000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 119
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 1
+    energy         = 100000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 120
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 12
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 121
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 10
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 122
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 10
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 123
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 10
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 124
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 10
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 125
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 10
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 126
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 10
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 127
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 10
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 128
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 10000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 129
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 10
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 130
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 10
+    energy         = 20000
+    num_weapons    = 0
+    weapon         = 17
+    radar          = 1
+    fire_x         = 15.00
+    fire_y         = 5.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 131
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 95
+    energy         = 50000
+    num_weapons    = 0
+    weapon         = 18
+    radar          = 5
+    fire_x         = 0.00
+    fire_y         = -50.00
+    fire_z         = -16.00
+end
+
+modify_vehicle 132
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 10
+    energy         = 10000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 2
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 133
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 55000
+    num_weapons    = 0
+    weapon         = 27
+    radar          = 1
+    fire_x         = 15.00
+    fire_y         = 20.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 134
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 25
+    energy         = 50000
+    num_weapons    = 0
+    weapon         = 20
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 135
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 10000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 136
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 10000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 137
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 70
+    energy         = 17000
+    num_weapons    = 0
+    weapon         = 111
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -15.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 138
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 30
+    energy         = 50000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -50.00
+    fire_z         = -16.00
+end
+
+modify_vehicle 139
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 90
+    energy         = 40000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 10
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 140
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 90
+    energy         = 40000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 10
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 141
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 90
+    energy         = 40000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 10
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 142
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 30
+    energy         = 40000
+    num_weapons    = 0
+    weapon         = 19
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = -50.00
+    fire_z         = -16.00
+end
+
+modify_vehicle 150
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 10000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 151
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 10000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 152
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 50
+    energy         = 10000
+    num_weapons    = 0
+    weapon         = -1
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 159
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 100
+    energy         = 4000
+    num_weapons    = 0
+    weapon         = 120
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 160
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 100
+    energy         = 4000
+    num_weapons    = 0
+    weapon         = 123
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 161
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 100
+    energy         = 4000
+    num_weapons    = 0
+    weapon         = 121
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_vehicle 162
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shield         = 100
+    energy         = 4000
+    num_weapons    = 0
+    weapon         = 122
+    radar          = 1
+    fire_x         = 0.00
+    fire_y         = 0.00
+    fire_z         = 0.00
+end
+
+modify_weapon 1
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 1000
+    shot_time_user = 650
+    energy         = 3000
+end
+
+modify_weapon 2
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 550
+    shot_time_user = 550
+    energy         = 20000
+end
+
+modify_weapon 3
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 3000
+    shot_time_user = 1500
+    energy         = 40000
+end
+
+modify_weapon 4
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 3000
+    shot_time_user = 1000
+    energy         = 30000
+end
+
+modify_weapon 5
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 2000
+    shot_time_user = 2000
+    energy         = 60000
+end
+
+modify_weapon 6
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 1800
+    shot_time_user = 900
+    energy         = 20000
+end
+
+modify_weapon 7
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 2200
+    shot_time_user = 1200
+    energy         = 40000
+end
+
+modify_weapon 8
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 2500
+    shot_time_user = 2500
+    energy         = 50000
+end
+
+modify_weapon 10
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 800
+    shot_time_user = 550
+    energy         = 5000
+end
+
+modify_weapon 12
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 20000
+    shot_time_user = 10000
+    energy         = 340000
+end
+
+modify_weapon 13
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 100
+    shot_time_user = 100
+    energy         = 80000
+end
+
+modify_weapon 14
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 200
+    shot_time_user = 350
+    energy         = 15000
+end
+
+modify_weapon 15
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 2000
+    shot_time_user = 1000
+    energy         = 45000
+end
+
+modify_weapon 16
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 2100
+    shot_time_user = 1100
+    energy         = 10000
+end
+
+modify_weapon 17
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 200
+    shot_time_user = 200
+    energy         = 7000
+end
+
+modify_weapon 18
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 10000
+    shot_time_user = 7000
+    energy         = 300000
+end
+
+modify_weapon 19
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 1500
+    shot_time_user = 1500
+    energy         = 1000
+end
+
+modify_weapon 20
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 1000
+    shot_time_user = 3000
+    energy         = 120000
+end
+
+modify_weapon 22
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 500
+    shot_time_user = 300
+    energy         = 5000
+end
+
+modify_weapon 23
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 700
+    shot_time_user = 700
+    energy         = 3000
+end
+
+modify_weapon 24
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 2300
+    shot_time_user = 900
+    energy         = 27000
+end
+
+modify_weapon 25
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 200
+    shot_time_user = 400
+    energy         = 10000
+end
+
+modify_weapon 26
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 2700
+    shot_time_user = 1200
+    energy         = 42000
+end
+
+modify_weapon 27
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 300
+    shot_time_user = 400
+    energy         = 31000
+end
+
+modify_weapon 28
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 2500
+    shot_time_user = 1000
+    energy         = 25000
+end
+
+modify_weapon 31
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 600
+    shot_time_user = 600
+    energy         = 30000
+end
+
+modify_weapon 32
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 2300
+    shot_time_user = 1100
+    energy         = 18000
+end
+
+modify_weapon 33
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 333
+    shot_time_user = 333
+    energy         = 8000
+end
+
+modify_weapon 34
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 1000
+    shot_time_user = 3000
+    energy         = 120000
+end
+
+modify_weapon 36
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 500
+    shot_time_user = 500
+    energy         = 40000
+end
+
+modify_weapon 37
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 3200
+    shot_time_user = 1700
+    energy         = 41000
+end
+
+modify_weapon 38
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 1800
+    shot_time_user = 1800
+    energy         = 50000
+end
+
+modify_weapon 49
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 300
+    shot_time_user = 150
+    energy         = 10000
+end
+
+modify_weapon 63
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 300
+    shot_time_user = 300
+    energy         = 80000
+end
+
+modify_weapon 64
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 350
+    shot_time_user = 550
+    energy         = 29000
+end
+
+modify_weapon 65
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 390
+    shot_time_user = 390
+    energy         = 28000
+end
+
+modify_weapon 66
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 500
+    shot_time_user = 300
+    energy         = 7000
+end
+
+modify_weapon 68
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 700
+    shot_time_user = 400
+    energy         = 5000
+end
+
+modify_weapon 69
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 300
+    shot_time_user = 300
+    energy         = 6000
+end
+
+modify_weapon 70
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 2000
+    shot_time_user = 1000
+    energy         = 60000
+end
+
+modify_weapon 71
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 900
+    shot_time_user = 900
+    energy         = 30000
+end
+
+modify_weapon 72
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 5000
+    shot_time_user = 1000
+    energy         = 60000
+end
+
+modify_weapon 73
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 777
+    shot_time_user = 777
+    energy         = 15000
+end
+
+modify_weapon 80
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 1000
+    shot_time_user = 600
+    energy         = 13333
+end
+
+modify_weapon 81
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 1700
+    shot_time_user = 1200
+    energy         = 20000
+end
+
+modify_weapon 82
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 1000
+    shot_time_user = 1000
+    energy         = 30000
+end
+
+modify_weapon 83
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 1500
+    shot_time_user = 1000
+    energy         = 15000
+end
+
+modify_weapon 84
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 1500
+    shot_time_user = 1000
+    energy         = 17000
+end
+
+modify_weapon 90
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 950
+    shot_time_user = 350
+    energy         = 4000
+end
+
+modify_weapon 91
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 950
+    shot_time_user = 350
+    energy         = 4000
+end
+
+modify_weapon 92
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 950
+    shot_time_user = 350
+    energy         = 4000
+end
+
+modify_weapon 93
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 950
+    shot_time_user = 350
+    energy         = 4000
+end
+
+modify_weapon 94
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 3000
+    shot_time_user = 1000
+    energy         = 15000
+end
+
+modify_weapon 95
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 1200
+    shot_time_user = 700
+    energy         = 30000
+end
+
+modify_weapon 96
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 700
+    shot_time_user = 600
+    energy         = 4000
+end
+
+modify_weapon 97
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 1000
+    shot_time_user = 1000
+    energy         = 40000
+end
+
+modify_weapon 100
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 1500
+    shot_time_user = 800
+    energy         = 7000
+end
+
+modify_weapon 101
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 3000
+    shot_time_user = 800
+    energy         = 5000
+end
+
+modify_weapon 102
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 3000
+    shot_time_user = 600
+    energy         = 3000
+end
+
+modify_weapon 103
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 3000
+    shot_time_user = 600
+    energy         = 3000
+end
+
+modify_weapon 104
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 3000
+    shot_time_user = 1000
+    energy         = 5000
+end
+
+modify_weapon 105
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 3000
+    shot_time_user = 1000
+    energy         = 5000
+end
+
+modify_weapon 106
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 1000
+    shot_time_user = 1000
+    energy         = 55000
+end
+
+modify_weapon 107
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 2000
+    shot_time_user = 1000
+    energy         = 5000
+end
+
+modify_weapon 108
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 4500
+    shot_time_user = 3000
+    energy         = 21000
+end
+
+modify_weapon 111
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 1000
+    shot_time_user = 600
+    energy         = 5000
+end
+
+modify_weapon 112
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 500
+    shot_time_user = 1000
+    energy         = 10000
+end
+
+modify_weapon 115
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 900
+    shot_time_user = 1000
+    energy         = 30000
+end
+
+modify_weapon 116
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 4000
+    shot_time_user = 1000
+    energy         = 5000
+end
+
+modify_weapon 117
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 1500
+    shot_time_user = 1500
+    energy         = 30000
+end
+
+modify_weapon 120
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 950
+    shot_time_user = 350
+    energy         = 23300
+end
+
+modify_weapon 121
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 1500
+    shot_time_user = 1000
+    energy         = 27000
+end
+
+modify_weapon 122
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 1000
+    shot_time_user = 600
+    energy         = 23300
+end
+
+modify_weapon 123
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+    shot_time      = 1700
+    shot_time_user = 1200
+    energy         = 30000
+end
+
+modify_building 1
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 2
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 3
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 4
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 5
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 6
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 7
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 8
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 9
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 10
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 11
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 12
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 13
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 14
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 15
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 16
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 17
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 18
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 19
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 20
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 21
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 22
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 23
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 24
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 25
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 26
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 28
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 29
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 30
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 31
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 33
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 34
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 35
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 36
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 37
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 50
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 51
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 52
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 53
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 54
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 55
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 56
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 58
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 59
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 60
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 61
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 62
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 63
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 64
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 65
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 66
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 67
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 68
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 69
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 70
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 71
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 72
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+
+modify_building 73
+    disable        = 1
+    disable        = 2
+    disable        = 3
+    disable        = 4
+    disable        = 5
+    disable        = 6
+    disable        = 7
+end
+

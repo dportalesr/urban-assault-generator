@@ -6,7 +6,9 @@ begin_gate
   sec_y         = <?= $gate['y'] ?>;
   closed_bp     = 5
   opened_bp     = 6
-  target_level  = <?= $gate['target'] ?>;
+<?php foreach ($gate['targets'] as $target_level): ?>
+  target_level  = <?= $target_level ?>;
+<?php endforeach; ?>
 <?php
   # up to 6 beam-gate key sectors
   for($ii = 0; $ii < 6; $ii++):

@@ -24,7 +24,7 @@
 require('constants.php');
 require('helpers.php');
 
-const DEBUG = false;
+const DEBUG = true;
 
 class Level {
   public $id;
@@ -47,11 +47,11 @@ class Level {
 
     # Calculate map size (min 3, max 32, by side)
     do {
-      $this->sz_x = rand(0, 29) + 3;
-      $this->sz_y = rand(0, 29) + 3;
-    } while($this->sz_x * $this->sz_y < 80); # Make sure map size is not too small (80 u2 at least)
+      $this->sz_x = mt_rand(3, 32);
+      $this->sz_y = mt_rand(3, 32);
+    } while(($this->sz_x-2) * ($this->sz_y-2) < 80); # Make sure map size is not too small (80 u2 at least)
 
-    $this->set = rand(1, 6); // Map type
+    $this->set = mt_rand(1, 6); // Map type
 
     $this->generate();
 
@@ -70,22 +70,21 @@ class Level {
     include("template/set.php");
 
     # BEAM-GATE
-    foreach (LEVELS[$this->id] as $target_level){
-      $gate_coors = $this->random_xy('gates');
+    $gate_coors = $this->random_xy('gates');
 
-      $this->gates[] = array(
-        'x' => $gate_coors['x'],
-        'y' => $gate_coors['y'],
-        'target' => $target_level
-      );
-    }
+    $this->gates[] = array(
+      'x' => $gate_coors['x'],
+      'y' => $gate_coors['y'],
+      'targets' => LEVELS[$this->id]
+    );
+
     include("template/beam_gates.php");
 
     # PLAYER STATION
     $this->player_station();
 
     # Calculates max station number for map
-    $max_total_hosts = floor($this->sz_x * $this->sz_y * 2 / 144);
+    $max_total_hosts = floor($this->sz_x * $this->sz_y * 2 / 192);
     // echo "\n\n";print_r("\$max_total_hosts: $max_total_hosts [{$this->sz_x}x{$this->sz_y}]");echo "\n\n";
 
     # ENEMY STATIONS
@@ -95,7 +94,7 @@ class Level {
     # Keep trying to add stations until there are more than 5
     # or number of tries have been more than max number of stations
     for($hs = 0; $hs < $max_total_hosts && $this->total_hosts() < 6; $hs++){
-      if(rand(0,1)) # 50% chance
+      if(mt_rand(0,1)) # 50% chance
         $this->enemy_station();
     }
     # Used for station distribution, but no more.
@@ -104,13 +103,13 @@ class Level {
     # STOUDSON BOMB (2 max)
     for ($sb = 0; $sb < 2; $sb++){
       # 25% chance to appear
-      if(!rand(0, 3)){
+      if(!mt_rand(0, 3)){
         if($bomb_coors = $this->random_xy('hosts,gates')){
-          $bomb_coors['timeout'] = (rand(0, 2340) + 360) * 1000; # 6 - 45 minutes
+          $bomb_coors['timeout'] = mt_rand(360, 2100) * 1000; # 6 - 35 minutes
           $this->bombs[] = $bomb_coors;
 
-          for ($ks = 0; $ks < 10; $ks++) {
-            if (rand(0,1) && $key_coors = $this->random_xy('gates,bombs')) {
+          for ($ks = 0; $ks < 8; $ks++) {
+            if (mt_rand(0,1) && $key_coors = $this->random_xy('gates,bombs')) {
               $this->bombs[sizeof($this->bombs) - 1]['keys'][] = $key_coors;
             }
           }
@@ -124,7 +123,7 @@ class Level {
     $total_hosts = $this->total_hosts() + 1; # Give player some too!
 
     for ($sq = 0; $sq <  5 * $total_hosts; $sq++){
-      if (rand(0, 1)){
+      if (mt_rand(0, 1)){
         $this->add_squad(); //Squad creation
       }
     }
@@ -185,13 +184,13 @@ class Level {
 
 
   function random_x($as_position = false){
-    $coor = rand(1, $this->sz_x - 2);
+    $coor = mt_rand(1, $this->sz_x - 2);
     return $as_position ? get_position($coor) : $coor;
   }
 
 
   function random_y($as_position = false){
-    $coor = rand(1, $this->sz_y - 2);
+    $coor = mt_rand(1, $this->sz_y - 2);
     return $as_position ? get_position($coor, true) : $coor;
   }
 
@@ -232,9 +231,9 @@ class Level {
     $res_x = get_position($this->hosts['res'][0]['x']);
     $res_y = get_position($this->hosts['res'][0]['y'], true);
     # divided by 4 = [1500 - 3000]
-    $energy = (6 + rand(0, 4)) * 100000;
+    $energy = mt_rand(6, 10) * 100000;
     # Drak constant = 550,000
-    $reload_const = floor(((($energy - 550000)/4) + 550000) /4);
+    $reload_const = floor(((($energy - 550000)/4) + 550000) / 5);
 
     include("template/player_station.php");
   }
@@ -251,14 +250,14 @@ class Level {
 
         $this->hosts[$faction][] = $new_station_position;
 
-        # HostStation energy (min 2000, max 3500)
-        $energy = (80 + rand(0, 60)) * 10000;
+        # HostStation energy (min 3000, max 5500)
+        $energy = mt_rand(8, 22) * 100000;
         # Drak constant = 500,000
         $reload_const = floor((($energy - 500000)/ 3) + 500000);
 
         if($faction == 'gho'){
           # 59: Tarantul I; 57: Scorpio
-          $host_vehicle = rand(0, 2) ? 57 : 59;
+          $host_vehicle = mt_rand(0, 2) ? 57 : 59;
         } else
           $host_vehicle = HOST_VEHICLES[$faction];
 
@@ -308,12 +307,15 @@ class Level {
     $vehicle = sample(VEHICLES[$faction]);
     $max_units = 16;
 
-    if($faction == 'res') $max_units = 4;
-
-    if(in_array($vehicle, array(9,74,67,35,29))) # If it's a scout
+    if(in_array($vehicle, array(9,74,67,35,29))){ # If it's a scout
       $squad_size = 1;
-    else
-      $squad_size = rand(1, $max_units) + 2;
+    } else {
+      $squad_size = mt_rand(3, 8);
+
+      if($faction != 'res' && !mt_rand(0, 5))
+        $squad_size *= 2; # Extra large squad
+    }
+
 
     $squad = array(
       'faction' => $faction,
@@ -321,7 +323,7 @@ class Level {
       'num' => $squad_size,
       'x' => $squad_coors['x'],
       'y' => $squad_coors['y'],
-      'mb_status' => rand(0, 3) ? 'mb_status = unknown' : ''
+      'mb_status' => mt_rand(0, 4) ? 'mb_status = unknown' : ''
     );
 
     $this->squads[] = $squad;
@@ -364,7 +366,7 @@ class Level {
 
       case 'own':
         # Max number of sectors per race = playable area / number of stations + 60%
-        $this->max_territory_per_faction = ($this->sz_x - 2) * ($this->sz_y - 2) / $this->total_hosts() * 1.6;
+        $this->max_territory_per_faction = ($this->sz_x - 2) * ($this->sz_y - 2) / $this->total_hosts() * 1.8;
 
         foreach($this->present_factions() as $faction){
           $this->set_territory($faction);
@@ -385,12 +387,26 @@ class Level {
       break;
 
       case 'hgt':
-        $height = 128;
-        # Apply as random paths (like own-map) instead of sequencial
-        foreach($this->map as $row => $row_values){
-          foreach($row_values as $col => $item){
-            $this->set_height_around($height, $col, $row);
-            $height += rand(0, 4) - 2; # New base height
+        $runs = mt_rand(3, 8);
+        $height_dxs = array_merge(
+          array_fill(0, 4, 0),
+          array_fill(0, 2, 1),
+          array_fill(0, 2, 2),
+          array_fill(0, 1, 3)
+        );
+
+        for ($rr = 0; $rr < $runs; $rr++) {
+          $height = 128;
+          $run_size = mt_rand(1, 5) * floor($this->sz_x * $this->sz_y / 10);
+          $x = $this->random_x();
+          $y = $this->random_x();
+
+          for ($hh = 0; $hh < $run_size; $hh++) {
+            list($x, $y) = $this->set_height_around($height, $x, $y);
+
+            $height += $height_dxs[array_rand($height_dxs)] * (mt_rand(0,1) ? 1 : -1); # New base height
+            if($height > 140) $height = 140;
+            if($height < 116) $height = 116;
           }
         }
 
@@ -433,9 +449,9 @@ class Level {
           }
         }
 
-        $extra_power = ceil($this->sz_x * $this->sz_y / 90);
+        $extra_power = ceil($this->sz_x * $this->sz_y / 120);
         for ($ps = 0; $ps < $extra_power; $ps++) {
-          if(rand(0,2)){ # 66% chance to appear
+          if(mt_rand(0,2)){ # 66% chance to appear
             if($power_coors = $this->random_xy('hosts,gates,bombs'))
               $this->map[$power_coors['y']][$power_coors['x']] = 63;
           }
@@ -459,10 +475,10 @@ class Level {
       $this->set_territory_around($fid, $station['x'], $station['y']);
 
       for($tt = 0, $x = $station['x'], $y = $station['y']; $tt < $max_territory; $tt++){
-        if (rand(0, 1)){
+        if (mt_rand(0, 1)){
           # Elige nuevo pivote
-          $x = $x + (rand(0, 2) - 1);
-          $y = $y + (rand(0, 2) - 1);
+          $x = $x + mt_rand(-1, 1);
+          $y = $y + mt_rand(-1, 1);
 
           if($x < 1) $x = 1;
           if($x > $this->sz_x - 1) $x = $this->sz_x - 1;
@@ -518,6 +534,24 @@ class Level {
     $this->set_sector(new_height($height), $x + 1, $y - 1);
     $this->set_sector(new_height($height), $x + 1, $y);
     $this->set_sector(new_height($height), $x + 1, $y + 1);
+
+    # Elige nuevo pivote
+    do {
+      $dx = mt_rand(-1, 1);
+      $dy = mt_rand(-1, 1);
+    } while(!($dx || $dy)); # Avoid reusing same sector $
+
+    $x += $dx;
+    $y += $dy;
+
+    if($x < 1) $x = 1;
+    if($x > $this->sz_x - 1) $x = $this->sz_x - 1;
+
+    if($y < 1) $y = 1;
+    if($y > $this->sz_y - 1) $y = $this->sz_y - 1;
+
+    // return compact('x','y');
+    return array($x,$y);
   }
 
 

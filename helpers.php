@@ -18,9 +18,11 @@ function sample($arr){
 }
 
 function new_height($height){
-  $height += rand(0, 3) - 2;
-  if($height < 0) $height = 0;
-  if($height > 255) $height = 255;
+  if(mt_rand(0,2)){
+    $height += rand(-2, 2);
+    if($height > 152) $height = 152;
+    if($height < 104) $height = 104;
+  }
 
   return $height;
 }
